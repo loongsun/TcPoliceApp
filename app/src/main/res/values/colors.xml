@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 颜色 -->
+    <color name="Green">#008B00</color>
+    <color name="Black">#000000</color>
+    <color name="Red">#FF0000</color>
+    <color name="Gleen">#00FF00</color>
+    <color name="Blue">#8080FF</color>
+    <color name="White">#FFFFFF</color>
+    <color name="None">#00000000</color>
+    <color name="TextBackColor">#63B8FF</color>
+    <color name="PickColor">#FF00FF</color>
+    <color name="info">#0000FF</color>
+    <!-- 查询提示 -->
+    <color name="query_error">#EE9A00</color>
+    <!-- item 显示颜色 -->
+    <color name="tv_name">#0000FF</color>
+    <color name="tv_isInstall">#C1FFC1</color>
+    <color name="tv_haveUpdate">#7CFC00</color>
+    <!-- 无内容EditText背景色 -->
+    <color name="backNoText">#999999</color>
+    <color name="horbluedivilinecolor">#0099FF</color>
+
+    <!-- tc color -->
+    <color name="line">#d2d1d1</color>
+    <color name="bluetc">#4883e0</color>
+    <color name="titletc">#f8f8f8</color>
+    <color name="statemain">#ffc000</color>
+    <color name="id2title">#87D0F7</color>
+    <color name="btnmap">#0dbf57</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="btn_gray_normal">#c0c0c0</color>
+
+    <!-- timedialog -->
+    <color name="white">#ffffff</color>
+    <color name="transparent">#00000000</color>
+    <color name="topbar_3">#339EFE</color>
+    <color name="text_10">#333333</color>
+    <color name="text_11">#999999</color>
+    <color name="gray_bg">#f8f8f8</color>
+    <color name="scan_bg">#7f000000</color>
+
+    <color name="result_view">#b0000000</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="possible_result_points">#c0ffff00</color>
+
+</resources>

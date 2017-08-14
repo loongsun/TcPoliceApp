@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="@color/Blue">
+    	<LinearLayout 
+	    android:background="#912CEE"
+	    android:layout_width="match_parent"
+	    android:layout_height="30dp"
+	    android:orientation="horizontal"
+	    >
+	    <TextView
+	        android:layout_marginLeft="10dp"
+	        android:layout_marginTop="5dp"
+	        android:gravity="center_vertical"
+	        android:textSize="20sp"
+	      	android:textColor="#ffffff"
+	        android:text="退出"
+	        android:layout_width="wrap_content"
+	   		 android:layout_height="wrap_content"
+	        ></TextView>
+	    <TextView
+	        android:layout_marginLeft="80dp"
+	        android:layout_marginTop="5dp"
+	        android:gravity="center_horizontal"
+	        android:textSize="20sp"
+	      	android:textColor="#ffffff"
+	        android:text="物品查询"
+	        android:layout_width="wrap_content"
+	   		 android:layout_height="wrap_content"
+	         />
+	</LinearLayout>
+	
+    	  <Button
+            android:id="@+id/carinfo_btnqueryenginenum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dip"
+            android:text="扫描物品条码" />
+    <LinearLayout
+        android:id="@+id/linearlayout_enginenum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dip"
+       android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:id="@+id/carinfo_enginenum"
+            style="@style/BASEINFO_500BH_TEXTVIEW"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="物品条码" />
+
+        <EditText
+            android:id="@+id/EditTextEngineNum"
+            android:layout_width="150dip"
+            android:layout_marginLeft="5dip"
+            android:layout_height="wrap_content"
+            android:maxLength="36"
+            android:inputType="text" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dip"
+            android:text="@string/btn_text_query" />
+    </LinearLayout>
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dip"
+       android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            style="@style/BASEINFO_500BH_TEXTVIEW"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="物品名称" />
+
+        <EditText
+            android:layout_width="150dip"
+            android:layout_marginLeft="5dip"
+            android:layout_height="wrap_content"
+            android:maxLength="36"
+            android:inputType="text" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dip"
+            android:text="@string/btn_text_query" />
+    </LinearLayout>
+    
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dip"
+      
+        android:orientation="horizontal" >
+     
+
+      
+    </LinearLayout>
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dip"
+      
+        android:orientation="horizontal" >
+    
+      
+
+
+
+    </LinearLayout>
+        <TextView
+        android:textSize="20sp"
+        android:textColor="@color/Black"
+        android:text="查询状态：返回结果"
+        android:id="@+id/carinfo_textprompt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dip"
+     />
+</LinearLayout>

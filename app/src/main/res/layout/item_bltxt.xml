@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:id="@+id/lin_bl" 
+    android:background="@drawable/btn_white">
+
+    <TextView
+        android:id="@+id/tv_blTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="标题:123123123"
+        android:textColor="@color/Black"
+        android:textSize="20sp" />
+<!-- 
+    <TextView
+        android:id="@+id/tv_blContent"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="内容:"
+        android:textColor="@color/Black"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv+blTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="时间:2017-09-09 18:90:90"
+        android:textColor="@color/Black"
+        android:textSize="18sp" /> -->
+
+</LinearLayout>

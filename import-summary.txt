@@ -1,0 +1,73 @@
+ECLIPSE ANDROID PROJECT IMPORT SUMMARY
+======================================
+
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+* ic_launcher-web.png
+* proguard-project.txt
+
+Replaced Jars with Dependencies:
+--------------------------------
+The importer recognized the following .jar files as third party
+libraries and replaced them with Gradle dependencies instead. This has
+the advantage that more explicit version information is known, and the
+libraries can be updated automatically. However, it is possible that
+the .jar file in your project was of an older version than the
+dependency we picked, which could render the project not compileable.
+You can disable the jar replacement in the import wizard and try again:
+
+android-support-v4.jar => com.android.support:support-v4:21.0.3
+
+Moved Files:
+------------
+Android Gradle projects use a different directory structure than ADT
+Eclipse projects. Here's how the projects were restructured:
+
+* AndroidManifest.xml => app\src\main\AndroidManifest.xml
+* assets\ => app\src\main\assets
+* libs\armeabi\libapp_BaiduNaviApplib.so => app\src\main\jniLibs\armeabi\libapp_BaiduNaviApplib.so
+* libs\armeabi\libapp_BaiduVIlib.so => app\src\main\jniLibs\armeabi\libapp_BaiduVIlib.so
+* libs\armeabi\libBaiduMapSDK_v3_5_0_31.so => app\src\main\jniLibs\armeabi\libBaiduMapSDK_v3_5_0_31.so
+* libs\armeabi\libbd_etts.so => app\src\main\jniLibs\armeabi\libbd_etts.so
+* libs\armeabi\libbds.so => app\src\main\jniLibs\armeabi\libbds.so
+* libs\armeabi\libBDSpeechDecoder_V1.so => app\src\main\jniLibs\armeabi\libBDSpeechDecoder_V1.so
+* libs\armeabi\libcharger_gpio_jni.so => app\src\main\jniLibs\armeabi\libcharger_gpio_jni.so
+* libs\armeabi\libcurl.so => app\src\main\jniLibs\armeabi\libcurl.so
+* libs\armeabi\libdevapi.so => app\src\main\jniLibs\armeabi\libdevapi.so
+* libs\armeabi\libEmGpio_jni.so => app\src\main\jniLibs\armeabi\libEmGpio_jni.so
+* libs\armeabi\libgnustl_shared.so => app\src\main\jniLibs\armeabi\libgnustl_shared.so
+* libs\armeabi\libirdaSerialPort.so => app\src\main\jniLibs\armeabi\libirdaSerialPort.so
+* libs\armeabi\libSerialPort.so => app\src\main\jniLibs\armeabi\libSerialPort.so
+* libs\armeabi\libwlt2bmp.so => app\src\main\jniLibs\armeabi\libwlt2bmp.so
+* libs\armeabi\libzkserialport.so => app\src\main\jniLibs\armeabi\libzkserialport.so
+* libs\armeabi\libzkwltdecode.so => app\src\main\jniLibs\armeabi\libzkwltdecode.so
+* libs\baidumapapi_v3_5_0.jar => app\libs\baidumapapi_v3_5_0.jar
+* libs\BaiduNaviSDK_2.0.jar => app\libs\BaiduNaviSDK_2.0.jar
+* libs\EmGpio.jar => app\libs\EmGpio.jar
+* libs\fastjson-1.2.2.jar => app\libs\fastjson-1.2.2.jar
+* libs\ftp4j-1.7.2.jar => app\libs\ftp4j-1.7.2.jar
+* libs\httpmime-4.1.2.jar => app\libs\httpmime-4.1.2.jar
+* libs\locSDK_6.05.jar => app\libs\locSDK_6.05.jar
+* libs\okhttp-3.8.0.jar => app\libs\okhttp-3.8.0.jar
+* lint.xml => app\lint.xml
+* res\ => app\src\main\res\
+* src\ => app\src\main\java\
+
+Next Steps:
+-----------
+You can now build the project. The Gradle project needs network
+connectivity to download dependencies.
+
+Bugs:
+-----
+If for some reason your project does not build, and you determine that
+it is due to a bug or limitation of the Eclipse to Gradle importer,
+please file a bug at http://b.android.com with category
+Component-Tools.
+
+(This import summary is for your information only, and can be deleted
+after import once you are satisfied with the results.)

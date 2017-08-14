@@ -1,0 +1,107 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    
+       <style name="BASEINFO_500BH_TEXTVIEW">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/Black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    	<style name="XTheme" parent="android:Theme">  
+         <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+     </style>  
+    
+    <style name="tab_item">
+        <item name="android:gravity">center_horizontal</item>  
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:button">@null</item>         
+        <item name="android:drawablePadding">5dip</item>
+        <item name="android:layout_weight">1.0</item>
+        <item name="android:background">@drawable/home_btn_bg</item>
+        
+        <item name="android:textSize">10.0dip</item>
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:ellipsize">marquee</item>       
+        <item name="android:singleLine">true</item>
+    </style>
+    
+        <style name="et_login">
+        <item name="android:textColor">@color/Black</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:background">@null</item>
+        
+    </style>
+    
+                <style name="CustomDialog" parent="@android:style/Theme.Dialog">
+		<item name="android:windowFrame">@null</item>
+    	<item name="android:windowIsFloating">true</item>
+    	<item name="android:windowContentOverlay">@null</item>
+    	<item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+    	<item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+	</style>
+          <style name="dialog1" parent="@android:style/Theme.Dialog">
+         <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/black</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+    
+             <style name="MyDialogTopRight">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@style/Anim_scale</item>
+    </style>
+        <style name="Anim_scale" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/zoomin</item>
+        <item name="android:activityOpenExitAnimation">@anim/zoomout</item>
+         <item name="android:activityCloseEnterAnimation">@anim/zoomin</item>
+        <item name="android:activityCloseExitAnimation">@anim/zoomout</item>
+    </style>
+    
+  <style name="dialogstyle">
+  <!--设置dialog的背景-->
+  <item name="android:windowBackground">@android:color/transparent</item>
+  <!--设置Dialog的windowFrame框为无-->
+  <item name="android:windowFrame">@null</item>
+  <!--设置无标题-->
+  <item name="android:windowNoTitle">true</item>
+  <!--是否浮现在activity之上-->
+  <item name="android:windowIsFloating">true</item>
+  <!--是否半透明-->
+  <item name="android:windowIsTranslucent">false</item>
+  <!--设置窗口内容不覆盖-->
+  <item name="android:windowContentOverlay">@null</item>
+  <!--设置动画，在这里使用让它继承系统的Animation.Dialog-->
+  <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+  <!--背景是否模糊显示-->
+  <item name="android:backgroundDimEnabled">true</item>
+ </style>
+    <!-- 对话框 -->
+    <style name="dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@color/android:transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+</resources>

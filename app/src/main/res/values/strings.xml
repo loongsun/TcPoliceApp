@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scan_barcode_hint">将条形码对入取景框，即可自动扫描</string>
+    <string name="app_name">警眼综合系统</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="idinfo_name">姓　　名:</string>
+    <string name="idinfo_sex">性　　别:</string>
+	<string name="idinfo_national">民    族:</string>
+	    <string name="btn_text_return">返回</string>
+    <string name="btn_text_query">查询</string>
+	<string name="idinfo_bir">出生日期:</string>
+	<string name="idinfo_address">住　　址:</string>
+	<string name="idinfo_newaddress">追加地址:</string>
+	<string name="idinfo_id2Num">身份号码:</string>
+	<string name="idinfo_issue">签发机关:</string>
+	<string name="idinfo_validDate">有效期限:</string>
+	
+	    <string name="label_carnum">车牌号码:</string>
+    <string name="label_engine">发动机号:</string>
+    <string name="label_frame">车架号码:</string>
+        <string name="carinfo_area_Prompt">请选择省份简称：</string>
+     <string name="carinfo_shortarea_Prompt">请选择车牌代码：</string>
+
+    <string-array name="ShortArea_Array">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+        <item>G</item>
+        <item>H</item>
+        <item>J</item>
+        <item>K</item>
+        <item>L</item>
+        <item>M</item>
+        <item>N</item>
+        <item>O</item>
+        <item>P</item>
+        <item>Q</item>
+        <item>R</item>
+        <item>S</item>
+        <item>T</item>
+        <item>U</item>
+        <item>V</item>
+        <item>W</item>
+        <item>X</item>
+        <item>Y</item>
+        <item>Z</item>
+    </string-array>
+        <string-array name="Area_Array">
+        <item>晋</item>
+        <item>京</item>
+        <item>津</item>
+        <item>沪</item>
+        <item>鲁</item>
+        <item>冀</item>
+        <item>渝</item>
+        <item>蒙</item>
+        <item>辽</item>
+        <item>吉</item>
+        <item>黑</item>
+        <item>苏</item>
+        <item>浙</item>
+        <item>皖</item>
+        <item>闽</item>
+        <item>赣</item>
+        <item>豫</item>
+        <item>鄂</item>
+        <item>湘</item>
+        <item>粤</item>
+        <item>桂</item>
+        <item>琼</item>
+        <item>川</item>
+        <item>贵</item>
+        <item>云</item>
+        <item>藏</item>
+        <item>陕</item>
+        <item>甘</item>
+        <item>青</item>
+        <item>宁</item>
+        <item>新</item>
+    </string-array>
+	<style name="CustomProgressDialog" parent="@style/CustomDialog">
+		<item name="android:windowBackground">@android:color/transparent</item>
+    	<item name="android:windowNoTitle">true</item>
+	</style>
+    <string name="scan_text">将物品条码放入框内, 即可自动扫描</string>
+</resources>
