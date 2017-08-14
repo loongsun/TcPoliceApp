@@ -26,6 +26,9 @@ import com.sdses.tool.Values;
 import com.tc.application.R;
 import com.tc.view.CustomProgressDialog;
 
+/**
+* —Óπ§≤‚ ‘git
+*/
 public class LoginActivity extends Activity{
 	private TextView tv_login_fj,tv_login;
 	private View vf_state,mj_state;
