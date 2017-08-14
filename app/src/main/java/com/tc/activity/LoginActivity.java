@@ -27,7 +27,7 @@ import com.tc.application.R;
 import com.tc.view.CustomProgressDialog;
 
 /**
-* 杨工测试git
+* 杨工测试git 修改用户名
 */
 public class LoginActivity extends Activity{
 	private TextView tv_login_fj,tv_login;
