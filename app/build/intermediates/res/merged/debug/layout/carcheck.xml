@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/titlebg"
+        android:orientation="horizontal" >
+          
+        <ImageView
+            android:id="@+id/btn_carReturn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:gravity="center_vertical"
+            android:src="@drawable/icon_return" >
+        </ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="150dp"
+            android:text="车辆查询"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:paddingTop="@dimen/activity_vertical_margin" >
+
+        <LinearLayout
+            android:id="@+id/linearlayout_carnum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/carinfo_txtcarnum"
+                style="@style/BASEINFO_500BH_TEXTVIEW"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_carnum" />
+
+            <Spinner
+                android:id="@+id/spinnerareashot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dip"
+                android:background="@drawable/spinner_bg"
+                android:entries="@array/Area_Array"
+                android:prompt="@string/carinfo_area_Prompt"
+                android:spinnerMode="dialog" />
+
+            <Spinner
+                android:id="@+id/spinnerchatshort"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dip"
+                android:background="@drawable/spinner_bg"
+                android:entries="@array/ShortArea_Array"
+                android:prompt="@string/carinfo_shortarea_Prompt"
+                android:spinnerMode="dialog" />
+
+            <EditText
+                android:id="@+id/EditTextCarNum"
+                android:layout_width="115dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:background="@null"
+                android:cursorVisible="true"
+                android:textColor="@color/Black"
+                android:textCursorDrawable="@null"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/carinfo_btnquerycarnum"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="15dip"
+                android:background="@drawable/btn_xczf"
+                android:text="@string/btn_text_query"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/linearlayout_carnum"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/line" />
+
+        <LinearLayout
+            android:id="@+id/linearlayout_enginenum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/linearlayout_carnum"
+            android:layout_marginTop="25dip"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/carinfo_enginenum"
+                style="@style/BASEINFO_500BH_TEXTVIEW"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/label_engine" />
+
+            <EditText
+                android:id="@+id/et_fdjh"
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:background="@null"
+                android:cursorVisible="true"
+
+                android:textColor="@color/Black"
+                android:textCursorDrawable="@null"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/carinfo_btnqueryenginenum"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="15dip"
+                android:background="@drawable/btn_xczf"
+                android:text="@string/btn_text_query"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/linearlayout_enginenum"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/line" />
+        <LinearLayout
+            android:id="@+id/linearlayout_framenum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/linearlayout_enginenum"
+            android:layout_marginTop="25dip"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/carinfo_framenum"
+                style="@style/BASEINFO_500BH_TEXTVIEW"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="@string/label_frame" />
+
+         <EditText
+                android:id="@+id/et_cjhm"
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:background="@null"
+                android:cursorVisible="true"
+                android:textColor="@color/Black"
+                android:textCursorDrawable="@null"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/carinfo_btnqueryframenum"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="15dip"
+                android:background="@drawable/btn_xczf"
+                android:text="@string/btn_text_query"
+                android:textSize="18sp" />
+        </LinearLayout>
+     <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/linearlayout_framenum"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/line" />
+
+        <LinearLayout
+            android:id="@+id/lin_carColor"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/linearlayout_framenum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="车牌类型"
+                android:textColor="@color/Black"
+                android:textSize="20sp" />
+     <RadioGroup
+        android:id="@+id/rg_car"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:orientation="horizontal" >
+        <RadioButton
+            android:id="@+id/rb_caryellow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="黄牌"
+            android:textColor="@color/Black" />
+
+        <RadioButton
+            android:id="@+id/rb_carblue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="蓝牌"
+            android:textColor="@color/Black" />
+    </RadioGroup>
+</LinearLayout>
+        <View
+            android:id="@+id/lin_last"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/lin_carColor"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/line" />
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/lin_result"
+            android:layout_below="@+id/lin_last"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:text="查询结果:"
+                android:textColor="@color/Black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_carResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:text="盗抢车辆"
+                android:textColor="@color/Black"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/lin_cph"
+            android:layout_below="@+id/lin_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:text="车牌号码:"
+                android:textColor="@color/Black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_carResultNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:text="123"
+                android:textColor="@color/Black"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lin_carZL"
+            android:layout_below="@+id/lin_cph"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:text="车牌种类:"
+                android:textColor="@color/Black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_carResultZL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:text="123"
+                android:textColor="@color/Black"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lin_carRColor"
+            android:layout_below="@+id/lin_carZL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:text="车身颜色:"
+                android:textColor="@color/Black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_carColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:text="123"
+                android:textColor="@color/Black"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lin_fdjh"
+            android:layout_below="@+id/lin_carRColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:text="发动机号:"
+                android:textColor="@color/Black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_fdjh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:text="123"
+                android:textColor="@color/Black"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_below="@+id/lin_fdjh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:text="车架号码:"
+                android:textColor="@color/Black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_cjhm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:text="123"
+                android:textColor="@color/Black"
+                android:textSize="20sp" />
+        </LinearLayout>
+      <!--  <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/lin_last"
+            android:id="@+id/carinfo_textprompt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="查询结果："
+            android:textColor="@color/Black"
+            android:textIsSelectable="false"
+            android:textSize="20sp" />-->
+        <LinearLayout
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:background="@color/Black"
+            >
+            <ImageView
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_message"
+                android:layout_marginLeft="5dp"
+                />
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="18sp"
+                android:textColor="@color/White"
+                android:id="@+id/tv_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

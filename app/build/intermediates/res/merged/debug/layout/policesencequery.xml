@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#912CEE"
+        android:orientation="horizontal" >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical"
+            android:text="返回"
+            android:textColor="#ffffff"
+            android:textSize="20sp" >
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            android:text="警情查询"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+  
+    </LinearLayout>
+        <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" 
+         android:layout_marginTop="30dp">
+
+        <TextView
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           
+            android:text="案件编号"
+            android:textSize="20sp" />
+
+        <EditText
+            android:text="输入案件编号"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+        <Button
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="100dp"
+	         android:layout_width="100dp"
+	        android:layout_height="wrap_content"
+	        android:textSize="15sp"
+	        android:text="本地查询"
+	        ></Button>
+              <Button
+            android:layout_marginLeft="100dp"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textSize="15sp"
+	        android:text="服务器下载"
+	        ></Button>
+        <TextView
+                  android:layout_marginLeft="10dp"
+                  android:layout_marginTop="10dp"
+			      android:textSize="17sp"
+			      android:layout_width="wrap_content"
+			      android:layout_height="wrap_content"
+			      android:text="查询结果如下："
+                   /> 
+                          <View  
+                    android:background="@color/Blue"
+			        android:layout_width="wrap_content"  
+			        android:layout_height="2dp"  
+			        android:visibility="visible" />  
+                      <TextView
+                  android:layout_marginLeft="10dp"
+                  android:layout_marginTop="10dp"
+			      android:textSize="17sp"
+			      android:layout_width="wrap_content"
+			      android:layout_height="wrap_content"
+			      android:text="11120170729093023.jpg"
+                   />        
+                          <View  
+                    android:background="@color/Blue"
+			        android:layout_width="wrap_content"  
+			        android:layout_height="2dp"  
+			        android:visibility="visible" />  
+                 <TextView
+                  android:layout_marginLeft="10dp"
+                  android:layout_marginTop="10dp"
+			      android:textSize="17sp"
+			      android:layout_width="wrap_content"
+			      android:layout_height="wrap_content"
+			      android:text="11120170729093025.jpg"
+                   />  
+                          <View  
+                    android:background="@color/Blue"
+			        android:layout_width="wrap_content"  
+			        android:layout_height="2dp"  
+			        android:visibility="visible" />  
+                 <TextView
+                  android:layout_marginLeft="10dp"
+                  android:layout_marginTop="10dp"
+			      android:textSize="17sp"
+			      android:layout_width="wrap_content"
+			      android:layout_height="wrap_content"
+			      android:text="11120170729093030.3gp"
+                   />
+                        <View  
+                    android:background="@color/Blue"
+			        android:layout_width="wrap_content"  
+			        android:layout_height="2dp"  
+			        android:visibility="visible" />  
+                     <TextView
+                  android:layout_marginLeft="10dp"
+                  android:layout_marginTop="10dp"
+			      android:textSize="17sp"
+			      android:layout_width="wrap_content"
+			      android:layout_height="wrap_content"
+			      android:text="11120170729093035.3gp"
+                   />    
+                          <View  
+                    android:background="@color/Blue"
+			        android:layout_width="wrap_content"  
+			        android:layout_height="2dp"  
+			        android:visibility="visible" />  
+</LinearLayout>

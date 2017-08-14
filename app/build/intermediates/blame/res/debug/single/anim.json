@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\zoomin.xml",
+        "source": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\anim\\zoomin.xml"
+    },
+    {
+        "merged": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\zoomout.xml",
+        "source": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\anim\\zoomout.xml"
+    },
+    {
+        "merged": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\anim\\progress_round.xml",
+        "source": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\anim\\progress_round.xml"
+    }
+]

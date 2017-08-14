@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\123\Desktop\out\out\TcPoliceApp\app\libs\zkandroidfpsensor.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="99ce515297cf1f998888815c7c82ae9b735dc484">
+        <dex dex="C:\Users\123\Desktop\out\out\TcPoliceApp\app\build\intermediates\pre-dexed\debug\zkandroidfpsensor_3a34471c7bea7bf13e8b284f5240b078321adeb2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\123\Desktop\out\out\TcPoliceApp\app\libs\zxing.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6fe22c135f19470d05b0816d5996c442ef67da3f">
+        <dex dex="C:\Users\123\Desktop\out\out\TcPoliceApp\app\build\intermediates\pre-dexed\debug\zxing_3a6715f4203aac7a649bd1f47ab2fa82d4180729.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\123\Desktop\out\out\TcPoliceApp\app\libs\EmGpio.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="585d15ab23761ff7b21787ade22b87fcf8aba128">
+        <dex dex="C:\Users\123\Desktop\out\out\TcPoliceApp\app\build\intermediates\pre-dexed\debug\EmGpio_587717fa86eb1f8d3725df838daa6c40598f7987.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\123\Desktop\out\out\TcPoliceApp\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f8efd0096475e0daf054267b61544e10dc776503">
+        <dex dex="C:\Users\123\Desktop\out\out\TcPoliceApp\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-22.2.1_5ee34654b45ed6799a88c83339c2e687dc8772a5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\123\Desktop\out\out\TcPoliceApp\app\libs\BaiduNaviSDK_2.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d468a65d0d88945b6c7527d146e9493b3e77c5fd">
+        <dex dex="C:\Users\123\Desktop\out\out\TcPoliceApp\app\build\intermediates\pre-dexed\debug\BaiduNaviSDK_2.0_1cced054cd43681c1767138a2a850469fc034ef2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\123\Desktop\out\out\TcPoliceApp\app\libs\zkandroididcardreader.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9e8cdc862a8c75a3db47e4ba24a2ebd4be0ed7a0">
+        <dex dex="C:\Users\123\Desktop\out\out\TcPoliceApp\app\build\intermediates\pre-dexed\debug\zkandroididcardreader_341b2c693265283d89df370a5b5329bd2de8b6e3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\123\Desktop\out\out\TcPoliceApp\app\libs\zkandroidcore.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="06d851e281a6f67a93afa78e57524acf332e42d4">
+        <dex dex="C:\Users\123\Desktop\out\out\TcPoliceApp\app\build\intermediates\pre-dexed\debug\zkandroidcore_b42d5a82b80b42af348eb0fca5fe61b41ac920a7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\123\Desktop\out\out\TcPoliceApp\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\libs\internal_impl-22.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
+        <dex dex="C:\Users\123\Desktop\out\out\TcPoliceApp\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.1_a3077705e012356a8d3762d459ef4f303584ef74.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\123\Desktop\out\out\TcPoliceApp\app\libs\ftp4j-1.7.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="abd6a2ba75b142926052c4538611efda49e0b0e2">
+        <dex dex="C:\Users\123\Desktop\out\out\TcPoliceApp\app\build\intermediates\pre-dexed\debug\ftp4j-1.7.2_e29d24ded8eaf5309f15f43f370467f575cf848a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\123\Desktop\out\out\TcPoliceApp\app\libs\baidumapapi_v3_5_0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ba79500bb64218f10b5fd0d5ea54503b2bf6b3bb">
+        <dex dex="C:\Users\123\Desktop\out\out\TcPoliceApp\app\build\intermediates\pre-dexed\debug\baidumapapi_v3_5_0_16cd4d78c8b27904943df5e55cafe57877b4e826.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\123\Desktop\out\out\TcPoliceApp\app\libs\httpmime-4.1.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ed8b5ee0167cb27dea55851259eb34b609f31df0">
+        <dex dex="C:\Users\123\Desktop\out\out\TcPoliceApp\app\build\intermediates\pre-dexed\debug\httpmime-4.1.2_d97d0208cd38d65b0c6c70ce7e4e358edb0d9b0d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\123\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.13.0\a9283170b7305c8d92d25aff02a6ab7e45d06cbe\okio-1.13.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a9283170b7305c8d92d25aff02a6ab7e45d06cbe">
+        <dex dex="C:\Users\123\Desktop\out\out\TcPoliceApp\app\build\intermediates\pre-dexed\debug\okio-1.13.0_faf4fb78cc619e0c56a7548826cf296ad716b8bb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\123\Desktop\out\out\TcPoliceApp\app\libs\locSDK_6.05.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="35a869586758500cd28983a23fc6c667784be2d7">
+        <dex dex="C:\Users\123\Desktop\out\out\TcPoliceApp\app\build\intermediates\pre-dexed\debug\locSDK_6.05_83ffbd75798a5ff16472ce4e1ba1ec4b6dd3141b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\123\Desktop\out\out\TcPoliceApp\app\libs\fastjson-1.2.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b3cd06ff3f21c8cf487c241ed145154fbae6b4e2">
+        <dex dex="C:\Users\123\Desktop\out\out\TcPoliceApp\app\build\intermediates\pre-dexed\debug\fastjson-1.2.2_3f5da418067cb466685b1ebd7237df93426beee6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\123\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.8.0\5a11f020cce2d11eb71ba916700600e18c4547e7\okhttp-3.8.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="5a11f020cce2d11eb71ba916700600e18c4547e7">
+        <dex dex="C:\Users\123\Desktop\out\out\TcPoliceApp\app\build\intermediates\pre-dexed\debug\okhttp-3.8.0_7c48f99b9bbb5ed3ec630e348077bc2b6107701c.jar" />
+    </item>
+
+</items>

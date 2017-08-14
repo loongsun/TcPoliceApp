@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="Area_Array">
+        <item>晋</item>
+        <item>京</item>
+        <item>津</item>
+        <item>沪</item>
+        <item>鲁</item>
+        <item>冀</item>
+        <item>渝</item>
+        <item>蒙</item>
+        <item>辽</item>
+        <item>吉</item>
+        <item>黑</item>
+        <item>苏</item>
+        <item>浙</item>
+        <item>皖</item>
+        <item>闽</item>
+        <item>赣</item>
+        <item>豫</item>
+        <item>鄂</item>
+        <item>湘</item>
+        <item>粤</item>
+        <item>桂</item>
+        <item>琼</item>
+        <item>川</item>
+        <item>贵</item>
+        <item>云</item>
+        <item>藏</item>
+        <item>陕</item>
+        <item>甘</item>
+        <item>青</item>
+        <item>宁</item>
+        <item>新</item>
+    </string-array>
+    <string-array name="ShortArea_Array">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+        <item>G</item>
+        <item>H</item>
+        <item>J</item>
+        <item>K</item>
+        <item>L</item>
+        <item>M</item>
+        <item>N</item>
+        <item>O</item>
+        <item>P</item>
+        <item>Q</item>
+        <item>R</item>
+        <item>S</item>
+        <item>T</item>
+        <item>U</item>
+        <item>V</item>
+        <item>W</item>
+        <item>X</item>
+        <item>Y</item>
+        <item>Z</item>
+    </string-array>
+    <color name="Black">#000000</color>
+    <color name="Blue">#8080FF</color>
+    <color name="Gleen">#00FF00</color>
+    <color name="Green">#008B00</color>
+    <color name="None">#00000000</color>
+    <color name="PickColor">#FF00FF</color>
+    <color name="Red">#FF0000</color>
+    <color name="TextBackColor">#63B8FF</color>
+    <color name="White">#FFFFFF</color>
+    <color name="backNoText">#999999</color>
+    <color name="bluetc">#4883e0</color>
+    <color name="btn_gray_normal">#c0c0c0</color>
+    <color name="btnmap">#0dbf57</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="gray_bg">#f8f8f8</color>
+    <color name="horbluedivilinecolor">#0099FF</color>
+    <color name="id2title">#87D0F7</color>
+    <color name="info">#0000FF</color>
+    <color name="line">#d2d1d1</color>
+    <color name="possible_result_points">#c0ffff00</color>
+    <color name="query_error">#EE9A00</color>
+    <color name="result_view">#b0000000</color>
+    <color name="scan_bg">#7f000000</color>
+    <color name="statemain">#ffc000</color>
+    <color name="text_10">#333333</color>
+    <color name="text_11">#999999</color>
+    <color name="titletc">#f8f8f8</color>
+    <color name="topbar_3">#339EFE</color>
+    <color name="transparent">#00000000</color>
+    <color name="tv_haveUpdate">#7CFC00</color>
+    <color name="tv_isInstall">#C1FFC1</color>
+    <color name="tv_name">#0000FF</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="white">#ffffff</color>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="call_button_padding_left">25dp</dimen>
+    <dimen name="call_button_padding_right">25dp</dimen>
+    <dimen name="call_button_padding_vertical">10dp</dimen>
+    <dimen name="chat_nick_margin_left">12dp</dimen>
+    <dimen name="chat_nick_text_size">13sp</dimen>
+    <dimen name="field_margin_right">5dp</dimen>
+    <dimen name="field_textsize">14sp</dimen>
+    <dimen name="height_row_weixin">59dp</dimen>
+    <dimen name="height_top_bar">46dp</dimen>
+    <dimen name="image_thumbnail_size">100dp</dimen>
+    <dimen name="image_thumbnail_spacing">1dp</dimen>
+    <dimen name="margin_chat_activity">5dp</dimen>
+    <dimen name="mesage_min_height">32dp</dimen>
+    <dimen name="padding_search_bar">5dp</dimen>
+    <dimen name="sidebar_text_size">10dp</dimen>
+    <dimen name="size_avatar">48dp</dimen>
+    <item name="about_version_code" type="id">false</item>
+    <item name="auto_focus" type="id"/>
+    <item name="decode" type="id"/>
+    <item name="decode_failed" type="id"/>
+    <item name="decode_succeeded" type="id"/>
+    <item name="encode_failed" type="id"/>
+    <item name="encode_succeeded" type="id"/>
+    <item name="gridview" type="id"/>
+    <item name="launch_product_query" type="id"/>
+    <item name="quit" type="id"/>
+    <item name="restart_preview" type="id"/>
+    <item name="return_scan_result" type="id"/>
+    <item name="search_book_contents_failed" type="id"/>
+    <item name="search_book_contents_succeeded" type="id"/>
+    <item name="split" type="id">false</item>
+    <item name="webview" type="id"/>
+    <string name="action_settings">Settings</string>
+    <string name="app_name">警眼综合系统</string>
+    <string name="btn_text_query">查询</string>
+    <string name="btn_text_return">返回</string>
+    <string name="carinfo_area_Prompt">请选择省份简称：</string>
+    <string name="carinfo_shortarea_Prompt">请选择车牌代码：</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="idinfo_address">住　　址:</string>
+    <string name="idinfo_bir">出生日期:</string>
+    <string name="idinfo_id2Num">身份号码:</string>
+    <string name="idinfo_issue">签发机关:</string>
+    <string name="idinfo_name">姓　　名:</string>
+    <string name="idinfo_national">民    族:</string>
+    <string name="idinfo_newaddress">追加地址:</string>
+    <string name="idinfo_sex">性　　别:</string>
+    <string name="idinfo_validDate">有效期限:</string>
+    <string name="label_carnum">车牌号码:</string>
+    <string name="label_engine">发动机号:</string>
+    <string name="label_frame">车架号码:</string>
+    <string name="scan_barcode_hint">将条形码对入取景框，即可自动扫描</string>
+    <string name="scan_text">将物品条码放入框内, 即可自动扫描</string>
+    <style name="Anim_scale" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/zoomin</item>
+        <item name="android:activityOpenExitAnimation">@anim/zoomout</item>
+         <item name="android:activityCloseEnterAnimation">@anim/zoomin</item>
+        <item name="android:activityCloseExitAnimation">@anim/zoomout</item>
+    </style>
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+    <style name="BASEINFO_500BH_TEXTVIEW">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/Black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="CustomDialog" parent="@android:style/Theme.Dialog">
+		<item name="android:windowFrame">@null</item>
+    	<item name="android:windowIsFloating">true</item>
+    	<item name="android:windowContentOverlay">@null</item>
+    	<item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+    	<item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+	</style>
+    <style name="CustomProgressDialog" parent="@style/CustomDialog">
+		<item name="android:windowBackground">@android:color/transparent</item>
+    	<item name="android:windowNoTitle">true</item>
+	</style>
+    <style name="MyDialogTopRight">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@style/Anim_scale</item>
+    </style>
+    <style name="XTheme" parent="android:Theme">  
+         <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+     </style>
+    <style name="dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@color/android:transparent</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    <style name="dialog1" parent="@android:style/Theme.Dialog">
+         <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/black</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+    <style name="dialogstyle">
+  <!--设置dialog的背景-->
+  <item name="android:windowBackground">@android:color/transparent</item>
+  <!--设置Dialog的windowFrame框为无-->
+  <item name="android:windowFrame">@null</item>
+  <!--设置无标题-->
+  <item name="android:windowNoTitle">true</item>
+  <!--是否浮现在activity之上-->
+  <item name="android:windowIsFloating">true</item>
+  <!--是否半透明-->
+  <item name="android:windowIsTranslucent">false</item>
+  <!--设置窗口内容不覆盖-->
+  <item name="android:windowContentOverlay">@null</item>
+  <!--设置动画，在这里使用让它继承系统的Animation.Dialog-->
+  <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+  <!--背景是否模糊显示-->
+  <item name="android:backgroundDimEnabled">true</item>
+ </style>
+    <style name="et_login">
+        <item name="android:textColor">@color/Black</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:background">@null</item>
+        
+    </style>
+    <style name="tab_item">
+        <item name="android:gravity">center_horizontal</item>  
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:button">@null</item>         
+        <item name="android:drawablePadding">5dip</item>
+        <item name="android:layout_weight">1.0</item>
+        <item name="android:background">@drawable/home_btn_bg</item>
+        
+        <item name="android:textSize">10.0dip</item>
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:ellipsize">marquee</item>       
+        <item name="android:singleLine">true</item>
+    </style>
+</resources>

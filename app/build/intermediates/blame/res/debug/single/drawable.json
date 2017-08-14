@@ -1,0 +1,106 @@
+[
+    {
+        "merged": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\hyaline.xml",
+        "source": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable\\hyaline.xml"
+    },
+    {
+        "merged": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tab_selfinfo_btn.xml",
+        "source": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable\\tab_selfinfo_btn.xml"
+    },
+    {
+        "merged": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tab_kcbl_btn.xml",
+        "source": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable\\tab_kcbl_btn.xml"
+    },
+    {
+        "merged": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\selector_tab_background.xml",
+        "source": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable\\selector_tab_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\gouxuanno.png",
+        "source": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable\\gouxuanno.png"
+    },
+    {
+        "merged": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tab_home_btn.xml",
+        "source": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable\\tab_home_btn.xml"
+    },
+    {
+        "merged": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\wheel_date_val.xml",
+        "source": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable\\wheel_date_val.xml"
+    },
+    {
+        "merged": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\lin_xczf_btn3.xml",
+        "source": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable\\lin_xczf_btn3.xml"
+    },
+    {
+        "merged": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tab_message_btn.xml",
+        "source": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable\\tab_message_btn.xml"
+    },
+    {
+        "merged": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tab_kcqz_btn.xml",
+        "source": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable\\tab_kcqz_btn.xml"
+    },
+    {
+        "merged": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mm_title_back_btn.xml",
+        "source": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable\\mm_title_back_btn.xml"
+    },
+    {
+        "merged": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_popup.xml",
+        "source": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable\\shape_popup.xml"
+    },
+    {
+        "merged": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\lv_selector.xml",
+        "source": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable\\lv_selector.xml"
+    },
+    {
+        "merged": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\login_input_bg.xml",
+        "source": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable\\login_input_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\tab_user_btn.xml",
+        "source": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable\\tab_user_btn.xml"
+    },
+    {
+        "merged": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_map.xml",
+        "source": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable\\btn_map.xml"
+    },
+    {
+        "merged": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\icon_state.xml",
+        "source": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable\\icon_state.xml"
+    },
+    {
+        "merged": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_blue.xml",
+        "source": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable\\btn_blue.xml"
+    },
+    {
+        "merged": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\wheel_date_bg.xml",
+        "source": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable\\wheel_date_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_white.xml",
+        "source": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable\\btn_white.xml"
+    },
+    {
+        "merged": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\spinner_bg.xml",
+        "source": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable\\spinner_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_xczf.xml",
+        "source": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable\\btn_xczf.xml"
+    },
+    {
+        "merged": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\note.png",
+        "source": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable\\note.png"
+    },
+    {
+        "merged": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\circle_close.png",
+        "source": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable\\circle_close.png"
+    },
+    {
+        "merged": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_infoquery.xml",
+        "source": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable\\btn_infoquery.xml"
+    },
+    {
+        "merged": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\login_btnn.xml",
+        "source": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable\\login_btnn.xml"
+    }
+]

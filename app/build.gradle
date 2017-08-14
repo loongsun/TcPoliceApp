@@ -1,0 +1,52 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        tc {
+            keyAlias 'tckey'
+            keyPassword 'tckey123456'
+            storeFile file('D:/tc.keystore')
+            storePassword 'tc123456'
+        }
+    }
+    android { compileOptions.encoding = "GBK" }
+    compileSdkVersion 21
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.tc.application"
+        minSdkVersion 15
+        targetSdkVersion 21
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            signingConfig signingConfigs.tc
+        }
+        debug {
+            signingConfig signingConfigs.tc
+        }
+    }
+}
+
+
+
+dependencies {
+    compile files('libs/baidumapapi_v3_5_0.jar')
+    compile files('libs/BaiduNaviSDK_2.0.jar')
+    compile files('libs/EmGpio.jar')
+    compile files('libs/fastjson-1.2.2.jar')
+    compile files('libs/ftp4j-1.7.2.jar')
+    compile files('libs/httpmime-4.1.2.jar')
+    compile files('libs/locSDK_6.05.jar')
+    compile files('libs/zkandroidcore.jar')
+    compile files('libs/zkandroidfpsensor.jar')
+    compile files('libs/zkandroididcardreader.jar')
+    compile 'com.squareup.okhttp3:okhttp:3.8.0'
+    compile files('libs/zxing.jar')
+    compile('com.android.support:support-v4:22.2.1') {
+        exclude module: 'support-annotations'
+    }
+}
