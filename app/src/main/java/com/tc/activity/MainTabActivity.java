@@ -30,10 +30,10 @@ public class MainTabActivity extends FragmentActivity{
 	private Class fragmentArray[] = {PoliceStateActivity.class,InfoQueryActivity.class,
 			KcqzMainList.class,UserManageActivity.class};
 	//定义数组来存放按钮图片
-	private int mImageViewArray[] = {R.drawable.tab_home_btn,R.drawable.tab_message_btn,
+	private int mImageViewArray[] = {R.drawable.tab_home_btn,R.drawable.tab_home_btn,R.drawable.tab_home_btn,R.drawable.tab_message_btn,
 									R.drawable.tab_kcqz_btn,R.drawable.tab_user_btn};
 	//Tab选项卡的文字
-	private String mTextviewArray[] = {"警情信息", "信息查询", "勘查取证","用户中心"};
+	private String mTextviewArray[] = {"执法取证", "刑事勘查","一图标注","信息查询", "现场笔录","用户中心"};
 	public static PoliceStateListBean plb;
 	private int tabPage=0;
 	public void onCreate(Bundle savedInstanceState) {
