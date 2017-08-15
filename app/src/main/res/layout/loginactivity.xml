@@ -24,7 +24,7 @@
         android:layout_below="@id/iv_logo"
         android:layout_marginLeft="135dp"
         android:layout_marginTop="20dp"
-        android:text="警眼综合系统"
+        android:text="现场执法取证助手"
         android:textColor="@color/White"
         android:textSize="26sp"
         android:textStyle="bold" />
