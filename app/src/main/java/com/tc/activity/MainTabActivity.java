@@ -24,6 +24,7 @@ public class MainTabActivity extends FragmentActivity{
 	private LayoutInflater layoutInflater;
 		// 0815 你好
 	    //再测试一下
+    //cengong
 
 	//定义数组来存放Fragment界面
 	private Class fragmentArray[] = {PoliceStateActivity.class,InfoQueryActivity.class,
