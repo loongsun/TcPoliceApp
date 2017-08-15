@@ -22,7 +22,9 @@ public class MainTabActivity extends FragmentActivity{
 	private FragmentTabHost mTabHost;
 	//定义一个布局
 	private LayoutInflater layoutInflater;
-		
+		// 0815 你好
+	    //再测试一下
+
 	//定义数组来存放Fragment界面
 	private Class fragmentArray[] = {PoliceStateActivity.class,InfoQueryActivity.class,
 			KcqzMainList.class,UserManageActivity.class};
