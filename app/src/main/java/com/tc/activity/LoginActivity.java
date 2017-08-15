@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
-* 杨工测试git 修改用户名-测试git插件
+* 杨工测试git 修改用户名-测试git插件-测试
 */
 public class LoginActivity extends Activity{
 	private TextView tv_login_fj,tv_login;
