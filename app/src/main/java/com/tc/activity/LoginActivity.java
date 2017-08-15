@@ -1,16 +1,5 @@
 package com.tc.activity;
 
-import java.util.ArrayList;
-import java.util.List;
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONObject;
-import org.json.JSONTokener;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,13 +10,27 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
 import com.sdses.tool.UtilTc;
 import com.sdses.tool.Values;
 import com.tc.application.R;
 import com.tc.view.CustomProgressDialog;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONObject;
+import org.json.JSONTokener;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
-* 杨工测试git 修改用户名
+* 杨工测试git 修改用户名-测试git插件
 */
 public class LoginActivity extends Activity{
 	private TextView tv_login_fj,tv_login;
