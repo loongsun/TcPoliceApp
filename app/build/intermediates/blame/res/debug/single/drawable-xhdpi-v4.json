@@ -1,18 +1,34 @@
 [
     {
-        "merged": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\mm_title_back_focused.PNG",
-        "source": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable-xhdpi\\mm_title_back_focused.PNG"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/mm_title_back_focused.PNG",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/drawable-xhdpi/mm_title_back_focused.PNG"
     },
     {
-        "merged": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\mmtitle_bg_alpha.PNG",
-        "source": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable-xhdpi\\mmtitle_bg_alpha.PNG"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\mm_title_back_focused.PNG",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable-xhdpi\\mm_title_back_focused.PNG"
     },
     {
-        "merged": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\mm_title_back_pressed.PNG",
-        "source": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable-xhdpi\\mm_title_back_pressed.PNG"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\mmtitle_bg_alpha.PNG",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable-xhdpi\\mmtitle_bg_alpha.PNG"
     },
     {
-        "merged": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\mm_title_back_normal.PNG",
-        "source": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable-xhdpi\\mm_title_back_normal.PNG"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/mm_title_back_normal.PNG",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/drawable-xhdpi/mm_title_back_normal.PNG"
+    },
+    {
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/mmtitle_bg_alpha.PNG",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/drawable-xhdpi/mmtitle_bg_alpha.PNG"
+    },
+    {
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4/mm_title_back_pressed.PNG",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/drawable-xhdpi/mm_title_back_pressed.PNG"
+    },
+    {
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\mm_title_back_pressed.PNG",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable-xhdpi\\mm_title_back_pressed.PNG"
+    },
+    {
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\mm_title_back_normal.PNG",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable-xhdpi\\mm_title_back_normal.PNG"
     }
 ]

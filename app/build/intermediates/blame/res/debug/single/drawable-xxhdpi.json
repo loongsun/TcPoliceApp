@@ -1,6 +1,10 @@
 [
     {
-        "merged": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\ic_launcher.png",
-        "source": "C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable-xxhdpi\\ic_launcher.png"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_launcher.png",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/drawable-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\ic_launcher.png",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\drawable-xxhdpi\\ic_launcher.png"
     }
 ]
