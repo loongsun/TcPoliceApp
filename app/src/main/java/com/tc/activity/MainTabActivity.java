@@ -40,6 +40,7 @@ public class MainTabActivity extends FragmentActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_tab_layout);
         initView();
+
         getIntentInfo();
     }
 	
