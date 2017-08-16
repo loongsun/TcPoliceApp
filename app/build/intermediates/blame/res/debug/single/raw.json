@@ -1,10 +1,14 @@
 [
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\raw\\beep.ogg",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\raw\\beep.ogg"
+        "merged": "C:\\Users\\123\\Desktop\\out\\AppIgnore\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\raw\\beep.ogg",
+        "source": "C:\\Users\\123\\Desktop\\out\\AppIgnore\\TcPoliceApp\\app\\src\\main\\res\\raw\\beep.ogg"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/raw/beep.ogg",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/raw/beep.ogg"
+        "merged": "C:\\Users\\chenhe\\Desktop\\workspace\\Android\\GitHubTieXi\\TcPoliceApp1\\app\\build\\intermediates\\res\\merged\\debug\\raw\\beep.ogg",
+        "source": "C:\\Users\\chenhe\\Desktop\\workspace\\Android\\GitHubTieXi\\TcPoliceApp1\\app\\src\\main\\res\\raw\\beep.ogg"
+    },
+    {
+        "merged": "C:\\Users\\chenhe\\Desktop\\workspace\\Android\\GitHubTieXi\\TcPoliceApp1\\C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\raw\\beep.ogg",
+        "source": "C:\\Users\\chenhe\\Desktop\\workspace\\Android\\GitHubTieXi\\TcPoliceApp1\\C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\raw\\beep.ogg"
     }
 ]

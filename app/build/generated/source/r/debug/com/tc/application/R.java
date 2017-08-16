@@ -643,7 +643,15 @@ public final class R {
     }
     public static final class style {
         public static final int Anim_scale=0x7f0c0000;
+        /** 
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        
+         */
         public static final int AppBaseTheme=0x7f0c0001;
+        /**  All customizations that are NOT specific to a particular API-level can go here. 
+         */
         public static final int AppTheme=0x7f0c0002;
         public static final int BASEINFO_500BH_TEXTVIEW=0x7f0c0003;
         public static final int CustomDialog=0x7f0c0004;
