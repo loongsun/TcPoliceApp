@@ -364,14 +364,17 @@ public class PoliceStateActivity extends Fragment {
 						if (Values.JQ_STATESBTN == 2) {
 							String result = mApp.getmDota().jq_ToMapQuery(
 									stateList.get(position).getJqNum());
-							if (result.equals("0")) {
+							if (result.equals("0"))
+							{
 								startActivity(new Intent(getActivity()
 										.getApplicationContext(),
 										SenceExcute.class).putExtra(
 										"dbjqsence", stateList.get(position)
 												.getJqNum()));
 
-							} else {
+							}
+							else
+								{
 								intentToMap(position);
 							}
 						} else if (Values.JQ_STATESBTN == 1) {
