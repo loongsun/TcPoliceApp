@@ -1,22 +1,5 @@
 package com.tc.activity;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.params.CoreConnectionPNames;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.json.JSONTokener;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -27,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.webkit.WebView.FindListener;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -42,6 +24,23 @@ import com.tc.activity.item.MarkerMapActivity;
 import com.tc.app.TcApp;
 import com.tc.application.R;
 import com.tc.view.CustomProgressDialog;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.CoreConnectionPNames;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.json.JSONTokener;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PoliceStateActivity extends Fragment {
 	private ListView lv_police;
@@ -100,23 +99,23 @@ public class PoliceStateActivity extends Fragment {
 	private void ssjqOnClick() {
 		Values.JQ_STATESBTN = 1;
 		v_ssjq.setVisibility(View.VISIBLE);
-		v_dbjq.setVisibility(View.GONE);
-		v_lsjq.setVisibility(View.GONE);
+		v_dbjq.setVisibility(View.INVISIBLE);
+		v_lsjq.setVisibility(View.INVISIBLE);
 	}
 
 	// db jq
 	private void dbjqOnClick() {
 		Values.JQ_STATESBTN = 2;
 		v_dbjq.setVisibility(View.VISIBLE);
-		v_lsjq.setVisibility(View.GONE);
-		v_ssjq.setVisibility(View.GONE);
+		v_lsjq.setVisibility(View.INVISIBLE);
+		v_ssjq.setVisibility(View.INVISIBLE);
 	}
 
 	private void lsjqOnClick() {
 		Values.JQ_STATESBTN = 3;
-		v_dbjq.setVisibility(View.GONE);
+		v_dbjq.setVisibility(View.INVISIBLE);
 		v_lsjq.setVisibility(View.VISIBLE);
-		v_ssjq.setVisibility(View.GONE);
+		v_ssjq.setVisibility(View.INVISIBLE);
 	}
 
 	// 待办警情数据
@@ -178,7 +177,7 @@ public class PoliceStateActivity extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		return inflater.inflate(R.layout.policestateactivity, null);
+		return inflater.inflate(R.layout.activity_policestate, null);
 	}
 
 	@Override

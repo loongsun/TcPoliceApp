@@ -15,25 +15,40 @@
             android:id="@+id/btn_infoqueryReturn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="4dp"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="2dp"
             android:gravity="center_vertical"
             android:src="@drawable/icon_return" >
         </ImageView>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="150dp"
             android:text="信息查询"
             android:textColor="#ffffff"
             android:textSize="20sp" />
+
+
+        <ImageView
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:gravity="center_vertical"
+            android:src="@drawable/icon_return" >
+        </ImageView>
     </LinearLayout>
 
     <!-- 人员查询  车辆查询2个按钮 -->
 
     <LinearLayout
+        android:layout_gravity="center"
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:orientation="horizontal" >
@@ -41,8 +56,11 @@
         <!-- 人员查询 -->
 
         <LinearLayout
+            android:layout_gravity="center"
+            android:gravity="center"
             android:id="@+id/lin_peopleQuery"
-            android:layout_width="240dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="200dp"
             android:background="@drawable/btn_infoquery"
             android:orientation="vertical" >
@@ -51,14 +69,12 @@
                 android:id="@+id/iv_querypeople"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="85dp"
                 android:layout_marginTop="50dp"
                 android:src="@drawable/icon_ry" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="65dp"
                 android:layout_marginTop="20dp"
                 android:text="人员查询"
                 android:textColor="@color/Black"
@@ -74,8 +90,11 @@
         <!-- 车辆查询 -->
 
         <LinearLayout
+            android:layout_gravity="center"
+            android:gravity="center"
             android:id="@+id/lin_carQuery"
-            android:layout_width="235dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="200dp"
             android:background="@drawable/btn_infoquery"
             android:orientation="vertical" >
@@ -83,14 +102,12 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="85dp"
                 android:layout_marginTop="50dp"
                 android:src="@drawable/icon_cl" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="67dp"
                 android:layout_marginTop="20dp"
                 android:text="车辆查询"
                 android:textColor="@color/Black"
@@ -105,6 +122,8 @@
     <!-- 物品查询  企业查询2个按钮 -->
 
     <LinearLayout
+        android:layout_gravity="center"
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:orientation="horizontal" >
@@ -112,8 +131,11 @@
         <!-- 企业查询 -->
 
         <LinearLayout
+            android:layout_gravity="center"
+            android:gravity="center"
             android:id="@+id/lin_qyQuery"
-            android:layout_width="240dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="200dp"
             android:background="@drawable/btn_infoquery"
             android:orientation="vertical" >
@@ -121,14 +143,12 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="85dp"
                 android:layout_marginTop="50dp"
                 android:src="@drawable/icon_qy" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="65dp"
                 android:layout_marginTop="20dp"
                 android:text="企业查询"
                 android:textColor="@color/Black"
@@ -143,8 +163,11 @@
         <!-- 物品查询 -->
 
         <LinearLayout
+            android:layout_gravity="center"
+            android:gravity="center"
             android:id="@+id/lin_wpQuery"
-            android:layout_width="235dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="200dp"
             android:background="@drawable/btn_infoquery"
             android:orientation="vertical" >
@@ -152,14 +175,12 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="85dp"
                 android:layout_marginTop="50dp"
                 android:src="@drawable/icon_wp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="67dp"
                 android:layout_marginTop="20dp"
                 android:text="物品查询"
                 android:textColor="@color/Black"
