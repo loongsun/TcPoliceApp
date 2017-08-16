@@ -4,44 +4,48 @@
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/facetoncamera.xml"
     },
     {
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/activity_login.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/activity_login.xml"
+    },
+    {
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_caseinfo_xczp.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_caseinfo_xczp.xml"
+    },
+    {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_list_kybl.xml",
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\item_list_kybl.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\popup.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\popup.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\faceonetoone.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\faceonetoone.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_bltxt.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\item_bltxt.xml"
-    },
-    {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\peoplehandquery.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\peoplehandquery.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\acitivity_caseinfo_huatu.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\acitivity_caseinfo_huatu.xml"
     },
     {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/activity_title.xml",
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/activity_title.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\faceoneton.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\faceoneton.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_pop_jpg.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_pop_jpg.xml"
     },
     {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/policesencelist.xml",
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/policesencelist.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_caseinfo_xsajxczp.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_caseinfo_xsajxczp.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_pop_amr.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_pop_amr.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_3.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\fragment_3.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\popup.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\popup.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_caseinfo_xckcxsbrbl.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_caseinfo_xckcxsbrbl.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_caseinfo_listmain.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_caseinfo_listmain.xml"
     },
     {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/activity_pop_amr.xml",
@@ -52,20 +56,16 @@
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/activity_caseinfo_djbcqd.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_caseinfo_jszjclqd.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_caseinfo_jszjclqd.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_birth_year.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\item_birth_year.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_caseinfo_xczp.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_caseinfo_xczp.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_scan_bar_code.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_scan_bar_code.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_caseinfo_xsajfxbg.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_caseinfo_xsajfxbg.xml"
-    },
-    {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\usermanageactivity.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\usermanageactivity.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_item_goodsquery.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_item_goodsquery.xml"
     },
     {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/faceset.xml",
@@ -80,52 +80,40 @@
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/usermanageactivity.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_birth_year.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\item_birth_year.xml"
-    },
-    {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/item_list_kybl.xml",
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/item_list_kybl.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\policesencequery.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\policesencequery.xml"
-    },
-    {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_basemap.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_basemap.xml"
-    },
-    {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\factorycheck.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\factorycheck.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\customprogressdialog.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\customprogressdialog.xml"
     },
     {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/customprogressdialog.xml",
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/customprogressdialog.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\acitivity_caseinfo_huatu.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\acitivity_caseinfo_huatu.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\peoplecheck.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\peoplecheck.xml"
     },
     {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\loginactivity.xml",
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\loginactivity.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_case_xckcbl.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_case_xckcbl.xml"
-    },
-    {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/activity_case_xckcbl.xml",
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/activity_case_xckcbl.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_capture.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_capture.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_case_xckcbl.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_case_xckcbl.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\customprogressdialog.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\customprogressdialog.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_infoquery.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_infoquery.xml"
+    },
+    {
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_caseinfo_xsajlist.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_caseinfo_xsajlist.xml"
     },
     {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/activity_basemap.xml",
@@ -136,40 +124,44 @@
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/senceexcute.xml"
     },
     {
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_caseinfo_xsajxczp.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_caseinfo_xsajxczp.xml"
+    },
+    {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/activity_item_goodsquery.xml",
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/activity_item_goodsquery.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_caseinfo_kcqzlist.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_caseinfo_kcqzlist.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\facetoncamera.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\facetoncamera.xml"
+    },
+    {
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_basemap.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_basemap.xml"
     },
     {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/peoplecheck.xml",
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/peoplecheck.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\foodsquery.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\foodsquery.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\main_tab_layout.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\main_tab_layout.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_caseinfo_listmain.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_caseinfo_listmain.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\policesencequery.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\policesencequery.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_5.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\fragment_5.xml"
-    },
-    {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\policesencewrite.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\policesencewrite.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_item_qyquery.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_item_qyquery.xml"
     },
     {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/activity_bl.xml",
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/activity_bl.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\em_recorder_activity.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\em_recorder_activity.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_5.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\fragment_5.xml"
     },
     {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/activity_scan_bar_code.xml",
@@ -180,48 +172,24 @@
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/factorycheck.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\policesencelist.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\policesencelist.xml"
-    },
-    {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_ac_baidumap.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\item_ac_baidumap.xml"
-    },
-    {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\main_tab_layout.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\main_tab_layout.xml"
-    },
-    {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/activity_item_lsjqinfo.xml",
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/activity_item_lsjqinfo.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_pop_jpg.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_pop_jpg.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_pop_mp4.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_pop_mp4.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_item_lsjqinfo.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_item_lsjqinfo.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_caseinfo_xsajfxbg.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_caseinfo_xsajfxbg.xml"
     },
     {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/fragment_4.xml",
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/fragment_4.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_scan_bar_code.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_scan_bar_code.xml"
-    },
-    {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/activity_caseinfo_xsajlist.xml",
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/activity_caseinfo_xsajlist.xml"
-    },
-    {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_title.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_title.xml"
-    },
-    {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\facetoncamera.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\facetoncamera.xml"
     },
     {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/em_recorder_activity.xml",
@@ -236,12 +204,16 @@
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/item_ac_baidumap.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tab_item_view.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\tab_item_view.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/activity_test.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/activity_test.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\policesencerecord.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\policesencerecord.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\foodsquery.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\foodsquery.xml"
+    },
+    {
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tab_item_view.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\tab_item_view.xml"
     },
     {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/policesencewrite.xml",
@@ -250,6 +222,14 @@
     {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/peoplehandquery.xml",
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/peoplehandquery.xml"
+    },
+    {
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\faceoneton.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\faceoneton.xml"
+    },
+    {
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\policesencewrite.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\policesencewrite.xml"
     },
     {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/activity_infoquery.xml",
@@ -268,8 +248,8 @@
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/faceoneton.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_infoquery.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_infoquery.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\policesencelist.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\policesencelist.xml"
     },
     {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/activity_caseinfo_jszjclqd.xml",
@@ -280,28 +260,40 @@
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/loginactivity.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\faceset.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\faceset.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_3.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\fragment_3.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\policestateactivity.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\policestateactivity.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\factorycheck.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\factorycheck.xml"
+    },
+    {
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_item_lsjqinfo.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_item_lsjqinfo.xml"
     },
     {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/carcheck.xml",
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/carcheck.xml"
     },
     {
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_capture.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_capture.xml"
+    },
+    {
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_caseinfo_kcqzlist.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_caseinfo_kcqzlist.xml"
+    },
+    {
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\policesencerecord.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\policesencerecord.xml"
+    },
+    {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/item_birth_year.xml",
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/item_birth_year.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_caseinfo_djbcqd.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_caseinfo_djbcqd.xml"
-    },
-    {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_senceexcute.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_senceexcute.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_width_set.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\dialog_width_set.xml"
     },
     {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/activity_caseinfo_xsajfxbg.xml",
@@ -314,6 +306,14 @@
     {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/activity_capture.xml",
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/activity_capture.xml"
+    },
+    {
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_senceexcute.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_senceexcute.xml"
+    },
+    {
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\carcheck.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\carcheck.xml"
     },
     {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/policestateactivity.xml",
@@ -336,28 +336,28 @@
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/activity_item_qyquery.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_width_set.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\dialog_width_set.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\senceexcute.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\senceexcute.xml"
+    },
+    {
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_caseinfo_djbcqd.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_caseinfo_djbcqd.xml"
     },
     {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/acitivity_caseinfo_huatu.xml",
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/acitivity_caseinfo_huatu.xml"
     },
     {
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_policestate_list.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\item_policestate_list.xml"
+    },
+    {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/tab_item_view.xml",
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/tab_item_view.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\jerry_spinner.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\jerry_spinner.xml"
-    },
-    {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_markermap.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_markermap.xml"
-    },
-    {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\faceonetoone.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\faceonetoone.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_bltxt.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\item_bltxt.xml"
     },
     {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/dialog_date_choose.xml",
@@ -368,20 +368,28 @@
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/activity_caseinfo_xczp.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\carcheck.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\carcheck.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\jerry_spinner.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\jerry_spinner.xml"
+    },
+    {
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\usermanageactivity.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\usermanageactivity.xml"
     },
     {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/faceonetoone.xml",
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/faceonetoone.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_date_choose.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\dialog_date_choose.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\em_recorder_activity.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\em_recorder_activity.xml"
     },
     {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/main_tab_layout.xml",
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/main_tab_layout.xml"
+    },
+    {
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\faceset.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\faceset.xml"
     },
     {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/item_policestate_list.xml",
@@ -392,16 +400,12 @@
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/activity_caseinfo_kcqzlist.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_item_goodsquery.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_item_goodsquery.xml"
-    },
-    {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/policesencequery.xml",
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/policesencequery.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_caseinfo_xsajlist.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_caseinfo_xsajlist.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_bl.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_bl.xml"
     },
     {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/activity_caseinfo_listmain.xml",
@@ -412,28 +416,28 @@
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\fragment_4.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_pop_mp4.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_pop_mp4.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_caseinfo_xckcxsbrbl.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_caseinfo_xckcxsbrbl.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_bl.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_bl.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_markermap.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_markermap.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_item_qyquery.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_item_qyquery.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_pop_lstxt.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_pop_lstxt.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_pop_amr.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_pop_amr.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\policestateactivity.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\policestateactivity.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_policestate_list.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\item_policestate_list.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_date_choose.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\dialog_date_choose.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\senceexcute.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\senceexcute.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_ac_baidumap.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\item_ac_baidumap.xml"
     },
     {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/activity_caseinfo_xsajxczp.xml",
@@ -444,6 +448,10 @@
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/foodsquery.xml"
     },
     {
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_caseinfo_jszjclqd.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_caseinfo_jszjclqd.xml"
+    },
+    {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/activity_pop_lstxt.xml",
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/activity_pop_lstxt.xml"
     },
@@ -452,20 +460,20 @@
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/activity_markermap.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/activity_pop_mp4.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/activity_pop_mp4.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_title.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_title.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\peoplecheck.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\peoplecheck.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/activity_pop_mp4.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/activity_pop_mp4.xml"
     },
     {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/jerry_spinner.xml",
         "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/src/main/res/layout/jerry_spinner.xml"
     },
     {
-        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_pop_lstxt.xml",
-        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\activity_pop_lstxt.xml"
+        "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\peoplehandquery.xml",
+        "source": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/C:\\Users\\123\\Desktop\\out\\out\\TcPoliceApp\\app\\src\\main\\res\\layout\\peoplehandquery.xml"
     },
     {
         "merged": "/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/TcPoliceApp1/app/build/intermediates/res/merged/debug/layout/popup.xml",
