@@ -97,7 +97,6 @@ public class PoliceStateActivity extends Fragment {
 
 	// µã»÷±äÉ«
 	private void ssjqOnClick() {
-		isRun=true;
 		Values.JQ_STATESBTN = 1;
 		v_ssjq.setVisibility(View.VISIBLE);
 		v_dbjq.setVisibility(View.INVISIBLE);
@@ -106,7 +105,6 @@ public class PoliceStateActivity extends Fragment {
 
 	// db jq
 	private void dbjqOnClick() {
-		isRun=false;
 		Values.JQ_STATESBTN = 2;
 		v_dbjq.setVisibility(View.VISIBLE);
 		v_lsjq.setVisibility(View.INVISIBLE);
@@ -114,7 +112,6 @@ public class PoliceStateActivity extends Fragment {
 	}
 
 	private void lsjqOnClick() {
-		isRun=false;
 		Values.JQ_STATESBTN = 3;
 		v_dbjq.setVisibility(View.INVISIBLE);
 		v_lsjq.setVisibility(View.VISIBLE);
