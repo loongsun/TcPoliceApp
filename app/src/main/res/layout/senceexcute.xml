@@ -22,13 +22,24 @@
         </ImageView>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="150dp"
             android:text="现场执法"
             android:textColor="#ffffff"
             android:textSize="20sp" />
+
+        <ImageView
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:gravity="center_vertical"
+            android:src="@drawable/icon_return" >
+        </ImageView>
     </LinearLayout>
 
     <!-- 警情名称 -->
@@ -151,15 +162,16 @@
 
         <LinearLayout
             android:id="@+id/lin_photo"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="match_parent"
             android:background="@drawable/lin_xczf_btn3" >
 
             <ImageView
+               android:layout_marginLeft="30dp"
                 android:id="@+id/icon_zp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
                 android:layout_marginTop="30dp"
                 android:src="@drawable/icon_zp" />
             <!-- test -->
@@ -186,7 +198,8 @@
 
         <LinearLayout
             android:id="@+id/lin_record"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="match_parent"
             android:background="@drawable/lin_xczf_btn3" >
 
@@ -218,7 +231,8 @@
 
         <LinearLayout
             android:id="@+id/lin_camera"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="match_parent"
             android:background="@drawable/lin_xczf_btn3" >
 

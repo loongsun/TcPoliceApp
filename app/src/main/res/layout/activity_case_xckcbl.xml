@@ -29,13 +29,23 @@
                     android:src="@drawable/icon_return"></ImageView>
 
                 <TextView
-                    android:layout_width="wrap_content"
+
+                    android:gravity="center"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="135dp"
                     android:text="现场勘验笔录"
                     android:textColor="#ffffff"
                     android:textSize="20sp" />
+
+                <ImageView
+                    android:visibility="invisible"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_vertical"
+                    android:src="@drawable/icon_return"></ImageView>
             </LinearLayout>
             <!--案件编号-->
             <LinearLayout
@@ -378,7 +388,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
                 android:background="@color/White"
                 android:orientation="horizontal">
 
@@ -392,8 +401,9 @@
                     android:textSize="18sp" />
 
                 <RadioGroup
+                    android:layout_weight="1"
                     android:id="@+id/rg_kyTq"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:orientation="horizontal">
@@ -402,7 +412,6 @@
                         android:id="@+id/rb_handMan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
                         android:text="阴"
                         android:textColor="@color/Black" />
 
@@ -461,7 +470,8 @@
 
                 <EditText
                     android:id="@+id/et_kyWd"
-                    android:layout_width="90dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
@@ -484,7 +494,8 @@
 
                 <EditText
                     android:id="@+id/et_kySd"
-                    android:layout_width="90dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
@@ -506,7 +517,8 @@
 
                 <EditText
                     android:id="@+id/et_kyFx"
-                    android:layout_width="100dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
@@ -552,14 +564,13 @@
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
                         android:text="变动现场"
                         android:textColor="@color/Black" />
 
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="5dp"
                         android:text="原始现场"
                         android:textColor="@color/Black" />
                 </RadioGroup>
@@ -591,13 +602,12 @@
                     android:id="@+id/rg_kyGx"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
                     android:orientation="horizontal">
 
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="38dp"
+                        android:layout_marginLeft="18dp"
                         android:text="自然光"
                         android:textColor="@color/Black" />
 
@@ -819,7 +829,8 @@
 
                 <EditText
                     android:id="@+id/et_kyZx"
-                    android:layout_width="100dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
@@ -842,7 +853,8 @@
 
                 <EditText
                     android:id="@+id/et_kyLx"
-                    android:layout_width="100dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
@@ -865,7 +877,8 @@
 
                 <EditText
                     android:id="@+id/et_kyLy"
-                    android:layout_width="100dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
@@ -902,7 +915,8 @@
 
                 <EditText
                     android:id="@+id/et_kyBlr"
-                    android:layout_width="140dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
@@ -925,7 +939,8 @@
 
                 <EditText
                     android:id="@+id/et_kyZtr"
-                    android:layout_width="150dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
@@ -962,7 +977,8 @@
 
                 <EditText
                     android:id="@+id/et_kyZxr"
-                    android:layout_width="140dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
@@ -985,7 +1001,8 @@
 
                 <EditText
                     android:id="@+id/et_kyLxr"
-                    android:layout_width="90dp"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
@@ -1075,7 +1092,7 @@
 
             <Button
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="40dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/btn_xczf"

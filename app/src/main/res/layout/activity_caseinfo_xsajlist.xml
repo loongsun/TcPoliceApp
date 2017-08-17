@@ -20,13 +20,23 @@
             android:src="@drawable/icon_return"></ImageView>
 
         <TextView
+            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="150dp"
+            android:gravity="center"
             android:text="勘查笔录"
             android:textColor="#ffffff"
             android:textSize="20sp" />
+
+        <ImageView
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:gravity="center_vertical"
+            android:src="@drawable/icon_return"></ImageView>
     </LinearLayout>
     <ListView
         android:layout_marginTop="20dp"

@@ -21,13 +21,25 @@
         </ImageView>
 
         <TextView
+            android:layout_weight="1"
+            android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="150dp"
             android:text="历史警情"
             android:textColor="#ffffff"
             android:textSize="20sp" />
+
+        <ImageView
+
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:gravity="center_vertical"
+            android:src="@drawable/icon_return" >
+        </ImageView>
     </LinearLayout>
 
     <!-- 警情名称 -->

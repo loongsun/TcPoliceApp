@@ -30,13 +30,23 @@
                     android:src="@drawable/icon_return"></ImageView>
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="150dp"
                     android:text="勘查笔录"
                     android:textColor="#ffffff"
                     android:textSize="20sp" />
+
+                <ImageView
+                    android:visibility="invisible"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
+                    android:gravity="center_vertical"
+                    android:src="@drawable/icon_return"></ImageView>
             </LinearLayout>
             <!-- 子图标-->
             <LinearLayout
@@ -47,8 +57,10 @@
                 <!-- 人员查询 -->
 
                 <LinearLayout
+                    android:gravity="center"
+                    android:layout_weight="1"
                     android:id="@+id/lin_xsaj"
-                    android:layout_width="240dp"
+                    android:layout_width="0dp"
                     android:layout_height="200dp"
                     android:background="@drawable/btn_infoquery"
                     android:orientation="vertical" >
@@ -57,14 +69,12 @@
                         android:id="@+id/iv_querypeople"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="85dp"
                         android:layout_marginTop="50dp"
                         android:src="@drawable/icon_xsaj" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="65dp"
                         android:layout_marginTop="20dp"
                         android:text="刑事案件"
                         android:textColor="@color/Black"
@@ -80,8 +90,10 @@
                 <!-- 车辆查询 -->
 
                 <LinearLayout
+                    android:gravity="center"
+                    android:layout_weight="1"
                     android:id="@+id/lin_xzaj"
-                    android:layout_width="235dp"
+                    android:layout_width="0dp"
                     android:layout_height="200dp"
                     android:background="@drawable/btn_infoquery"
                     android:orientation="vertical" >
@@ -89,14 +101,12 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="85dp"
                         android:layout_marginTop="50dp"
                         android:src="@drawable/icon_xzaj" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="67dp"
                         android:layout_marginTop="20dp"
                         android:text="行政案件"
                         android:textColor="@color/Black"
