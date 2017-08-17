@@ -128,7 +128,7 @@ public class PeopleQueryActivity  extends Activity{
 		setContentView(R.layout.peoplecheck);
 		initWidgets();
 		clearInfo();
-		InitID2();
+//		InitID2();
 	}
 
 	private void InitID2() {

@@ -5,7 +5,7 @@ android {
         tc {
             keyAlias 'tckey'
             keyPassword 'tckey123456'
-            storeFile file('D:/tc.keystore')
+            storeFile file('/media/zhao/data/my_project/tc.keystore')
 //            storeFile file('/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/tc.keystore')
 
             storePassword 'tc123456'
@@ -18,6 +18,10 @@ android {
         applicationId "com.tc.application"
         minSdkVersion 15
         targetSdkVersion 21
+
+        ndk{
+            abiFilters "armeabi"
+        }
     }
 
 
@@ -27,9 +31,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
             signingConfig signingConfigs.tc
         }
-        debug {
-            signingConfig signingConfigs.tc
-        }
+//        debug {
+//            signingConfig signingConfigs.tc
+//        }
     }
 }
 
@@ -48,6 +52,7 @@ dependencies {
     compile files('libs/zkandroididcardreader.jar')
     compile 'com.squareup.okhttp3:okhttp:3.8.0'
     compile files('libs/zxing.jar')
+    compile files('libs/ocr-sdk.jar')
     compile('com.android.support:support-v4:22.2.1') {
         exclude module: 'support-annotations'
     }
