@@ -131,24 +131,18 @@ public class PeopleQueryActivity  extends Activity{
 		InitID2();
 	}
 
-	private void InitID2()
-	{
+	private void InitID2() {
 
 		startIDCardReader();
-		if (!openDevices())
-		{
+		if (!openDevices()) {
 			tv_hint.setText("读卡设备打开失败！");
-		}
-		else {
+		} else {
 			tv_hint.setText("读卡设备打开成功！");
 			setPromptText("请放卡...");
-			try
-			{
-				String samid= idCardReader.getSAMID(Values.idPort);
-				Log.e("samid=",""+samid);
-			}
-			catch (Exception e)
-			{
+			try {
+				String samid = idCardReader.getSAMID(Values.idPort);
+				Log.e("samid=", "" + samid);
+			} catch (Exception e) {
 
 			}
 		}
@@ -161,8 +155,7 @@ public class PeopleQueryActivity  extends Activity{
 		idCardReader = IDCardReaderFactory.createIDCardReader(this, TransportType.SERIALPORT, idrparams);
 
 	}
-	private boolean openDevices()
-	{
+	private boolean openDevices() {
 
 		boolean bRet = false;
 		RFID_ON();
