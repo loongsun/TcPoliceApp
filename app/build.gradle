@@ -24,6 +24,12 @@ android {
         }
     }
 
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+
 
     buildTypes {
         release {
@@ -31,9 +37,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
             signingConfig signingConfigs.tc
         }
-//        debug {
-//            signingConfig signingConfigs.tc
-//        }
+        debug {
+            signingConfig signingConfigs.tc
+        }
     }
 }
 
@@ -50,6 +56,8 @@ dependencies {
     compile files('libs/zkandroidcore.jar')
     compile files('libs/zkandroidfpsensor.jar')
     compile files('libs/zkandroididcardreader.jar')
+    compile (name :'ocr_ui-1.0',ext:'aar')
+//    compile name:'ocr-ui',ext:'aar'
     compile 'com.squareup.okhttp3:okhttp:3.8.0'
     compile files('libs/zxing.jar')
     compile files('libs/ocr-sdk.jar')

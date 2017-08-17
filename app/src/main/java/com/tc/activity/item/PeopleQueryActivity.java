@@ -1,16 +1,20 @@
 package com.tc.activity.item;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -20,9 +24,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.baidu.android.bba.common.util.Util;
+import com.baidu.ocr.sdk.OCR;
+import com.baidu.ocr.sdk.OnResultListener;
+import com.baidu.ocr.sdk.exception.OCRError;
+import com.baidu.ocr.sdk.model.AccessToken;
+import com.baidu.ocr.sdk.model.IDCardParams;
+import com.baidu.ocr.sdk.model.IDCardResult;
+import com.baidu.ocr.ui.camera.CameraActivity;
 import com.sdses.tool.UtilTc;
 import com.sdses.tool.Values;
 import com.tc.application.R;
+import com.tc.util.FileUtil;
 import com.tc.view.CustomProgressDialog;
 import com.zkteco.android.IDReader.IDPhotoHelper;
 import com.zkteco.android.IDReader.PowerOperate;
@@ -47,6 +59,9 @@ import org.json.JSONTokener;
 
 
 public class PeopleQueryActivity  extends Activity{
+
+	private static final String TAG = PeopleQueryActivity.class.getSimpleName();
+	private static final int REQUEST_CODE_CAMERA = 102;
 	private boolean overflag=true;
 	private Button btn_handquery;
 	private String numValue="";
@@ -67,6 +82,9 @@ public class PeopleQueryActivity  extends Activity{
 	private TextView tv_repResult,tv_repName,tv_repSex,tv_repBir,tv_repAddress,tv_repRylx,tv_repLxdw,
 			tv_repLxr,tv_repLxFs;
 	private JSONObject jsResult;
+	private Button mAutoQueryBtn;
+	private boolean mHasToken;
+
 	private void startProgressDialog(int type) {
 		if (progressDialog == null) {
 			progressDialog = CustomProgressDialog.createDialog(this);
@@ -107,6 +125,24 @@ public class PeopleQueryActivity  extends Activity{
 		tv_repLxdw=(TextView)findViewById(R.id.tv_zrepLxDw);
 		tv_repLxr=(TextView)findViewById(R.id.tv_zrepLxr);
 		tv_repLxFs=(TextView)findViewById(R.id.tv_zrepLxfs);
+
+		mAutoQueryBtn = (Button) findViewById(R.id.btn_auto_query);
+		mAutoQueryBtn.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if(mHasToken){
+					Intent intent = new Intent(PeopleQueryActivity.this, CameraActivity.class);
+					intent.putExtra(CameraActivity.KEY_OUTPUT_FILE_PATH, FileUtil.getSaveFile(PeopleQueryActivity
+							.this).getAbsoluteFile());
+					intent.putExtra(CameraActivity.KEY_CONTENT_TYPE,CameraActivity.CONTENT_TYPE_ID_CARD_FRONT);
+					startActivityForResult(intent,REQUEST_CODE_CAMERA);
+
+
+				}else{
+					Toast.makeText(PeopleQueryActivity.this,"正在执行认证，请稍等",Toast.LENGTH_LONG).show();
+				}
+			}
+		});
 	}
 	class OnClick implements OnClickListener{
 		@Override
@@ -129,7 +165,87 @@ public class PeopleQueryActivity  extends Activity{
 		initWidgets();
 		clearInfo();
 //		InitID2();
+		initQrCode();
 	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		Log.i(TAG,"requestCode="+requestCode+",resultcode="+resultCode);
+		if(requestCode==REQUEST_CODE_CAMERA){
+			if(resultCode == Activity.RESULT_OK){
+				if(data!=null){
+					String contentType = data.getStringExtra(CameraActivity.KEY_CONTENT_TYPE);
+					String filePath = FileUtil.getSaveFile(this).getAbsolutePath();
+					if(!TextUtils.isEmpty(contentType)){
+						if(CameraActivity.CONTENT_TYPE_ID_CARD_FRONT.equals(contentType)){
+							recIDCard(IDCardParams.ID_CARD_SIDE_FRONT, filePath);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	private void recIDCard(final String idCardSideFront, String filePath) {
+		IDCardParams params = new IDCardParams();
+		params.setImageFile(new File(filePath));
+		params.setIdCardSide(idCardSideFront);
+		params.setDetectDirection(true);
+		params.setImageQuality(20);
+		OCR.getInstance().recognizeIDCard(params, new OnResultListener<IDCardResult>() {
+			@Override
+			public void onResult(IDCardResult idCardResult) {
+				if(idCardResult!=null){
+					showMessage(idCardResult.toString());
+				}
+				showMessage("success get");
+			}
+
+			@Override
+			public void onError(OCRError ocrError) {
+				showMessage(ocrError.getMessage());
+			}
+		});
+	}
+
+	private void initQrCode(){
+		OCR.getInstance().initAccessToken(new OnResultListener<AccessToken>() {
+
+			@Override
+			public void onResult(AccessToken accessToken) {
+				Log.i(TAG,"onResult = "+accessToken);
+//				Toast.makeText(PeopleQueryActivity.this, "success", Toast.LENGTH_SHORT).show();
+//				showMessage(accessToken.getAccessToken());
+				showMessage("success!");
+				mHasToken = true;
+
+			}
+
+			@Override
+			public void onError(OCRError ocrError) {
+				if(ocrError!=null){
+					ocrError.printStackTrace();
+				}
+				showMessage(ocrError.getMessage());
+				mHasToken = false;
+//				Toast.makeText(PeopleQueryActivity.this, ocrError.getMessage(), Toast.LENGTH_SHORT).show();
+			}
+		},PeopleQueryActivity.this.getApplicationContext());
+	}
+
+	private void showMessage(final String msg){
+		this.runOnUiThread(new Runnable() {
+			@Override
+			public void run() {
+				AlertDialog.Builder dialog = new AlertDialog.Builder(PeopleQueryActivity.this).setMessage(msg);
+				dialog.setTitle("ocr的结果");
+				dialog.setPositiveButton("Ok",null);
+				dialog.show();
+			}
+		});
+	}
+
 
 	private void InitID2() {
 
