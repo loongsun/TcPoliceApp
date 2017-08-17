@@ -12,7 +12,9 @@ android {
         }
     }
     android { compileOptions.encoding = "GBK" }
-    compileSdkVersion 21
+
+    useLibrary 'org.apache.http.legacy'
+    compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "com.tc.application"
@@ -56,12 +58,15 @@ dependencies {
     compile files('libs/zkandroidcore.jar')
     compile files('libs/zkandroidfpsensor.jar')
     compile files('libs/zkandroididcardreader.jar')
-    compile (name :'ocr_ui-1.0',ext:'aar')
-//    compile name:'ocr-ui',ext:'aar'
+//    compile (name :'ocr_ui-1.0',ext:'aar')
+    compile project(path: ':ocr_ui')
     compile 'com.squareup.okhttp3:okhttp:3.8.0'
     compile files('libs/zxing.jar')
     compile files('libs/ocr-sdk.jar')
-    compile('com.android.support:support-v4:22.2.1') {
-        exclude module: 'support-annotations'
-    }
+    compile 'com.android.support:appcompat-v7:25.1.1'
+
+//    compile('com.android.support:support-v4:22.2.1')
+//            {
+//        exclude module: 'support-annotations'
+//    }
 }

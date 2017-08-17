@@ -30,6 +30,7 @@ import com.baidu.ocr.sdk.exception.OCRError;
 import com.baidu.ocr.sdk.model.AccessToken;
 import com.baidu.ocr.sdk.model.IDCardParams;
 import com.baidu.ocr.sdk.model.IDCardResult;
+import com.baidu.ocr.sdk.model.Word;
 import com.baidu.ocr.ui.camera.CameraActivity;
 import com.sdses.tool.UtilTc;
 import com.sdses.tool.Values;
@@ -133,11 +134,9 @@ public class PeopleQueryActivity  extends Activity{
 				if(mHasToken){
 					Intent intent = new Intent(PeopleQueryActivity.this, CameraActivity.class);
 					intent.putExtra(CameraActivity.KEY_OUTPUT_FILE_PATH, FileUtil.getSaveFile(PeopleQueryActivity
-							.this).getAbsoluteFile());
+							.this).getAbsolutePath());
 					intent.putExtra(CameraActivity.KEY_CONTENT_TYPE,CameraActivity.CONTENT_TYPE_ID_CARD_FRONT);
 					startActivityForResult(intent,REQUEST_CODE_CAMERA);
-
-
 				}else{
 					Toast.makeText(PeopleQueryActivity.this,"正在执行认证，请稍等",Toast.LENGTH_LONG).show();
 				}
@@ -196,10 +195,11 @@ public class PeopleQueryActivity  extends Activity{
 		OCR.getInstance().recognizeIDCard(params, new OnResultListener<IDCardResult>() {
 			@Override
 			public void onResult(IDCardResult idCardResult) {
-				if(idCardResult!=null){
-					showMessage(idCardResult.toString());
-				}
-				showMessage("success get");
+//				if(idCardResult!=null){
+//					showMessage(idCardResult.toString());
+//				}
+				showToast("识别成功");
+				parseInfo(idCardResult);
 			}
 
 			@Override
@@ -207,6 +207,26 @@ public class PeopleQueryActivity  extends Activity{
 				showMessage(ocrError.getMessage());
 			}
 		});
+	}
+
+	private void parseInfo(IDCardResult idResult) {
+		if(idResult==null){
+			return;
+		}
+		Word name = idResult.getName();
+		Word gender = idResult.getGender();
+		Word ethnic = idResult.getEthnic();
+		Word birthday = idResult.getBirthday();
+		Word address = idResult.getAddress();
+		Word idNumber = idResult.getIdNumber();
+		tv_nameValue.setText(name.toString());
+		tv_sexValue.setText(gender.toString()); // 性别
+		tv_nationalValue.setText(ethnic.toString()); // 民族
+		tv_birValue.setText(birthday.toString()); // 出生年月日
+		tv_addressValue.setText(address.toString()); // 住址
+		tv_idNumValue.setText(idNumber.toString()); // 身份号码
+		tv_issueValue.setText(""); // 签发机关
+		tv_vaildDateValue.setText(""); // 有效期限
 	}
 
 	private void initQrCode(){
@@ -217,7 +237,7 @@ public class PeopleQueryActivity  extends Activity{
 				Log.i(TAG,"onResult = "+accessToken);
 //				Toast.makeText(PeopleQueryActivity.this, "success", Toast.LENGTH_SHORT).show();
 //				showMessage(accessToken.getAccessToken());
-				showMessage("success!");
+				showToast("认证成功");
 				mHasToken = true;
 
 			}
@@ -232,6 +252,15 @@ public class PeopleQueryActivity  extends Activity{
 //				Toast.makeText(PeopleQueryActivity.this, ocrError.getMessage(), Toast.LENGTH_SHORT).show();
 			}
 		},PeopleQueryActivity.this.getApplicationContext());
+	}
+
+	private void showToast(final String msg){
+		this.runOnUiThread(new Runnable() {
+			@Override
+			public void run() {
+				Toast.makeText(PeopleQueryActivity.this,msg,Toast.LENGTH_SHORT).show();
+			}
+		});
 	}
 
 	private void showMessage(final String msg){
