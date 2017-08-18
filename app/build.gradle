@@ -5,6 +5,7 @@ android {
         tc {
             keyAlias 'tckey'
             keyPassword 'tckey123456'
+//            storeFile file('/media/zhao/data/my_project/tc.keystore')
             storeFile file('D:/tc.keystore')
 //            storeFile file('/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/tc.keystore')
 
@@ -12,13 +13,26 @@ android {
         }
     }
     android { compileOptions.encoding = "GBK" }
-    compileSdkVersion 21
+
+    useLibrary 'org.apache.http.legacy'
+    compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "com.tc.application"
         minSdkVersion 15
         targetSdkVersion 21
         multiDexEnabled true
+
+        ndk{
+
+            abiFilters "armeabi"
+        }
+    }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
     }
 
 
@@ -67,7 +81,12 @@ dependencies {
     compile('com.android.support:support-v4:22.2.1') {
         exclude module: 'support-annotations'
     }
-//    compile group: 'org.apache.poi', name: 'poi', version: '3.9'
-//    compile files('libs/poi-scratchpad-3.9-20121203.jar')
-//    compile files('libs/poi-3.9-20121203.jar')
+    compile project(path: ':ocr_ui')
+    compile 'com.squareup.okhttp3:okhttp:3.8.0'
+    compile files('libs/zxing.jar')
+    compile files('libs/ocr-sdk.jar')
+    compile 'com.android.support:appcompat-v7:25.1.1'
+
+    compile 'com.jakewharton:butterknife:8.5.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
 }

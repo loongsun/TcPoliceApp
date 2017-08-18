@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/White"
-    android:orientation="vertical" >
-
+     >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -21,13 +25,23 @@
             android:src="@drawable/icon_return"></ImageView>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="150dp"
             android:text="现场笔录"
             android:textColor="#ffffff"
             android:textSize="20sp" />
+
+        <ImageView
+           android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:gravity="center_vertical"
+            android:src="@drawable/icon_return"></ImageView>
     </LinearLayout>
     <!-- 标题 -->
     <LinearLayout
@@ -116,12 +130,12 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:text="工作单位:"
+            android:text="记录人:"
             android:textColor="@color/Black"
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/et_ask_work_company"
+            android:id="@+id/et_record_username"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -131,14 +145,269 @@
             android:singleLine="true"
             android:textSize="20sp" />
     </LinearLayout>
-          <Button
-            android:id="@+id/btn_save"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/btn_blue"
-            android:text="保存"
-            android:textSize="18sp" />
+            android:layout_marginTop="20dp"
+            android:text="工作单位:"
+            android:textColor="@color/Black"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/et_record_workadd"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:hint=""
+            android:padding="6dp"
+            android:singleLine="true"
+            android:textSize="20sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="被询问人:"
+            android:textColor="@color/Black"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/et_b_ask_username"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:hint=""
+            android:padding="6dp"
+            android:singleLine="true"
+            android:textSize="20sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="性别:"
+            android:textColor="@color/Black"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/et_b_ask_sex"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:hint=""
+            android:padding="6dp"
+            android:singleLine="true"
+            android:textSize="20sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="出生日期"
+            android:textColor="@color/Black"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/et_b_ask_birth"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:hint=""
+            android:padding="6dp"
+            android:singleLine="true"
+            android:textSize="20sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="文化程度:"
+            android:textColor="@color/Black"
+            android:textSize="20sp" />
+        <EditText
+            android:id="@+id/et_b_ask_degree"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:hint=""
+            android:padding="6dp"
+            android:singleLine="true"
+            android:textSize="20sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="户籍所在地:"
+            android:textColor="@color/Black"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/et_b_ask_home"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:hint=""
+            android:padding="6dp"
+            android:singleLine="true"
+            android:textSize="20sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="现住址:"
+            android:textColor="@color/Black"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/et_b_ask_address"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:hint=""
+            android:padding="6dp"
+            android:singleLine="true"
+            android:textSize="20sp" />
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:text="s身份证号:"
+                android:textColor="@color/Black"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et_b_ask_card"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:hint=""
+                android:padding="6dp"
+                android:singleLine="true"
+                android:textSize="20sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:text="联系方式:"
+                android:textColor="@color/Black"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et_b_ask_phone"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:hint=""
+                android:padding="6dp"
+                android:singleLine="true"
+                android:textSize="20sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal"
+            >
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_blue"
+                android:text="保存"
+                android:textSize="18sp" />
+            <Button
+                android:id="@+id/btn_upload"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_blue"
+                android:text="上传"
+                android:textSize="18sp" />
+            <Button
+                android:id="@+id/btn_print"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_blue"
+                android:text="打印"
+                android:textSize="18sp" />
+        </LinearLayout>
+
 </LinearLayout>
+</ScrollView>

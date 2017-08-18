@@ -1,0 +1,4 @@
+*.iml
+build/
+ocr_ui.iml
+/build

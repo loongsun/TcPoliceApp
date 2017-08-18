@@ -336,6 +336,11 @@
                 -->
             </RelativeLayout>
 
+            <RelativeLayout
+                android:id="@+id/layout_below"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -552,7 +557,19 @@
                     android:textColor="@color/Black"
                     android:textSize="18sp" />
             </LinearLayout>
+            </RelativeLayout>
 
+            <Button
+                android:id="@+id/btn_auto_query"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_blue"
+                android:text="自动识别"
+                android:textSize="20sp"
+                />
 
             <Button
                 android:id="@+id/btn_handQuery"

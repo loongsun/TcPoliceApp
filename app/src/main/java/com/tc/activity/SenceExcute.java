@@ -1,28 +1,5 @@
 package com.tc.activity;
 
-import it.sauronsoftware.ftp4j.FTPAbortedException;
-import it.sauronsoftware.ftp4j.FTPClient;
-import it.sauronsoftware.ftp4j.FTPDataTransferException;
-import it.sauronsoftware.ftp4j.FTPDataTransferListener;
-import it.sauronsoftware.ftp4j.FTPException;
-import it.sauronsoftware.ftp4j.FTPIllegalReplyException;
-
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONObject;
-import org.json.JSONTokener;
-
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;
@@ -33,9 +10,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
-import android.provider.LiveFolders;
 import android.provider.MediaStore;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -49,7 +24,6 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.baidu.android.bba.common.util.Util;
 import com.sdses.bean.PoliceStateListBean;
 import com.sdses.tool.UtilTc;
 import com.sdses.tool.Values;
@@ -58,6 +32,24 @@ import com.tc.activity.item.SenceNoteActivity;
 import com.tc.app.TcApp;
 import com.tc.application.R;
 import com.tc.view.CustomProgressDialog;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONObject;
+import org.json.JSONTokener;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+import it.sauronsoftware.ftp4j.FTPClient;
+import it.sauronsoftware.ftp4j.FTPDataTransferListener;
 
 public class SenceExcute extends Activity  {
 	private FTPClient myFtp;
@@ -342,10 +334,11 @@ public class SenceExcute extends Activity  {
 	
 	
     private void isShowPage(){
-      //  mApp.getmDota().jq_query("0");
+       //  mApp.getmDota().jq_query("0");
     	mApp.getmDota().jq_queryOne("0", getIntent().getStringExtra("dbjqsence"));
         String size=""+Values.dbjqList.size();
-        if(Values.dbjqList.size()>0){
+        if(Values.dbjqList.size()>0)
+        {
             plb= Values.dbjqList.get(0);
         	jqName = plb.getJqName();
     		jqId = plb.getJqNum();
