@@ -60,11 +60,17 @@ dependencies {
     compile files('libs/zkandroidfpsensor.jar')
     compile files('libs/zkandroididcardreader.jar')
 //    compile (name :'ocr_ui-1.0',ext:'aar')
+
     compile project(path: ':ocr_ui')
     compile 'com.squareup.okhttp3:okhttp:3.8.0'
     compile files('libs/zxing.jar')
     compile files('libs/ocr-sdk.jar')
     compile 'com.android.support:appcompat-v7:25.1.1'
+
+    
+    //    ButterKnife
+    compile 'com.jakewharton:butterknife:8.5.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
 
 //    compile('com.android.support:support-v4:22.2.1')
 //            {
