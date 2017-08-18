@@ -187,6 +187,7 @@ public class LoginActivity extends Activity{
 						  stopProgressDialog();
 			    		  Values.USERNAME=et_userName.getText().toString();
 			    		  startActivity(new Intent(LoginActivity.this,MainTabActivity.class));
+						  finish();
 			    	  }else if(code.trim().equals("10001")){
 			    		  loginHandler.sendEmptyMessage(NO_USER);
 			    	  }else if(code.trim().equals("10002")){
