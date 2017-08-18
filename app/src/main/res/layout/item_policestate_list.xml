@@ -32,26 +32,25 @@
         
         
     </LinearLayout>
-        <TextView 
+
+    <TextView
         android:id="@+id/tv_time"
-        android:layout_marginLeft="30dp"
-        android:textSize="18sp"
-        android:textColor="@color/Black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
         android:text="2017-09-09 13:35:30"
-        />
-  
-   <TextView 
-       android:id="@+id/tv_address"
-        android:layout_marginLeft="30dp"
-        android:layout_below="@id/tv_name"
-        android:textSize="18sp"
-        android:textColor="@color/Black"
+        android:textColor="@color/info"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:layout_below="@id/tv_name"
+        android:layout_marginLeft="30dp"
         android:text="地点：济南市高新区"
-        />
+        android:textColor="@color/info" />
 <!--      <Button
          android:layout_alignParentRight="true"
         android:layout_marginRight10dp="10dp"

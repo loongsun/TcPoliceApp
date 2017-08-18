@@ -66,8 +66,8 @@
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:text="警情名称"
-            android:textColor="@color/Black"
-            android:textSize="18sp" />
+            android:textColor="@color/info"
+            android:textSize="16sp" />
     </LinearLayout>
     <!-- 警情名称 -->
 
@@ -93,8 +93,8 @@
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:text="10002"
-            android:textColor="@color/Black"
-            android:textSize="18sp" />
+            android:textColor="@color/info"
+            android:textSize="16sp" />
     </LinearLayout>
     <!-- 警情名称 -->
 
@@ -120,8 +120,8 @@
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:text="20170726"
-            android:textColor="@color/Black"
-            android:textSize="18sp" />
+            android:textColor="@color/info"
+            android:textSize="16sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -146,32 +146,32 @@
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:text="10002"
-            android:textColor="@color/Black"
-            android:textSize="18sp" />
+            android:textColor="@color/info"
+            android:textSize="16sp" />
     </LinearLayout>
     <!-- 3个按钮 -->
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="80dp"
         android:layout_marginTop="20dp"
         android:background="@color/titletc"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <!-- 拍照 -->
 
         <LinearLayout
             android:id="@+id/lin_photo"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:background="@drawable/lin_xczf_btn3" >
+            android:layout_weight="1"
+            android:background="@drawable/lin_xczf_btn3">
 
             <ImageView
-               android:layout_marginLeft="30dp"
                 android:id="@+id/icon_zp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
                 android:layout_marginTop="30dp"
                 android:src="@drawable/icon_zp" />
             <!-- test -->
@@ -199,9 +199,9 @@
         <LinearLayout
             android:id="@+id/lin_record"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:background="@drawable/lin_xczf_btn3" >
+            android:layout_weight="1"
+            android:background="@drawable/lin_xczf_btn3">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -232,9 +232,9 @@
         <LinearLayout
             android:id="@+id/lin_camera"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:background="@drawable/lin_xczf_btn3" >
+            android:layout_weight="1"
+            android:background="@drawable/lin_xczf_btn3">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -266,8 +266,8 @@
 
     <ListView
         android:id="@+id/lv_bookmark"
-        android:layout_width="fill_parent"
-        android:layout_height="300dp"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
         android:layout_marginTop="20dp"
         android:divider="@color/horbluedivilinecolor"
         android:dividerHeight="1.0dip"
@@ -283,7 +283,7 @@
         <Button
             android:id="@+id/btn_photo"
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
             android:background="@drawable/btn_xczf"
@@ -294,7 +294,7 @@
         <Button
             android:id="@+id/btn_record"
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
             android:background="@drawable/btn_xczf"
@@ -305,7 +305,7 @@
         <Button
             android:id="@+id/btn_camera"
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
             android:background="@drawable/btn_xczf"
@@ -316,7 +316,7 @@
         <Button
             android:id="@+id/btn_bookmark"
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
             android:background="@drawable/btn_xczf"
@@ -327,7 +327,7 @@
         <Button
             android:id="@+id/btn_upload"
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_weight="1"

@@ -342,10 +342,11 @@ public class SenceExcute extends Activity  {
 	
 	
     private void isShowPage(){
-      //  mApp.getmDota().jq_query("0");
+       //  mApp.getmDota().jq_query("0");
     	mApp.getmDota().jq_queryOne("0", getIntent().getStringExtra("dbjqsence"));
         String size=""+Values.dbjqList.size();
-        if(Values.dbjqList.size()>0){
+        if(Values.dbjqList.size()>0)
+        {
             plb= Values.dbjqList.get(0);
         	jqName = plb.getJqName();
     		jqId = plb.getJqNum();
