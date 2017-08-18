@@ -30,6 +30,31 @@
             android:textSize="20sp" />
     </LinearLayout>
     <!-- 标题 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="询问地点:"
+            android:textColor="@color/Black"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/et_ask_address"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:hint=""
+            android:padding="6dp"
+            android:singleLine="true"
+            android:textSize="20sp" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,17 +66,17 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:text="标题:"
+            android:text="询问人:"
             android:textColor="@color/Black"
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/et_blTitle"
+            android:id="@+id/et_ask_username"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:hint="请填写标题"
+            android:hint=""
             android:padding="6dp"
             android:singleLine="true"
             android:textSize="20sp" />
@@ -66,18 +91,44 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:text="内容:"
+            android:text="工作单位:"
             android:textColor="@color/Black"
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/et_content"
+            android:id="@+id/et_ask_workadd"
             android:layout_width="300dp"
-            android:layout_height="550dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-            android:hint="请输入内容"
+            android:hint=""
             android:padding="6dp"
+            android:singleLine="true"
+            android:textSize="20sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="工作单位:"
+            android:textColor="@color/Black"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/et_ask_work_company"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:hint=""
+            android:padding="6dp"
+            android:singleLine="true"
             android:textSize="20sp" />
     </LinearLayout>
           <Button

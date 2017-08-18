@@ -1,13 +1,5 @@
 package com.tc.activity.item;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import com.sdses.tool.UtilTc;
-import com.sdses.tool.Values;
-import com.tc.application.R;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,15 +9,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.sdses.tool.UtilTc;
+import com.sdses.tool.Values;
+import com.tc.application.R;
+
+import java.io.File;
+import java.io.IOException;
+
 public class SenceNoteActivity extends Activity {
-    private EditText et_blTitle, et_blContent;
+    private EditText et_ask_address, et_ask_username;
     private Button btn_save;
     private String jqNum;
     private ImageView btn_blReturn;
 
     private void initWidgets() {
-        et_blTitle = (EditText) findViewById(R.id.et_blTitle);
-        et_blContent = (EditText) findViewById(R.id.et_content);
+        et_ask_address = (EditText) findViewById(R.id.et_ask_address);
+        et_ask_username = (EditText) findViewById(R.id.et_ask_username);
         btn_save = (Button) findViewById(R.id.btn_save);
         btn_save.setOnClickListener(new OnClick());
         btn_blReturn = (ImageView) findViewById(R.id.btn_blReturn);
@@ -59,12 +58,12 @@ public class SenceNoteActivity extends Activity {
     }
 
     private void saveContent() {
-        if (et_blTitle.getText().toString().trim().equals("") && et_blContent.getText().toString().trim().equals("")) {
-            UtilTc.myToast(getApplicationContext(), "标题或内容不能为空");
-        } else {
-            //保存内容 txt格式
-            writeBlToSdCard();
-        }
+//        if (et_blTitle.getText().toString().trim().equals("") && et_blContent.getText().toString().trim().equals("")) {
+//            UtilTc.myToast(getApplicationContext(), "标题或内容不能为空");
+//        } else {
+//            //保存内容 txt格式
+//            writeBlToSdCard();
+//        }
     }
 
     public void writeBlToSdCard() {
@@ -83,14 +82,15 @@ public class SenceNoteActivity extends Activity {
 
         }
         try {
-            FileOutputStream fout = new FileOutputStream(fileName, true);
-            fout.write("标题:".getBytes());
-            fout.write(et_blTitle.getText().toString().getBytes());
-            fout.write("\n".getBytes());
-            fout.write("内容:".getBytes());
-            fout.write(et_blContent.getText().toString().getBytes());
-            fout.close();
-        } catch (IOException e) {
+//            FileOutputStream fout = new FileOutputStream(fileName, true);
+//            fout.write("标题:".getBytes());
+//            fout.write(et_blTitle.getText().toString().getBytes());
+//            fout.write("\n".getBytes());
+//            fout.write("内容:".getBytes());
+//            fout.write(et_blContent.getText().toString().getBytes());
+//            fout.close();
+
+        } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }

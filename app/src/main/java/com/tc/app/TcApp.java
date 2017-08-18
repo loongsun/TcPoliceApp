@@ -1,8 +1,5 @@
 package com.tc.app;
 
-import java.io.File;
-
-import loongsun.com.facetest.reconova.client.FcsApiClient;
 import android.app.Application;
 import android.content.Context;
 import android.os.Environment;
@@ -12,6 +9,10 @@ import com.baidu.mapapi.SDKInitializer;
 import com.lb.baidumapdemo.face.LocationFace;
 import com.tc.dbhandle.DatabaseContext;
 import com.tc.dbhandle.Dota;
+
+import java.io.File;
+
+import loongsun.com.facetest.reconova.client.FcsApiClient;
 
 public class TcApp extends Application {
     private FcsApiClient client;
@@ -70,6 +71,12 @@ public class TcApp extends Application {
 			File file3 = new File(sdPath + "/TC/wphoto");
 			if (!file3.exists()) {
 				file3.mkdir();
+			}
+
+			// ÕÕÆ¬ÎÄ¼þ¼Ð
+			File file4 = new File(sdPath + "/TC/²âÊÔ");
+			if (!file4.exists()) {
+				file4.mkdir();
 			}
 		} catch (Exception e) {
 		}
