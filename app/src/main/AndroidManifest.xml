@@ -176,6 +176,15 @@
         <activity
             android:name="com.tc.activity.caseinfo.XsajDjbcqdActivity"
             android:screenOrientation="portrait"></activity>
+
+
+        <activity
+            android:name="com.tc.activity.RegisterActivity"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name="com.tc.activity.ChagePassActivity"
+            android:screenOrientation="portrait"></activity>
         <!--<activity android:name="com.tc.activity.testActivity"></activity>-->
     </application>
 
