@@ -43,6 +43,58 @@
             android:gravity="center_vertical"
             android:src="@drawable/icon_return"></ImageView>
     </LinearLayout>
+        <LinearLayout
+            android:id="@+id/starttime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:text="询问开始时间:"
+                android:textColor="@color/Black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/et_ask_starttime"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:hint=""
+                android:padding="6dp"
+                android:singleLine="true"
+                android:textSize="20sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/endtime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:text="询问结束时间:"
+                android:textColor="@color/Black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/et_ask_endtime"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:hint=""
+                android:padding="6dp"
+                android:singleLine="true"
+                android:textSize="20sp" />
+        </LinearLayout>
     <!-- 标题 -->
     <LinearLayout
         android:layout_width="match_parent"
@@ -369,7 +421,18 @@
                 android:singleLine="true"
                 android:textSize="20sp" />
         </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="口头传唤的被询问人↓"
+            android:textColor="@color/Black"
+            android:textSize="20sp" />
+
         <LinearLayout
+            android:id="@+id/mouse_starttime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
@@ -379,10 +442,69 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
+                android:text="询问开始时间:"
+                android:textColor="@color/Black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/et_mouse_ask_starttime"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:hint=""
+                android:padding="6dp"
+                android:singleLine="true"
+                android:textSize="20sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/mouse_endtime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:text="询问结束时间:"
+                android:textColor="@color/Black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/et_mouse_ask_endtime"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:hint=""
+                android:padding="6dp"
+                android:singleLine="true"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
                 android:text="现依法向你进行询问，你要如实回答。属于本案当事人的有申请回避的权利。对于本案无关的问题，你有拒绝回答的权利。你听清楚没有？:"
                 android:textColor="@color/Black"
                 android:textSize="20sp" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:text="请回答:"
+                android:textColor="@color/Black"
+                android:textSize="20sp" />
             <EditText
                 android:id="@+id/et_b_ask_response"
                 android:layout_width="300dp"
@@ -411,28 +533,28 @@
                 android:background="@drawable/btn_blue"
                 android:text="保存"
                 android:textSize="18sp" />
-            <Button
-                android:id="@+id/btn_upload"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/btn_blue"
-                android:text="上传"
-                android:textSize="18sp" />
-            <Button
-                android:id="@+id/btn_print"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/btn_blue"
-                android:text="打印"
-                android:textSize="18sp" />
+            <!--<Button-->
+                <!--android:id="@+id/btn_upload"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="50dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_marginLeft="20dp"-->
+                <!--android:layout_marginRight="20dp"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:background="@drawable/btn_blue"-->
+                <!--android:text="上传"-->
+                <!--android:textSize="18sp" />-->
+            <!--<Button-->
+                <!--android:id="@+id/btn_print"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="50dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_marginLeft="20dp"-->
+                <!--android:layout_marginRight="20dp"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:background="@drawable/btn_blue"-->
+                <!--android:text="打印"-->
+                <!--android:textSize="18sp" />-->
         </LinearLayout>
 
 </LinearLayout>

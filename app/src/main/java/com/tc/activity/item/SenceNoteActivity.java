@@ -12,36 +12,45 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.sdses.tool.DateTimeDialog;
 import com.sdses.tool.UtilTc;
 import com.sdses.tool.Values;
 import com.tc.application.R;
-import com.tc.client.FileUtil;
 
 import org.apache.poi.hwpf.HWPFDocument;
 import org.apache.poi.hwpf.usermodel.Range;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SenceNoteActivity extends Activity {
+public class SenceNoteActivity extends Activity implements  DateTimeDialog.MyOnDateSetListener {
     private EditText et_ask_address, et_ask_username;
     private EditText et_ask_workadd, et_record_username,et_record_workadd;
     private EditText et_b_ask_phone,et_b_ask_card,et_b_ask_address,et_b_ask_home,et_b_ask_birth
             ,et_b_ask_username,et_b_ask_sex,et_b_ask_degree,et_b_ask_response;
-    private Button btn_save,btn_upload,btn_print;
+    private Button btn_save;
     private String jqNum;
+    LinearLayout mouse_starttime,mouse_endtime,starttime,endtime;
+    TextView et_mouse_ask_starttime,et_mouse_ask_endtime,et_ask_starttime,et_ask_endtime;
     private ImageView btn_blReturn;
     // 模板文集地址
-    private static String demoPath =  "";
+//    private static String demoPath =  "";
+    private SimpleDateFormat mFormatter = new SimpleDateFormat("yyyy年MM月dd日hh时mm分 aa");
     String SD = "";
+    File file;
+    private DateTimeDialog dateTimeDialog;
+    int whichTimeSelect = 1;
     // 创建生成的文件地址
     private static String newPath = "";
     private void initWidgets() {
@@ -63,10 +72,24 @@ public class SenceNoteActivity extends Activity {
 
         et_b_ask_response = (EditText) findViewById(R.id.et_b_ask_response);
 
-        btn_upload = (Button) findViewById(R.id.btn_upload);
-        btn_upload.setOnClickListener(new OnClick());
-        btn_print = (Button) findViewById(R.id.btn_print);
-        btn_print.setOnClickListener(new OnClick());
+
+        mouse_starttime = (LinearLayout) findViewById(R.id.mouse_starttime);
+        mouse_endtime = (LinearLayout) findViewById(R.id.mouse_endtime);
+        starttime = (LinearLayout) findViewById(R.id.starttime);
+        endtime = (LinearLayout) findViewById(R.id.endtime);
+
+
+        et_mouse_ask_starttime = (TextView) findViewById(R.id.et_mouse_ask_starttime);
+        et_mouse_ask_endtime = (TextView) findViewById(R.id.et_mouse_ask_endtime);
+        et_ask_starttime = (TextView) findViewById(R.id.et_ask_starttime);
+        et_ask_endtime = (TextView) findViewById(R.id.et_ask_endtime);
+
+        dateTimeDialog = new DateTimeDialog(this, null, this);
+
+        mouse_starttime.setOnClickListener(new OnClick());
+        mouse_endtime.setOnClickListener(new OnClick());
+        starttime.setOnClickListener(new OnClick());
+        endtime.setOnClickListener(new OnClick());
 
         btn_save = (Button) findViewById(R.id.btn_save);
         btn_save.setOnClickListener(new OnClick());
@@ -75,33 +98,67 @@ public class SenceNoteActivity extends Activity {
 
     }
 
+    @Override
+    public void onDateSet(Date date) {
+
+        if(whichTimeSelect == 1){
+            et_mouse_ask_starttime.setText(mFormatter.format(date) + "");
+        }else if(whichTimeSelect == 2){
+            et_mouse_ask_endtime.setText(mFormatter.format(date) + "");
+        }else if(whichTimeSelect == 3){
+            et_ask_starttime.setText(mFormatter.format(date) + "");
+        }else if(whichTimeSelect == 4){
+            et_ask_endtime.setText(mFormatter.format(date) + "");
+        }
+    }
+
     class OnClick implements OnClickListener {
         @Override
         public void onClick(View v) {
             // TODO Auto-generated method stub
             switch (v.getId()) {
                 case R.id.btn_save:
-                    saveContent();
-                    finish();
-                    break;
-                case R.id.btn_upload:
-                    break;
-                case R.id.btn_print:
+//                    saveContent();
+//                    finish();
                     try {
+                        String fileName = Values.PATH_BOOKMARK + jqNum + "_" + UtilTc.getCurrentTime() + ".doc";
+
+                        newPath = fileName;
                         InputStream inputStream = getAssets().open("xwbl.doc");
-                        FileUtil.writeFile(new File(demoPath), inputStream);
+//                        FileUtil.writeFile(new File(demoPath), inputStream);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                     doScan();
+                    finish();
                     break;
+
                 case R.id.btn_blReturn:
                     finish();
+                    break;
+                case R.id.mouse_starttime:
+                    whichTimeSelect = 1;
+                    showAll();
+                    break;
+                case R.id.mouse_endtime:
+                    whichTimeSelect = 2;
+                    showAll();
+                    break;
+                case R.id.starttime:
+                    whichTimeSelect = 3;
+                    showAll();
+                    break;
+                case R.id.endtime:
+                    whichTimeSelect = 4;
+                    showAll();
                     break;
             }
         }
     }
 
+    private void showAll() {
+        dateTimeDialog.hideOrShow();
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
@@ -109,17 +166,16 @@ public class SenceNoteActivity extends Activity {
         setContentView(R.layout.activity_bl);
         String  sdcardPath = Environment.getExternalStorageDirectory().getAbsolutePath();
 
-        File file = new File(sdcardPath  + "/TC/wtxt/");
-        if (!file.exists()){
-            boolean ss = file.mkdir();
-        }
-
-        demoPath = file.getPath()+ "/xwbl.doc";
-
-        newPath = file.getPath()+"/xwbl_copy.doc";
-
         initWidgets();
         jqNum = getIntent().getStringExtra("name");
+        file = new File(sdcardPath  + "/TC/wtxt/");
+        if (!file.exists()){
+            file.mkdir();
+        }
+
+//        demoPath = file.getPath()+ "/xwbl.doc";
+
+
     }
 
     private void saveContent() {
@@ -163,12 +219,11 @@ public class SenceNoteActivity extends Activity {
 
     private void doScan(){
         //获取模板文件
-        File demoFile=new File(demoPath);
+//        File demoFile=new File(demoPath);
         //创建生成的文件
         File newFile=new File(newPath);
         Map<String, String> map = new HashMap<String, String>();
-        System.out.println("询问地点"+et_ask_address.getText().toString());
-        Toast.makeText(this,et_ask_address.getText().toString(),Toast.LENGTH_SHORT).show();
+
         map.put("$ADDRESS$", et_ask_address.getText().toString());
         map.put("$ASK_USERNAME$", et_ask_username.getText().toString());
         map.put("$ASK_WORKADD$", et_ask_workadd.getText().toString());
@@ -185,9 +240,16 @@ public class SenceNoteActivity extends Activity {
         map.put("$PHONE$", et_b_ask_phone.getText().toString());
         map.put("$RESPONSE$", et_b_ask_response.getText().toString());
 
-        writeDoc(demoFile,newFile,map);
+        map.put("$MOUSE_END$", et_mouse_ask_endtime.getText().toString());
+        map.put("$MOUSE_START$", et_mouse_ask_starttime.getText().toString());
+        map.put("$START$", et_ask_starttime.getText().toString());
+        map.put("$END$", et_ask_endtime.getText().toString());
+
+
+
+        writeDoc(newFile,map);
         //查看
-        doOpenWord();
+//        doOpenWord();
     }
     /**
      * 调用手机中安装的可打开word的软件
@@ -211,11 +273,12 @@ public class SenceNoteActivity extends Activity {
      * newFile 生成文件
      * map 要填充的数据
      * */
-    public void writeDoc(File demoFile ,File newFile ,Map<String, String> map)
+    public void writeDoc( File newFile ,Map<String, String> map)
     {
         try
         {
-            FileInputStream in = new FileInputStream(demoFile);
+            InputStream in = getAssets().open("xwbl.doc");
+//            FileInputStream in = new FileInputStream(demoFile);
             HWPFDocument hdt = new HWPFDocument(in);
             // Fields fields = hdt.getFields();
             // 读取word文本内容

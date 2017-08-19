@@ -223,7 +223,7 @@ public class SenceExcute extends Activity  {
 				UtilTc.showLog("file count:"+allList.size());
 				for(int i=0;i<allList.size();i++){
 				 //判断上传到哪个文件夹
-				 if(allList.get(i).endsWith(".txt")){ 
+				 if(allList.get(i).endsWith(".doc")){
 					 myFtp.changeDirectory("../");
 					 myFtp.changeDirectory("wtxt");
 					 currentPath=Values.PATH_BOOKMARK;
@@ -488,7 +488,7 @@ public class SenceExcute extends Activity  {
 					getFileName(file.listFiles(), jqNum);
 				} else {
 					String fileName = file.getName();
-					if (fileName.contains(jqNum) && fileName.endsWith(".txt")) {
+					if (fileName.contains(jqNum) && fileName.endsWith(".doc")) {
 						Log.e("e", "fileName"+fileName);
 						bltxt.add(fileName);
 						UtilTc.showLog("bltxt sss"+bltxt.size());
@@ -668,7 +668,7 @@ public class SenceExcute extends Activity  {
 			UtilTc.showLog("currentFile:"+currentFile);
 			UtilTc.showLog("currentFile 后3位"+currentFile.substring(currentFile.length()-3,currentFile.length()));
 			mediaFormat=currentFile.substring(currentFile.length()-3,currentFile.length());
-			if(mediaFormat.equals("txt")){
+			if(mediaFormat.equals("doc")){
 				mediaType="文档";
 			}else if(mediaFormat.equals("amr")){
 				mediaType="音频";
