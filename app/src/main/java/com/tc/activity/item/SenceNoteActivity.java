@@ -35,7 +35,7 @@ public class SenceNoteActivity extends Activity {
     private EditText et_ask_address, et_ask_username;
     private EditText et_ask_workadd, et_record_username,et_record_workadd;
     private EditText et_b_ask_phone,et_b_ask_card,et_b_ask_address,et_b_ask_home,et_b_ask_birth
-            ,et_b_ask_username,et_b_ask_sex,et_b_ask_degree;
+            ,et_b_ask_username,et_b_ask_sex,et_b_ask_degree,et_b_ask_response;
     private Button btn_save,btn_upload,btn_print;
     private String jqNum;
     private ImageView btn_blReturn;
@@ -61,7 +61,7 @@ public class SenceNoteActivity extends Activity {
         et_b_ask_sex = (EditText) findViewById(R.id.et_b_ask_sex);
         et_b_ask_degree = (EditText) findViewById(R.id.et_b_ask_degree);
 
-
+        et_b_ask_response = (EditText) findViewById(R.id.et_b_ask_response);
 
         btn_upload = (Button) findViewById(R.id.btn_upload);
         btn_upload.setOnClickListener(new OnClick());
@@ -182,6 +182,8 @@ public class SenceNoteActivity extends Activity {
         map.put("$B_ASK_USERNAME$", et_b_ask_username.getText().toString());
         map.put("$SEX$", et_b_ask_sex.getText().toString());
         map.put("$DEGREE$", et_b_ask_degree.getText().toString());
+        map.put("$PHONE$", et_b_ask_phone.getText().toString());
+        map.put("$RESPONSE$", et_b_ask_response.getText().toString());
 
         writeDoc(demoFile,newFile,map);
         //²é¿´

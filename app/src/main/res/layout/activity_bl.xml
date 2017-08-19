@@ -329,7 +329,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
-                android:text="s身份证号:"
+                android:text="身份证号:"
                 android:textColor="@color/Black"
                 android:textSize="20sp" />
 
@@ -369,6 +369,32 @@
                 android:singleLine="true"
                 android:textSize="20sp" />
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:text="现依法向你进行询问，你要如实回答。属于本案当事人的有申请回避的权利。对于本案无关的问题，你有拒绝回答的权利。你听清楚没有？:"
+                android:textColor="@color/Black"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et_b_ask_response"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:hint=""
+                android:padding="6dp"
+                android:singleLine="true"
+                android:textSize="20sp" />
+        </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
