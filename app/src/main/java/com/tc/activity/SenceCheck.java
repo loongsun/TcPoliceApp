@@ -1,21 +1,8 @@
 package com.tc.activity;
 
-import com.tc.activity.caseinfo.TqhjActivity;
-import com.tc.activity.caseinfo.XckcBlActivity;
-import com.tc.activity.caseinfo.XckcXsBrBlActivity;
-import com.tc.activity.caseinfo.XczfListActivity;
-import com.tc.activity.caseinfo.XczpAcitivity;
-import com.tc.activity.caseinfo.XsajDjbcqdActivity;
-import com.tc.activity.caseinfo.XsajFxbgActivity;
-import com.tc.activity.caseinfo.XsajHuaTuActivity;
-import com.tc.activity.caseinfo.XsajJszjclActivity;
-import com.tc.activity.caseinfo.XsajXczpActivity;
-import com.tc.application.R;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +12,17 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.tc.activity.caseinfo.TqhjActivity;
+import com.tc.activity.caseinfo.XckcBlActivity;
+import com.tc.activity.caseinfo.XckcXsBrBlActivity;
+import com.tc.activity.caseinfo.XsajDjbcqdActivity;
+import com.tc.activity.caseinfo.XsajFxbgActivity;
+import com.tc.activity.caseinfo.XsajHuaTuActivity;
+import com.tc.activity.caseinfo.XsajJszjclActivity;
+import com.tc.activity.caseinfo.XsajXczpActivity;
+import com.tc.application.R;
+
 import java.util.ArrayList;
 import java.util.List;
 

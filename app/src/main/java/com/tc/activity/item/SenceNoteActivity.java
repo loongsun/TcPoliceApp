@@ -39,7 +39,7 @@ public class SenceNoteActivity extends Activity implements  DateTimeDialog.MyOnD
     private EditText et_ask_workadd, et_record_username,et_record_workadd;
     private EditText et_b_ask_phone,et_b_ask_card,et_b_ask_address,et_b_ask_home,et_b_ask_birth
             ,et_b_ask_username,et_b_ask_sex,et_b_ask_degree,et_b_ask_response;
-    private Button btn_save;
+    private Button btn_save,btn_print;
     private String jqNum;
     LinearLayout mouse_starttime,mouse_endtime,starttime,endtime;
     TextView et_mouse_ask_starttime,et_mouse_ask_endtime,et_ask_starttime,et_ask_endtime;
@@ -93,6 +93,12 @@ public class SenceNoteActivity extends Activity implements  DateTimeDialog.MyOnD
 
         btn_save = (Button) findViewById(R.id.btn_save);
         btn_save.setOnClickListener(new OnClick());
+
+        btn_print = (Button) findViewById(R.id.btn_print);
+        btn_print.setOnClickListener(new OnClick());
+
+
+
         btn_blReturn = (ImageView) findViewById(R.id.btn_blReturn);
         btn_blReturn.setOnClickListener(new OnClick());
 
@@ -151,6 +157,9 @@ public class SenceNoteActivity extends Activity implements  DateTimeDialog.MyOnD
                 case R.id.endtime:
                     whichTimeSelect = 4;
                     showAll();
+                    break;
+                case R.id.btn_print:
+                    doOpenWord();
                     break;
             }
         }

@@ -16,7 +16,16 @@ public class PoliceStateListBean implements Serializable {
 	private String wy="";//纬度
 	private String bjrPhone="";
 	private String bjrName="";
-	
+	private String wtype="";//案件类型
+
+	public String getWtype() {
+		return wtype;
+	}
+
+	public void setWtype(String wtype) {
+		this.wtype = wtype;
+	}
+
 	public String getJqNum() {
 		return jqNum;
 	}

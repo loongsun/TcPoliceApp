@@ -91,7 +91,7 @@ public class SenceExcute extends Activity  {
 	//正在上传的文件
 	private String currentFile="";
 	private String currentFilePaht="";
-	private String mediaType="";
+	private String 						mediaType="";
 	private String mediaFormat="";
 	// 进度框
 	private void startProgressDialog(int type) {
