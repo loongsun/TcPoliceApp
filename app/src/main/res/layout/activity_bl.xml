@@ -30,9 +30,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="现场笔录"
+            android:text="询问笔录"
             android:textColor="#ffffff"
-            android:textSize="20sp" />
+            android:textSize="17sp" />
 
         <ImageView
            android:visibility="invisible"
@@ -52,22 +52,22 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
                 android:text="询问开始时间:"
-                android:textColor="@color/Black"
-                android:textSize="20sp" />
+                android:textColor="@color/text_11"
+                android:textSize="17sp" />
 
             <TextView
                 android:id="@+id/et_ask_starttime"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
                 android:hint=""
                 android:padding="6dp"
                 android:singleLine="true"
-                android:textSize="20sp" />
+                android:textSize="17sp" />
         </LinearLayout>
         <LinearLayout
             android:id="@+id/endtime"
@@ -78,22 +78,22 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
                 android:text="询问结束时间:"
-                android:textColor="@color/Black"
-                android:textSize="20sp" />
+                android:textColor="@color/text_11"
+                android:textSize="17sp" />
 
             <TextView
                 android:id="@+id/et_ask_endtime"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
                 android:hint=""
                 android:padding="6dp"
                 android:singleLine="true"
-                android:textSize="20sp" />
+                android:textSize="17sp" />
         </LinearLayout>
     <!-- 标题 -->
     <LinearLayout
@@ -104,22 +104,25 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
             android:text="询问地点:"
-            android:textColor="@color/Black"
-            android:textSize="20sp" />
+            android:textColor="@color/text_11"
+            android:textSize="17sp" />
 
         <EditText
             android:id="@+id/et_ask_address"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
             android:hint=""
+            android:background="@null"
             android:padding="6dp"
+            android:text=""
+            android:textColor="@color/colorPrimary"
             android:singleLine="true"
-            android:textSize="20sp" />
+            android:textSize="17sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -130,22 +133,24 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
             android:text="询问人:"
-            android:textColor="@color/Black"
-            android:textSize="20sp" />
+            android:textColor="@color/text_11"
+            android:textSize="17sp" />
 
         <EditText
             android:id="@+id/et_ask_username"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@null"
             android:hint=""
             android:padding="6dp"
+            android:textColor="@color/colorPrimary"
             android:singleLine="true"
-            android:textSize="20sp" />
+            android:textSize="17sp" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -155,22 +160,24 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
             android:text="工作单位:"
-            android:textColor="@color/Black"
-            android:textSize="20sp" />
+            android:textColor="@color/text_11"
+            android:textSize="17sp" />
 
         <EditText
             android:id="@+id/et_ask_workadd"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
             android:hint=""
             android:padding="6dp"
+            android:background="@null"
+            android:textColor="@color/colorPrimary"
             android:singleLine="true"
-            android:textSize="20sp" />
+            android:textSize="17sp" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -180,22 +187,24 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
             android:text="记录人:"
-            android:textColor="@color/Black"
-            android:textSize="20sp" />
+            android:textColor="@color/text_11"
+            android:textSize="17sp" />
 
         <EditText
             android:id="@+id/et_record_username"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
             android:hint=""
             android:padding="6dp"
             android:singleLine="true"
-            android:textSize="20sp" />
+            android:background="@null"
+            android:textColor="@color/colorPrimary"
+            android:textSize="17sp" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -205,22 +214,24 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
             android:text="工作单位:"
-            android:textColor="@color/Black"
-            android:textSize="20sp" />
+            android:textColor="@color/text_11"
+            android:textSize="17sp" />
 
         <EditText
             android:id="@+id/et_record_workadd"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
             android:hint=""
+            android:background="@null"
+            android:textColor="@color/colorPrimary"
             android:padding="6dp"
             android:singleLine="true"
-            android:textSize="20sp" />
+            android:textSize="17sp" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -230,22 +241,24 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
             android:text="被询问人:"
-            android:textColor="@color/Black"
-            android:textSize="20sp" />
+            android:textColor="@color/text_11"
+            android:textSize="17sp" />
 
         <EditText
             android:id="@+id/et_b_ask_username"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
             android:hint=""
+            android:background="@null"
+            android:textColor="@color/colorPrimary"
             android:padding="6dp"
             android:singleLine="true"
-            android:textSize="20sp" />
+            android:textSize="17sp" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -255,22 +268,24 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
             android:text="性别:"
-            android:textColor="@color/Black"
-            android:textSize="20sp" />
+            android:textColor="@color/text_11"
+            android:textSize="17sp" />
 
         <EditText
             android:id="@+id/et_b_ask_sex"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
             android:hint=""
+            android:background="@null"
+            android:textColor="@color/colorPrimary"
             android:padding="6dp"
             android:singleLine="true"
-            android:textSize="20sp" />
+            android:textSize="17sp" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -280,22 +295,24 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
             android:text="出生日期"
-            android:textColor="@color/Black"
-            android:textSize="20sp" />
+            android:textColor="@color/text_11"
+            android:textSize="17sp" />
 
         <EditText
             android:id="@+id/et_b_ask_birth"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@null"
+            android:textColor="@color/colorPrimary"
             android:hint=""
             android:padding="6dp"
             android:singleLine="true"
-            android:textSize="20sp" />
+            android:textSize="17sp" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -305,21 +322,23 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
             android:text="文化程度:"
-            android:textColor="@color/Black"
-            android:textSize="20sp" />
+            android:textColor="@color/text_11"
+            android:textSize="17sp" />
         <EditText
             android:id="@+id/et_b_ask_degree"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
             android:hint=""
             android:padding="6dp"
+            android:background="@null"
+            android:textColor="@color/colorPrimary"
             android:singleLine="true"
-            android:textSize="20sp" />
+            android:textSize="17sp" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -329,22 +348,24 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
             android:text="户籍所在地:"
-            android:textColor="@color/Black"
-            android:textSize="20sp" />
+            android:textColor="@color/text_11"
+            android:textSize="17sp" />
 
         <EditText
             android:id="@+id/et_b_ask_home"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
             android:hint=""
             android:padding="6dp"
+            android:background="@null"
+            android:textColor="@color/colorPrimary"
             android:singleLine="true"
-            android:textSize="20sp" />
+            android:textSize="17sp" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -354,22 +375,24 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
             android:text="现住址:"
-            android:textColor="@color/Black"
-            android:textSize="20sp" />
+            android:textColor="@color/text_11"
+            android:textSize="17sp" />
 
         <EditText
             android:id="@+id/et_b_ask_address"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
             android:hint=""
             android:padding="6dp"
             android:singleLine="true"
-            android:textSize="20sp" />
+            android:background="@null"
+            android:textColor="@color/colorPrimary"
+            android:textSize="17sp" />
     </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -379,22 +402,24 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
                 android:text="身份证号:"
-                android:textColor="@color/Black"
-                android:textSize="20sp" />
+                android:textColor="@color/text_11"
+                android:textSize="17sp" />
 
             <EditText
                 android:id="@+id/et_b_ask_card"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
                 android:hint=""
                 android:padding="6dp"
+                android:background="@null"
+                android:textColor="@color/colorPrimary"
                 android:singleLine="true"
-                android:textSize="20sp" />
+                android:textSize="17sp" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -404,32 +429,34 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
                 android:text="联系方式:"
-                android:textColor="@color/Black"
-                android:textSize="20sp" />
+                android:textColor="@color/text_11"
+                android:textSize="17sp" />
 
             <EditText
                 android:id="@+id/et_b_ask_phone"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
                 android:hint=""
                 android:padding="6dp"
+                android:background="@null"
+                android:textColor="@color/colorPrimary"
                 android:singleLine="true"
-                android:textSize="20sp" />
+                android:textSize="17sp" />
         </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
             android:text="口头传唤的被询问人↓"
-            android:textColor="@color/Black"
-            android:textSize="20sp" />
+            android:textColor="@color/colorLineChoosed"
+            android:textSize="17sp" />
 
         <LinearLayout
             android:id="@+id/mouse_starttime"
@@ -440,22 +467,24 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
                 android:text="询问开始时间:"
-                android:textColor="@color/Black"
-                android:textSize="20sp" />
+                android:textColor="@color/text_11"
+                android:textSize="17sp" />
 
             <TextView
                 android:id="@+id/et_mouse_ask_starttime"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
                 android:hint=""
                 android:padding="6dp"
                 android:singleLine="true"
-                android:textSize="20sp" />
+                android:background="@null"
+                android:textColor="@color/colorPrimary"
+                android:textSize="17sp" />
         </LinearLayout>
         <LinearLayout
             android:id="@+id/mouse_endtime"
@@ -466,32 +495,32 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
                 android:text="询问结束时间:"
-                android:textColor="@color/Black"
-                android:textSize="20sp" />
+                android:textColor="@color/text_11"
+                android:textSize="17sp" />
 
             <TextView
                 android:id="@+id/et_mouse_ask_endtime"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
                 android:hint=""
                 android:padding="6dp"
                 android:singleLine="true"
-                android:textSize="20sp" />
+                android:textSize="17sp" />
         </LinearLayout>
 
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:text="现依法向你进行询问，你要如实回答。属于本案当事人的有申请回避的权利。对于本案无关的问题，你有拒绝回答的权利。你听清楚没有？:"
-                android:textColor="@color/Black"
-                android:textSize="20sp" />
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:text="现依法向你进行询问，你要如实回答。属于本案当事人的有申请回避的权利。对于本案无关的问题，你有拒绝回答的权利。你听清楚没有？"
+                android:textColor="@color/text_11"
+                android:textSize="17sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -500,26 +529,28 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
                 android:text="请回答:"
-                android:textColor="@color/Black"
-                android:textSize="20sp" />
+                android:textColor="@color/text_11"
+                android:textSize="17sp" />
             <EditText
                 android:id="@+id/et_b_ask_response"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
                 android:hint=""
                 android:padding="6dp"
+                android:background="@null"
+                android:textColor="@color/colorPrimary"
                 android:singleLine="true"
-                android:textSize="20sp" />
+                android:textSize="17sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="50dp"
             android:orientation="horizontal"
             >
             <Button
@@ -527,19 +558,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_weight="1"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/btn_blue"
                 android:text="保存"
+                android:textColor="@color/white"
                 android:textSize="18sp" />
             <!--<Button-->
                 <!--android:id="@+id/btn_upload"-->
                 <!--android:layout_width="match_parent"-->
                 <!--android:layout_height="50dp"-->
                 <!--android:layout_weight="1"-->
-                <!--android:layout_marginLeft="20dp"-->
-                <!--android:layout_marginRight="20dp"-->
+                <!--android:layout_marginLeft="8dp"-->
+                <!--android:layout_marginRight="8dp"-->
                 <!--android:layout_marginTop="10dp"-->
                 <!--android:background="@drawable/btn_blue"-->
                 <!--android:text="上传"-->
@@ -549,11 +581,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_weight="1"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/btn_blue"
                 android:text="打印"
+                android:visibility="gone"
                 android:textSize="18sp" />
         </LinearLayout>
 

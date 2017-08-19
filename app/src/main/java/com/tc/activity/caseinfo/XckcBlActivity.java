@@ -1,10 +1,12 @@
 package com.tc.activity.caseinfo;
+
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -15,8 +17,12 @@ import android.widget.Toast;
 
 import com.sdses.tool.UtilTc;
 import com.sdses.tool.Values;
+import com.tc.activity.SenceCheck;
+import com.tc.app.TcApp;
 import com.tc.application.R;
+import com.tc.view.CustomProgressDialog;
 import com.tc.view.DateWheelDialogN;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -54,7 +60,7 @@ public class XckcBlActivity extends Activity {
 
     EditText et_jzrqm1,et_jzrxb1,et_jzrsr1,et_jzrzz1;
     EditText et_jzrqm2,et_jzrxb2,et_jzrsr2,et_jzrzz2;
-
+    TcApp ia;
 
     private RadioGroup rg_kyTq, rg_kyXctj, rg_kyGx;
     private ImageView btn_kcblReturn;
@@ -64,6 +70,30 @@ public class XckcBlActivity extends Activity {
     private String kyXctj="";
     private String kyGx="";
     private RadioButton rb_qing,rb_yin,rb_yu,rb_wu,rb_xue,rb_bdxc,rb_ysxc,rb_zrg,rb_dg;
+
+    private final static int UPLOAD=1;
+    String errorMessage = "";
+    private CustomProgressDialog progressDialog = null;
+    // 进度框
+    private void startProgressDialog(int type) {
+        if (progressDialog == null) {
+            progressDialog = CustomProgressDialog.createDialog(this);
+            switch (type) {
+                case UPLOAD:
+                    progressDialog.setMessage("正在上传信息,请稍后");
+                    break;
+            }
+        }
+        progressDialog.show();
+    }
+    // 取消进度框
+    private void stopProgressDialog() {
+        if (progressDialog != null) {
+            progressDialog.dismiss();
+            progressDialog = null;
+        }
+    }
+
     private void initWidgets() {
         //采集文字部分
         et_kyAjbh = (EditText) findViewById(R.id.et_kyAjbh);
@@ -286,10 +316,12 @@ public class XckcBlActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_case_xckcbl);
+        ia = (TcApp)TcApp.mContent;
         initWidgets();
     }
     //上传按钮
     public void BtnUploadBL(View view) {
+        startProgressDialog(UPLOAD);
         new Thread(uploadRun).start();
     }
 
@@ -311,6 +343,39 @@ public class XckcBlActivity extends Activity {
         }
         doScan();
     }
+
+
+    Handler mHandler = new Handler() {
+        public void handleMessage(android.os.Message msg) {
+            switch (msg.what) {
+                case Values.SUCCESS_RECORDUPLOAD://
+
+                    break;
+                case Values.ERROR_CONNECT:
+                    UtilTc.myToastForContent(getApplicationContext());
+                    break;
+                case Values.ERROR_OTHER:
+                    UtilTc.myToast(getApplicationContext(), "其它错误:"
+                            + errorMessage);
+                    stopProgressDialog();
+                    break;
+                case Values.ERROR_NULLVALUEFROMSERVER:
+                    UtilTc.showLog("服务器异常");
+                    stopProgressDialog();
+                    break;
+                case Values.SUCCESS_FORRESULR:
+                    UtilTc.showLog("上传成功");
+                    stopProgressDialog();
+                    ia.sendHandleMsg(100, SenceCheck.waitingHandler);
+                    break;
+                case Values.ERROR_UPLOAD:
+                    UtilTc.showLog("上传失败");
+                    stopProgressDialog();
+                    break;
+            }
+        };
+    };
+
     Runnable uploadRun=new Runnable(){
         @Override
         public void run() {
@@ -361,7 +426,7 @@ public class XckcBlActivity extends Activity {
                     String strResult= EntityUtils.toString(httpResponse.getEntity());
                     Log.e("e", "传回来的值是："+strResult);
                     if(strResult==null||strResult.equals("")){
-                  //      mHandler.sendEmptyMessage(Values.ERROR_NULLVALUEFROMSERVER);
+                        mHandler.sendEmptyMessage(Values.ERROR_NULLVALUEFROMSERVER);
                         return;
                     }
                     //json 解析
@@ -371,11 +436,13 @@ public class XckcBlActivity extends Activity {
                     //{ "error code":0, "data":{ "message":"", "result":"盗抢车辆", "car":{ "hphm":"辽A12345", "hpzl":"蓝牌", "csys":"黑色", "fdjh":"888888", "cjhm":"987654321" } } }
                     if(code.trim().equals("0")){
                     //    jsResult=person.getJSONObject("data");
-                    //    mHandler.sendEmptyMessage(Values.SUCCESS_FORRESULR);
+                        mHandler.sendEmptyMessage(Values.SUCCESS_FORRESULR);
                     }else if(code.trim().equals("10003")){
-                     //   JSONObject jb = person.getJSONObject("data");
-                     //   errorMessage = jb.getString("message");
-                   //     mHandler.sendEmptyMessage(Values.ERROR_OTHER);
+                        JSONObject jb = person.getJSONObject("data");
+                        errorMessage = jb.getString("message");
+                        mHandler.sendEmptyMessage(Values.ERROR_OTHER);
+                    }else{
+                        mHandler.sendEmptyMessage(Values.ERROR_OTHER);
                     }
                 }else{
                  //   mHandler.sendEmptyMessage(Values.ERROR_CONNECT);

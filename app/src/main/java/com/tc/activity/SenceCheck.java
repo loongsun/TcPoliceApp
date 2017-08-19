@@ -3,6 +3,8 @@ package com.tc.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,13 +34,15 @@ public class SenceCheck extends Activity {
     private CommonAdapter mCommonAdapter = new CommonAdapter();
     private List<String> stateList = new ArrayList<String>();
     private String name="";
+    TextView tv_ajname;
     private void initWidgets() {
         btn_kcqzReturn = (ImageView) findViewById(R.id.btn_kcqzReturn);
         btn_kcqzReturn.setOnClickListener(new OnClick());
         lv_xqqzList=(ListView)findViewById(R.id.lv_xqqzList);
         name=getIntent().getStringExtra("name");
 
-
+        tv_ajname = (TextView)findViewById(R.id.tv_ajname);
+        tv_ajname.setText(getIntent().getStringExtra("anjianname"));
 
     }
 
@@ -53,12 +57,24 @@ public class SenceCheck extends Activity {
             }
         }
     }
-
+    public static Handler waitingHandler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_4);
         initWidgets();
         initData();
+        waitingHandler = new Handler(){//主界面信息处理
+            @Override
+            public void handleMessage(Message msg){
+                switch(Integer.valueOf(msg.obj.toString()))
+                {
+                    case 100:
+                        mCommonAdapter.updateView(0);
+                        break;
+
+                }
+            }
+        };
         super.onCreate(savedInstanceState);
     }
 
@@ -94,6 +110,21 @@ public class SenceCheck extends Activity {
             return null;
         }
 
+        public void updateView(int itemIndex) {
+            //得到第一个可显示控件的位置，
+            int visiblePosition = lv_xqqzList.getFirstVisiblePosition();
+            //只有当要更新的view在可见的位置时才更新，不可见时，跳过不更新
+            if (itemIndex - visiblePosition >= 0) {
+                //得到要更新的item的view
+                View view = lv_xqqzList.getChildAt(itemIndex - visiblePosition);
+                //从view中取得holder
+                ViewHolder holder = (ViewHolder) view.getTag();
+
+                holder.iv = (ImageView) view.findViewById(R.id.iv);
+                holder.iv.setBackgroundColor(getResources().getColor(R.color.Blue));
+            }
+        }
+
         @Override
         public long getItemId(int position) {
             return position;
@@ -110,6 +141,7 @@ public class SenceCheck extends Activity {
                         R.layout.item_list_kybl, null);
                 holder = new ViewHolder();
                 holder.tv_listName = (TextView) mView.findViewById(R.id.tv_name);
+                holder.iv = (ImageView) mView.findViewById(R.id.iv);
                 holder.parentLayout = (LinearLayout) mView
                         .findViewById(R.id.lin_jqInfo);
                 holder.parentLayout.setOnClickListener(new View.OnClickListener() {
@@ -129,6 +161,7 @@ public class SenceCheck extends Activity {
 
         private class ViewHolder {
             TextView tv_listName;
+            ImageView iv;
             LinearLayout parentLayout;
         }
     }

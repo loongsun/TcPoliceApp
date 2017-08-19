@@ -25,7 +25,7 @@ public class MapFragmentDemoActivity extends FragmentActivity {
         Intent intent = getIntent();
         MapStatus.Builder builder = new MapStatus.Builder();
         if (intent.hasExtra("x") && intent.hasExtra("y")) {
-            // å½“ç”¨intentå‚æ•°æ—¶ï¼Œè®¾ç½®ä¸­å¿ƒç‚¹ä¸ºæŒ‡å®šç‚¹
+            // µ±ÓÃintent²ÎÊıÊ±£¬ÉèÖÃÖĞĞÄµãÎªÖ¸¶¨µã
             Bundle b = intent.getExtras();
             LatLng p = new LatLng(b.getDouble("y"), b.getDouble("x"));
             builder.target(p);

@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="勘查取证"
+            android:text="现场笔录"
             android:textColor="#ffffff"
             android:textSize="20sp" />
 

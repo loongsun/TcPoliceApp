@@ -3,6 +3,8 @@ package com.tc.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,13 +33,14 @@ public class SenceCheck2 extends Activity {
     private CommonAdapter mCommonAdapter = new CommonAdapter();
     private List<String> stateList = new ArrayList<String>();
     private String name="";
+    TextView tv_ajname;
     private void initWidgets() {
         btn_kcqzReturn = (ImageView) findViewById(R.id.btn_kcqzReturn);
         btn_kcqzReturn.setOnClickListener(new OnClick());
         lv_xqqzList=(ListView)findViewById(R.id.lv_xqqzList);
         name=getIntent().getStringExtra("name");
-
-
+        tv_ajname = (TextView)findViewById(R.id.tv_ajname);
+        tv_ajname.setText(getIntent().getStringExtra("anjianname"));
 
     }
 
@@ -52,12 +55,24 @@ public class SenceCheck2 extends Activity {
             }
         }
     }
-
+    public static Handler waitingHandler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_4);
         initWidgets();
         initData();
+
+        waitingHandler = new Handler(){//主界面信息处理
+            @Override
+            public void handleMessage(Message msg){
+                switch(Integer.valueOf(msg.obj.toString()))
+                {
+                    case 100:
+                        mCommonAdapter.updateView(0);
+                        break;
+                }
+            }
+        };
         super.onCreate(savedInstanceState);
     }
 
@@ -73,6 +88,7 @@ public class SenceCheck2 extends Activity {
         stateList.add("先行登记保存证据清单");
         stateList.add("抽样取证证据清单");
         lv_xqqzList.setAdapter(mCommonAdapter);
+
     }
 
     private class CommonAdapter extends BaseAdapter {
@@ -96,7 +112,20 @@ public class SenceCheck2 extends Activity {
         public long getItemId(int position) {
             return position;
         }
+        public void updateView(int itemIndex) {
+            //得到第一个可显示控件的位置，
+            int visiblePosition = lv_xqqzList.getFirstVisiblePosition();
+            //只有当要更新的view在可见的位置时才更新，不可见时，跳过不更新
+            if (itemIndex - visiblePosition >= 0) {
+                //得到要更新的item的view
+                View view = lv_xqqzList.getChildAt(itemIndex - visiblePosition);
+                //从view中取得holder
+                ViewHolder holder = (ViewHolder) view.getTag();
 
+                holder.iv = (ImageView) view.findViewById(R.id.iv);
+                holder.iv.setBackgroundColor(getResources().getColor(R.color.Blue));
+            }
+        }
         @Override
         public View getView(final int position, View convertView,
                             ViewGroup parent) {
@@ -107,6 +136,8 @@ public class SenceCheck2 extends Activity {
                         SenceCheck2.this).inflate(
                         R.layout.item_list_kybl, null);
                 holder = new ViewHolder();
+
+                holder.iv = (ImageView) mView.findViewById(R.id.iv);
                 holder.tv_listName = (TextView) mView.findViewById(R.id.tv_name);
                 holder.parentLayout = (LinearLayout) mView
                         .findViewById(R.id.lin_jqInfo);
@@ -127,6 +158,7 @@ public class SenceCheck2 extends Activity {
 
         private class ViewHolder {
             TextView tv_listName;
+            ImageView iv;
             LinearLayout parentLayout;
         }
     }

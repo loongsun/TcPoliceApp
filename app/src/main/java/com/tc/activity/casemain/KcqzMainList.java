@@ -62,6 +62,7 @@ public class KcqzMainList extends Fragment {
         }
     }
 
+
     private void initWidgets(){
         btn_kcqzReturn=(ImageView)this.getView().findViewById(R.id.btn_kcqzReturn);
         btn_kcqzReturn.setOnClickListener(new OnClick());
@@ -137,10 +138,14 @@ public class KcqzMainList extends Fragment {
                         Log.e("e", "onClick");
                         if(stateList.get(position).getWtype().equals("ÐÌÊÂ°¸¼þ")){
                             startActivity(new Intent(getActivity(), SenceCheck.class)
-                                    .putExtra("name",stateList.get(position).getJqNum()));
+                                    .putExtra("name",stateList.get(position).getJqNum())
+                                    .putExtra("anjianname",stateList.get(position).getJqName())
+                            );
                         }else {
                             startActivity(new Intent(getActivity(), SenceCheck2.class)
-                                    .putExtra("name",stateList.get(position).getJqNum()));
+                                    .putExtra("name",stateList.get(position).getJqNum())
+                                    .putExtra("anjianname",stateList.get(position).getJqName())
+                            );
                         }
 
                     }

@@ -218,8 +218,8 @@ public class MyMarkFragment extends Fragment {
                 bool = false;
             }
             double temp = bool?i*0.0001:-i*0.0001;
-            double latitude = Double.valueOf(powerInfo.powerY)+temp;//Á∫¨Â∫¶
-            double longitude = Double.valueOf(powerInfo.powerX)-temp;//ÁªèÂ∫¶
+            double latitude = Double.valueOf(powerInfo.powerY)+temp;//Œ≥∂»
+            double longitude = Double.valueOf(powerInfo.powerX)-temp;//æ≠∂»
             LatLng latlng = new LatLng(latitude,longitude);
             Log.i(TAG,"add power"+i);
             MarkerOptions markOption = new MarkerOptions().position(latlng).icon(descriptor).zIndex(9).draggable(false);
@@ -255,8 +255,8 @@ public class MyMarkFragment extends Fragment {
                 bool = false;
             }
             double temp = bool?i*0.0001:-i*0.0001;
-            double latitude = Double.valueOf(eventInfo.wY)+temp;//Á∫¨Â∫¶
-            double longitude = Double.valueOf(eventInfo.wX)-temp;//ÁªèÂ∫¶
+            double latitude = Double.valueOf(eventInfo.wY)+temp;//Œ≥∂»
+            double longitude = Double.valueOf(eventInfo.wX)-temp;//æ≠∂»
             LatLng latlng = new LatLng(latitude,longitude);
             Log.i(TAG,"add event"+i+","+bool);
             MarkerOptions markOption = new MarkerOptions().position(latlng).icon(descriptor).zIndex(9).draggable(false);
@@ -286,16 +286,16 @@ public class MyMarkFragment extends Fragment {
 
     private void initMarker() {
         mBaiduMap.clear();
-        //ËÆæÁΩÆÊôÆÈÄöÂõæÁöÑÊ®°Âºè
+        //…Ë÷√∆’Õ®Õºµƒƒ£ Ω
         mBaiduMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
         mBaiduMap.setTrafficEnabled(true);
         MapStatusUpdate statusUpdate = MapStatusUpdateFactory.zoomTo(17);
         mBaiduMap.setMapStatus(statusUpdate);
-        //ËÆæÁΩÆÊ†áÊ≥®Âõæ
+        //…Ë÷√±Í◊¢Õº
         BitmapDescriptor descriptor = BitmapDescriptorFactory.fromResource(R.drawable.icon_gcoding);
         double wx= 123.329414;
         double wy=41.817323;
-//        LatLng latLng = new LatLng(39.915071, 116.403907); // ÈªòËÆ§ Â§©ÂÆâÈó®
+//        LatLng latLng = new LatLng(39.915071, 116.403907); // ƒ¨»œ ÃÏ∞≤√≈
         LatLng latLng = new LatLng(wy,wx);
 //        LatLng latLng = new LatLng(wx,wy);
         OverlayOptions overlayOptions = new MarkerOptions().position(latLng).icon(descriptor);

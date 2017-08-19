@@ -2,7 +2,10 @@ package com.tc.app;
 
 import android.app.Application;
 import android.content.Context;
+import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
 
 import com.baidu.location.BDLocation;
 import com.baidu.mapapi.SDKInitializer;
@@ -26,6 +29,20 @@ public class TcApp extends Application {
 
 	public Dota getmDota() {
 		return mDota;
+	}
+
+	public void sendHandleMsg(int flag, Handler handle) {
+		sendHandleMsg(flag, handle, null);
+	}
+
+	public void sendHandleMsg(int flag, Handler handle, Bundle b) {
+		Handler sendHandler = new Handler();
+		Message childMsg = sendHandler.obtainMessage();
+		childMsg.obj = "" + flag;
+		if (b != null)
+			childMsg.setData(b);
+		if (handle != null)
+			handle.sendMessage(childMsg);
 	}
 
 	public void onCreate() {

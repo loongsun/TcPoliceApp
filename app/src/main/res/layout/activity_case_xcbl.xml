@@ -63,7 +63,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="案件编号"
-                    android:textColor="@color/Red"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -76,7 +76,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -94,11 +94,10 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="公安局名称:"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:editable="false"
                     android:id="@+id/et_gajname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -107,7 +106,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -117,20 +116,7 @@
                 android:layout_height="1dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
-                android:background="@color/line" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:text="处警单位"
-                android:textColor="@color/Black"
-                android:textSize="18sp" />
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
+                android:visibility="gone"
                 android:background="@color/line" />
             <LinearLayout
                 android:layout_width="match_parent"
@@ -144,8 +130,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
-                    android:text="公安局:"
-                    android:textColor="@color/Black"
+                    android:text="处警所属公安局:"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -157,7 +143,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -167,6 +153,7 @@
                 android:layout_height="1dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
+                android:visibility="gone"
                 android:background="@color/line" />
 
             <LinearLayout
@@ -181,8 +168,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
-                    android:text="派出所:"
-                    android:textColor="@color/Black"
+                    android:text="处警所属派出所:"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -194,7 +181,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -203,6 +190,7 @@
                 android:layout_height="1dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
+                android:visibility="gone"
                 android:background="@color/line" />
 
             <LinearLayout
@@ -218,7 +206,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="发案时间:"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -231,7 +219,7 @@
                     android:cursorVisible="true"
                     android:hint=""
                     android:editable="false"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -240,6 +228,7 @@
                 android:layout_height="1dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
+                android:visibility="gone"
                 android:background="@color/line" />
 
             <LinearLayout
@@ -255,7 +244,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="发案地点:"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -267,7 +256,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -276,6 +265,7 @@
                 android:layout_height="1dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
+                android:visibility="gone"
                 android:background="@color/line" />
             <TextView
                 android:layout_width="wrap_content"
@@ -283,7 +273,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
                 android:text="当事人详情:"
-                android:textColor="@color/Black"
+                android:textColor="@color/Green"
                 android:textSize="18sp" />
             <View
                 android:layout_width="match_parent"
@@ -305,7 +295,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="1.姓名"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -318,7 +308,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
 
@@ -329,7 +319,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="性别"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -342,7 +332,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
                 <TextView
@@ -351,7 +341,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="年龄"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -364,7 +354,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
 
@@ -383,7 +373,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="住址和电话"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -396,7 +386,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
 
@@ -418,7 +408,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="体貌特征及伤害情况"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -431,7 +421,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
 
@@ -459,7 +449,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="2.姓名"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -472,7 +462,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
 
@@ -483,7 +473,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="性别"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -496,7 +486,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
                 <TextView
@@ -505,7 +495,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="年龄"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -518,7 +508,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
 
@@ -537,7 +527,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="住址和电话"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -550,7 +540,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
 
@@ -572,7 +562,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="体貌特征及伤害情况"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -585,7 +575,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
 
@@ -612,7 +602,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="3.姓名"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -625,7 +615,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
 
@@ -636,7 +626,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="性别"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -649,7 +639,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
                 <TextView
@@ -658,7 +648,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="年龄"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -671,7 +661,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
 
@@ -690,7 +680,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="住址和电话"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -703,7 +693,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
 
@@ -725,7 +715,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="体貌特征及伤害情况"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -738,7 +728,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
 
@@ -765,7 +755,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="4.姓名"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -778,7 +768,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
 
@@ -789,7 +779,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="性别"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -802,7 +792,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
                 <TextView
@@ -811,7 +801,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="年龄"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -824,7 +814,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
 
@@ -843,7 +833,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="住址和电话"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -856,7 +846,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
 
@@ -878,7 +868,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="体貌特征及伤害情况"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -891,7 +881,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
 
@@ -911,7 +901,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
                 android:text="证人情况"
-                android:textColor="@color/Black"
+                android:textColor="@color/colorLineChoosed"
                 android:textSize="18sp" />
             <View
                 android:layout_width="match_parent"
@@ -933,7 +923,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="1.姓名"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -946,7 +936,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
 
@@ -957,7 +947,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="性别"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -970,7 +960,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
                 <TextView
@@ -979,7 +969,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="年龄"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -992,7 +982,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
 
@@ -1011,7 +1001,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="住址和电话"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -1024,7 +1014,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
 
@@ -1046,7 +1036,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="所持证件、编号"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -1059,7 +1049,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
 
@@ -1085,7 +1075,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="2.姓名"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -1098,7 +1088,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
 
@@ -1109,7 +1099,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="性别"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -1122,7 +1112,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
                 <TextView
@@ -1131,7 +1121,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="年龄"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -1144,7 +1134,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
 
@@ -1163,7 +1153,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="住址和电话"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -1176,7 +1166,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
 
@@ -1198,7 +1188,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="所持证件、编号"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -1211,7 +1201,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
 
@@ -1229,7 +1219,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
                 android:text="现场情况"
-                android:textColor="@color/Black"
+                android:textColor="@color/horbluedivilinecolor"
                 android:textSize="18sp" />
             <View
                 android:layout_width="match_parent"
@@ -1251,7 +1241,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="违法行为使用工具"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -1264,7 +1254,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
 
@@ -1285,7 +1275,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="财务损毁情况"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -1298,7 +1288,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
 
@@ -1319,7 +1309,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="现场破坏情况"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -1332,7 +1322,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
 
@@ -1353,7 +1343,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="其它"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -1366,7 +1356,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
 
@@ -1387,7 +1377,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="备注"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -1400,7 +1390,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
 
@@ -1420,8 +1410,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
-                    android:text="处警人员"
-                    android:textColor="@color/Black"
+                    android:text="处警人员1:"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -1434,7 +1424,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
 
@@ -1454,8 +1444,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
-                    android:text="处警人员"
-                    android:textColor="@color/Black"
+                    android:text="处警人员2:"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -1468,7 +1458,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
 
@@ -1488,8 +1478,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
-                    android:text="见证人"
-                    android:textColor="@color/Black"
+                    android:text="见证人:"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
@@ -1502,7 +1492,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
 
@@ -1511,9 +1501,9 @@
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="50dp"
                 android:orientation="horizontal"
-
+                android:layout_marginTop="16dp"
                 >
                 <Button
                     android:layout_width="match_parent"

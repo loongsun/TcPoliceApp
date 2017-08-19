@@ -136,7 +136,7 @@ public class SenceNoteActivity extends Activity implements  DateTimeDialog.MyOnD
                         e.printStackTrace();
                     }
                     doScan();
-//                    finish();
+                    finish();
                     break;
 
                 case R.id.btn_blReturn:
@@ -159,7 +159,7 @@ public class SenceNoteActivity extends Activity implements  DateTimeDialog.MyOnD
                     showAll();
                     break;
                 case R.id.btn_print:
-                    doOpenWord();
+//                    doOpenWord();
                     break;
             }
         }
