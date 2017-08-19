@@ -6,7 +6,7 @@ android {
             keyAlias 'tckey'
             keyPassword 'tckey123456'
 //            storeFile file('/media/zhao/data/my_project/tc.keystore')
-            storeFile file('D:/tc.keystore')
+            storeFile file('./tc.keystore')
 //            storeFile file('/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/tc.keystore')
 
             storePassword 'tc123456'
