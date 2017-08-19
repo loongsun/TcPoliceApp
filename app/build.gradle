@@ -10,6 +10,7 @@ android {
 //            storeFile file('/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/tc.keystore')
 
             storePassword 'tc123456'
+
         }
     }
     android { compileOptions.encoding = "GBK" }
