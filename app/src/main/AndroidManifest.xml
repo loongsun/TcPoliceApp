@@ -177,6 +177,8 @@
             android:name="com.tc.activity.caseinfo.XsajDjbcqdActivity"
             android:screenOrientation="portrait"></activity>
 
+        <!--一图地图 -->
+        <activity android:name="com.tc.fragment.MapFragmentDemoActivity"></activity>
 
         <activity
             android:name="com.tc.activity.RegisterActivity"
