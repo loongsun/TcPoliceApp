@@ -19,6 +19,7 @@ import com.sdses.bean.PoliceStateListBean;
 import com.sdses.tool.UtilTc;
 import com.sdses.tool.Values;
 import com.tc.activity.SenceCheck;
+import com.tc.activity.SenceCheck2;
 import com.tc.application.R;
 import com.tc.view.CustomProgressDialog;
 
@@ -134,8 +135,14 @@ public class KcqzMainList extends Fragment {
                     @Override
                     public void onClick(View arg0) {
                         Log.e("e", "onClick");
-                        startActivity(new Intent(getActivity(), SenceCheck.class)
-                        .putExtra("name",stateList.get(position).getJqNum()));
+                        if(stateList.get(position).getWtype().equals("ÐÌÊÂ°¸¼þ")){
+                            startActivity(new Intent(getActivity(), SenceCheck.class)
+                                    .putExtra("name",stateList.get(position).getJqNum()));
+                        }else {
+                            startActivity(new Intent(getActivity(), SenceCheck2.class)
+                                    .putExtra("name",stateList.get(position).getJqNum()));
+                        }
+
                     }
                 });
                 mView.setTag(holder);

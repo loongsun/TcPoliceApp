@@ -17,8 +17,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:background="@drawable/titlebg"
-                android:orientation="horizontal"
-                android:layout_weight="1">
+                android:orientation="horizontal">
 
                 <ImageView
                     android:id="@+id/btn_kcblReturn"
@@ -35,7 +34,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="现场勘验笔录"
+                    android:text="现场笔录"
                     android:textColor="#ffffff"
                     android:textSize="20sp" />
 
@@ -48,6 +47,7 @@
                     android:gravity="center_vertical"
                     android:src="@drawable/icon_return"></ImageView>
             </LinearLayout>
+            <!--案件编号-->
             <!--案件编号-->
             <LinearLayout
                 android:layout_width="match_parent"
@@ -81,151 +81,25 @@
                     android:textSize="18sp" />
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/line"
-                android:layout_weight="1" />
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:background="@color/White"
-                android:orientation="horizontal"
-                android:layout_weight="1">
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
-                    android:text="现场勘验单位"
-                    android:textColor="@color/Red"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_kyKydw"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
+                    android:text="公安局名称:"
                     android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/line"
-                android:layout_weight="1" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginLeft="10dp"
-                android:background="@color/White"
-                android:orientation="horizontal"
-                android:layout_weight="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="指派/报告单位"
-                    android:textColor="@color/Red"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/et_kyZpbgdw"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/line"
-                android:layout_weight="1" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginLeft="10dp"
-                android:background="@color/White"
-                android:orientation="horizontal"
-                android:layout_weight="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="指派时间"
-                    android:textColor="@color/Red"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_kyZpsj"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
                     android:editable="false"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/line"
-                android:layout_weight="1" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginLeft="10dp"
-                android:background="@color/White"
-                android:orientation="horizontal"
-                android:layout_weight="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="勘验事由"
-                    android:textColor="@color/Red"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_kySy"
+                    android:id="@+id/et_gajname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -243,880 +117,13 @@
                 android:layout_height="1dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
-                android:background="@color/line"
-                android:layout_weight="1" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginLeft="10dp"
-                android:background="@color/White"
-                android:orientation="horizontal"
-                android:layout_weight="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="现场勘验开始时间"
-                    android:textColor="@color/Red"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_kyBeginTime"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:editable="false"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/line"
-                android:layout_weight="1" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginLeft="10dp"
-                android:background="@color/White"
-                android:orientation="horizontal"
-                android:layout_weight="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="现场勘验结束时间"
-                    android:textColor="@color/Red"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_kyEndTime"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:editable="false"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/line"
-                android:layout_weight="1" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginLeft="10dp"
-                android:background="@color/White"
-                android:orientation="horizontal"
-                android:layout_weight="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="现场地点"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_kyXcdd"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/line"
-                android:layout_weight="1" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginLeft="10dp"
-                android:background="@color/White"
-                android:orientation="horizontal"
-                android:layout_weight="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="现场保护情况"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_kyXcbhqk"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/line"
-                android:layout_weight="1" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:background="@color/White"
-                android:orientation="horizontal"
-                android:layout_weight="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="天气"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <RadioGroup
-                    android:layout_weight="1"
-                    android:id="@+id/rg_kyTq"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:orientation="horizontal">
-
-                    <RadioButton
-                        android:id="@+id/rb_yin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="阴"
-                        android:textColor="@color/Black" />
-
-                    <RadioButton
-                        android:id="@+id/rb_qing"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:text="晴"
-                        android:textColor="@color/Black" />
-
-                    <RadioButton
-                        android:id="@+id/rb_yu"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:text="雨"
-                        android:textColor="@color/Black" />
-
-                    <RadioButton
-                        android:id="@+id/rb_xue"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:text="雪"
-                        android:textColor="@color/Black" />
-
-                    <RadioButton
-                        android:id="@+id/rb_wu"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:text="雾"
-                        android:textColor="@color/Black" />
-                </RadioGroup>
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:background="@color/line"
-                android:layout_weight="1" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginLeft="10dp"
-                android:background="@color/White"
-                android:orientation="horizontal"
-                android:layout_weight="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="温度"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_kyWd"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="湿度"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_kySd"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="风向"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_kyFx"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/line"
-                android:layout_weight="1" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginLeft="10dp"
-                android:background="@color/White"
-                android:orientation="horizontal"
-                android:layout_weight="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="勘验前现场条件"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <RadioGroup
-                    android:id="@+id/rg_kyXctj"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:orientation="horizontal">
-
-                    <RadioButton
-                        android:id="@+id/rb_bdxc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="变动现场"
-                        android:textColor="@color/Black" />
-
-                    <RadioButton
-                        android:id="@+id/rb_ysxc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:text="原始现场"
-                        android:textColor="@color/Black" />
-                </RadioGroup>
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:background="@color/line"
-                android:layout_weight="1" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginLeft="10dp"
-                android:background="@color/White"
-                android:orientation="horizontal"
-                android:layout_weight="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="现场勘验光线"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <RadioGroup
-                    android:id="@+id/rg_kyGx"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <RadioButton
-                        android:id="@+id/rb_zrg"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="18dp"
-                        android:text="自然光"
-                        android:textColor="@color/Black" />
-
-                    <RadioButton
-                        android:id="@+id/rb_dg"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp"
-                        android:text="灯光"
-                        android:textColor="@color/Black" />
-                </RadioGroup>
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:background="@color/line"
-                android:layout_weight="1" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginLeft="10dp"
-                android:background="@color/White"
-                android:orientation="horizontal"
-                android:layout_weight="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="现场勘验指挥人"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_kyZhr"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/line"
-                android:layout_weight="1" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginLeft="10dp"
-                android:background="@color/White"
-                android:orientation="horizontal"
-                android:layout_weight="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="现场勘验指挥人单位"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_kyZhrDw"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/line"
-                android:layout_weight="1" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginLeft="10dp"
-                android:background="@color/White"
-                android:orientation="horizontal"
-                android:layout_weight="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="现场勘验指挥人职务"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_kyZhrZw"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/line"
-                android:layout_weight="1" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginLeft="10dp"
-                android:background="@color/White"
-                android:orientation="horizontal"
-                android:layout_weight="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="现场勘验情况"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_kyKyqk"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/line"
-                android:layout_weight="1" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginLeft="10dp"
-                android:background="@color/White"
-                android:orientation="horizontal"
-                android:layout_weight="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="现场勘验绘制图"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_kyHzt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/line"
-                android:layout_weight="1" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginLeft="10dp"
-                android:background="@color/White"
-                android:orientation="horizontal"
-                android:layout_weight="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="照相"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_kyZx"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="录相"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_kyLx"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="录音"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_kyLy"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/line"
-                android:layout_weight="1" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginLeft="10dp"
-                android:background="@color/White"
-                android:orientation="horizontal"
-                android:layout_weight="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="笔录人"
-                    android:textColor="@color/Red"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_kyBlr"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="制图人"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_kyZtr"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/line"
-                android:layout_weight="1" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginLeft="10dp"
-                android:background="@color/White"
-                android:orientation="horizontal"
-                android:layout_weight="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="照相人"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_kyZxr"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="录像人"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_kyLxr"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/line"
-                android:layout_weight="1" />
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginLeft="10dp"
-                android:background="@color/White"
-                android:orientation="horizontal"
-                android:layout_weight="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="录音人"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_kyLyr"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-            </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/line"
-                android:layout_weight="1" />
+                android:background="@color/line" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
-                android:text="现场勘验人员"
+                android:text="处警单位"
                 android:textColor="@color/Black"
                 android:textSize="18sp" />
             <View
@@ -1124,31 +131,28 @@
                 android:layout_height="1dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
-                android:background="@color/line"
-                android:layout_weight="1" />
+                android:background="@color/line" />
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:background="@color/White"
-                android:orientation="horizontal"
-                android:layout_weight="1">
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
-                    android:text="本人签名"
+                    android:text="公安局:"
                     android:textColor="@color/Black"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/et_brqm1"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
+                    android:id="@+id/et_gaj"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
                     android:background="@null"
                     android:cursorVisible="true"
@@ -1156,53 +160,6 @@
                     android:textColor="@color/Black"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="单位"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_brdw1"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="职务"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_brzw1"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-
             </LinearLayout>
 
             <View
@@ -1210,31 +167,29 @@
                 android:layout_height="1dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
-                android:background="@color/line"
-                android:layout_weight="1" />
+                android:background="@color/line" />
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:background="@color/White"
-                android:orientation="horizontal"
-                android:layout_weight="1">
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
-                    android:text="本人签名"
+                    android:text="派出所:"
                     android:textColor="@color/Black"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/et_brqm2"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
+                    android:id="@+id/et_pcs"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
                     android:background="@null"
                     android:cursorVisible="true"
@@ -1242,255 +197,72 @@
                     android:textColor="@color/Black"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="单位"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_brdw2"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="职务"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_brzw2"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/line"
-                android:layout_weight="1" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginLeft="10dp"
-                android:background="@color/White"
-                android:orientation="horizontal"
-                android:layout_weight="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="本人签名"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_brqm3"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="单位"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_brdw3"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="职务"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_brzw3"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
-                android:background="@color/line"
-                android:layout_weight="1" />
+                android:background="@color/line" />
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:background="@color/White"
-                android:orientation="horizontal"
-                android:layout_weight="1">
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
-                    android:text="本人签名"
+                    android:text="发案时间:"
                     android:textColor="@color/Black"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/et_brqm4"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
+                    android:id="@+id/et_fasj"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
+                    android:editable="false"
                     android:textColor="@color/Black"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="单位"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_brdw4"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="职务"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_brzw4"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
-                android:background="@color/line"
-                android:layout_weight="1" />
+                android:background="@color/line" />
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:background="@color/White"
-                android:orientation="horizontal"
-                android:layout_weight="1">
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
-                    android:text="本人签名"
+                    android:text="发案地点:"
                     android:textColor="@color/Black"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/et_brqm5"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
+                    android:id="@+id/et_fadd"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
                     android:background="@null"
                     android:cursorVisible="true"
@@ -1498,152 +270,19 @@
                     android:textColor="@color/Black"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="单位"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_brdw5"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="职务"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_brzw5"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
-                android:background="@color/line"
-                android:layout_weight="1" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginLeft="10dp"
-                android:background="@color/White"
-                android:orientation="horizontal"
-                android:layout_weight="1">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="本人签名"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_brqm6"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="单位"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_brdw6"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="职务"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_brzw6"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-
-            </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/line"
-                android:layout_weight="1" />
+                android:background="@color/line" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
-                android:text="现场勘验见证人"
+                android:text="当事人详情:"
                 android:textColor="@color/Black"
                 android:textSize="18sp" />
             <View
@@ -1651,8 +290,7 @@
                 android:layout_height="1dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
-                android:background="@color/line"
-                android:layout_weight="1" />
+                android:background="@color/line" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -1666,12 +304,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
-                    android:text="本人签名"
+                    android:text="1.姓名"
                     android:textColor="@color/Black"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/et_jzrqm1"
+                    android:id="@+id/et_dsrxm1"
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -1695,7 +333,7 @@
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/et_jzrxb1"
+                    android:id="@+id/et_dsrxb1"
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -1712,12 +350,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
-                    android:text="出生日期"
+                    android:text="年龄"
                     android:textColor="@color/Black"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/et_jzrsr1"
+                    android:id="@+id/et_dsrage1"
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -1731,154 +369,6 @@
                     android:textSize="18sp" />
 
             </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginLeft="10dp"
-            android:background="@color/White"
-            android:orientation="horizontal"
-            android:layout_weight="1">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:text="住址"
-                android:textColor="@color/Black"
-                android:textSize="18sp" />
-
-            <EditText
-                android:id="@+id/et_jzrzz1"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:background="@null"
-                android:cursorVisible="true"
-                android:hint=""
-                android:textColor="@color/Black"
-                android:textCursorDrawable="@null"
-                android:textSize="18sp" />
-            </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/line"
-            android:layout_weight="1" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginLeft="10dp"
-            android:background="@color/White"
-            android:orientation="horizontal"
-            android:layout_weight="1">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:text="本人签名"
-                android:textColor="@color/Black"
-                android:textSize="18sp" />
-
-            <EditText
-                android:id="@+id/et_jzrqm2"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:background="@null"
-                android:cursorVisible="true"
-                android:hint=""
-                android:textColor="@color/Black"
-                android:textCursorDrawable="@null"
-                android:textSize="18sp" />
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:text="性别"
-                android:textColor="@color/Black"
-                android:textSize="18sp" />
-
-            <EditText
-                android:id="@+id/et_jzrxb2"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:background="@null"
-                android:cursorVisible="true"
-                android:hint=""
-                android:textColor="@color/Black"
-                android:textCursorDrawable="@null"
-                android:textSize="18sp" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:text="出生日期"
-                android:textColor="@color/Black"
-                android:textSize="18sp" />
-
-            <EditText
-                android:id="@+id/et_jzrsr2"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:background="@null"
-                android:cursorVisible="true"
-                android:hint=""
-                android:textColor="@color/Black"
-                android:textCursorDrawable="@null"
-                android:textSize="18sp" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginLeft="10dp"
-            android:background="@color/White"
-            android:orientation="horizontal"
-            android:layout_weight="1">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:text="住址"
-                android:textColor="@color/Black"
-                android:textSize="18sp" />
-
-            <EditText
-                android:id="@+id/et_jzrzz2"
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:background="@null"
-                android:cursorVisible="true"
-                android:hint=""
-                android:textColor="@color/Black"
-                android:textCursorDrawable="@null"
-                android:textSize="18sp" />
-            </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -1892,12 +382,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
-                    android:text="勘验时间"
+                    android:text="住址和电话"
                     android:textColor="@color/Black"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/et_kyTime"
+                    android:id="@+id/et_dsrzz"
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -1906,17 +396,1125 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:editable="false"
                     android:textColor="@color/Black"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
+
+
+
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/White"
                 android:orientation="horizontal"
-                android:layout_gravity="center"
                 android:layout_weight="1">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="体貌特征及伤害情况"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/et_dsrtz1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/Black"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/line" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/White"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="2.姓名"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/et_dsrxm2"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/Black"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="性别"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/et_dsrxb2"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/Black"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="年龄"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/et_dsrage2"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/Black"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/White"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="住址和电话"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/et_dsrzz2"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/Black"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/White"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="体貌特征及伤害情况"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/et_dsrtz2"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/Black"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/line" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/White"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="3.姓名"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/et_dsrxm3"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/Black"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="性别"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/et_dsrxb3"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/Black"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="年龄"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/et_dsrage3"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/Black"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/White"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="住址和电话"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/et_dsrzz3"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/Black"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/White"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="体貌特征及伤害情况"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/et_dsrtz3"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/Black"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/line" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/White"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="4.姓名"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/et_dsrxm4"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/Black"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="性别"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/et_dsrxb4"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/Black"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="年龄"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/et_dsrage4"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/Black"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/White"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="住址和电话"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/et_dsrzz4"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/Black"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/White"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="体貌特征及伤害情况"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/et_dsrtz4"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/Black"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/line" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:text="证人情况"
+                android:textColor="@color/Black"
+                android:textSize="18sp" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/line" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/White"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="1.姓名"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/et_zrxm1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/Black"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="性别"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/et_zrxb1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/Black"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="年龄"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/et_zrage1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/Black"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/White"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="住址和电话"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/et_zrzz1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/Black"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/White"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="所持证件、编号"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/et_zrbh1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/Black"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/line" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/White"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="2.姓名"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/et_zrxm2"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/Black"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="性别"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/et_zrxb2"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/Black"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="年龄"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/et_zrage2"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/Black"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/White"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="住址和电话"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/et_zrzz2"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/Black"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/White"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="所持证件、编号"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/et_zrbh2"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/Black"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/line" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:text="现场情况"
+                android:textColor="@color/Black"
+                android:textSize="18sp" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/line" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/White"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="违法行为使用工具"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/et_wfxwsygj"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/Black"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/White"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="财务损毁情况"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/et_cwshqk"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/Black"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/White"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="现场破坏情况"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/et_xcphqk"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/Black"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/White"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="其它"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/et_qt"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/Black"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/White"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="备注"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/et_bz"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/Black"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/White"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="处警人员"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/et_cjry1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/Black"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/White"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="处警人员"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/et_cjry2"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/Black"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/White"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="见证人"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/et_jzr"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/Black"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="horizontal"
+
+                >
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="40dp"

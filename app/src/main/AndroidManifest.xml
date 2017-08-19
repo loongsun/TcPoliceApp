@@ -159,6 +159,19 @@
         <activity
             android:name="com.tc.activity.SenceCheck"
             android:screenOrientation="portrait"></activity>
+        <!-- 行政案件 -->
+        <activity
+            android:name="com.tc.activity.SenceCheck2"
+            android:screenOrientation="portrait"></activity>
+        <!-- 现场笔录 -->
+        <activity
+            android:name="com.tc.activity.caseinfo.XcBlActivity"
+            android:screenOrientation="portrait"></activity>
+        <!-- 检查笔录 -->
+        <activity
+            android:name="com.tc.activity.caseinfo.JcBlActivity"
+            android:screenOrientation="portrait"></activity>
+
         <!-- 画图 -->
         <activity
             android:name="com.tc.activity.caseinfo.XsajHuaTuActivity"
