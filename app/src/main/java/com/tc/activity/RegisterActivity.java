@@ -82,6 +82,7 @@ public class RegisterActivity extends Activity {
     public final static int ERROR_OTHER = 0x03;
     public final static int ERROR_CONNECT = 0x04;
     private CustomProgressDialog progressDialog = null;
+    private Account mAccount;
 
 
     private void startProgressDialog(int type) {
@@ -112,6 +113,7 @@ public class RegisterActivity extends Activity {
         btn_login.setOnClickListener(new OnClick());
         tv_login_fj.setOnClickListener(new OnClick());
         tv_login.setOnClickListener(new OnClick());
+        mAccount = Account.GetInstance();
     }
 
     public void fjLogin() {
@@ -152,19 +154,25 @@ public class RegisterActivity extends Activity {
                     break;
                 case R.id.btn_login:
 
-                    if (checkLogin(et_userName.getText().toString().trim(),
-                            et_password.getText().toString().trim())) {
-                        if (et_password.getText().toString().trim().equals(et_password1.getText().toString().trim())) {
-                            startProgressDialog(1);
-                            new Thread(loginRun).start();
+                    if (mAccount.getAdmin().equals("1")){
+                        if (checkLogin(et_userName.getText().toString().trim(),
+                                et_password.getText().toString().trim())) {
+                            if (et_password.getText().toString().trim().equals(et_password1.getText().toString().trim())) {
+                                startProgressDialog(1);
+                                new Thread(loginRun).start();
+                            } else {
+                                Toast.makeText(RegisterActivity.this, "两次密码不一致请确认", Toast.LENGTH_SHORT).show();
+                            }
                         } else {
-                            Toast.makeText(RegisterActivity.this, "两次密码不一致请确认", Toast.LENGTH_SHORT).show();
+                            UtilTc.myToast(getApplicationContext(), "请填写用户名或密码");
+                            //直接登录 测试方便
+                            //startActivity(new Intent(LoginActivity.this,MainTabActivity.class));
                         }
-                    } else {
-                        UtilTc.myToast(getApplicationContext(), "请填写用户名或密码");
-                        //直接登录 测试方便
-                        //startActivity(new Intent(LoginActivity.this,MainTabActivity.class));
+                    }else {
+                        Toast.makeText(RegisterActivity.this, "您无权限添加用户", Toast.LENGTH_SHORT).show();
                     }
+
+
 
                     break;
             }
