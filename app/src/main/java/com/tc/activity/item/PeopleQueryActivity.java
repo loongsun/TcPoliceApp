@@ -1,28 +1,40 @@
 package com.tc.activity.item;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.baidu.android.bba.common.util.Util;
+import com.baidu.ocr.sdk.OCR;
+import com.baidu.ocr.sdk.OnResultListener;
+import com.baidu.ocr.sdk.exception.OCRError;
+import com.baidu.ocr.sdk.model.AccessToken;
+import com.baidu.ocr.sdk.model.IDCardParams;
+import com.baidu.ocr.sdk.model.IDCardResult;
+import com.baidu.ocr.sdk.model.Word;
+import com.baidu.ocr.ui.camera.CameraActivity;
 import com.sdses.tool.UtilTc;
 import com.sdses.tool.Values;
 import com.tc.application.R;
+import com.tc.util.FileUtil;
 import com.tc.view.CustomProgressDialog;
 import com.zkteco.android.IDReader.IDPhotoHelper;
 import com.zkteco.android.IDReader.PowerOperate;
@@ -41,12 +53,14 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
 
 public class PeopleQueryActivity  extends Activity{
+
+	private static final String TAG = PeopleQueryActivity.class.getSimpleName();
+	private static final int REQUEST_CODE_CAMERA = 102;
 	private boolean overflag=true;
 	private Button btn_handquery;
 	private String numValue="";
@@ -67,6 +81,10 @@ public class PeopleQueryActivity  extends Activity{
 	private TextView tv_repResult,tv_repName,tv_repSex,tv_repBir,tv_repAddress,tv_repRylx,tv_repLxdw,
 			tv_repLxr,tv_repLxFs;
 	private JSONObject jsResult;
+	private Button mAutoQueryBtn;
+	private boolean mHasToken;
+	private LinearLayout mResultLayout;
+
 	private void startProgressDialog(int type) {
 		if (progressDialog == null) {
 			progressDialog = CustomProgressDialog.createDialog(this);
@@ -85,6 +103,7 @@ public class PeopleQueryActivity  extends Activity{
 		}
 	}
 	private void initWidgets(){
+		mResultLayout = (LinearLayout)findViewById(R.id.layout_result_info);
 		btn_handquery=(Button)findViewById(R.id.btn_handQuery);
 		btn_handquery.setOnClickListener(new OnClick());
 		//-----------id2
@@ -107,6 +126,22 @@ public class PeopleQueryActivity  extends Activity{
 		tv_repLxdw=(TextView)findViewById(R.id.tv_zrepLxDw);
 		tv_repLxr=(TextView)findViewById(R.id.tv_zrepLxr);
 		tv_repLxFs=(TextView)findViewById(R.id.tv_zrepLxfs);
+
+		mAutoQueryBtn = (Button) findViewById(R.id.btn_auto_query);
+		mAutoQueryBtn.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if(mHasToken){
+					Intent intent = new Intent(PeopleQueryActivity.this, CameraActivity.class);
+					intent.putExtra(CameraActivity.KEY_OUTPUT_FILE_PATH, FileUtil.getSaveFile(PeopleQueryActivity
+							.this).getAbsolutePath());
+					intent.putExtra(CameraActivity.KEY_CONTENT_TYPE,CameraActivity.CONTENT_TYPE_ID_CARD_FRONT);
+					startActivityForResult(intent,REQUEST_CODE_CAMERA);
+				}else{
+					Toast.makeText(PeopleQueryActivity.this,"正在执行认证，请稍等",Toast.LENGTH_LONG).show();
+				}
+			}
+		});
 	}
 	class OnClick implements OnClickListener{
 		@Override
@@ -128,27 +163,133 @@ public class PeopleQueryActivity  extends Activity{
 		setContentView(R.layout.peoplecheck);
 		initWidgets();
 		clearInfo();
-		InitID2();
+//		InitID2();
+		initQrCode();
 	}
 
-	private void InitID2()
-	{
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		Log.i(TAG,"requestCode="+requestCode+",resultcode="+resultCode);
+		if(requestCode==REQUEST_CODE_CAMERA){
+			if(resultCode == Activity.RESULT_OK){
+				if(data!=null){
+					String contentType = data.getStringExtra(CameraActivity.KEY_CONTENT_TYPE);
+					String filePath = FileUtil.getSaveFile(this).getAbsolutePath();
+					if(!TextUtils.isEmpty(contentType)){
+						if(CameraActivity.CONTENT_TYPE_ID_CARD_FRONT.equals(contentType)){
+							recIDCard(IDCardParams.ID_CARD_SIDE_FRONT, filePath);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	private void recIDCard(final String idCardSideFront, String filePath) {
+		IDCardParams params = new IDCardParams();
+		params.setImageFile(new File(filePath));
+		params.setIdCardSide(idCardSideFront);
+		params.setDetectDirection(true);
+		params.setImageQuality(20);
+		OCR.getInstance().recognizeIDCard(params, new OnResultListener<IDCardResult>() {
+			@Override
+			public void onResult(IDCardResult idCardResult) {
+//				if(idCardResult!=null){
+//					showMessage(idCardResult.toString());
+//				}
+				showToast("识别成功");
+				parseInfo(idCardResult);
+			}
+
+			@Override
+			public void onError(OCRError ocrError) {
+				showMessage(ocrError.getMessage());
+			}
+		});
+	}
+
+	private void parseInfo(IDCardResult idResult) {
+		if(idResult==null){
+			return;
+		}
+		Word name = idResult.getName();
+		Word gender = idResult.getGender();
+		Word ethnic = idResult.getEthnic();
+		Word birthday = idResult.getBirthday();
+		Word address = idResult.getAddress();
+		Word idNumber = idResult.getIdNumber();
+		tv_nameValue.setText(name.toString());
+		tv_sexValue.setText(gender.toString()); // 性别
+		tv_nationalValue.setText(ethnic.toString()); // 民族
+		tv_birValue.setText(birthday.toString()); // 出生年月日
+		tv_addressValue.setText(address.toString()); // 住址
+		tv_idNumValue.setText(idNumber.toString()); // 身份号码
+		tv_issueValue.setText(""); // 签发机关
+		tv_vaildDateValue.setText(""); // 有效期限
+		numValue = idNumber.toString();
+		new Thread(checkRunnable).start();
+	}
+
+	private void initQrCode(){
+		OCR.getInstance().initAccessToken(new OnResultListener<AccessToken>() {
+
+			@Override
+			public void onResult(AccessToken accessToken) {
+				Log.i(TAG,"onResult = "+accessToken);
+//				Toast.makeText(PeopleQueryActivity.this, "success", Toast.LENGTH_SHORT).show();
+//				showMessage(accessToken.getAccessToken());
+				showToast("认证成功");
+				mHasToken = true;
+
+			}
+
+			@Override
+			public void onError(OCRError ocrError) {
+				if(ocrError!=null){
+					ocrError.printStackTrace();
+				}
+				showMessage(ocrError.getMessage());
+				mHasToken = false;
+//				Toast.makeText(PeopleQueryActivity.this, ocrError.getMessage(), Toast.LENGTH_SHORT).show();
+			}
+		},PeopleQueryActivity.this.getApplicationContext());
+	}
+
+	private void showToast(final String msg){
+		this.runOnUiThread(new Runnable() {
+			@Override
+			public void run() {
+				Toast.makeText(PeopleQueryActivity.this,msg,Toast.LENGTH_SHORT).show();
+			}
+		});
+	}
+
+	private void showMessage(final String msg){
+		this.runOnUiThread(new Runnable() {
+			@Override
+			public void run() {
+				AlertDialog.Builder dialog = new AlertDialog.Builder(PeopleQueryActivity.this).setMessage(msg);
+				dialog.setTitle("ocr的结果");
+				dialog.setPositiveButton("Ok",null);
+				dialog.show();
+			}
+		});
+	}
+
+
+	private void InitID2() {
 
 		startIDCardReader();
-		if (!openDevices())
-		{
+		if (!openDevices()) {
 			tv_hint.setText("读卡设备打开失败！");
-		}
-		else {
+		} else {
 			tv_hint.setText("读卡设备打开成功！");
 			setPromptText("请放卡...");
-			try
-			{
-				String samid= idCardReader.getSAMID(Values.idPort);
-				Log.e("samid=",""+samid);
-			}
-			catch (Exception e)
-			{
+			try {
+				String samid = idCardReader.getSAMID(Values.idPort);
+				Log.e("samid=", "" + samid);
+			} catch (Exception e) {
 
 			}
 		}
@@ -161,8 +302,7 @@ public class PeopleQueryActivity  extends Activity{
 		idCardReader = IDCardReaderFactory.createIDCardReader(this, TransportType.SERIALPORT, idrparams);
 
 	}
-	private boolean openDevices()
-	{
+	private boolean openDevices() {
 
 		boolean bRet = false;
 		RFID_ON();
@@ -228,7 +368,7 @@ public class PeopleQueryActivity  extends Activity{
 							{
 								if(!overflag)
 								{
-								//	setPromptText("上次操作未完成...");
+									//	setPromptText("上次操作未完成...");
 									return;
 								}
 								setPromptText("读卡成功");
@@ -328,13 +468,14 @@ public class PeopleQueryActivity  extends Activity{
 			//开始核查
 			overflag=false;
 			numValue=idCardInfo.getName().trim();
-		//	numValue="210105197010121610";
+			//	numValue="210105197010121610";
 			startProgressDialog(QUERY);
-			new Thread(checkRun).start();
+			new Thread(checkRunnable).start();
 
 		}
 	}
-	Runnable checkRun =new Runnable() {
+
+	Runnable checkRunnable =new Runnable() {
 		@Override
 		public void run() {
 			//发起核查
@@ -347,10 +488,10 @@ public class PeopleQueryActivity  extends Activity{
 				httpRequest.setEntity(formEntity);
 				//取得HTTP response
 				HttpResponse httpResponse=new DefaultHttpClient().execute(httpRequest);
-				Log.e("code", "code"+httpResponse.getStatusLine().getStatusCode());
+				Log.i(TAG, "code"+httpResponse.getStatusLine().getStatusCode());
 				if(httpResponse.getStatusLine().getStatusCode()==200){
 					String strResult= EntityUtils.toString(httpResponse.getEntity());
-					Log.e("e", "传回来的值是："+strResult);
+					Log.i(TAG, "传回来的值是："+strResult);
 					//json 解析
 					JSONTokener jsonParser = new JSONTokener(strResult);
 					JSONObject person = (JSONObject) jsonParser.nextValue();
@@ -395,16 +536,17 @@ public class PeopleQueryActivity  extends Activity{
 	};
 	private  void showResult(JSONObject jb){
 		try{
-			tv_hint.setText(""+jb.getString("result"));
+			mResultLayout.setVisibility(View.VISIBLE);
+			tv_hint.setText(""+jb.optString("result"));
 			JSONObject jt = jb.getJSONObject("person");
-			tv_repName.setText(""+jt.get("name"));
-			tv_repSex.setText(""+jt.get("Sex"));
-			tv_repBir.setText(""+jt.get("birthday"));
-			tv_repAddress.setText(""+jt.get("address"));
-			tv_repRylx.setText(""+jt.get("rylx"));
-			tv_repLxdw.setText(""+jt.get("lxdw"));
-			tv_repLxr.setText(""+jt.get("lxr"));
-			tv_repLxFs.setText(""+jt.get("lxfs"));
+			tv_repName.setText(""+jt.optString("name"));
+			tv_repSex.setText(""+jt.opt("Sex"));
+			tv_repBir.setText(""+jt.opt("birthday"));
+			tv_repAddress.setText(""+jt.opt("address"));
+			tv_repRylx.setText(""+jt.opt("rylx"));
+			tv_repLxdw.setText(""+jt.opt("lxdw"));
+			tv_repLxr.setText(""+jt.opt("lxr"));
+			tv_repLxFs.setText(""+jt.opt("lxfs"));
 		}catch(Exception e){
 			e.printStackTrace();
 		}

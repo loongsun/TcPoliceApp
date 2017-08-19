@@ -6,7 +6,7 @@ android {
             keyAlias 'tckey'
             keyPassword 'tckey123456'
 //            storeFile file('/media/zhao/data/my_project/tc.keystore')
-            storeFile file('D:/tc.keystore')
+            storeFile file('./tc.keystore')
 //            storeFile file('/Users/chenhe/Desktop/workspace/Android/GitHubTieXi/tc.keystore')
 
             storePassword 'tc123456'
@@ -24,7 +24,7 @@ android {
         targetSdkVersion 21
         multiDexEnabled true
 
-        ndk{
+        ndk {
 
             abiFilters "armeabi"
         }
@@ -48,7 +48,7 @@ android {
         }
     }
 
-    packagingOptions{
+    packagingOptions {
         exclude "META-INF/DEPENDENCIES.txt"
         exclude "META-INF/LICENSE.txt"
         exclude "META-INF/NOTICE.txt"
@@ -77,7 +77,6 @@ dependencies {
     compile files('libs/zkandroididcardreader.jar')
     compile files('libs/poi-3.9-20121203.jar')
     compile files('libs/poi-scratchpad-3.9-20121203.jar')
-    compile 'com.squareup.okhttp3:okhttp:3.8.0'
     compile files('libs/zxing.jar')
     compile('com.android.support:support-v4:22.2.1') {
         exclude module: 'support-annotations'
@@ -86,8 +85,10 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.8.0'
     compile files('libs/zxing.jar')
     compile files('libs/ocr-sdk.jar')
-    compile 'com.android.support:appcompat-v7:25.1.1'
 
+    compile 'com.squareup.okhttp3:okhttp:3.8.0'
+    compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.jakewharton:butterknife:8.5.1'
+    compile 'com.android.support:support-v4:25.3.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
 }

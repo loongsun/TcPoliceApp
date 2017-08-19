@@ -307,39 +307,48 @@
                     android:maxWidth="102dp"
                     android:src="@drawable/lufei" />
                 <!-- 查询按钮 -->
-
-
-                <!--
-                <Button
-                    android:id="@+id/btn_id1"
-                    style="@style/button_style"
-                    android:layout_width="102dp"
-                    android:layout_height="46dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginTop="150dp"
-                    android:text="@string/idinfo_btn_check"
-                    android:textSize="18sp" />
-
-                <Button
-                    android:id="@+id/btn_readCardSwitch"
-                    style="@style/button_style"
-                    android:layout_width="102dp"
-                    android:layout_height="46dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginRight="15dp"
-                    android:layout_marginTop="210dp"
-                    android:text="@string/idinfo_btn_switch"
-                    android:textSize="18sp" />
-                -->
             </RelativeLayout>
 
-            <RelativeLayout
-                android:id="@+id/layout_below"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_auto_query"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/btn_blue"
+                    android:text="自动识别"
+                    android:textSize="20sp"
+                    />
+
+                <Button
+                    android:id="@+id/btn_handQuery"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/btn_blue"
+                    android:text="手动查询"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+
+
+
+
+            <LinearLayout
+                android:id="@+id/layout_result_info"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
                 android:visibility="gone">
             <TextView
                 android:layout_width="wrap_content"
@@ -557,35 +566,13 @@
                     android:textColor="@color/Black"
                     android:textSize="18sp" />
             </LinearLayout>
-            </RelativeLayout>
-
-            <Button
-                android:id="@+id/btn_auto_query"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/btn_blue"
-                android:text="自动识别"
-                android:textSize="20sp"
-                />
-
-            <Button
-                android:id="@+id/btn_handQuery"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/btn_blue"
-                android:text="手动查询"
-                android:textSize="20sp" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="10dp"
+                android:layout_gravity="bottom"
                 android:background="@color/Black"
                 android:orientation="horizontal">
 

@@ -38,10 +38,12 @@ public class UserManageActivity extends Fragment {
     Button exitBtn;
     Unbinder unbinder;
     private ImageView btn_userReturn;
+    private Account mAccount;
 
     private void inidWidgets() {
         btn_userReturn = (ImageView) this.getView().findViewById(R.id.btn_userReturn);
         btn_userReturn.setOnClickListener(new OnClick());
+        mAccount = Account.GetInstance();
     }
 
     @Override
@@ -73,6 +75,13 @@ public class UserManageActivity extends Fragment {
                 getActivity().finish();
                 break;
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        companyName.setText(mAccount.getDepname());
     }
 
     public static boolean isBluetoothEnable() {
