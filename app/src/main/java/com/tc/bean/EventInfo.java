@@ -1,10 +1,12 @@
 package com.tc.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by zhao on 17-8-19.
  */
 
-public class EventInfo {
+public class EventInfo implements Serializable {
 
     public String wName;
     public String wNum;
