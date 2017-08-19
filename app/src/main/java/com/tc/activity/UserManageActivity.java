@@ -55,11 +55,11 @@ public class UserManageActivity extends Fragment {
         switch (view.getId()) {
         case R.id.personal_register_tv:
                 startActivity(new Intent(getActivity(),RegisterActivity.class));
-                getActivity().finish();
+//                getActivity().finish();
                 break;
             case R.id.personal_forget_tv:
                 startActivity(new Intent(getActivity(),ChagePassActivity.class));
-                getActivity().finish();
+//                getActivity().finish();
                 break;
             case R.id.personal_bluetooth_tv:
                 if (isBluetoothEnable()){

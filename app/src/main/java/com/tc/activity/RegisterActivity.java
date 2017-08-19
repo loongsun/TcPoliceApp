@@ -4,11 +4,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,11 +32,46 @@ import org.json.JSONTokener;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * 杨工测试git 修改用户名-测试git插件-ceshi
  */
 
 public class RegisterActivity extends Activity {
+    @BindView(R.id.iv_logo)
+    ImageView ivLogo;
+    @BindView(R.id.btn_policestateReturn)
+    ImageView btnPolicestateReturn;
+    @BindView(R.id.tv_login)
+    TextView tvLogin;
+    @BindView(R.id.v_mjState)
+    View vMjState;
+    @BindView(R.id.tv_login_fj)
+    TextView tvLoginFj;
+    @BindView(R.id.vf_state)
+    View vfState;
+    @BindView(R.id.iv_user)
+    ImageView ivUser;
+    @BindView(R.id.et_userName)
+    EditText etUserName;
+    @BindView(R.id.v_user)
+    View vUser;
+    @BindView(R.id.iv_password)
+    ImageView ivPassword;
+    @BindView(R.id.et_password)
+    EditText etPassword;
+    @BindView(R.id.v_password)
+    View vPassword;
+    @BindView(R.id.iv_password1)
+    ImageView ivPassword1;
+    @BindView(R.id.et_password1)
+    EditText etPassword1;
+    @BindView(R.id.v_password1)
+    View vPassword1;
+    @BindView(R.id.btn_login)
+    Button btnLogin;
     private TextView tv_login_fj, tv_login;
     private View vf_state, mj_state;
     private EditText et_userName, et_password, et_password1;
@@ -97,6 +134,11 @@ public class RegisterActivity extends Activity {
         mj_state.setBackgroundColor(getResources().getColor(R.color.bluetc));
     }
 
+    @butterknife.OnClick(R.id.btn_policestateReturn)
+    public void onViewClicked() {
+        finish();
+    }
+
     class OnClick implements OnClickListener {
         @Override
         public void onClick(View v) {
@@ -135,6 +177,7 @@ public class RegisterActivity extends Activity {
         super.onCreate(savedInstanceState);
 //		setContentView(R.layout.loginactivity);
         setContentView(R.layout.activity_register);
+        ButterKnife.bind(this);
 
 
         initWidgets();
@@ -150,7 +193,7 @@ public class RegisterActivity extends Activity {
     }
 
     Handler loginHandler = new Handler() {
-        public void handleMessage(android.os.Message msg) {
+        public void handleMessage(Message msg) {
             stopProgressDialog();
             switch (msg.what) {
                 case NO_USER:

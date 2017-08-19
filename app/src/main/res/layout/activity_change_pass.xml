@@ -89,6 +89,7 @@
 
 
             <TextView
+                android:visibility="gone"
                 android:id="@+id/tv_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -98,6 +99,7 @@
                 android:textSize="20sp" />
 
             <View
+                android:visibility="invisible"
                 android:id="@+id/v_mjState"
                 android:layout_width="80dp"
                 android:layout_height="4dp"
@@ -107,6 +109,7 @@
                 android:background="#4883e0" />
 
             <TextView
+                android:visibility="gone"
                 android:id="@+id/tv_login_fj"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -116,6 +119,7 @@
                 android:textSize="20sp" />
 
             <View
+                android:visibility="invisible"
                 android:id="@+id/vf_state"
                 android:layout_width="80dp"
                 android:layout_height="4dp"
