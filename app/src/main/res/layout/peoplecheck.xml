@@ -323,7 +323,7 @@
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="20dp"
                     android:background="@drawable/btn_blue"
-                    android:text="自动识别"
+                    android:text="OCR识别"
                     android:textSize="20sp"
                     />
 

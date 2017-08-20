@@ -228,6 +228,7 @@ public class PeopleQueryActivity  extends Activity{
 		tv_issueValue.setText(""); // 签发机关
 		tv_vaildDateValue.setText(""); // 有效期限
 		numValue = idNumber.toString();
+//		numValue = "210303197010121618";
 		new Thread(checkRunnable).start();
 	}
 

@@ -1,13 +1,16 @@
 package com.tc.util;
 
+import android.net.Uri;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.baidu.mapapi.model.LatLng;
 import com.tc.bean.EventInfo;
 import com.tc.bean.LabelInfo;
 import com.tc.bean.PowerBean;
 import com.tc.bean.PowerInfo;
+import com.tc.fragment.MyMarkFragment;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,6 +37,22 @@ public class HttpUtil {
     private static final String TAG = HttpUtil.class.getSimpleName();
     private static final int DEFAULT_HTTP_READ_TIMEOUT = 10 * 1000;
     private static final int DEFAULT_HTTP_OPEN_TIMEOUT = 10 * 1000;
+
+    public static void uploadMark(String name,String note,LatLng latLng){
+        if(latLng==null){
+            return;
+        }
+        String url = "http://61.176.222.166:8765/interface/OneMapLable/SetLables"
+                + ".asp";
+        double latitude = latLng.latitude; //y
+        double longitude = latLng.longitude;//x
+        Uri uri = Uri.parse(url);
+        String httpUrl = uri.buildUpon().appendQueryParameter("name",name).appendQueryParameter("note",note)
+                .appendQueryParameter
+                ("lablex",String.valueOf(longitude)).appendQueryParameter("labley",String.valueOf(latitude)).toString();
+        Log.i(TAG,"httpurl = "+httpUrl);
+        String data = getDataFromURL(httpUrl);
+    }
 
 
     public static PowerBean parseData(String result){
@@ -88,6 +107,7 @@ public class HttpUtil {
                         labelInfo.note=labelObj.optString("note");
                         labelInfo.labelX = labelObj.optString("lablex");
                         labelInfo.labelY= labelObj.optString("labley");
+                        labelInfos.add(labelInfo);
                     }
                     powerBean.labelInfoList = labelInfos;
                 }
@@ -111,8 +131,8 @@ public class HttpUtil {
             connection.setInstanceFollowRedirects(true);
             connection.setRequestProperty("Accept-Encoding", "gzip");
             int response = connection.getResponseCode();
+            Log.i(TAG, "code = "+response);
             if (response == 200) {
-                Log.i(TAG, "Encoding=" + connection.getContentEncoding());
                 InputStream is = null;
                 if (("gzip").equals(connection.getContentEncoding())) {
                     is = new GZIPInputStream(connection.getInputStream());

@@ -9,6 +9,7 @@ import android.os.Message;
 import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,14 +33,17 @@ import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLng;
 import com.tc.application.R;
 import com.tc.bean.EventInfo;
+import com.tc.bean.LabelInfo;
 import com.tc.bean.PowerBean;
 import com.tc.bean.PowerInfo;
 import com.tc.util.HttpUtil;
 import com.tc.view.CustomProgressDialog;
+import com.tc.view.MarkDialog;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.zip.DeflaterOutputStream;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -51,6 +55,7 @@ public class MyMarkFragment extends Fragment {
     private static final int MSG_GET_DATA = 0x001;
     private static final String EVENT_INFO = "event_info";
     private static final String POWER_INFO = "power_info";
+    private static final String LABEL_INFO = "label_info";
     private MapView mBaiduMapView;
     private Button mEventBtn;
     private Button mPoliceBtn;
@@ -75,6 +80,7 @@ public class MyMarkFragment extends Fragment {
     private CustomProgressDialog mProgressDialog;
     private ArrayList<Marker> mEvetMarkerList;
     private ArrayList<Marker> mPowerMarkerList;
+    private ArrayList<Marker> mLabelMarkerList;
 
     public MyMarkFragment() {
         // Required empty public constructor
@@ -159,14 +165,45 @@ public class MyMarkFragment extends Fragment {
         mBaiduMap.setOnMapClickListener(new BaiduMap.OnMapClickListener() {
             @Override
             public void onMapClick(LatLng latLng) {
+                Log.i(TAG,"onMapClick");
                 mBaiduMap.hideInfoWindow();
             }
 
             @Override
             public boolean onMapPoiClick(MapPoi mapPoi) {
+                Log.i(TAG,"onMapPoiClick");
                 return false;
             }
         });
+        mBaiduMap.setOnMapLongClickListener(new BaiduMap.OnMapLongClickListener() {
+            @Override
+            public void onMapLongClick(final LatLng latLng) {
+                initLabelOverlay();
+                Log.i(TAG,"onMapLongClick");
+                MarkDialog markDialog = new MarkDialog(getActivity());
+                markDialog.setOnClickHandler(new MarkDialog.OnClickHandler() {
+                    @Override
+                    public void onCancel() {
+
+                    }
+
+                    @Override
+                    public void onOk(String name, String note) {
+                        Log.i(TAG,"onOk="+name+",note="+note);
+
+                        addLabelOverlay(name,note,latLng);
+                    }
+                });
+            }
+        });
+
+        mBaiduMap.setOnMapDoubleClickListener(new BaiduMap.OnMapDoubleClickListener() {
+            @Override
+            public void onMapDoubleClick(LatLng latLng) {
+                Log.i(TAG, "onMapDoubleClick" + latLng);
+            }
+        });
+
 
         initMarker();
     }
@@ -193,8 +230,71 @@ public class MyMarkFragment extends Fragment {
     public void onDestroy() {
         super.onDestroy();
         Log.i(TAG,"onDestory");
-        if(mBaiduMapView!=null){
-            mBaiduMapView.onDestroy();
+//        if(mBaiduMapView!=null){
+//            mBaiduMapView.onDestroy();
+//        }
+    }
+
+    private void addLabelOverlay(final String name, final String note, final LatLng latLng){
+        if(latLng==null){
+            return;
+        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                HttpUtil.uploadMark(name,note,latLng);
+            }
+        }).start();
+        BitmapDescriptor descriptor = BitmapDescriptorFactory.fromResource(R.drawable.icon_gcoding);
+        MarkerOptions markOption = new MarkerOptions().position(latLng).icon(descriptor).zIndex(9).draggable(false);
+        Marker marker = (Marker)mBaiduMap.addOverlay(markOption);
+        if(mLabelMarkerList!=null){
+            mLabelMarkerList.add(marker);
+        }
+        LabelInfo labelInfo = new LabelInfo();
+        labelInfo.name = name;
+        labelInfo.note = note;
+        labelInfo.labelX = latLng.latitude+"";
+        labelInfo.labelY = latLng.longitude+"";
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(LABEL_INFO,labelInfo);
+        marker.setExtraInfo(bundle);
+        Toast.makeText(getContext(),"upload success",Toast.LENGTH_SHORT).show();
+    }
+
+    private void initLabelOverlay(){
+        if(mPowerBean==null){
+            return;
+        }
+        BitmapDescriptor descriptor = BitmapDescriptorFactory.fromResource(R.drawable.icon_gcoding);
+        if(mLabelMarkerList==null){
+            mLabelMarkerList = new ArrayList<>();
+        }
+        List<LabelInfo> labelInfoList = mPowerBean.labelInfoList;
+        for(int i=0;labelInfoList!=null && i<labelInfoList.size();i++){
+            Log.i(TAG,"initLabelOverlay"+i);
+            LabelInfo labelInfo = labelInfoList.get(i);
+//            if(labelInfo.labelY!=null && labelInfo.labelY.contains(",")){
+//                continue;
+//            }
+            double latitude = 0.0;
+            double longitude = 0.0;
+            try{
+                latitude = Double.valueOf(labelInfo.labelY)+0.0001;
+                longitude = Double.valueOf(labelInfo.labelX)+0.0001;
+            }catch (Exception e ){
+                Log.e(TAG,"initLabelOverlay ",e);
+                continue;
+            }
+
+            LatLng latlng = new LatLng(latitude,longitude);
+            Log.i(TAG,"add power"+i);
+            MarkerOptions markOption = new MarkerOptions().position(latlng).icon(descriptor).zIndex(9).draggable(false);
+            Marker marker = (Marker)mBaiduMap.addOverlay(markOption);
+            mLabelMarkerList.add(marker);
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(LABEL_INFO,labelInfo);
+            marker.setExtraInfo(bundle);
         }
     }
 
@@ -207,19 +307,11 @@ public class MyMarkFragment extends Fragment {
         BitmapDescriptor descriptor = BitmapDescriptorFactory.fromResource(R.drawable.icon_markb);
         List<PowerInfo> powerInfoList = mPowerBean.powerInfoList;
         mPowerMarkerList = new ArrayList<>();
-        Random random = new Random(SystemClock.currentThreadTimeMillis());
 
         for(int i=0;powerInfoList!=null && i<powerInfoList.size();i++){
             PowerInfo powerInfo = powerInfoList.get(i);
-            boolean bool = random.nextBoolean();
-            if(i%2==0){
-                bool = true;
-            }else{
-                bool = false;
-            }
-            double temp = bool?i*0.0001:-i*0.0001;
-            double latitude = Double.valueOf(powerInfo.powerY)+temp;//纬度
-            double longitude = Double.valueOf(powerInfo.powerX)-temp;//经度
+            double latitude = Double.valueOf(powerInfo.powerY);//纬度
+            double longitude = Double.valueOf(powerInfo.powerX);//经度
             LatLng latlng = new LatLng(latitude,longitude);
             Log.i(TAG,"add power"+i);
             MarkerOptions markOption = new MarkerOptions().position(latlng).icon(descriptor).zIndex(9).draggable(false);
@@ -229,6 +321,7 @@ public class MyMarkFragment extends Fragment {
             bundle.putSerializable(POWER_INFO,powerInfo);
             marker.setExtraInfo(bundle);
         }
+        initLabelOverlay();
 
     }
 
@@ -248,17 +341,10 @@ public class MyMarkFragment extends Fragment {
 
         for(int i=0;i<eventInfoList.size();i++){
             EventInfo eventInfo = eventInfoList.get(i);
-            boolean bool = random.nextBoolean();
-            if(i%2==0){
-                bool = true;
-            }else{
-                bool = false;
-            }
-            double temp = bool?i*0.0001:-i*0.0001;
-            double latitude = Double.valueOf(eventInfo.wY)+temp;//纬度
-            double longitude = Double.valueOf(eventInfo.wX)-temp;//经度
+            double latitude = Double.valueOf(eventInfo.wY);//纬度
+            double longitude = Double.valueOf(eventInfo.wX);//经度
             LatLng latlng = new LatLng(latitude,longitude);
-            Log.i(TAG,"add event"+i+","+bool);
+            Log.i(TAG,"add event"+i);
             MarkerOptions markOption = new MarkerOptions().position(latlng).icon(descriptor).zIndex(9).draggable(false);
             Marker marker = (Marker)mBaiduMap.addOverlay(markOption);
             mEvetMarkerList.add(marker);
@@ -268,6 +354,7 @@ public class MyMarkFragment extends Fragment {
 //            MapStatusUpdate mapStatusUpdate = MapStatusUpdateFactory.newLatLng(latlng);
 //            mBaiduMap.setMapStatus(mapStatusUpdate);
         }
+        initLabelOverlay();
     }
 
 
@@ -281,6 +368,9 @@ public class MyMarkFragment extends Fragment {
         }
         if(mPowerMarkerList!=null){
             mPowerMarkerList.clear();
+        }
+        if(mLabelMarkerList!=null){
+            mLabelMarkerList.clear();
         }
     }
 
@@ -327,6 +417,9 @@ public class MyMarkFragment extends Fragment {
                 }else if(extraInfo.containsKey(POWER_INFO)){
                     PowerInfo powerInfo = (PowerInfo)extraInfo.getSerializable(POWER_INFO);
                     locationTx.setText(powerInfo.powerType);
+                }else if(extraInfo.containsKey(LABEL_INFO)){
+                    LabelInfo labelInfo = (LabelInfo)extraInfo.getSerializable(LABEL_INFO);
+                    locationTx.setText(labelInfo.name+"-"+labelInfo.note);
                 }
 
                 LatLng latLng = marker.getPosition();
