@@ -26,6 +26,7 @@ public class ActivityAnalysisOpinion extends Activity {
     @BindView(R.id.save_btn)
     Button saveBtn;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
