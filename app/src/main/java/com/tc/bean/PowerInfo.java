@@ -8,8 +8,17 @@ import java.io.Serializable;
 
 public class PowerInfo implements Serializable{
 
-    public String powerType;//警车民警
-    public String powerX; // 坐标 经度
-    public String powerY; // 维度
+    public String powerType;//璀﹁溅姘戣
+    public String powerX; // 鍧愭爣 缁忓害
+    public String powerY; // 缁村害
+
+    public boolean isPoliceType(){
+        return "姘戣".equals(powerType);
+    }
+
+    public boolean isCarType(){
+        return "璀﹁溅".equals(powerType);
+    }
+
 
 }
