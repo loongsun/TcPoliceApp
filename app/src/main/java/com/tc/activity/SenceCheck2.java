@@ -70,6 +70,9 @@ public class SenceCheck2 extends Activity {
                     case 100:
                         mCommonAdapter.updateView(0);
                         break;
+                    case 101:
+                        mCommonAdapter.updateView(1);
+                        break;
                 }
             }
         };

@@ -355,8 +355,7 @@ public class XckcBlActivity extends Activity {
                     UtilTc.myToastForContent(getApplicationContext());
                     break;
                 case Values.ERROR_OTHER:
-                    UtilTc.myToast(getApplicationContext(), "其它错误:"
-                            + errorMessage);
+                    UtilTc.myToast(getApplicationContext(), ""+ errorMessage);
                     stopProgressDialog();
                     break;
                 case Values.ERROR_NULLVALUEFROMSERVER:
@@ -367,10 +366,6 @@ public class XckcBlActivity extends Activity {
                     UtilTc.showLog("上传成功");
                     stopProgressDialog();
                     ia.sendHandleMsg(100, SenceCheck.waitingHandler);
-                    break;
-                case Values.ERROR_UPLOAD:
-                    UtilTc.showLog("上传失败");
-                    stopProgressDialog();
                     break;
             }
         };
@@ -436,12 +431,16 @@ public class XckcBlActivity extends Activity {
                     //{ "error code":0, "data":{ "message":"", "result":"盗抢车辆", "car":{ "hphm":"辽A12345", "hpzl":"蓝牌", "csys":"黑色", "fdjh":"888888", "cjhm":"987654321" } } }
                     if(code.trim().equals("0")){
                     //    jsResult=person.getJSONObject("data");
+                        JSONObject jb = person.getJSONObject("data");
+                        errorMessage = jb.getString("message");
                         mHandler.sendEmptyMessage(Values.SUCCESS_FORRESULR);
                     }else if(code.trim().equals("10003")){
                         JSONObject jb = person.getJSONObject("data");
                         errorMessage = jb.getString("message");
                         mHandler.sendEmptyMessage(Values.ERROR_OTHER);
-                    }else{
+                    }else if(code.trim().equals("10001")){
+                        JSONObject jb = person.getJSONObject("data");
+                        errorMessage = jb.getString("message");
                         mHandler.sendEmptyMessage(Values.ERROR_OTHER);
                     }
                 }else{

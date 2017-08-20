@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import com.sdses.tool.UtilTc;
 import com.sdses.tool.Values;
+import com.tc.activity.SenceCheck2;
+import com.tc.app.TcApp;
 import com.tc.application.R;
 import com.tc.view.CustomProgressDialog;
 import com.tc.view.DateWheelDialogN;
@@ -55,6 +57,8 @@ public class JcBlActivity extends Activity {
     private final static int UPLOAD=1;
     String errorMessage = "";
     private CustomProgressDialog progressDialog = null;
+
+    TcApp ia;
     // 进度框
     private void startProgressDialog(int type) {
         if (progressDialog == null) {
@@ -146,6 +150,7 @@ public class JcBlActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_case_jcbl);
+        ia = (TcApp)TcApp.mContent;
         initWidgets();
     }
     //上传按钮
@@ -183,21 +188,17 @@ public class JcBlActivity extends Activity {
                 case Values.ERROR_CONNECT:
                     UtilTc.myToastForContent(getApplicationContext());
                     break;
-                case Values.ERROR_OTHER:
-                    UtilTc.myToast(getApplicationContext(), "上传失败"
-                            + errorMessage);
-                    stopProgressDialog();
-                    break;
                 case Values.SUCCESS_FORRESULR:
-                    UtilTc.showLog("上传成功");
+                    UtilTc.myToast(getApplicationContext(), ""+errorMessage);
+                    ia.sendHandleMsg(101, SenceCheck2.waitingHandler);
                     stopProgressDialog();
                     break;
                 case Values.ERROR_NULLVALUEFROMSERVER:
-                    UtilTc.showLog("服务器异常");
+                    UtilTc.myToast(getApplicationContext(), "服务器异常");
                     stopProgressDialog();
                     break;
                 case Values.ERROR_UPLOAD:
-                    UtilTc.myToast(getApplicationContext(), "上传失败");
+                    UtilTc.myToast(getApplicationContext(), ""+errorMessage);
                     stopProgressDialog();
                     break;
             }
@@ -245,13 +246,16 @@ public class JcBlActivity extends Activity {
                     String code=person.getString("error code");
                     //{ "error code":0, "data":{ "message":"", "result":"盗抢车辆", "car":{ "hphm":"辽A12345", "hpzl":"蓝牌", "csys":"黑色", "fdjh":"888888", "cjhm":"987654321" } } }
                     if(code.trim().equals("0")){
-                        //    jsResult=person.getJSONObject("data");
+                        JSONObject jsResult=person.getJSONObject("data");
+                        errorMessage = jsResult.getString("message");
                         mHandler.sendEmptyMessage(Values.SUCCESS_FORRESULR);
                     }else if(code.trim().equals("10003")){
                         JSONObject jb = person.getJSONObject("data");
                         errorMessage = jb.getString("message");
                         mHandler.sendEmptyMessage(Values.ERROR_UPLOAD);
-                    }else {
+                    }else if(code.trim().equals("10001")){
+                        JSONObject jsResult=person.getJSONObject("data");
+                        errorMessage = jsResult.getString("message");
                         mHandler.sendEmptyMessage(Values.ERROR_UPLOAD);
                     }
                 }else{
