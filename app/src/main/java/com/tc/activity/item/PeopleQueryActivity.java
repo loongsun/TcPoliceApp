@@ -84,6 +84,7 @@ public class PeopleQueryActivity  extends Activity{
 	private Button mAutoQueryBtn;
 	private boolean mHasToken;
 	private LinearLayout mResultLayout;
+	private ImageView mBackImg;
 
 	private void startProgressDialog(int type) {
 		if (progressDialog == null) {
@@ -126,6 +127,13 @@ public class PeopleQueryActivity  extends Activity{
 		tv_repLxdw=(TextView)findViewById(R.id.tv_zrepLxDw);
 		tv_repLxr=(TextView)findViewById(R.id.tv_zrepLxr);
 		tv_repLxFs=(TextView)findViewById(R.id.tv_zrepLxfs);
+		mBackImg = (ImageView)findViewById(R.id.btn_peoplequeryReturn);
+		mBackImg.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				finish();
+			}
+		});
 
 		mAutoQueryBtn = (Button) findViewById(R.id.btn_auto_query);
 		mAutoQueryBtn.setOnClickListener(new OnClickListener() {
@@ -228,6 +236,7 @@ public class PeopleQueryActivity  extends Activity{
 		tv_issueValue.setText(""); // 签发机关
 		tv_vaildDateValue.setText(""); // 有效期限
 		numValue = idNumber.toString();
+//		numValue = "210303197010121618";
 		new Thread(checkRunnable).start();
 	}
 
@@ -239,7 +248,7 @@ public class PeopleQueryActivity  extends Activity{
 				Log.i(TAG,"onResult = "+accessToken);
 //				Toast.makeText(PeopleQueryActivity.this, "success", Toast.LENGTH_SHORT).show();
 //				showMessage(accessToken.getAccessToken());
-				showToast("认证成功");
+//				showToast("认证成功");
 				mHasToken = true;
 
 			}
