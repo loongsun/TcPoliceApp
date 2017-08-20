@@ -28,7 +28,7 @@ public class MainTabActivity extends FragmentActivity{
     //cengongdd磊寺
 
 	//定义数组来存放Fragment界面
-	private Class fragmentArray[] = {PoliceStateActivity.class,testActivity.class,MyMarkFragment.class,InfoQueryActivity.class,
+	private Class fragmentArray[] = {PoliceStateActivity.class,FormalSurveyActivity.class,MyMarkFragment.class,InfoQueryActivity.class,
 			KcqzMainList.class,UserManageActivity.class};
 	//定义数组来存放按钮图片
 	private int mImageViewArray[] = {R.drawable.tab_home_btn,R.drawable.tab_xskc_btn,R.drawable.tab_yjbz_btn,
