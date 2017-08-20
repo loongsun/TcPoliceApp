@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.tc.application.R;
+import com.tc.view.DateWheelDialogN;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,6 +27,8 @@ public class ActivityTraceEvidence extends Activity {
     ImageView btnXczpReturn;
     @BindView(R.id.save_btn)
     Button saveBtn;
+    @BindView(R.id.get_time)
+    EditText getTime;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,7 +38,7 @@ public class ActivityTraceEvidence extends Activity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_xczpReturn, R.id.save_btn})
+    @OnClick({R.id.btn_xczpReturn, R.id.save_btn,R.id.get_time})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_xczpReturn:
@@ -42,9 +46,23 @@ public class ActivityTraceEvidence extends Activity {
                 break;
             case R.id.save_btn:
                 Intent intent = new Intent();
-                intent.setClass(getBaseContext(),ActivityAnalysisOpinion.class);
+                intent.setClass(getBaseContext(), ActivityAnalysisOpinion.class);
                 startActivity(intent);
+                break;
+
+            case R.id.get_time:
+
+                DateWheelDialogN kyDateChooseDialog5 = new DateWheelDialogN(this, new DateWheelDialogN.DateChooseInterface() {
+                    @Override
+                    public void getDateTime(String time, boolean longTimeChecked) {
+                        getTime.setText(time);
+
+                    }
+                });
+                kyDateChooseDialog5.setDateDialogTitle("保护时间");
+                kyDateChooseDialog5.showDateChooseDialog();
                 break;
         }
     }
+
 }

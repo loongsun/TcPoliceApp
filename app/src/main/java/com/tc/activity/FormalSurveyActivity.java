@@ -7,8 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.tc.application.R;
+import com.tc.view.DateWheelDialogN;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,6 +23,12 @@ public class FormalSurveyActivity extends Fragment {
     @BindView(R.id.next_btn)
     Button nextBtn;
     Unbinder unbinder;
+    @BindView(R.id.start_time)
+    EditText startTime;
+    @BindView(R.id.end_time)
+    EditText endTime;
+    @BindView(R.id.save_time)
+    EditText saveTime;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,5 +52,46 @@ public class FormalSurveyActivity extends Fragment {
         startActivity(intent);
 
 
+    }
+
+    @OnClick({R.id.start_time, R.id.end_time, R.id.save_time})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.start_time:
+                DateWheelDialogN kyDateChooseDialog3 = new DateWheelDialogN(getActivity(), new DateWheelDialogN.DateChooseInterface() {
+                    @Override
+                    public void getDateTime(String time, boolean longTimeChecked) {
+                        startTime.setText(time);
+
+                    }
+                });
+                kyDateChooseDialog3.setDateDialogTitle("案发时间");
+                kyDateChooseDialog3.showDateChooseDialog();
+                break;
+            case R.id.end_time:
+
+                DateWheelDialogN kyDateChooseDialog4 = new DateWheelDialogN(getActivity(), new DateWheelDialogN.DateChooseInterface() {
+                    @Override
+                    public void getDateTime(String time, boolean longTimeChecked) {
+                        endTime.setText(time);
+
+                    }
+                });
+                kyDateChooseDialog4.setDateDialogTitle("结案时间");
+                kyDateChooseDialog4.showDateChooseDialog();
+                break;
+            case R.id.save_time:
+
+                DateWheelDialogN kyDateChooseDialog5 = new DateWheelDialogN(getActivity(), new DateWheelDialogN.DateChooseInterface() {
+                    @Override
+                    public void getDateTime(String time, boolean longTimeChecked) {
+                        saveTime.setText(time);
+
+                    }
+                });
+                kyDateChooseDialog5.setDateDialogTitle("保护时间");
+                kyDateChooseDialog5.showDateChooseDialog();
+                break;
+        }
     }
 }

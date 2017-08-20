@@ -17,6 +17,7 @@
             android:orientation="horizontal">
 
             <ImageView
+                android:visibility="invisible"
                 android:id="@+id/btn_userReturn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -103,6 +104,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
@@ -155,6 +157,63 @@
                             android:layout_marginLeft="10dp"
                             android:text="盗窃电动自称车"
                             android:textColor="@color/colorPrimary" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="盗窃车内财物案"
+                            android:textColor="@color/colorPrimary" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="其他类别案"
+                            android:textColor="@color/colorPrimary" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="强奸案"
+                            android:textColor="@color/colorPrimary" />
+
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="扒窃案"
+                            android:textColor="@color/colorPrimary" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="入户抢劫案"
+                            android:textColor="@color/colorPrimary" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="故意伤害案"
+                            android:textColor="@color/colorPrimary" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="其他盗窃案件"
+                            android:textColor="@color/colorPrimary" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="入室盗窃案"
+                            android:textColor="@color/colorPrimary" />
                     </RadioGroup>
                 </HorizontalScrollView>
 
@@ -175,6 +234,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
@@ -213,6 +273,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
@@ -258,6 +319,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
@@ -303,6 +365,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
@@ -312,6 +375,7 @@
                     android:textSize="18sp" />
 
                 <EditText
+                    android:id="@+id/start_time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -339,6 +403,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
@@ -367,6 +432,16 @@
                 android:layout_weight="1"
                 android:background="@color/line" />
 
+
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@color/line" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -384,6 +459,7 @@
                     android:textSize="18sp" />
 
                 <EditText
+                    android:id="@+id/end_time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -411,6 +487,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
@@ -447,6 +524,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -484,6 +562,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
@@ -520,6 +599,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
@@ -597,6 +677,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -658,6 +739,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
@@ -667,6 +749,7 @@
                     android:textSize="18sp" />
 
                 <EditText
+                    android:id="@+id/save_time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -693,6 +776,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
@@ -751,6 +835,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
@@ -823,6 +908,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
@@ -883,6 +969,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
@@ -918,6 +1005,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
@@ -955,6 +1043,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
@@ -984,6 +1073,44 @@
                 android:layout_weight="1"
                 android:background="@color/line" />
 
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/White"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="现场遗留物："
+                    android:textColor="@color/text_11"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/colorPrimary"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@color/line" />
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -995,7 +1122,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="勘验检查情况："
                     android:textColor="@color/text_11"
@@ -1029,11 +1155,51 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="被害人/报案人"
+                    android:textColor="@color/text_11"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/colorPrimary"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@color/line" />
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/White"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="损失物品："
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
@@ -1069,6 +1235,87 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="录像："
+                    android:textColor="@color/text_11"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/colorPrimary"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:gravity="center"
+                    android:text="分钟"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@color/line" />
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/White"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="伤亡情况："
+                    android:textColor="@color/text_11"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/colorPrimary"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@color/line" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/White"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:drawableRight="@mipmap/ic_small_star"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="见证人："
@@ -1100,15 +1347,18 @@
         </LinearLayout>
 
 
+
         <Button
             android:id="@+id/next_btn"
-            android:background="@color/TextBackColor"
-            android:text="保存"
-            android:layout_marginBottom="30dp"
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
+            android:layout_marginTop="50dp"
             android:layout_width="match_parent"
-            android:layout_height="30dp" />
+            android:layout_height="40dp"
+            android:background="@drawable/btn_blue"
+            android:text="下一步"
+            android:textSize="20sp" />
+
 
     </LinearLayout>
 
