@@ -240,7 +240,7 @@ public class PeopleQueryActivity  extends Activity{
 				Log.i(TAG,"onResult = "+accessToken);
 //				Toast.makeText(PeopleQueryActivity.this, "success", Toast.LENGTH_SHORT).show();
 //				showMessage(accessToken.getAccessToken());
-				showToast("认证成功");
+//				showToast("认证成功");
 				mHasToken = true;
 
 			}
