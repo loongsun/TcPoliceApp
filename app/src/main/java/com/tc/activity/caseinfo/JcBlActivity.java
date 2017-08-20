@@ -197,6 +197,10 @@ public class JcBlActivity extends Activity {
                     UtilTc.myToast(getApplicationContext(), "·þÎñÆ÷Òì³£");
                     stopProgressDialog();
                     break;
+                case Values.ERROR_UPLOAD:
+                    UtilTc.myToast(getApplicationContext(), ""+errorMessage);
+                    stopProgressDialog();
+                    break;
             }
         };
     };
