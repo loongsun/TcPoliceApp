@@ -363,7 +363,7 @@ public class XckcBlActivity extends Activity {
                     stopProgressDialog();
                     break;
                 case Values.SUCCESS_FORRESULR:
-                    UtilTc.showLog("上传成功");
+                    UtilTc.myToast(getApplicationContext(), ""+ errorMessage);
                     stopProgressDialog();
                     ia.sendHandleMsg(100, SenceCheck.waitingHandler);
                     break;
