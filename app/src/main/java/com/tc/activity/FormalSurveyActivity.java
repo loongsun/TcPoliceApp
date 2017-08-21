@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.tc.application.R;
 import com.tc.view.DateWheelDialogN;
@@ -29,6 +30,14 @@ public class FormalSurveyActivity extends Fragment {
     EditText endTime;
     @BindView(R.id.save_time)
     EditText saveTime;
+    @BindView(R.id.ending_time)
+    EditText endingTime;
+    @BindView(R.id.textView3)
+    TextView textView3;
+    @BindView(R.id.et_kyKydw)
+    EditText etKyKydw;
+    @BindView(R.id.et_kyZpbgdw)
+    EditText etKyZpbgdw;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -54,7 +63,7 @@ public class FormalSurveyActivity extends Fragment {
 
     }
 
-    @OnClick({R.id.start_time, R.id.end_time, R.id.save_time})
+    @OnClick({R.id.start_time, R.id.end_time, R.id.save_time,R.id.ending_time})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.start_time:
@@ -92,6 +101,20 @@ public class FormalSurveyActivity extends Fragment {
                 kyDateChooseDialog5.setDateDialogTitle("保护时间");
                 kyDateChooseDialog5.showDateChooseDialog();
                 break;
+
+            case R.id.ending_time:
+
+                DateWheelDialogN kyDateChooseDialog6 = new DateWheelDialogN(getActivity(), new DateWheelDialogN.DateChooseInterface() {
+                    @Override
+                    public void getDateTime(String time, boolean longTimeChecked) {
+                        endingTime.setText(time);
+
+                    }
+                });
+                kyDateChooseDialog6.setDateDialogTitle("终止时间");
+                kyDateChooseDialog6.showDateChooseDialog();
+                break;
         }
     }
+
 }

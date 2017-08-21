@@ -438,11 +438,12 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:drawableRight="@mipmap/ic_small_star"
-                    android:text="案发时间"
+                    android:text="发案开始时间"
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <TextView
+                    android:visibility="gone"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="开始："
@@ -455,6 +456,8 @@
                     android:id="@+id/start_time"
                     android:layout_width="0dp"
                     android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusableInTouchMode="false"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
@@ -465,14 +468,56 @@
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
 
+                <!--<TextView-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:text="终止："-->
+                    <!--android:textColor="@color/text_11"-->
+                    <!--android:textSize="18sp"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent" />-->
+
+                <!--<EditText-->
+                    <!--android:id="@+id/ending_time"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="15dp"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:background="@null"-->
+                    <!--android:cursorVisible="true"-->
+                    <!--android:hint=""-->
+                    <!--android:clickable="true"-->
+                    <!--android:focusableInTouchMode="false"-->
+                    <!--android:textColor="@color/colorPrimary"-->
+                    <!--android:textCursorDrawable="@null"-->
+                    <!--android:textSize="18sp" />-->
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@color/line" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/White"
+                android:orientation="horizontal">
+
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
-                    android:text="终止："
+                    android:drawableRight="@mipmap/ic_small_star"
+                    android:text="发案终止时间"
                     android:textColor="@color/text_11"
-                    android:textSize="18sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent" />
+                    android:textSize="18sp" />
 
                 <EditText
                     android:id="@+id/ending_time"
@@ -484,6 +529,8 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
+                    android:clickable="true"
+                    android:focusableInTouchMode="false"
                     android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
@@ -495,6 +542,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
                 android:background="@color/line" />
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -558,6 +606,8 @@
                     android:textSize="18sp" />
 
                 <EditText
+                    android:clickable="true"
+                    android:focusableInTouchMode="false"
                     android:id="@+id/end_time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -848,6 +898,8 @@
                     android:textSize="18sp" />
 
                 <EditText
+                    android:clickable="true"
+                    android:focusableInTouchMode="false"
                     android:id="@+id/save_time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
