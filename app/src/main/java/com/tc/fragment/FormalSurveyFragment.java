@@ -60,6 +60,7 @@ public class FormalSurveyFragment extends Fragment {
             progressDialog.dismiss();
             progressDialog = null;
         }
+
     }
 
 
