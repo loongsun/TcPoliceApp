@@ -82,6 +82,10 @@
         <item>宁</item>
         <item>新</item>
     </string-array>
+    <string name="police_man">民警</string>
+    <string name="police_car">警车</string>
+    <string name="crime">刑事案件</string>
+    <string name="civil">民事案件</string>
 
     <style name="CustomProgressDialog" parent="@style/CustomDialog">
         <item name="android:windowBackground">@android:color/transparent</item>

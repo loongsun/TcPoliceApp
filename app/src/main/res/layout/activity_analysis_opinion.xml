@@ -1002,7 +1002,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="80dp"
                 android:background="@color/White"
                 android:orientation="horizontal">
 
@@ -1032,7 +1032,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="80dp"
                 android:background="@color/White"
                 android:orientation="horizontal">
 
@@ -1090,7 +1090,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="80dp"
                 android:background="@color/White"
                 android:orientation="horizontal">
 
@@ -1175,6 +1175,7 @@
 
 
             <Button
+                android:layout_marginBottom="40dp"
                 android:id="@+id/next_btn"
                 android:layout_marginRight="30dp"
                 android:layout_marginLeft="30dp"

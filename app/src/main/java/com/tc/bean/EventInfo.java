@@ -18,6 +18,14 @@ public class EventInfo implements Serializable {
     public String wTel;
     public String wPerson;
 
+    public boolean isCrime(){
+        return "刑事案件".equals(wType);
+    }
+
+    public boolean isCivil(){
+        return "民事案件".equals(wType);
+    }
+
 
 
 }

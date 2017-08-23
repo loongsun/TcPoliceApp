@@ -17,14 +17,14 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:visibility="invisible"
                 android:id="@+id/btn_userReturn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="2dp"
                 android:gravity="center_vertical"
-                android:src="@drawable/icon_return"></ImageView>
+                android:src="@drawable/icon_return"
+                android:visibility="invisible"></ImageView>
 
             <TextView
                 android:id="@+id/textView4"
@@ -89,6 +89,36 @@
                     android:textSize="18sp" />
             </LinearLayout>
 
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/White"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="案（事）件受理号："
+                    android:textColor="@color/text_11"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/colorPrimary"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1px"
@@ -104,11 +134,49 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
+                    android:text="案件编号："
+                    android:textColor="@color/text_11"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/colorPrimary"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@color/line" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/White"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:text="案件类别"
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
@@ -234,11 +302,11 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:text="发案区划"
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
@@ -273,11 +341,11 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:text="是否命案"
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
@@ -319,11 +387,11 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:text="是否刑案"
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
@@ -365,24 +433,104 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
-                    android:text="案发时间"
+                    android:drawableRight="@mipmap/ic_small_star"
+                    android:text="发案开始时间"
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
+                <TextView
+                    android:visibility="gone"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="开始："
+                    android:textColor="@color/text_11"
+                    android:textSize="18sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+
                 <EditText
                     android:id="@+id/start_time"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusableInTouchMode="false"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
+                    android:textColor="@color/colorPrimary"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+
+                <!--<TextView-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:text="终止："-->
+                    <!--android:textColor="@color/text_11"-->
+                    <!--android:textSize="18sp"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent" />-->
+
+                <!--<EditText-->
+                    <!--android:id="@+id/ending_time"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="15dp"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:background="@null"-->
+                    <!--android:cursorVisible="true"-->
+                    <!--android:hint=""-->
+                    <!--android:clickable="true"-->
+                    <!--android:focusableInTouchMode="false"-->
+                    <!--android:textColor="@color/colorPrimary"-->
+                    <!--android:textCursorDrawable="@null"-->
+                    <!--android:textSize="18sp" />-->
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@color/line" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/White"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
+                    android:text="发案终止时间"
+                    android:textColor="@color/text_11"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/ending_time"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:clickable="true"
+                    android:focusableInTouchMode="false"
                     android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
@@ -395,6 +543,7 @@
                 android:layout_weight="1"
                 android:background="@color/line" />
 
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -403,11 +552,11 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:text="发案地点"
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
@@ -431,8 +580,6 @@
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
                 android:background="@color/line" />
-
-
 
 
             <View
@@ -459,6 +606,8 @@
                     android:textSize="18sp" />
 
                 <EditText
+                    android:clickable="true"
+                    android:focusableInTouchMode="false"
                     android:id="@+id/end_time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -487,11 +636,11 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:text="勘验地点"
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
@@ -518,25 +667,25 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="60dp"
+                android:layout_weight="2"
                 android:background="@color/White"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:text="勘验事由"
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
                     android:background="@null"
@@ -556,17 +705,17 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="60dp"
                 android:layout_weight="1"
                 android:background="@color/White"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:text="案发过程"
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
@@ -599,11 +748,11 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:text="保护人"
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
@@ -677,10 +826,10 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:text="保护措施："
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
@@ -739,16 +888,18 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:text="保护时间"
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
+                    android:clickable="true"
+                    android:focusableInTouchMode="false"
                     android:id="@+id/save_time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -776,11 +927,11 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:text="现场条件"
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
@@ -835,11 +986,11 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:text="天气状况："
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
@@ -908,11 +1059,11 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:text="光照条件："
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
@@ -969,11 +1120,11 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:text="现场指挥人员"
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
@@ -1005,11 +1156,11 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:text="勘验检查人员"
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
@@ -1043,11 +1194,11 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:text="其他到场人员"
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
@@ -1076,7 +1227,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="40dp"
                 android:layout_weight="1"
                 android:background="@color/White"
                 android:orientation="horizontal">
@@ -1113,8 +1264,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginLeft="10dp"
+                android:layout_height="80dp"
                 android:layout_weight="1"
                 android:background="@color/White"
                 android:orientation="horizontal">
@@ -1155,11 +1305,11 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:text="被害人/报案人"
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
@@ -1186,10 +1336,9 @@
                 android:background="@color/line" />
 
 
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="40dp"
                 android:layout_weight="1"
                 android:background="@color/White"
                 android:orientation="horizontal">
@@ -1241,11 +1390,11 @@
                     android:textSize="18sp" />
 
                 <EditText
-                    android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
+                    android:layout_weight="1"
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
@@ -1254,10 +1403,10 @@
                     android:textSize="18sp" />
 
                 <TextView
-                    android:gravity="center"
-                    android:text="分钟"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="分钟" />
             </LinearLayout>
 
 
@@ -1269,10 +1418,9 @@
                 android:background="@color/line" />
 
 
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="40dp"
                 android:layout_weight="1"
                 android:background="@color/White"
                 android:orientation="horizontal">
@@ -1305,19 +1453,19 @@
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
                 android:background="@color/line" />
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="40dp"
                 android:layout_weight="1"
                 android:background="@color/White"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:text="见证人："
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
@@ -1340,21 +1488,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="1px"
                 android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
                 android:layout_weight="1"
                 android:background="@color/line" />
 
         </LinearLayout>
 
 
-
         <Button
             android:id="@+id/next_btn"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="50dp"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="50dp"
             android:background="@drawable/btn_blue"
             android:text="下一步"
             android:textSize="20sp" />

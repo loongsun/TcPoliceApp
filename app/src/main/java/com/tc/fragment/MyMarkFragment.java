@@ -6,10 +6,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.os.SystemClock;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,7 +27,6 @@ import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.map.Marker;
 import com.baidu.mapapi.map.MarkerOptions;
-import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLng;
 import com.tc.application.R;
 import com.tc.bean.EventInfo;
@@ -42,8 +39,6 @@ import com.tc.view.MarkDialog;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
-import java.util.zip.DeflaterOutputStream;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -305,6 +300,8 @@ public class MyMarkFragment extends Fragment {
         }
         clearOverlay();
         BitmapDescriptor descriptor = BitmapDescriptorFactory.fromResource(R.drawable.icon_markb);
+        BitmapDescriptor policeDesc = BitmapDescriptorFactory.fromResource(R.drawable.icon_police);
+        BitmapDescriptor cardDesc = BitmapDescriptorFactory.fromResource(R.drawable.icon_car);
         List<PowerInfo> powerInfoList = mPowerBean.powerInfoList;
         mPowerMarkerList = new ArrayList<>();
 
@@ -314,6 +311,12 @@ public class MyMarkFragment extends Fragment {
             double longitude = Double.valueOf(powerInfo.powerX);//经度
             LatLng latlng = new LatLng(latitude,longitude);
             Log.i(TAG,"add power"+i);
+//            BitmapDescriptor descriptor = policeDesc;
+            if(getResources().getString(R.string.police_car).equals(powerInfo.powerType)){
+                descriptor = cardDesc;
+            }else if(getResources().getString(R.string.police_man).equals(powerInfo.powerType)){
+                descriptor = policeDesc;
+            }
             MarkerOptions markOption = new MarkerOptions().position(latlng).icon(descriptor).zIndex(9).draggable(false);
             Marker marker = (Marker)mBaiduMap.addOverlay(markOption);
             mEvetMarkerList.add(marker);
@@ -332,12 +335,12 @@ public class MyMarkFragment extends Fragment {
         }
         clearOverlay();
         BitmapDescriptor descriptor = BitmapDescriptorFactory.fromResource(R.drawable.icon_marka);
-
+        BitmapDescriptor crimeDesc = BitmapDescriptorFactory.fromResource(R.drawable.icon_crime);
+        BitmapDescriptor civilDesc = BitmapDescriptorFactory.fromResource(R.drawable.icon_civil);
         List<EventInfo> eventInfoList = mPowerBean.eventInfoList;
         if(mEvetMarkerList ==null){
             mEvetMarkerList = new ArrayList<Marker>();
         }
-        Random random = new Random(SystemClock.currentThreadTimeMillis());
 
         for(int i=0;i<eventInfoList.size();i++){
             EventInfo eventInfo = eventInfoList.get(i);
@@ -345,14 +348,20 @@ public class MyMarkFragment extends Fragment {
             double longitude = Double.valueOf(eventInfo.wX);//经度
             LatLng latlng = new LatLng(latitude,longitude);
             Log.i(TAG,"add event"+i);
+//            BitmapDescriptor descriptor = civilDesc;
+            if(getResources().getString(R.string.crime).equals(eventInfo.wType)){
+                descriptor = crimeDesc;
+            }else if(getResources().getString(R.string.civil).equals(eventInfo.wType)){
+                descriptor = civilDesc;
+            }
             MarkerOptions markOption = new MarkerOptions().position(latlng).icon(descriptor).zIndex(9).draggable(false);
             Marker marker = (Marker)mBaiduMap.addOverlay(markOption);
             mEvetMarkerList.add(marker);
             Bundle bundle = new Bundle();
             bundle.putSerializable(EVENT_INFO,eventInfo);
             marker.setExtraInfo(bundle);
-//            MapStatusUpdate mapStatusUpdate = MapStatusUpdateFactory.newLatLng(latlng);
-//            mBaiduMap.setMapStatus(mapStatusUpdate);
+            MapStatusUpdate mapStatusUpdate = MapStatusUpdateFactory.newLatLng(latlng);
+            mBaiduMap.setMapStatus(mapStatusUpdate);
         }
         initLabelOverlay();
     }
@@ -382,21 +391,20 @@ public class MyMarkFragment extends Fragment {
         MapStatusUpdate statusUpdate = MapStatusUpdateFactory.zoomTo(17);
         mBaiduMap.setMapStatus(statusUpdate);
         //设置标注图
-        BitmapDescriptor descriptor = BitmapDescriptorFactory.fromResource(R.drawable.icon_gcoding);
-        double wx= 123.329414;
-        double wy=41.817323;
-//        LatLng latLng = new LatLng(39.915071, 116.403907); // 默认 天安门
-        LatLng latLng = new LatLng(wy,wx);
-//        LatLng latLng = new LatLng(wx,wy);
-        OverlayOptions overlayOptions = new MarkerOptions().position(latLng).icon(descriptor);
+//        BitmapDescriptor descriptor = BitmapDescriptorFactory.fromResource(R.drawable.icon_gcoding);
+//        double wx= 123.329414;
+//        double wy=41.817323;
+////        LatLng latLng = new LatLng(39.915071, 116.403907); // 默认 天安门
+//        LatLng latLng = new LatLng(wy,wx);
+//        OverlayOptions overlayOptions = new MarkerOptions().position(latLng).icon(descriptor);
+//
+//        Marker marker = (Marker)mBaiduMap.addOverlay(overlayOptions);
+//
+//        Bundle bundle = new Bundle();
+//        marker.setExtraInfo(bundle);
 
-        Marker marker = (Marker)mBaiduMap.addOverlay(overlayOptions);
-
-        Bundle bundle = new Bundle();
-        marker.setExtraInfo(bundle);
-
-        MapStatusUpdate mapStatusUpdate = MapStatusUpdateFactory.newLatLng(latLng);
-        mBaiduMap.setMapStatus(mapStatusUpdate);
+//        MapStatusUpdate mapStatusUpdate = MapStatusUpdateFactory.newLatLng(latLng);
+//        mBaiduMap.setMapStatus(mapStatusUpdate);
 
 
         mBaiduMap.setOnMarkerClickListener(new BaiduMap.OnMarkerClickListener() {
