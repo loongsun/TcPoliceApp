@@ -35,7 +35,7 @@ public class ActivityAnalysisOpinion extends Activity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_analysis_opinion);
-        ButterKnife.bind(this);
+        ButterKnife.bind(this);//
 
 
     }
