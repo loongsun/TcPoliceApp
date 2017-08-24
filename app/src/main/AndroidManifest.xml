@@ -214,7 +214,10 @@
         <activity
             android:name="com.tc.activity.ActivityAnalysisOpinion"
             android:screenOrientation="portrait"></activity>
-        ActivityAnalysisOpinion
+
+        <activity
+            android:name="com.tc.activity.FormalActivity"
+            android:screenOrientation="portrait"></activity>
 
         <!--<activity android:name="com.tc.activity.FormalSurveyActivityActivity"></activity>-->
     </application>

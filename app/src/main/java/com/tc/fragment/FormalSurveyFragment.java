@@ -18,8 +18,7 @@ import android.widget.TextView;
 import com.sdses.bean.PoliceStateListBean;
 import com.sdses.tool.UtilTc;
 import com.sdses.tool.Values;
-import com.tc.activity.SenceCheck;
-import com.tc.activity.SenceCheck2;
+import com.tc.activity.FormalActivity;
 import com.tc.application.R;
 import com.tc.view.CustomProgressDialog;
 
@@ -138,12 +137,14 @@ public class FormalSurveyFragment extends Fragment {
                     public void onClick(View arg0) {
                         Log.e("e", "onClick");
                         if(stateList.get(position).getWtype().equals("ÐÌÊÂ°¸¼þ")){
-                            startActivity(new Intent(getActivity(), SenceCheck.class)
+//                            startActivity(new Intent(getActivity(), SenceCheck.class)
+                                    startActivity(new Intent(getActivity(), FormalActivity.class)
                                     .putExtra("name",stateList.get(position).getJqNum())
                                     .putExtra("anjianname",stateList.get(position).getJqName())
                             );
                         }else {
-                            startActivity(new Intent(getActivity(), SenceCheck2.class)
+                            startActivity(new Intent(getActivity(), FormalActivity.class)
+//                            startActivity(new Intent(getActivity(), SenceCheck2.class)
                                     .putExtra("name",stateList.get(position).getJqNum())
                                     .putExtra("anjianname",stateList.get(position).getJqName())
                             );
