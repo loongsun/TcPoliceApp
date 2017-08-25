@@ -8,15 +8,15 @@ import android.os.Environment;
 import com.sdses.bean.PoliceStateListBean;
 
 public class Values {
-	public static String policeType="mj"; //Ä¬ÈÏÃñ¾¯
+	public static String policeType="mj"; //Ä¬ï¿½ï¿½ï¿½ï¿½
     public final static int ERROR_CONNECT=0x04;
-    public static String POLICE_GOTIME="";  //È·ÈÏ³ö¾¯Ê±¼ä
-    public static String POLICE_ARRIVETIME="";//¾¯²ìµ½´ïÊ±¼ä
+    public static String POLICE_GOTIME="";  //È·ï¿½Ï³ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+    public static String POLICE_ARRIVETIME="";//ï¿½ï¿½ï¿½ìµ½ï¿½ï¿½Ê±ï¿½ï¿½
     public static String DB_JQINFO="dbJqInfo";//dbjq
-    public static String LS_JQINFO="lsJqInfo";//¾¯²ìµ½´ïÊ±¼ä
-    public static int JQ_STATESBTN=1;//1 ÊµÊ± 2´ý°ì 3ÀúÊ·
+    public static String LS_JQINFO="lsJqInfo";//ï¿½ï¿½ï¿½ìµ½ï¿½ï¿½Ê±ï¿½ï¿½
+    public static int JQ_STATESBTN=1;//1 ÊµÊ± 2ï¿½ï¿½ï¿½ï¿½ 3ï¿½ï¿½Ê·
     public static String USERNAME="";
-    //Â·¾¶Ãû³Æ
+    //Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public static String SDPATH=Environment.getExternalStorageDirectory().getAbsolutePath();
     public static String ALLFILES=SDPATH+"/TC/";
     public static String PATH_PHOTO=SDPATH+"/TC/wphoto/";
@@ -29,16 +29,16 @@ public class Values {
     //lsjq
     public static List<PoliceStateListBean>lsjqList=new ArrayList<PoliceStateListBean>();
     public static PoliceStateListBean lsjq=new PoliceStateListBean();
-    //¾¯ÇéÐÅÏ¢
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
     public final static int SUCCESS_SSJQ=0x05;
     public final static int ERROR_NOUSER=0x06;
     public final static int ERROR_OTHER=0x07;
-    //È·ÈÏ³ö¾¯
+    //È·ï¿½Ï³ï¿½ï¿½ï¿½
     public final static int SUCCESS_POLICEGO=0x08;
-    //ÉÏ´«ÐÅÏ¢¸Ä±ä×´Ì¬
+    //ï¿½Ï´ï¿½ï¿½ï¿½Ï¢ï¿½Ä±ï¿½×´Ì¬
     public final static int SUCCESS_RECORDUPLOAD=0x09;
     
-    //ftp ÉÏ´«ÎÄ¼þ
+    //ftp ï¿½Ï´ï¿½ï¿½Ä¼ï¿½
     public final static int SUCCESS_UPLOAD=0x10;
     public final static int START_UPLOAD=0x11;
     public final static int ERROR_UPLOAD=0x12;
@@ -47,9 +47,9 @@ public class Values {
 	public static   int  idBaudrate = 115200;
 	public static   int  idPort = 0;
 
-    //·þÎñÆ÷·µ»ØÐÅÏ¢Õý³£
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½
     public final static int SUCCESS_FORRESULR=0x13;
-    //·þÎñÆ÷·µ»Ø¿ÕÖµ
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¿ï¿½Öµ
     public final static int ERROR_NULLVALUEFROMSERVER=0x14;
     public final static int ERROR_GETIMAGETZ=0x15;
     public final static int ERROR_GETIMAGBD=0x16;
@@ -58,8 +58,9 @@ public class Values {
 
     public final static int ERROR_SHOOTPHOTO=0x19;
     public final static int ERROR_FACENOFOUND=0x20;
-    //»ñÈ¡ÈËÁ³Í¼Æ¬
+    //ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Í¼Æ¬
     public final static int SUCCESS_GETFACEIMAGE=0x21;
     public final static int ERROR_GETFACEIMAGE=0x22;
+    public final static int MSG_REFRSH_RECORD = 0x23;
 
 }

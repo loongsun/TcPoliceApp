@@ -219,7 +219,22 @@
         <activity
             android:name="com.tc.activity.ActivityAnalysisOpinion"
             android:screenOrientation="portrait"></activity>
-        ActivityAnalysisOpinion
+
+        <activity
+            android:name="com.tc.activity.FormalNewActivity"
+            android:screenOrientation="portrait"></activity>
+
+
+        <activity
+            android:name="com.tc.activity.FormalActivity"
+            android:screenOrientation="portrait">
+
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
 
         <!--<activity android:name="com.tc.activity.FormalSurveyActivityActivity"></activity>-->
     </application>

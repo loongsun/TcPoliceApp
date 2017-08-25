@@ -38,6 +38,7 @@ import com.tc.app.TcApp;
 import com.tc.application.R;
 import com.tc.util.ConfirmDialog;
 import com.tc.view.CustomProgressDialog;
+import com.tc.view.VoiceDialog;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -58,6 +59,7 @@ import it.sauronsoftware.ftp4j.FTPClient;
 import it.sauronsoftware.ftp4j.FTPDataTransferListener;
 
 public class SenceExcute extends Activity  {
+
 	private FTPClient myFtp;
 	private int fileCount = 0;
 	private int mTotalSize = 0;
@@ -99,6 +101,9 @@ public class SenceExcute extends Activity  {
 	private String currentFilePaht="";
 	private String 						mediaType="";
 	private String mediaFormat="";
+	private VoiceDialog mVoiceDialog;
+	private boolean mIsRecording = false;
+
 	// 进度框
 	private void startProgressDialog(int type) {
 		if (progressDialog == null) {
@@ -166,17 +171,29 @@ public class SenceExcute extends Activity  {
 				startActivityForResult(cameraintent, PHOTO_REQUEST_TAKEPHOTO);
 				break;
 			case R.id.btn_record:
-				if (btn_record.getText().toString().trim().equals("录音")) {
+				if (!mIsRecording) {
 					btn_record.setText("结束");
 					UtilTc.myToast(getApplicationContext(),
 							"请开始录音");
+					if(mVoiceDialog ==null){
+						mVoiceDialog = new VoiceDialog(SenceExcute.this);
+					}
+					mVoiceDialog.showRecordingDialog();
 					startRecording();
+					mHandler.obtainMessage(Values.MSG_REFRSH_RECORD).sendToTarget();
 				} else {
+					mIsRecording = false;
 					UtilTc.myToast(getApplicationContext(),
 							"录音已保存");
 					stopRecording();
 					record.clear();
 					getFilesInfo();
+					if(mHandler.hasMessages(Values.MSG_REFRSH_RECORD)){
+						mHandler.removeMessages(Values.MSG_REFRSH_RECORD);
+					}
+					if(mVoiceDialog !=null){
+						mVoiceDialog.dismissDialog();
+					}
 					tv_recordCount.setText(""+record.size());
 					btn_record.setText("开始");
 				}
@@ -449,6 +466,18 @@ public class SenceExcute extends Activity  {
 		}
 	}
 
+	public int getVoiceLevel(int maxLevel){
+		if (mediaRecorder!=null){//mMediaRecorder.getMaxAmplitude()值在1-12367之间
+			try{//返回值在1-7之间
+				return maxLevel * mediaRecorder.getMaxAmplitude() / 12368 + 1;
+			}catch (Exception e){
+				e.printStackTrace();
+			}
+		}
+		return 1;
+	}
+
+
 	private void startRecording() {
 		recordFile = new File(Values.PATH_RECORD + plb.getJqNum()+"_"
 				+ UtilTc.getCurrentTime() + ".amr");
@@ -588,6 +617,13 @@ public class SenceExcute extends Activity  {
 				UtilTc.showLog("文件上传失败");
 				stopProgressDialog();
 				break;
+			case Values.MSG_REFRSH_RECORD:
+				  if(mediaRecorder!=null && mVoiceDialog!=null){
+					  mVoiceDialog.updateVoiceLevel(getVoiceLevel(7));
+				  }
+				mHandler.sendEmptyMessageDelayed(Values.MSG_REFRSH_RECORD,100);
+					break;
+
 			}
 		};
 	};

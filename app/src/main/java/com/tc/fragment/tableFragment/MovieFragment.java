@@ -1,13 +1,13 @@
-package com.tc.activity;
+package com.tc.fragment.tableFragment;
 
-import android.content.Intent;
+import android.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.tc.application.R;
@@ -18,31 +18,38 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 
-public class FormalSurveyActivity extends Fragment {
 
-
-    @BindView(R.id.next_btn)
-    Button nextBtn;
-    Unbinder unbinder;
+public class MovieFragment extends Fragment {
+    @BindView(R.id.btn_userReturn)
+    ImageView btnUserReturn;
+    @BindView(R.id.textView4)
+    TextView textView4;
+    @BindView(R.id.et_kyAjbh)
+    EditText etKyAjbh;
+    @BindView(R.id.textView5)
+    TextView textView5;
     @BindView(R.id.one_start_time)
     EditText startTime;
-    @BindView(R.id.one_end_time)
-    EditText endTime;
-    @BindView(R.id.one_save_time)
-    EditText saveTime;
     @BindView(R.id.one_ending_time)
     EditText endingTime;
+    @BindView(R.id.one_end_time)
+    EditText endTime;
     @BindView(R.id.textView3)
     TextView textView3;
+    @BindView(R.id.one_save_time)
+    EditText saveTime;
     @BindView(R.id.et_kyKydw)
     EditText etKyKydw;
     @BindView(R.id.et_kyZpbgdw)
     EditText etKyZpbgdw;
+    @BindView(R.id.next_btn)
+    Button nextBtn;
+    Unbinder unbinder;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_formalsurvey, null);
+        View view = inflater.inflate(R.layout.fragment_movie, null);
         unbinder = ButterKnife.bind(this, view);
         return view;
     }
@@ -53,19 +60,11 @@ public class FormalSurveyActivity extends Fragment {
         unbinder.unbind();
     }
 
-    @OnClick(R.id.next_btn)
-    public void onViewClicked() {
-
-        Intent intent = new Intent();
-        intent.setClass(getActivity(), FormalSurveyImageActivity.class);
-        startActivity(intent);
-
-
-    }
-
-    @OnClick({R.id.one_start_time, R.id.one_end_time, R.id.one_save_time,R.id.one_ending_time})
+    @OnClick({R.id.btn_userReturn, R.id.one_start_time, R.id.one_ending_time, R.id.one_end_time, R.id.one_save_time, R.id.next_btn})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+            case R.id.btn_userReturn:
+                break;
             case R.id.one_start_time:
                 DateWheelDialogN kyDateChooseDialog3 = new DateWheelDialogN(getActivity(), new DateWheelDialogN.DateChooseInterface() {
                     @Override
@@ -74,7 +73,7 @@ public class FormalSurveyActivity extends Fragment {
 
                     }
                 });
-                kyDateChooseDialog3.setDateDialogTitle("妗堝彂鏃堕棿");
+                kyDateChooseDialog3.setDateDialogTitle("案发时间");
                 kyDateChooseDialog3.showDateChooseDialog();
                 break;
             case R.id.one_end_time:
@@ -86,7 +85,7 @@ public class FormalSurveyActivity extends Fragment {
 
                     }
                 });
-                kyDateChooseDialog4.setDateDialogTitle("缁撴鏃堕棿");
+                kyDateChooseDialog4.setDateDialogTitle("结案时间");
                 kyDateChooseDialog4.showDateChooseDialog();
                 break;
             case R.id.one_save_time:
@@ -98,7 +97,7 @@ public class FormalSurveyActivity extends Fragment {
 
                     }
                 });
-                kyDateChooseDialog5.setDateDialogTitle("淇濇姢鏃堕棿");
+                kyDateChooseDialog5.setDateDialogTitle("保护时间");
                 kyDateChooseDialog5.showDateChooseDialog();
                 break;
 
@@ -111,10 +110,12 @@ public class FormalSurveyActivity extends Fragment {
 
                     }
                 });
-                kyDateChooseDialog6.setDateDialogTitle("缁堟鏃堕棿");
+                kyDateChooseDialog6.setDateDialogTitle("终止时间");
                 kyDateChooseDialog6.showDateChooseDialog();
+                break;
+            case R.id.next_btn:
+
                 break;
         }
     }
-
 }

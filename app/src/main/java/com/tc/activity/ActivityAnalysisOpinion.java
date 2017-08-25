@@ -19,7 +19,6 @@ import butterknife.OnClick;
  * ×÷Õß£º³Âº× on 2017/8/20.
  * °æ±¾£ºv1.0
  */
-
 public class ActivityAnalysisOpinion extends Activity {
 
 

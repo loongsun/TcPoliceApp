@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_two"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/photo_recycleview"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>
+    <TextView
+        android:layout_marginTop="10px"
+        android:textColor="@color/white"
+        android:background="@color/bluetc"
+        android:layout_marginLeft="150px"
+        android:layout_marginRight="150px"
+        android:gravity="center"
+        android:id="@+id/take_photo_tv"
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:layout_marginBottom="151px"
+         android:text="拍照" />
+
+</LinearLayout>

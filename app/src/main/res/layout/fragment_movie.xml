@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_one"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F1F1F1"
@@ -11,6 +12,7 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:background="@drawable/titlebg"
@@ -469,29 +471,29 @@
                     android:textSize="18sp" />
 
                 <!--<TextView-->
-                    <!--android:layout_marginLeft="5dp"-->
-                    <!--android:layout_marginTop="10dp"-->
-                    <!--android:text="终止："-->
-                    <!--android:textColor="@color/text_11"-->
-                    <!--android:textSize="18sp"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="match_parent" />-->
+                <!--android:layout_marginLeft="5dp"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:text="终止："-->
+                <!--android:textColor="@color/text_11"-->
+                <!--android:textSize="18sp"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="match_parent" />-->
 
                 <!--<EditText-->
-                    <!--android:id="@+id/ending_time"-->
-                    <!--android:layout_width="0dp"-->
-                    <!--android:layout_weight="1"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginLeft="15dp"-->
-                    <!--android:layout_marginTop="10dp"-->
-                    <!--android:background="@null"-->
-                    <!--android:cursorVisible="true"-->
-                    <!--android:hint=""-->
-                    <!--android:clickable="true"-->
-                    <!--android:focusableInTouchMode="false"-->
-                    <!--android:textColor="@color/colorPrimary"-->
-                    <!--android:textCursorDrawable="@null"-->
-                    <!--android:textSize="18sp" />-->
+                <!--android:id="@+id/ending_time"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="15dp"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:background="@null"-->
+                <!--android:cursorVisible="true"-->
+                <!--android:hint=""-->
+                <!--android:clickable="true"-->
+                <!--android:focusableInTouchMode="false"-->
+                <!--android:textColor="@color/colorPrimary"-->
+                <!--android:textCursorDrawable="@null"-->
+                <!--android:textSize="18sp" />-->
             </LinearLayout>
 
             <View
@@ -1495,6 +1497,7 @@
 
 
         <Button
+            android:visibility="gone"
             android:id="@+id/next_btn"
             android:layout_width="match_parent"
             android:layout_height="40dp"

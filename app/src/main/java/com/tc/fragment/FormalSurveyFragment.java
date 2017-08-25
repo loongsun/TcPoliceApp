@@ -18,8 +18,7 @@ import android.widget.TextView;
 import com.sdses.bean.PoliceStateListBean;
 import com.sdses.tool.UtilTc;
 import com.sdses.tool.Values;
-import com.tc.activity.SenceCheck;
-import com.tc.activity.SenceCheck2;
+import com.tc.activity.FormalNewActivity;
 import com.tc.application.R;
 import com.tc.view.CustomProgressDialog;
 
@@ -47,10 +46,11 @@ public class FormalSurveyFragment extends Fragment {
     private CustomProgressDialog progressDialog = null;
 
     String errorMessage = "";
+
     private void startProgressDialog(int type) {
         if (progressDialog == null) {
             progressDialog = CustomProgressDialog.createDialog(getActivity());
-            progressDialog.setMessage("正在同步警情,请稍后");
+            progressDialog.setMessage("???????????,?????");
         }
         progressDialog.show();
     }
@@ -64,17 +64,19 @@ public class FormalSurveyFragment extends Fragment {
     }
 
 
-    private void initWidgets(){
-        btn_kcqzReturn=(ImageView)this.getView().findViewById(R.id.btn_kcqzReturn);
+    private void initWidgets() {
+        btn_kcqzReturn = (ImageView) this.getView().findViewById(R.id.btn_kcqzReturn);
         btn_kcqzReturn.setOnClickListener(new OnClick());
-        lv_kcqz=(ListView)this.getView().findViewById(R.id.lv_kcqzList);
+        lv_kcqz = (ListView) this.getView().findViewById(R.id.lv_kcqzList);
     }
-    class OnClick implements View.OnClickListener{
+
+    class OnClick implements View.OnClickListener {
         @Override
         public void onClick(View v) {
             getActivity().finish();
         }
     }
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_formal_survey, null);
@@ -87,12 +89,14 @@ public class FormalSurveyFragment extends Fragment {
 
         initData();
     }
+
     private void initData() {
         stateList.clear();
         new Thread(ssjqRun).start();
 
 
     }
+
     private class CommonAdapter extends BaseAdapter {
         @Override
         public int getCount() {
@@ -137,15 +141,17 @@ public class FormalSurveyFragment extends Fragment {
                     @Override
                     public void onClick(View arg0) {
                         Log.e("e", "onClick");
-                        if(stateList.get(position).getWtype().equals("刑事案件")){
-                            startActivity(new Intent(getActivity(), SenceCheck.class)
-                                    .putExtra("name",stateList.get(position).getJqNum())
-                                    .putExtra("anjianname",stateList.get(position).getJqName())
+                        if (stateList.get(position).getWtype().equals("???°???")) {
+                            startActivity(new Intent(getActivity(), FormalNewActivity.class)
+//                                    startActivity(new Intent(getActivity(), FormalActivity.class)
+                                            .putExtra("name", stateList.get(position).getJqNum())
+                                            .putExtra("anjianname", stateList.get(position).getJqName())
                             );
-                        }else {
-                            startActivity(new Intent(getActivity(), SenceCheck2.class)
-                                    .putExtra("name",stateList.get(position).getJqNum())
-                                    .putExtra("anjianname",stateList.get(position).getJqName())
+                        } else {
+//                            startActivity(new Intent(getActivity(), FormalActivity.class)
+                            startActivity(new Intent(getActivity(), FormalNewActivity.class)
+                                            .putExtra("name", stateList.get(position).getJqNum())
+                                            .putExtra("anjianname", stateList.get(position).getJqName())
                             );
                         }
 
@@ -156,93 +162,94 @@ public class FormalSurveyFragment extends Fragment {
                 holder = (ViewHolder) mView.getTag();
             }
             PoliceStateListBean ret = stateList.get(position);
-            holder.tv_jqName.setText(ret.getJqName()+"("+ret.getWtype()+")");
+            holder.tv_jqName.setText(ret.getJqName() + "(" + ret.getWtype() + ")");
             holder.tv_jqTime.setText(ret.getJqTime());
-            holder.tv_jqPosition.setText("案件编号"+ret.getJqNum());
+            holder.tv_jqPosition.setText("???????" + ret.getJqNum());
             return mView;
         }
+
         private class ViewHolder {
             TextView tv_jqName, tv_jqTime, tv_jqPosition;
             LinearLayout parentLayout;
         }
     }
 
-    // 现场笔录案情
+    // ??????????
     Runnable ssjqRun = new Runnable() {
         @Override
         public void run() {
             // TODO Auto-generated method stub
-                stateList = new ArrayList<PoliceStateListBean>();
-                stateList.clear();
-                String url_passenger = "http://61.176.222.166:8765/interface/OneMapLable/GetLables.asp";
-                HttpPost httpRequest = new HttpPost(url_passenger);
-                List<NameValuePair> params = new ArrayList<NameValuePair>();
+            stateList = new ArrayList<PoliceStateListBean>();
+            stateList.clear();
+            String url_passenger = "http://61.176.222.166:8765/interface/OneMapLable/GetLables.asp";
+            HttpPost httpRequest = new HttpPost(url_passenger);
+            List<NameValuePair> params = new ArrayList<NameValuePair>();
 //                params.add(new BasicNameValuePair("pnum", Values.USERNAME));
-                try {
-                    UrlEncodedFormEntity formEntity = new UrlEncodedFormEntity(
-                            params, "UTF-8");
-                    httpRequest.setEntity(formEntity);
-                    // 取得HTTP response
-                    HttpClient client = new DefaultHttpClient(); // 请求超时
-                    client.getParams().setParameter(
-                            CoreConnectionPNames.CONNECTION_TIMEOUT, 5000);
-                    // 读取超时
-                    client.getParams().setParameter(
-                            CoreConnectionPNames.SO_TIMEOUT, 5000);
-                    HttpResponse httpResponse = client.execute(httpRequest);
-                    // HttpResponse httpResponse = new DefaultHttpClient().
-                    // execute(httpRequest);
-                    Log.e("code", "code"
-                            + httpResponse.getStatusLine().getStatusCode());
-                    if (httpResponse.getStatusLine().getStatusCode() == 200) {
-                        String strResult = EntityUtils.toString(httpResponse
-                                .getEntity());
-                        // Log.e("e", "传回来的值是：" + strResult);
-                        // json 解析
-                        JSONTokener jsonParser = new JSONTokener(strResult);
-                        JSONObject person = (JSONObject) jsonParser.nextValue();
-                        String code = person.getString("error code");
-                        Log.e("e", "返回状态：" + code);
-                        if (code.trim().equals("0")) {
-                            JSONObject jb = person.getJSONObject("data");
-                            JSONArray jqInfo = jb.getJSONArray("winfo");
-                            for (int i = 0; i < jqInfo.length(); i++) {
-                                JSONObject jqob = jqInfo.getJSONObject(i);
-                                PoliceStateListBean pl = new PoliceStateListBean();
-                                pl.setJqName(jqob.getString("wname"));
-                                pl.setJqPosition(jqob.getString("wadress"));
-                                pl.setJqNum(jqob.getString("wnum"));
-                                pl.setJqTime(jqob.getString("wtime"));
-                                pl.setWx(jqob.getString("wx"));
-                                pl.setWy(jqob.getString("wy"));
-                                pl.setBjrName(jqob.getString("wperson"));
-                                pl.setWtype(jqob.getString("wtype"));
-                                stateList.add(pl);
-                            }
-                            if (stateList != null) {
-                                stateHandler
-                                        .sendEmptyMessage(Values.SUCCESS_SSJQ);
-                            }
-                        } else if (code.trim().equals("10001")) {
-                            JSONObject jb = person.getJSONObject("data");
-                            errorMessage = jb.getString("message");
-                            stateHandler.sendEmptyMessage(Values.ERROR_NOUSER);
-
-                        } else if (code.trim().equals("10003")) {
-                            JSONObject jb = person.getJSONObject("data");
-                            errorMessage = "其它错误";
-                            stateHandler.sendEmptyMessage(Values.ERROR_OTHER);
+            try {
+                UrlEncodedFormEntity formEntity = new UrlEncodedFormEntity(
+                        params, "UTF-8");
+                httpRequest.setEntity(formEntity);
+                // ???HTTP response
+                HttpClient client = new DefaultHttpClient(); // ?????
+                client.getParams().setParameter(
+                        CoreConnectionPNames.CONNECTION_TIMEOUT, 5000);
+                // ??????
+                client.getParams().setParameter(
+                        CoreConnectionPNames.SO_TIMEOUT, 5000);
+                HttpResponse httpResponse = client.execute(httpRequest);
+                // HttpResponse httpResponse = new DefaultHttpClient().
+                // execute(httpRequest);
+                Log.e("code", "code"
+                        + httpResponse.getStatusLine().getStatusCode());
+                if (httpResponse.getStatusLine().getStatusCode() == 200) {
+                    String strResult = EntityUtils.toString(httpResponse
+                            .getEntity());
+                    // Log.e("e", "????????????" + strResult);
+                    // json ????
+                    JSONTokener jsonParser = new JSONTokener(strResult);
+                    JSONObject person = (JSONObject) jsonParser.nextValue();
+                    String code = person.getString("error code");
+                    Log.e("e", "????????" + code);
+                    if (code.trim().equals("0")) {
+                        JSONObject jb = person.getJSONObject("data");
+                        JSONArray jqInfo = jb.getJSONArray("winfo");
+                        for (int i = 0; i < jqInfo.length(); i++) {
+                            JSONObject jqob = jqInfo.getJSONObject(i);
+                            PoliceStateListBean pl = new PoliceStateListBean();
+                            pl.setJqName(jqob.getString("wname"));
+                            pl.setJqPosition(jqob.getString("wadress"));
+                            pl.setJqNum(jqob.getString("wnum"));
+                            pl.setJqTime(jqob.getString("wtime"));
+                            pl.setWx(jqob.getString("wx"));
+                            pl.setWy(jqob.getString("wy"));
+                            pl.setBjrName(jqob.getString("wperson"));
+                            pl.setWtype(jqob.getString("wtype"));
+                            stateList.add(pl);
                         }
-                    } else {
-                        stateHandler.sendEmptyMessage(Values.ERROR_CONNECT);
+                        if (stateList != null) {
+                            stateHandler
+                                    .sendEmptyMessage(Values.SUCCESS_SSJQ);
+                        }
+                    } else if (code.trim().equals("10001")) {
+                        JSONObject jb = person.getJSONObject("data");
+                        errorMessage = jb.getString("message");
+                        stateHandler.sendEmptyMessage(Values.ERROR_NOUSER);
+
+                    } else if (code.trim().equals("10003")) {
+                        JSONObject jb = person.getJSONObject("data");
+                        errorMessage = "????????";
+                        stateHandler.sendEmptyMessage(Values.ERROR_OTHER);
                     }
-                    UtilTc.showLog("ssjq");
-                    SystemClock.sleep(30000);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    SystemClock.sleep(30000);
+                } else {
                     stateHandler.sendEmptyMessage(Values.ERROR_CONNECT);
                 }
+                UtilTc.showLog("ssjq");
+                SystemClock.sleep(30000);
+            } catch (Exception e) {
+                e.printStackTrace();
+                SystemClock.sleep(30000);
+                stateHandler.sendEmptyMessage(Values.ERROR_CONNECT);
+            }
 
         }
     };
@@ -263,10 +270,12 @@ public class FormalSurveyFragment extends Fragment {
                     UtilTc.myToast(getActivity().getApplicationContext(), errorMessage);
                     break;
                 case Values.ERROR_OTHER:
-                    UtilTc.myToast(getActivity().getApplicationContext(), "其它错误:"
+                    UtilTc.myToast(getActivity().getApplicationContext(), "????????:"
                             + errorMessage);
                     break;
             }
-        };
+        }
+
+        ;
     };
 }
