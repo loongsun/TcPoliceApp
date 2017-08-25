@@ -15,10 +15,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-/**
- * 作者：陈鹤 on 2017/8/20.
- * 版本：v1.0
- */
+
 
 public class ActivityAnalysisOpinion extends Activity {
 

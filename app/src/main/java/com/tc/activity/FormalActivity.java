@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -62,9 +61,9 @@ public class FormalActivity extends Activity implements OnClickListener {
 	private void setBackgroundColorById(int btnId) {
 		for (Button btn : btnList) {
 			if (btn.getId() == btnId) {
-				btn.setBackgroundColor(Color.GREEN);
+				btn.setBackgroundColor(getResources().getColor(R.color.statemain));
 			} else {
-				btn.setBackgroundColor(Color.BLUE);
+				btn.setBackgroundColor(getResources().getColor(R.color.backNoText));
 			}
 		}
 	}
@@ -77,25 +76,25 @@ public class FormalActivity extends Activity implements OnClickListener {
 		switch (v.getId()) {
 
 		case R.id.movie_btn:
-//			setBackgroundColorById(R.id.movie_btn);
+			setBackgroundColorById(R.id.movie_btn);
 
 			ft.replace(R.id.fragment_content, new MovieFragment());
 			break;
 
 		case R.id.tv_btn:
-//			setBackgroundColorById(R.id.tv_btn);
+			setBackgroundColorById(R.id.tv_btn);
 
 			ft.replace(R.id.fragment_content, new PhothFragment());
 			break;
 
 		case R.id.anime_btn:
-//			setBackgroundColorById(R.id.anime_btn);
+			setBackgroundColorById(R.id.anime_btn);
 
 			ft.replace(R.id.fragment_content, new AnimeFragment());
 			break;
 
 		case R.id.variety_btn:
-//			setBackgroundColorById(R.id.variety_btn);
+			setBackgroundColorById(R.id.variety_btn);
 
 			ft.replace(R.id.fragment_content, new VarietyFragment());
 			break;

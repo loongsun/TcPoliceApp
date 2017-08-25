@@ -26,6 +26,9 @@ android {
 
         ndk {
 
+
+//            abiFilters "armeabi", "armeabi-v7a", "x86_64", "x86"
+
             abiFilters "armeabi"
         }
     }
@@ -95,4 +98,6 @@ dependencies {
 
     //noinspection GradleCompatible
     compile 'com.android.support:recyclerview-v7:23.4.0'
+    //    https://github.com/square/picasso
+    compile 'com.squareup.picasso:picasso:2.5.2'
 }

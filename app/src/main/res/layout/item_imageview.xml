@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:background="@color/white"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:background="@color/white"
-        android:src="@mipmap/ic_launcher"
-        android:layout_width="100px"
-        android:layout_height="100px" />
+    <LinearLayout
+        android:padding="10px"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="500px">
+
+        <ImageView
+            android:scaleType="fitXY"
+            android:id="@+id/item_image"
+            android:background="@color/white"
+            android:src="@mipmap/ic_launcher"
+            android:layout_width="match_parent"
+            android:layout_height="600px" />
+    </LinearLayout>
+
 </LinearLayout>

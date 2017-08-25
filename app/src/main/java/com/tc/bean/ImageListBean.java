@@ -1,7 +1,5 @@
 package com.tc.bean;
 
-import org.json.JSONObject;
-
 /**
  * ×÷Õß£º³Âº× on 2017/8/23.
  * °æ±¾£ºv1.0
@@ -13,9 +11,9 @@ public class ImageListBean {
 
 
 
-    public ImageListBean(JSONObject item) {
+    public ImageListBean(String item) {
 
-        this.imageUrl = item.optString("imageUrl");
+        this.imageUrl = item;
 
     }
 

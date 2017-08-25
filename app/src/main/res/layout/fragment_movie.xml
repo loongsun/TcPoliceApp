@@ -1496,6 +1496,7 @@
 
 
         <Button
+            android:visibility="invisible"
             android:id="@+id/next_btn"
             android:layout_width="match_parent"
             android:layout_height="40dp"

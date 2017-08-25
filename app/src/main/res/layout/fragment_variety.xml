@@ -1176,6 +1176,7 @@
 
 
             <Button
+                android:visibility="invisible"
                 android:layout_marginBottom="40dp"
                 android:id="@+id/next_btn"
                 android:layout_marginRight="30dp"

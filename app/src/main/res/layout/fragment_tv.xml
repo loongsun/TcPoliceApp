@@ -16,10 +16,12 @@
         android:layout_marginTop="10px"
         android:textColor="@color/white"
         android:background="@color/bluetc"
+        android:layout_marginLeft="150px"
+        android:layout_marginRight="150px"
         android:gravity="center"
         android:id="@+id/take_photo_tv"
         android:layout_width="match_parent"
-        android:layout_height="100px"
+        android:layout_height="150px"
          android:text="拍照" />
 
 </LinearLayout>

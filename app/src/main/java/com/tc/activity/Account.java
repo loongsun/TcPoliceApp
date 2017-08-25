@@ -1,11 +1,17 @@
 package com.tc.activity;
 
+import com.tc.bean.ImageListBean;
+
+import java.util.ArrayList;
+
 /**
- * ×÷Õß£º³Âº× on 2017/4/23.
- * °æ±¾£ºv1.0
+ * ï¿½ï¿½ï¿½ß£ï¿½ï¿½Âºï¿½ on 2017/4/23.
+ * ï¿½æ±¾ï¿½ï¿½v1.0
  */
 
 public class Account {
+
+    private ArrayList<ImageListBean> mImageList;
 
     private static volatile Account Inatance;
 
@@ -51,4 +57,19 @@ public class Account {
     }
 
 
+    public ArrayList<ImageListBean> getmImageList() {
+        return mImageList;
+    }
+
+    public void setmImageList(ArrayList<ImageListBean> mImageList) {
+        this.mImageList = mImageList;
+    }
+
+    public String getLoginTag() {
+        return loginTag;
+    }
+
+    public void setLoginTag(String loginTag) {
+        this.loginTag = loginTag;
+    }
 }
