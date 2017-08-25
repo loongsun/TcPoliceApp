@@ -21,7 +21,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.tc.application.R;
 import com.tc.bean.ImageListBean;
@@ -61,6 +60,10 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
     EditText oneSaveTime;
     @BindView(R.id.three_get_time)
     EditText threeGetTime;
+    @BindView(R.id.anjianname)
+    EditText anjianname;
+    @BindView(R.id.anjiannum)
+    EditText anjiannum;
     private Button movieBtn, tvBtn, animeBtn, varietyBtn;
     private ScrollView mFragmentOne;
     private LinearLayout mFragmentTwo, mFragmentThree, mFragmentFour;
@@ -88,6 +91,12 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
     }
 
     private void initView() {
+
+        String name = getIntent().getStringExtra("name");
+        anjiannum.setText(name);
+
+
+        anjianname.setText(getIntent().getStringExtra("anjianname"));
 
         photoRecycleview.setLayoutManager(new GridLayoutManager(getActivity(), 2));
         mAdapter = new BackOrderAdapter(mImageList, getActivity());
@@ -182,6 +191,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
 
             case R.id.variety_btn:
                 setBackgroundColorById(R.id.variety_btn);
+                operateNextTv.setText("提交");
                 break;
 
 
@@ -204,9 +214,9 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
                 break;
             case R.id.operate_next_tv:
 
-                switch (posId){
+                switch (posId) {
                     case R.id.movie_btn:
-                    setBackgroundColorById(R.id.tv_btn);
+                        setBackgroundColorById(R.id.tv_btn);
                         break;
 
                     case R.id.tv_btn:
@@ -219,8 +229,9 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
                         break;
 
                     case R.id.variety_btn:
-                        Toast.makeText(this, "保存", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(this, "保存", Toast.LENGTH_SHORT).show();
                         operateNextTv.setText("提交");
+                        finish();
                         break;
 
 
