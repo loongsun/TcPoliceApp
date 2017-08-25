@@ -11,7 +11,7 @@
     <color name="None">#00000000</color>
     <color name="TextBackColor">#63B8FF</color>
     <color name="PickColor">#FF00FF</color>
-    <color name="info">#0000ff</color>
+    <color name="info">#820000ff</color>
     <!-- 查询提示 -->
     <color name="query_error">#EE9A00</color>
     <!-- item 显示颜色 -->

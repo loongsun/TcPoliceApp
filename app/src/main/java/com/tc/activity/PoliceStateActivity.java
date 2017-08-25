@@ -1,6 +1,8 @@
 package com.tc.activity;
 
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
@@ -352,66 +354,85 @@ public class PoliceStateActivity extends Fragment {
 						getActivity().getApplicationContext()).inflate(
 						R.layout.item_policestate_list, null);
 				holder = new ViewHolder();
+
+
 				holder.tv_jqName = (TextView) mView.findViewById(R.id.tv_name);
 				holder.tv_jqTime = (TextView) mView.findViewById(R.id.tv_time);
-				holder.tv_jqPosition = (TextView) mView
-						.findViewById(R.id.tv_address);
-				holder.parentLayout = (LinearLayout) mView
-						.findViewById(R.id.lin_jqInfo);
-				// holder.parentLayout.setTag(R.id.checkout_listitem_layout,
-				// position);
-				holder.parentLayout.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View arg0) {
-						Log.e("e", "onClick");
-						if (Values.JQ_STATESBTN == 2) {
-							String result = mApp.getmDota().jq_ToMapQuery(
-									stateList.get(position).getJqNum());
-							if (result.equals("0"))
-							{
-								startActivity(new Intent(getActivity()
-										.getApplicationContext(),
-										SenceExcute.class).putExtra(
-										"dbjqsence", stateList.get(position)
-												.getJqNum()));
+				holder.icon=(ImageView)mView.findViewById(R.id.item_img_zfqz);
+				holder.tv_jqPosition = (TextView) mView.findViewById(R.id.tv_address);
 
-							}
-							else
-								{
-								intentToMap(position);
-							}
-						} else if (Values.JQ_STATESBTN == 1) {
-							// 判断案件编号
-							if (isRepeatJq(position)) {
-								UtilTc.myToast(getActivity()
-										.getApplicationContext(),
-										"有相同案件编号待办警情,请先处理");
-							} else {
-								intentToMap(position);
-							}
-						} else if (Values.JQ_STATESBTN == 3) {
-							// 历史警情
-							intentToLs(position);
-						}
-					}
-				});
+				holder.parentLayout = (LinearLayout) mView.findViewById(R.id.lin_jqInfo);
+
 				mView.setTag(holder);
 			} else {
 				holder = (ViewHolder) mView.getTag();
 			}
+
+			holder.parentLayout.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View arg0) {
+					Log.e("e", "onClick");
+					if (Values.JQ_STATESBTN == 2)
+					{
+						String result = mApp.getmDota().jq_ToMapQuery(
+								stateList.get(position).getJqNum());
+						if (result.equals("0"))
+						{
+							startActivity(new Intent(getActivity()
+									.getApplicationContext(),
+									SenceExcute.class).putExtra(
+									"dbjqsence", stateList.get(position)
+											.getJqNum()));
+
+						}
+						else
+						{
+							intentToMap(position);
+						}
+					} else if (Values.JQ_STATESBTN == 1) {
+						// 判断案件编号
+						if (isRepeatJq(position)) {
+							UtilTc.myToast(getActivity()
+											.getApplicationContext(),
+									"有相同案件编号待办警情,请先处理");
+						} else {
+							intentToMap(position);
+						}
+					} else if (Values.JQ_STATESBTN == 3) {
+						// 历史警情
+						intentToLs(position);
+					}
+				}
+			});
+
+
 			PoliceStateListBean ret = stateList.get(position);
 			holder.tv_jqName.setText(ret.getJqName());
 			holder.tv_jqTime.setText(ret.getJqTime());
 			holder.tv_jqPosition.setText(ret.getJqPosition());
+			if(ret.getWtype().equals("刑事案件"))
+			{
+				BitmapDrawable drawable=getDrawableFromId(R.drawable.icon_xs);
+				holder.icon.setImageDrawable(drawable);
+			}
+			else
+			{
+				BitmapDrawable drawable=getDrawableFromId(R.drawable.icon_xz);
+				holder.icon.setImageDrawable(drawable);
+			}
+            //holder.icon.setImageDrawable(R.drawable.icon_xs);
 			return mView;
 		}
-
 		private class ViewHolder {
 			TextView tv_jqName, tv_jqTime, tv_jqPosition;
+			ImageView icon;
 			LinearLayout parentLayout;
 		}
 	}
-
+	private BitmapDrawable getDrawableFromId(int id){  //这个id就是类似R.drawable.lander_firing
+		Resources res = getResources();
+		return (BitmapDrawable)res.getDrawable(id);
+	}
 	// 是否同名待办警情
 	private boolean isRepeatJq(int location) {
 		mApp.getmDota().jq_queryOne("0", stateList.get(location).getJqNum());

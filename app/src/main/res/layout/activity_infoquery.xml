@@ -47,29 +47,29 @@
     <!-- 人员查询  车辆查询2个按钮 -->
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
         android:layout_gravity="center"
         android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <!-- 人员查询 -->
 
         <LinearLayout
-            android:layout_gravity="center"
-            android:gravity="center"
             android:id="@+id/lin_peopleQuery"
             android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
             android:layout_weight="1"
-            android:layout_height="200dp"
             android:background="@drawable/btn_infoquery"
-            android:orientation="vertical" >
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/iv_querypeople"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
                 android:src="@drawable/icon_ry" />
 
             <TextView
@@ -78,32 +78,31 @@
                 android:layout_marginTop="20dp"
                 android:text="人员查询"
                 android:textColor="@color/Black"
-                android:textSize="20sp"
-                />
+                android:textSize="20sp" />
         </LinearLayout>
 
         <View
             android:id="@+id/v_ssjq"
             android:layout_width="2dp"
-            android:layout_height="300dp"
+            android:layout_height="match_parent"
             android:background="@color/line" />
 
         <!-- 车辆查询 -->
 
         <LinearLayout
-            android:layout_gravity="center"
-            android:gravity="center"
             android:id="@+id/lin_carQuery"
             android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
             android:layout_weight="1"
-            android:layout_height="200dp"
             android:background="@drawable/btn_infoquery"
-            android:orientation="vertical" >
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
                 android:src="@drawable/icon_cl" />
 
             <TextView
@@ -123,28 +122,28 @@
     <!-- 物品查询  企业查询2个按钮 -->
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
         android:layout_gravity="center"
         android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <!-- 企业查询 -->
 
         <LinearLayout
-            android:layout_gravity="center"
-            android:gravity="center"
             android:id="@+id/lin_qyQuery"
             android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
             android:layout_weight="1"
-            android:layout_height="200dp"
             android:background="@drawable/btn_infoquery"
-            android:orientation="vertical" >
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
                 android:src="@drawable/icon_qy" />
 
             <TextView
@@ -158,25 +157,25 @@
 
         <View
             android:layout_width="2dp"
-            android:layout_height="300dp"
+            android:layout_height="match_parent"
             android:background="@color/line" />
 
         <!-- 物品查询 -->
 
         <LinearLayout
-            android:layout_gravity="center"
-            android:gravity="center"
             android:id="@+id/lin_wpQuery"
             android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
             android:layout_weight="1"
-            android:layout_height="200dp"
             android:background="@drawable/btn_infoquery"
-            android:orientation="vertical" >
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
                 android:src="@drawable/icon_wp" />
 
             <TextView

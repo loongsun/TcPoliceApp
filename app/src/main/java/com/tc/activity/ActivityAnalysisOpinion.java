@@ -22,8 +22,8 @@ import butterknife.OnClick;
 public class ActivityAnalysisOpinion extends Activity {
 
 
-    @BindView(R.id.btn_xczpReturn)
-    ImageView btnXczpReturn;
+    @BindView(R.id.btn_xczpReturn8)
+    ImageView btnXczpReturn8;
     @BindView(R.id.radioButton)
     RadioButton radioButton;
     @BindView(R.id.next_btn)
@@ -39,10 +39,10 @@ public class ActivityAnalysisOpinion extends Activity {
 
     }
 
-    @OnClick({R.id.btn_xczpReturn, R.id.next_btn})
+    @OnClick({R.id.btn_xczpReturn8, R.id.next_btn})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.btn_xczpReturn:
+            case R.id.btn_xczpReturn8:
                 finish();
                 break;
             case R.id.next_btn:

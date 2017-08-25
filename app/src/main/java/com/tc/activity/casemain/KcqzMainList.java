@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -161,16 +162,16 @@ public class KcqzMainList extends Fragment {
             if (mView == null) {
                 mView = LayoutInflater.from(
                         getActivity().getApplicationContext()).inflate(
-                        R.layout.item_policestate_list2, null);
+                        R.layout.item_policestate_list, null);
                 holder = new ViewHolder();
+
                 holder.tv_jqName = (TextView) mView.findViewById(R.id.tv_name);
                 holder.tv_jqTime = (TextView) mView.findViewById(R.id.tv_time);
-                holder.iv_photo = (ImageView) mView.findViewById(R.id.iv_photo);
+                holder.icon=(ImageView)mView.findViewById(R.id.item_img_zfqz);
+                holder.tv_jqPosition = (TextView) mView.findViewById(R.id.tv_address);
 
-                holder.tv_jqPosition = (TextView) mView
-                        .findViewById(R.id.tv_address);
-                holder.parentLayout = (RelativeLayout) mView
-                        .findViewById(R.id.lin_jqInfo);
+                holder.parentLayout = (LinearLayout) mView.findViewById(R.id.lin_jqInfo);
+
                 mView.setTag(holder);
             } else {
                 holder = (ViewHolder) mView.getTag();
@@ -198,20 +199,26 @@ public class KcqzMainList extends Fragment {
             PoliceStateListBean ret = stateList.get(position);
             holder.tv_jqName.setText(ret.getJqName());
             if(ret.getWtype().equals("刑事案件")){
-                holder.iv_photo.setImageResource(R.drawable.lostcar);
+                holder.icon.setImageResource(R.drawable.icon_xs);
             }else if(ret.getWtype().equals("行政案件")){
-                holder.iv_photo.setImageResource(R.drawable.icon_xsaj);
+                holder.icon.setImageResource(R.drawable.icon_xz);
             }else{
-                holder.iv_photo.setImageResource(R.drawable.lufei);
+                holder.icon.setImageResource(R.drawable.lufei);
             }
+
+
+//            holder.tv_jqTime.setText(ret.getJqTime());
+//            holder.tv_jqPosition.setText("案件编号"+ret.getJqNum());
+
+            holder.tv_jqName.setText(ret.getJqName());
             holder.tv_jqTime.setText(ret.getJqTime());
-            holder.tv_jqPosition.setText("案件编号"+ret.getJqNum());
+            holder.tv_jqPosition.setText(ret.getJqPosition());
             return mView;
         }
         private class ViewHolder {
             TextView tv_jqName, tv_jqTime, tv_jqPosition;
-            ImageView iv_photo;
-            RelativeLayout parentLayout;
+            ImageView icon;
+            LinearLayout parentLayout;
         }
     }
 

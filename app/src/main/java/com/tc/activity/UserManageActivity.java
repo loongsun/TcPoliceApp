@@ -64,12 +64,14 @@ public class UserManageActivity extends Fragment {
 //                getActivity().finish();
                 break;
             case R.id.personal_bluetooth_tv:
-                if (isBluetoothEnable()){
+                if (isBluetoothEnable())
+                {
                     openSetting("´ò¿ªÀ¶ÑÀ");
-                }else {
+                }
+                else
+                {
 
                 }
-
                 break;
             case R.id.exit_btn:
                 getActivity().finish();
