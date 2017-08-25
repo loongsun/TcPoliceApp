@@ -83,19 +83,16 @@ public class FormalActivity extends Activity implements OnClickListener {
 
 		case R.id.tv_btn:
 			setBackgroundColorById(R.id.tv_btn);
-
 			ft.replace(R.id.fragment_content, new PhothFragment());
 			break;
 
 		case R.id.anime_btn:
 			setBackgroundColorById(R.id.anime_btn);
-
 			ft.replace(R.id.fragment_content, new AnimeFragment());
 			break;
 
 		case R.id.variety_btn:
 			setBackgroundColorById(R.id.variety_btn);
-
 			ft.replace(R.id.fragment_content, new VarietyFragment());
 			break;
 
@@ -104,6 +101,15 @@ public class FormalActivity extends Activity implements OnClickListener {
 		}
 		// ��Ҫ�����ύ
 		ft.commit();
+	}
+
+
+	public void changeView(){
+		fm = getFragmentManager();
+		ft = fm.beginTransaction();
+
+		setBackgroundColorById(R.id.variety_btn);
+		ft.replace(R.id.fragment_content, new VarietyFragment());
 	}
 
 }

@@ -28,15 +28,15 @@ public class MovieFragment extends Fragment {
     EditText etKyAjbh;
     @BindView(R.id.textView5)
     TextView textView5;
-    @BindView(R.id.start_time)
+    @BindView(R.id.one_start_time)
     EditText startTime;
-    @BindView(R.id.ending_time)
+    @BindView(R.id.one_ending_time)
     EditText endingTime;
-    @BindView(R.id.end_time)
+    @BindView(R.id.one_end_time)
     EditText endTime;
     @BindView(R.id.textView3)
     TextView textView3;
-    @BindView(R.id.save_time)
+    @BindView(R.id.one_save_time)
     EditText saveTime;
     @BindView(R.id.et_kyKydw)
     EditText etKyKydw;
@@ -60,12 +60,12 @@ public class MovieFragment extends Fragment {
         unbinder.unbind();
     }
 
-    @OnClick({R.id.btn_userReturn, R.id.start_time, R.id.ending_time, R.id.end_time, R.id.save_time, R.id.next_btn})
+    @OnClick({R.id.btn_userReturn, R.id.one_start_time, R.id.one_ending_time, R.id.one_end_time, R.id.one_save_time, R.id.next_btn})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_userReturn:
                 break;
-            case R.id.start_time:
+            case R.id.one_start_time:
                 DateWheelDialogN kyDateChooseDialog3 = new DateWheelDialogN(getActivity(), new DateWheelDialogN.DateChooseInterface() {
                     @Override
                     public void getDateTime(String time, boolean longTimeChecked) {
@@ -76,7 +76,7 @@ public class MovieFragment extends Fragment {
                 kyDateChooseDialog3.setDateDialogTitle("案发时间");
                 kyDateChooseDialog3.showDateChooseDialog();
                 break;
-            case R.id.end_time:
+            case R.id.one_end_time:
 
                 DateWheelDialogN kyDateChooseDialog4 = new DateWheelDialogN(getActivity(), new DateWheelDialogN.DateChooseInterface() {
                     @Override
@@ -88,7 +88,7 @@ public class MovieFragment extends Fragment {
                 kyDateChooseDialog4.setDateDialogTitle("结案时间");
                 kyDateChooseDialog4.showDateChooseDialog();
                 break;
-            case R.id.save_time:
+            case R.id.one_save_time:
 
                 DateWheelDialogN kyDateChooseDialog5 = new DateWheelDialogN(getActivity(), new DateWheelDialogN.DateChooseInterface() {
                     @Override
@@ -101,7 +101,7 @@ public class MovieFragment extends Fragment {
                 kyDateChooseDialog5.showDateChooseDialog();
                 break;
 
-            case R.id.ending_time:
+            case R.id.one_ending_time:
 
                 DateWheelDialogN kyDateChooseDialog6 = new DateWheelDialogN(getActivity(), new DateWheelDialogN.DateChooseInterface() {
                     @Override
@@ -114,6 +114,7 @@ public class MovieFragment extends Fragment {
                 kyDateChooseDialog6.showDateChooseDialog();
                 break;
             case R.id.next_btn:
+
                 break;
         }
     }

@@ -1,0 +1,91 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:id="@+id/button_view_include"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_layout">
+
+        <include layout="@layout/activity_bottom_btns" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/titlebg"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/btn_userReturn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="2dp"
+            android:gravity="center_vertical"
+            android:src="@drawable/icon_return"
+            android:visibility="invisible"></ImageView>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="刑事勘察"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="151px"
+            android:src="@drawable/icon_return"
+            android:visibility="invisible"></ImageView>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fragment_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/button_view_include">
+
+        <include layout="@layout/fragment_movie" />
+
+        <include layout="@layout/fragment_tv" />
+
+        <include layout="@layout/fragment_anime" />
+
+        <include layout="@layout/fragment_variety" />
+
+    </FrameLayout>
+
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/operate_next_tv"
+            android:layout_width="match_parent"
+            android:layout_height="150px"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@id/fragment_content"
+            android:background="@color/TextBackColor"
+            android:gravity="center"
+            android:text="下一步"
+            android:textColor="@color/tv_name" />
+    </LinearLayout>
+
+
+</RelativeLayout>

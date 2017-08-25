@@ -42,7 +42,7 @@ public class VoiceDialog {
 			mLable.setVisibility(View.VISIBLE);
 			
 			mIcon.setImageResource(R.drawable.recorder);
-			mLable.setText("æ‰‹æŒ‡ä¸Šæ»‘ï¼Œå–æ¶ˆå‘é€");
+			mLable.setText("ÊÖÖ¸ÉÏ»¬£¬È¡Ïû·¢ËÍ");
 			
 		}
 		
@@ -55,7 +55,7 @@ public class VoiceDialog {
 			mVideo.setVisibility(View.GONE);
 			mLable.setVisibility(View.VISIBLE);
 //			mIcon.setImageResource(R.drawable.cancel);
-			mLable.setText("æ¾å¼€æ‰‹æŒ‡ï¼Œå–æ¶ˆå‘é€");
+			mLable.setText("ËÉ¿ªÊÖÖ¸£¬È¡Ïû·¢ËÍ");
 		}
 	}
 	
@@ -65,7 +65,7 @@ public class VoiceDialog {
 			mVideo.setVisibility(View.GONE);
 			mLable.setVisibility(View.VISIBLE);
 //			mIcon.setImageResource(R.drawable.voice_to_short);
-//			mLable.setText("å½•éŸ³æ—¶é—´è¿‡çŸ­");
+//			mLable.setText("Â¼ÒôÊ±¼ä¹ı¶Ì");
 		}
 		
 	}
@@ -79,7 +79,7 @@ public class VoiceDialog {
 	}
 	
 	/**
-	 * å½•éŸ³çš„ç­‰çº§
+	 * Â¼ÒôµÄµÈ¼¶
 	 * @param level
 	 */
 	public void updateVoiceLevel(int level){
@@ -88,7 +88,7 @@ public class VoiceDialog {
 //			mVideo.setVisibility(View.VISIBLE);
 //			mLable.setVisibility(View.VISIBLE);
 			
-			//æ ¹æ®èµ„æºIDåŠ¨æ€åŠ è½½å›¾ç‰‡
+			//¸ù¾İ×ÊÔ´ID¶¯Ì¬¼ÓÔØÍ¼Æ¬
 			int resid = mContext.getResources().getIdentifier("v"+level, "drawable", mContext.getPackageName());
 			mVideo.setImageResource(resid);
 			//mVideo.setImageResource(R.drawable.call_interface_hands_free);

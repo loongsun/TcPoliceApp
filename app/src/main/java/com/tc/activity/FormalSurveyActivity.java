@@ -24,13 +24,13 @@ public class FormalSurveyActivity extends Fragment {
     @BindView(R.id.next_btn)
     Button nextBtn;
     Unbinder unbinder;
-    @BindView(R.id.start_time)
+    @BindView(R.id.one_start_time)
     EditText startTime;
-    @BindView(R.id.end_time)
+    @BindView(R.id.one_end_time)
     EditText endTime;
-    @BindView(R.id.save_time)
+    @BindView(R.id.one_save_time)
     EditText saveTime;
-    @BindView(R.id.ending_time)
+    @BindView(R.id.one_ending_time)
     EditText endingTime;
     @BindView(R.id.textView3)
     TextView textView3;
@@ -63,10 +63,10 @@ public class FormalSurveyActivity extends Fragment {
 
     }
 
-    @OnClick({R.id.start_time, R.id.end_time, R.id.save_time,R.id.ending_time})
+    @OnClick({R.id.one_start_time, R.id.one_end_time, R.id.one_save_time,R.id.one_ending_time})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.start_time:
+            case R.id.one_start_time:
                 DateWheelDialogN kyDateChooseDialog3 = new DateWheelDialogN(getActivity(), new DateWheelDialogN.DateChooseInterface() {
                     @Override
                     public void getDateTime(String time, boolean longTimeChecked) {
@@ -77,7 +77,7 @@ public class FormalSurveyActivity extends Fragment {
                 kyDateChooseDialog3.setDateDialogTitle("案发时间");
                 kyDateChooseDialog3.showDateChooseDialog();
                 break;
-            case R.id.end_time:
+            case R.id.one_end_time:
 
                 DateWheelDialogN kyDateChooseDialog4 = new DateWheelDialogN(getActivity(), new DateWheelDialogN.DateChooseInterface() {
                     @Override
@@ -89,7 +89,7 @@ public class FormalSurveyActivity extends Fragment {
                 kyDateChooseDialog4.setDateDialogTitle("结案时间");
                 kyDateChooseDialog4.showDateChooseDialog();
                 break;
-            case R.id.save_time:
+            case R.id.one_save_time:
 
                 DateWheelDialogN kyDateChooseDialog5 = new DateWheelDialogN(getActivity(), new DateWheelDialogN.DateChooseInterface() {
                     @Override
@@ -102,7 +102,7 @@ public class FormalSurveyActivity extends Fragment {
                 kyDateChooseDialog5.showDateChooseDialog();
                 break;
 
-            case R.id.ending_time:
+            case R.id.one_ending_time:
 
                 DateWheelDialogN kyDateChooseDialog6 = new DateWheelDialogN(getActivity(), new DateWheelDialogN.DateChooseInterface() {
                     @Override

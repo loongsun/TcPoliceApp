@@ -24,7 +24,7 @@ public class ActivityTraceEvidence extends Activity {
     ImageView btnXczpReturn;
     @BindView(R.id.save_btn)
     Button saveBtn;
-    @BindView(R.id.get_time)
+    @BindView(R.id.three_get_time)
     EditText getTime;
 
     @Override
@@ -35,7 +35,7 @@ public class ActivityTraceEvidence extends Activity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_xczpReturn, R.id.save_btn,R.id.get_time})
+    @OnClick({R.id.btn_xczpReturn, R.id.save_btn,R.id.three_get_time})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_xczpReturn:
@@ -47,7 +47,7 @@ public class ActivityTraceEvidence extends Activity {
                 startActivity(intent);
                 break;
 
-            case R.id.get_time:
+            case R.id.three_get_time:
 
                 DateWheelDialogN kyDateChooseDialog5 = new DateWheelDialogN(this, new DateWheelDialogN.DateChooseInterface() {
                     @Override

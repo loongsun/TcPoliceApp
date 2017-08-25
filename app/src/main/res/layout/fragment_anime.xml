@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_three"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:background="@color/White"
@@ -358,7 +359,7 @@
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/get_time"
+                    android:id="@+id/three_get_time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
