@@ -5,9 +5,6 @@
     android:background="@color/White"
     android:orientation="vertical">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
 
         <LinearLayout
@@ -330,6 +327,19 @@
                     />
 
                 <Button
+                    android:id="@+id/btn_NFCQuery"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_blue"
+                    android:onClick="onNFC"
+                    android:text="开启NFC"
+                    android:textSize="20sp" />
+
+                <Button
                     android:id="@+id/btn_handQuery"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
@@ -343,7 +353,28 @@
             </LinearLayout>
 
 
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:visibility="visible">
 
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:id="@+id/tvjd"
+                    android:gravity="center_vertical|center_horizontal" />
+
+                <ProgressBar
+                    android:id="@+id/progressBarNFC"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
 
 
             <LinearLayout
@@ -573,9 +604,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_marginTop="10dp"
                 android:layout_gravity="bottom"
-                android:background="@color/Black"
+                android:layout_marginTop="150dp"
+                android:background="@drawable/tz_bg"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -583,7 +614,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
-                    android:src="@drawable/icon_message" />
+                    android:src="@drawable/icon_tz" />
 
                 <TextView
                     android:id="@+id/tv_hint"
@@ -597,5 +628,5 @@
             </LinearLayout>
         </LinearLayout>
 
-    </ScrollView>
+
 </LinearLayout>

@@ -25,10 +25,6 @@ public class MainTabActivity extends FragmentActivity{
 	private FragmentTabHost mTabHost;
 	//定义一个布局
 	private LayoutInflater layoutInflater;
-		// 0815 你好
-	    //再测试一下
-    //cengongdd磊寺
-
 	//定义数组来存放Fragment界面
 	private Class fragmentArray[] = {PoliceStateActivity.class,FormalSurveyFragment.class,MyMarkFragment.class,InfoQueryActivity.class,
 			KcqzMainList.class,UserManageActivity.class};
@@ -43,7 +39,6 @@ public class MainTabActivity extends FragmentActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_tab_layout);
         initView();
-
         getIntentInfo();
     }
 	

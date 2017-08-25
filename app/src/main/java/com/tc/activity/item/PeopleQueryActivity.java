@@ -8,8 +8,13 @@ import java.util.Map;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.nfc.NfcAdapter;
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -20,6 +25,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,8 +37,14 @@ import com.baidu.ocr.sdk.model.IDCardParams;
 import com.baidu.ocr.sdk.model.IDCardResult;
 import com.baidu.ocr.sdk.model.Word;
 import com.baidu.ocr.ui.camera.CameraActivity;
+import com.global.Utils;
+import com.kaer.sdk.IDCardItem;
+import com.kaer.sdk.OnClientCallback;
+import com.kaer.sdk.nfc.NfcReadClient;
+import com.kaer.sdk.utils.CardCode;
 import com.sdses.tool.UtilTc;
 import com.sdses.tool.Values;
+import com.tc.activity.PreferData;
 import com.tc.application.R;
 import com.tc.util.FileUtil;
 import com.tc.view.CustomProgressDialog;
@@ -57,12 +69,12 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 
 
-public class PeopleQueryActivity  extends Activity{
+public class PeopleQueryActivity  extends BaseActivity implements OnClientCallback {
 
 	private static final String TAG = PeopleQueryActivity.class.getSimpleName();
 	private static final int REQUEST_CODE_CAMERA = 102;
 	private boolean overflag=true;
-	private Button btn_handquery;
+	private Button btn_handquery,btn_NFC;
 	private String numValue="";
 	private IDCardReader idCardReader = null;
 	PowerOperate mPowerOperate = new PowerOperate();
@@ -79,7 +91,7 @@ public class PeopleQueryActivity  extends Activity{
 	private String  errorMessage="";
 	//返回结果
 	private TextView tv_repResult,tv_repName,tv_repSex,tv_repBir,tv_repAddress,tv_repRylx,tv_repLxdw,
-			tv_repLxr,tv_repLxFs;
+			tv_repLxr,tv_repLxFs,proTv;
 	private JSONObject jsResult;
 	private Button mAutoQueryBtn;
 	private boolean mHasToken;
@@ -104,9 +116,16 @@ public class PeopleQueryActivity  extends Activity{
 		}
 	}
 	private void initWidgets(){
+
+		proTv=(TextView)findViewById(R.id.tvjd) ;
+		proTv.setText("读卡服务未连接，请稍候...");
+		proBar = (ProgressBar) findViewById(R.id.progressBarNFC);
+		proBar.setMax(100);
+
 		mResultLayout = (LinearLayout)findViewById(R.id.layout_result_info);
 		btn_handquery=(Button)findViewById(R.id.btn_handQuery);
 		btn_handquery.setOnClickListener(new OnClick());
+		btn_NFC=(Button)findViewById(R.id.btn_NFCQuery);
 		//-----------id2
 		tv_nameValue=(TextView)findViewById(R.id.tv_nameValue);
 		tv_sexValue=(TextView)findViewById(R.id.tv_sexValue);
@@ -150,6 +169,8 @@ public class PeopleQueryActivity  extends Activity{
 				}
 			}
 		});
+
+
 	}
 	class OnClick implements OnClickListener{
 		@Override
@@ -173,6 +194,177 @@ public class PeopleQueryActivity  extends Activity{
 		clearInfo();
 //		InitID2();
 		initQrCode();
+	}
+
+	private NfcReadClient mNfcReadClient;
+	private PreferData preferData;
+	private ProgressBar proBar;
+	private ReadAsync async;
+	private NfcAdapter mAdapter;
+
+    public void onNFC(View v)
+	{
+		if(btn_NFC.getText().equals("开启NFC"))
+		{
+			openNFC();
+			btn_NFC.setText("关闭NFC");
+		}
+		else
+		{
+			btn_NFC.setText("开启NFC");
+			closeNFC();
+		}
+	}
+	private void openNFC()
+	{
+		mNfcReadClient = NfcReadClient.getInstance();
+		if (!mNfcReadClient.checkNfcEnable(PeopleQueryActivity.this))
+			Toast.makeText(this, "不支持NFC或者未开启", Toast.LENGTH_SHORT).show();
+
+		preferData = new PreferData(this);
+		mNfcReadClient.setClientCallback(this);
+		new Thread(new Runnable()
+		{
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				int result = mNfcReadClient.init(PeopleQueryActivity.this, ip, port, account, password, Utils.getIsWss(PeopleQueryActivity.this));
+				mHandler.obtainMessage(600, result, result).sendToTarget();
+			}
+		}).start();
+
+		// 必须调用
+		mAdapter = NfcAdapter.getDefaultAdapter(PeopleQueryActivity.this);
+		if (mAdapter == null)
+		{
+			Log.e("test","手机不支持NFC功能");
+		} else if (!mAdapter.isEnabled()) {
+			Log.e("test","手机未打开nfc");
+			new android.support.v7.app.AlertDialog.Builder(PeopleQueryActivity.this).setTitle("是否打开NFC")
+					.setPositiveButton("前往", new DialogInterface.OnClickListener() {
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							// TODO Auto-generated method stub
+							startActivity(new Intent("android.settings.NFC_SETTINGS"));
+						}
+					}).setNegativeButton("否", null).create().show();
+		}
+		else
+			{
+			mNfcReadClient.enableDispatch(PeopleQueryActivity.this);
+
+		}
+	}
+	@Override
+	protected void onNewIntent(final Intent intent) {
+		// TODO Auto-generated method stub
+		super.onNewIntent(intent);
+
+			// 子线程同步调用
+			async = new ReadAsync();
+			async.execute(intent);
+
+	}
+	private void closeNFC()
+	{
+		mNfcReadClient.disableDispatch(PeopleQueryActivity.this);
+		mNfcReadClient.disconnect();
+	}
+	private void clearInfo() {
+		proBar.setProgress(0);
+		im_head.setVisibility(View.GONE);
+		tv_nameValue.setText("");
+		tv_sexValue.setText(""); // 性别
+		tv_nationalValue.setText(""); // 民族
+		tv_birValue.setText(""); // 出生年月日
+		tv_addressValue.setText(""); // 住址
+		tv_idNumValue.setText(""); // 身份号码
+		tv_issueValue.setText(""); // 签发机关
+		tv_vaildDateValue.setText(""); // 有效期限
+	}
+
+	@Override
+	public void preExcute(long arg0) {
+		// TODO Auto-generated method stub
+
+	}
+	@Override
+	public void updateProgress(int arg0) {
+		// TODO Auto-generated method stub
+		System.out.println("arg0.progress=" + arg0);
+		mHandler.obtainMessage(100, arg0, arg0).sendToTarget();
+	}
+	@Override
+	public void onConnectChange(int arg0) {
+		// TODO Auto-generated method stub
+		mHandler.obtainMessage(400, arg0, arg0).sendToTarget();
+	}
+	class ReadAsync extends AsyncTask<Intent, Integer, IDCardItem>
+	{
+		@Override
+		protected void onPreExecute() {
+			// TODO Auto-generated method stub
+			super.onPreExecute();
+			clearInfo();
+		}
+
+		@Override
+		protected IDCardItem doInBackground(Intent... params) {
+			// TODO Auto-generated method stub
+			Intent intent = params[0];
+			IDCardItem item = mNfcReadClient.readCardWithIntent(intent);
+			return item;
+		}
+
+		@Override
+		protected void onPostExecute(IDCardItem result)
+		{
+			// TODO Auto-g enerated method stub
+			super.onPostExecute(result);
+			updateResult(result);
+		}
+	}
+	private void updateResult(IDCardItem arg0)
+	{
+		if (arg0.retCode != 1) {
+			clearInfo();
+		}
+		if (arg0.retCode == 1)
+		{
+			updateViewID2(arg0);
+			preferData.writeData("NfcPhoneReadOk", true); // 标记此手机可以读取；
+
+		}
+		else
+		{
+			Toast.makeText(getApplicationContext(), CardCode.errorCodeDescription(arg0.retCode),Toast.LENGTH_SHORT).show();
+		}
+	}
+	private void updateViewID2(IDCardItem item)
+	{
+		tv_nameValue.setText(item.partyName);
+		tv_sexValue.setText(item.gender); // 性别
+		tv_nationalValue.setText(item.nation); // 民族
+
+		tv_birValue.setText(item.bornDay); // 出生年月日
+		tv_addressValue.setText(item.certAddress); // 住址
+		tv_idNumValue.setText(item.certNumber); // 身份号码
+		tv_issueValue.setText(item.certOrg); // 签发机关
+		tv_vaildDateValue.setText(item.effDate+"--"+item.expDate);
+
+				Bitmap bitmap=item.picBitmap;
+				if (null != bitmap)
+				{
+					im_head.setImageBitmap(bitmap);
+					im_head.setVisibility(View.VISIBLE);
+				}
+
+			//开始核查
+			overflag=false;
+			numValue=item.certNumber;
+			startProgressDialog(QUERY);
+			new Thread(checkRunnable).start();
+
 	}
 
 	@Override
@@ -344,15 +536,31 @@ public class PeopleQueryActivity  extends Activity{
 	}
 
 	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		if(btn_NFC.getText().equals("关闭NFC"))
+			mNfcReadClient.disconnect();
+	}
+
+	@Override
 	protected void onStop() {
 		mbStop=true;
 		super.onStop();
 	}
 
 	@Override
+	protected void onPause() {
+		super.onPause();
+		if(btn_NFC.getText().equals("关闭NFC"))
+			mNfcReadClient.disableDispatch(PeopleQueryActivity.this);
+	}
+
+	@Override
 	protected void onResume() {
 		mbStop=false;
 		super.onResume();
+
+
 	}
 
 	public void Power_ON()
@@ -432,17 +640,7 @@ public class PeopleQueryActivity  extends Activity{
 		return false;
 	}
 
-	private void clearInfo() {
-		im_head.setVisibility(View.GONE);
-		tv_nameValue.setText("");
-		tv_sexValue.setText(""); // 性别
-		tv_nationalValue.setText(""); // 民族
-		tv_birValue.setText(""); // 出生年月日
-		tv_addressValue.setText(""); // 住址
-		tv_idNumValue.setText(""); // 身份号码
-		tv_issueValue.setText(""); // 签发机关
-		tv_vaildDateValue.setText(""); // 有效期限
-	}
+
 
 	private void setPromptText(String strPrompt)
 	{
@@ -538,6 +736,24 @@ public class PeopleQueryActivity  extends Activity{
 					break;
 				case Values.ERROR_OTHER:
 					tv_hint.setText(errorMessage);
+					break;
+				case 100:
+					proTv.setText(msg.arg1 + " %");
+					proBar.setProgress(msg.arg1);
+					break;
+				case 200:
+					break;
+				case 400:
+					Log.e("400",""+(msg.arg1 == 1 ? "服务器已连接" : "服务器已断开"));
+					if(msg.arg1==1)
+					{
+						proBar.setBackgroundColor(Color.GREEN);
+						proTv.setText("服务已连接");
+					}
+					else
+						proBar.setBackgroundColor(Color.GRAY);
+					break;
+				case 600:
 					break;
 			}
 			super.handleMessage(msg);

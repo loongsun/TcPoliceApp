@@ -1,6 +1,8 @@
 package com.tc.fragment;
 
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
@@ -129,49 +131,72 @@ public class FormalSurveyFragment extends Fragment {
                         getActivity().getApplicationContext()).inflate(
                         R.layout.item_policestate_list, null);
                 holder = new ViewHolder();
+
                 holder.tv_jqName = (TextView) mView.findViewById(R.id.tv_name);
                 holder.tv_jqTime = (TextView) mView.findViewById(R.id.tv_time);
-                holder.tv_jqPosition = (TextView) mView
-                        .findViewById(R.id.tv_address);
-                holder.parentLayout = (LinearLayout) mView
-                        .findViewById(R.id.lin_jqInfo);
-                // holder.parentLayout.setTag(R.id.checkout_listitem_layout,
-                // position);
-                holder.parentLayout.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View arg0) {
-                        Log.e("e", "onClick");
-                        if (stateList.get(position).getWtype().equals("???°???")) {
-                            startActivity(new Intent(getActivity(), FormalNewActivity.class)
-//                                    startActivity(new Intent(getActivity(), FormalActivity.class)
-                                            .putExtra("name", stateList.get(position).getJqNum())
-                                            .putExtra("anjianname", stateList.get(position).getJqName())
-                            );
-                        } else {
-//                            startActivity(new Intent(getActivity(), FormalActivity.class)
-                            startActivity(new Intent(getActivity(), FormalNewActivity.class)
-                                            .putExtra("name", stateList.get(position).getJqNum())
-                                            .putExtra("anjianname", stateList.get(position).getJqName())
-                            );
-                        }
+                holder.icon=(ImageView)mView.findViewById(R.id.item_img_zfqz);
+                holder.tv_jqPosition = (TextView) mView.findViewById(R.id.tv_address);
 
-                    }
-                });
+                holder.parentLayout = (LinearLayout) mView.findViewById(R.id.lin_jqInfo);
+
                 mView.setTag(holder);
             } else {
                 holder = (ViewHolder) mView.getTag();
             }
+
+//            holder.tv_jqName.setText(ret.getJqName() + "(" + ret.getWtype() + ")");
+//            holder.tv_jqTime.setText(ret.getJqTime());
+//            holder.tv_jqPosition.setText("???????" + ret.getJqNum());
+
+            holder.parentLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View arg0) {
+                    Log.e("e", "onClick");
+                    if (stateList.get(position).getWtype().equals("???°???")) {
+                        startActivity(new Intent(getActivity(), FormalNewActivity.class)
+//                                    startActivity(new Intent(getActivity(), FormalActivity.class)
+                                        .putExtra("name", stateList.get(position).getJqNum())
+                                        .putExtra("anjianname", stateList.get(position).getJqName())
+                        );
+                    } else {
+//                            startActivity(new Intent(getActivity(), FormalActivity.class)
+                        startActivity(new Intent(getActivity(), FormalNewActivity.class)
+                                .putExtra("name", stateList.get(position).getJqNum())
+                                .putExtra("anjianname", stateList.get(position).getJqName())
+                        );
+                    }
+
+                }
+            });
+
             PoliceStateListBean ret = stateList.get(position);
-            holder.tv_jqName.setText(ret.getJqName() + "(" + ret.getWtype() + ")");
+            holder.tv_jqName.setText(ret.getJqName());
             holder.tv_jqTime.setText(ret.getJqTime());
-            holder.tv_jqPosition.setText("???????" + ret.getJqNum());
+            holder.tv_jqPosition.setText(ret.getJqPosition());
+
+            if(ret.getWtype().equals("刑事案件"))
+            {
+                BitmapDrawable drawable=getDrawableFromId(R.drawable.icon_xs);
+                holder.icon.setImageDrawable(drawable);
+            }
+            else
+            {
+                BitmapDrawable drawable=getDrawableFromId(R.drawable.icon_xz);
+                holder.icon.setImageDrawable(drawable);
+            }
             return mView;
         }
 
         private class ViewHolder {
             TextView tv_jqName, tv_jqTime, tv_jqPosition;
             LinearLayout parentLayout;
+            ImageView icon;
         }
+    }
+
+    private BitmapDrawable getDrawableFromId(int id){  //这个id就是类似R.drawable.lander_firing
+        Resources res = getResources();
+        return (BitmapDrawable)res.getDrawable(id);
     }
 
     // ??????????

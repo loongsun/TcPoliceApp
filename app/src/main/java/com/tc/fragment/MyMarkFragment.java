@@ -8,6 +8,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -344,6 +345,8 @@ public class MyMarkFragment extends Fragment {
 
         for(int i=0;i<eventInfoList.size();i++){
             EventInfo eventInfo = eventInfoList.get(i);
+            if(TextUtils.isEmpty(eventInfo.wY))
+                continue;
             double latitude = Double.valueOf(eventInfo.wY);//Î³¶È
             double longitude = Double.valueOf(eventInfo.wX);//¾­¶È
             LatLng latlng = new LatLng(latitude,longitude);
