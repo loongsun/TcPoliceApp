@@ -1957,6 +1957,17 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/btn_xczf"
+                    android:onClick="BtneditBL"
+                    android:text="预览编辑"
+                    android:textColor="@color/White"
+                    android:textSize="18sp" />
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/btn_xczf"
                     android:onClick="BtnUploadBL"
                     android:text="上传"
                     android:textColor="@color/White"

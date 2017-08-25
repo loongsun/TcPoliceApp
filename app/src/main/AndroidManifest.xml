@@ -92,6 +92,11 @@
         <activity
             android:name="com.tc.activity.item.SenceNoteActivity"
             android:screenOrientation="portrait"></activity>
+        <!-- 新增案件 -->
+        <activity
+            android:name="com.tc.activity.casemain.KcqzAddAjActivity"
+            android:screenOrientation="portrait"></activity>
+
         <!-- 手动核查 -->
         <activity
             android:name="com.tc.activity.item.HandQueryActivity"

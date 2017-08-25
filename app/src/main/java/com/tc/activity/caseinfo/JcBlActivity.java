@@ -6,15 +6,18 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.sdses.bean.PoliceStateListBean;
 import com.sdses.tool.UtilTc;
 import com.sdses.tool.Values;
 import com.tc.activity.SenceCheck2;
+import com.tc.activity.SenceExcute;
 import com.tc.app.TcApp;
 import com.tc.application.R;
 import com.tc.view.CustomProgressDialog;
@@ -41,6 +44,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import it.sauronsoftware.ftp4j.FTPClient;
+import it.sauronsoftware.ftp4j.FTPDataTransferListener;
 
 public class JcBlActivity extends Activity {
     //采集项
@@ -157,8 +163,160 @@ public class JcBlActivity extends Activity {
     public void BtnUploadBL(View view) {
         startProgressDialog(UPLOAD);
         new Thread(uploadRun).start();
+
+        SendFile sf = new SendFile();
+        sf.start();
+    }
+    private FTPClient myFtp;
+    private PoliceStateListBean plb;
+    String currentFilePaht = "";
+    private String currentFile="";
+    private int fileCount = 0;
+    private int mTotalSize = 0;
+    public class SendFile extends Thread {
+        private String currentPath="";
+        @Override
+        public void run() {
+            try {
+                myFtp = new FTPClient();
+                myFtp.connect("61.176.222.166", 21); // 连接
+                myFtp.login("admin", "1234"); // 登录
+
+                if(Values.dbjqList.size()>0)
+                    plb= Values.dbjqList.get(0);
+
+                File fileStart = new File(Values.ALLFILES);
+                getFileName(fileStart.listFiles(), plb.getJqNum());
+
+                //	myFtp.changeDirectory("wphoto");
+
+                //	String path=Environment.getExternalStorageDirectory().getAbsolutePath()+"/temp.jpg";
+                //	Log.e("path", "path"+path);
+
+                for(int i=0;i<bltxt.size();i++){
+                    //判断上传到哪个文件夹
+                    if(bltxt.get(i).endsWith(".doc")){
+                        myFtp.changeDirectory("../");
+                        myFtp.changeDirectory("wtxt");
+                        currentPath=Values.PATH_BOOKMARK;
+                        currentFilePaht="/wtxt";
+                    }
+
+                    File file = new File(currentPath+bltxt.get(i));
+                    fileCount = (int) file.length();
+
+                    mTotalSize = fileCount;
+                    currentFile=currentFilePaht+"/"+bltxt.get(i);
+                    MyFTPDataTransferListener listener = new MyFTPDataTransferListener();
+                    myFtp.upload(file, listener); // 上传
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                mHandler.sendEmptyMessage(Values.ERROR_UPLOAD);
+            }
+        }
+    }
+    private List<String> bltxt = new ArrayList<String>();
+    private void getFileName(File[] files, String jqNum) {
+		bltxt.clear();
+        if (files != null)// nullPointer
+        {
+            for (File file : files) {
+                if (file.isDirectory()) {
+                    getFileName(file.listFiles(), jqNum);
+                } else {
+                    String fileName = file.getName();
+                    if (fileName.contains(jqNum) && fileName.endsWith(".doc")) {
+                        Log.e("e", "fileName"+fileName);
+                        bltxt.add(fileName);
+                    }
+                }
+            }
+        }
+    }
+    private String mediaFormat="";
+    private class MyFTPDataTransferListener implements FTPDataTransferListener {
+        @Override
+        public void aborted() {
+            // TODO Auto-generated method stub
+        }
+        @Override
+        public void completed() {// 上传成功
+            // TODO Auto-generated method stub
+            UtilTc.showLog("currentFile:"+currentFile);
+            UtilTc.showLog("currentFile 后3位"+currentFile.substring(currentFile.length()-3,currentFile.length()));
+            mediaFormat=currentFile.substring(currentFile.length()-3,currentFile.length());
+//            if(mediaFormat.equals("doc")){
+//                mediaType="文档";
+//            }
+//            new Thread(media).start();
+
+            Message msg;
+            msg = Message.obtain();
+            msg.what = Values.SUCCESS_UPLOAD;
+            mHandler1.sendMessage(msg);
+        }
+        @Override
+        public void failed() {// 上传失败
+            // TODO Auto-generated method stub
+            Message msg;
+            msg = Message.obtain();
+            msg.what = Values.ERROR_UPLOAD;
+            mHandler1.sendMessage(msg);
+        }
+        @Override
+        public void started() {// 上传开始
+            // TODO Auto-generated method stub
+            Message msg;
+            msg = Message.obtain();
+            msg.what = 2;
+            mHandler1.sendMessage(msg);
+        }
+        @Override
+        public void transferred(int length) {// 上传过程监听
+            int progress = length;
+            Message msg;
+            msg = Message.obtain();
+            msg.what = 1;
+            msg.obj = progress;
+            mHandler1.sendMessage(msg);
+        }
     }
 
+    Handler mHandler1 = new Handler() {
+        public void handleMessage(android.os.Message msg) {
+            switch (msg.what) {
+                case Values.SUCCESS_UPLOAD:
+                    UtilTc.showLog("文件上传成功");
+
+                    stopProgressDialog();
+                    //改变警情状态
+                    break;
+                case Values.ERROR_UPLOAD:
+                    UtilTc.showLog("文件上传失败");
+                    stopProgressDialog();
+                    break;
+            }
+        };
+    };
+    //预览编辑
+    public void BtneditBL(View view) {
+        try {
+            String  sdcardPath = Environment.getExternalStorageDirectory().getAbsolutePath();
+
+            File file = new File(sdcardPath  + "/TC/wtxt/XCBL/");
+            if (!file.exists()){
+                file.mkdir();
+            }
+
+            String fileName = Values.PATH_BOOKMARK+"XCBL/" + name + "_" + UtilTc.getCurrentTime() + ".doc";
+            newPath = fileName;
+            InputStream inputStream = getAssets().open("jcbl.doc");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        doScan();
+    }
     //打印笔录
     public void BtnPrintBL(View view) {
         try {

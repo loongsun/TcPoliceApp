@@ -1,7 +1,10 @@
 package com.tc.activity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.ActivityNotFoundException;
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.media.MediaRecorder;
@@ -22,7 +25,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.sdses.bean.PoliceStateListBean;
 import com.sdses.tool.UtilTc;
@@ -31,6 +36,7 @@ import com.tc.activity.item.RecorderVideoActivity;
 import com.tc.activity.item.SenceNoteActivity;
 import com.tc.app.TcApp;
 import com.tc.application.R;
+import com.tc.util.ConfirmDialog;
 import com.tc.view.CustomProgressDialog;
 
 import org.apache.http.HttpResponse;
@@ -85,7 +91,7 @@ public class SenceExcute extends Activity  {
 	private String errorMessage = "";
 	private TcApp mApp;
 	private boolean isShowPage=false;
-	private CommonAdapter mCommonAdapter = new CommonAdapter();
+	private CommonAdapter mCommonAdapter = new CommonAdapter(this);
 	private CustomProgressDialog progressDialog = null;
 	private final static int UPLOAD=1;
 	//正在上传的文件
@@ -596,9 +602,28 @@ public class SenceExcute extends Activity  {
 		startActivity(new Intent(SenceExcute.this,MainTabActivity.class));
 		finish();
 	}
-	
+	//WPS查看
+	private void doOpenWord(String newPath){
+		Intent intent = new Intent();
+		intent.setAction("android.intent.action.VIEW");
+		intent.addCategory("android.intent.category.DEFAULT");
+		String fileMimeType = "application/msword";
+		intent.setDataAndType(Uri.fromFile(new File(newPath)), fileMimeType);
+		try{
+			startActivity(intent);
+		} catch(ActivityNotFoundException e) {
+			//检测到系统尚未安装OliveOffice的apk程序
+			Toast.makeText(this, "未找到软件", Toast.LENGTH_LONG).show();
+			//请先到www.olivephone.com/e.apk下载并安装
+		}
+	}
 	//bl list
 	private class CommonAdapter extends BaseAdapter {
+
+		Activity mContent ;
+		public CommonAdapter(Activity mCtx){
+			mContent =mCtx;
+		}
 		@Override
 		public int getCount() {
 			if (bltxt!=null) {
@@ -634,13 +659,62 @@ public class SenceExcute extends Activity  {
 						R.layout.item_bltxt, null);
 				holder = new ViewHolder();
 				holder.tv_blTitle = (TextView) mView.findViewById(R.id.tv_blTitle);
-				holder.parentLayout = (LinearLayout) mView
+				holder.iv_delete = (ImageView) mView.findViewById(R.id.iv_delete);
+				holder.iv_edit = (ImageView) mView.findViewById(R.id.iv_edit);
+
+				holder.parentLayout = (RelativeLayout) mView
 						.findViewById(R.id.lin_bl);
 				holder.parentLayout.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(View arg0) {
 						Log.e("e", "onClick");
 				
+					}
+				});
+				//word文件删除
+				holder.iv_delete.setOnClickListener(new OnClickListener() {
+					@Override
+					public void onClick(View arg0) {
+
+						final ConfirmDialog confirmDialog = new ConfirmDialog(mContent, "确定要删除吗?", "删除", "取消");
+						confirmDialog.show();
+						confirmDialog.setClicklistener(new ConfirmDialog.ClickListenerInterface() {
+							@Override
+							public void doConfirm() {
+								// TODO Auto-generated method stub
+								confirmDialog.dismiss();
+								String ret = bltxt.get(position);
+								Log.e("e", "onClick"+ret);
+								File file = new File(Values.PATH_BOOKMARK+ret);
+								if(file.exists()){
+									boolean isDel = file.delete();
+									if(isDel){
+										bltxt.remove(position);
+										notifyDataSetChanged();
+									}
+								}
+							}
+
+							@Override
+							public void doCancel() {
+								// TODO Auto-generated method stub
+								confirmDialog.dismiss();
+							}
+						});
+
+
+					}
+				});
+
+				//word文件编辑
+				holder.iv_edit.setOnClickListener(new OnClickListener() {
+					@Override
+					public void onClick(View arg0) {
+						Log.e("e", "onClick");
+						String ret = bltxt.get(position);
+						Log.e("e", "onClick"+ret);
+						doOpenWord(Values.PATH_BOOKMARK+ret);
+
 					}
 				});
 				mView.setTag(holder);
@@ -654,7 +728,8 @@ public class SenceExcute extends Activity  {
 		}
 		private class ViewHolder {
 			TextView tv_blTitle;
-			LinearLayout parentLayout;
+			RelativeLayout parentLayout;
+			ImageView iv_delete,iv_edit;
 		}
 	}
 	private class MyFTPDataTransferListener implements FTPDataTransferListener {

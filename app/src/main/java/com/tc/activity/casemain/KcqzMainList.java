@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -45,7 +46,7 @@ public class KcqzMainList extends Fragment {
     private CommonAdapter mCommonAdapter = new CommonAdapter();
     private List<PoliceStateListBean> stateList = new ArrayList<PoliceStateListBean>();
     private CustomProgressDialog progressDialog = null;
-
+    Button btn_add_aj;//新增案件
     String errorMessage = "";
     private void startProgressDialog(int type) {
         if (progressDialog == null) {
@@ -66,6 +67,16 @@ public class KcqzMainList extends Fragment {
     private void initWidgets(){
         btn_kcqzReturn=(ImageView)this.getView().findViewById(R.id.btn_kcqzReturn);
         btn_kcqzReturn.setOnClickListener(new OnClick());
+
+        btn_add_aj = (Button)this.getView().findViewById(R.id.btn_add_aj);
+        btn_add_aj.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getActivity(),KcqzAddAjActivity.class);
+                startActivity(intent);
+            }
+        });
         lv_kcqz=(ListView)this.getView().findViewById(R.id.lv_kcqzList);
     }
     class OnClick implements View.OnClickListener{
@@ -122,16 +133,16 @@ public class KcqzMainList extends Fragment {
             if (mView == null) {
                 mView = LayoutInflater.from(
                         getActivity().getApplicationContext()).inflate(
-                        R.layout.item_policestate_list, null);
+                        R.layout.item_policestate_list2, null);
                 holder = new ViewHolder();
                 holder.tv_jqName = (TextView) mView.findViewById(R.id.tv_name);
                 holder.tv_jqTime = (TextView) mView.findViewById(R.id.tv_time);
+                holder.iv_photo = (ImageView) mView.findViewById(R.id.iv_photo);
+
                 holder.tv_jqPosition = (TextView) mView
                         .findViewById(R.id.tv_address);
                 holder.parentLayout = (LinearLayout) mView
                         .findViewById(R.id.lin_jqInfo);
-                // holder.parentLayout.setTag(R.id.checkout_listitem_layout,
-                // position);
                 holder.parentLayout.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View arg0) {
@@ -156,12 +167,20 @@ public class KcqzMainList extends Fragment {
             }
             PoliceStateListBean ret = stateList.get(position);
             holder.tv_jqName.setText(ret.getJqName()+"("+ret.getWtype()+")");
+            if(ret.getWtype().equals("刑事案件")){
+                holder.iv_photo.setImageResource(R.drawable.lostcar);
+            }else if(ret.getWtype().equals("行政案件")){
+                holder.iv_photo.setImageResource(R.drawable.icon_xsaj);
+            }else{
+                holder.iv_photo.setImageResource(R.drawable.lufei);
+            }
             holder.tv_jqTime.setText(ret.getJqTime());
             holder.tv_jqPosition.setText("案件编号"+ret.getJqNum());
             return mView;
         }
         private class ViewHolder {
             TextView tv_jqName, tv_jqTime, tv_jqPosition;
+            ImageView iv_photo;
             LinearLayout parentLayout;
         }
     }

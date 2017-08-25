@@ -17,8 +17,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * 浣滆�咃細闄堥工 on 2017/8/20.
- * 鐗堟湰锛歷1.0
+ * 作者：陈鹤 on 2017/8/20.
+ * 版本：v1.0
  */
 
 public class ActivityTraceEvidence extends Activity {
@@ -59,7 +59,7 @@ public class ActivityTraceEvidence extends Activity {
 
                     }
                 });
-                kyDateChooseDialog5.setDateDialogTitle("淇濇姢鏃堕棿");
+                kyDateChooseDialog5.setDateDialogTitle("保护时间");
                 kyDateChooseDialog5.showDateChooseDialog();
                 break;
         }

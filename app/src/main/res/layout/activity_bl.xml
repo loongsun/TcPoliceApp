@@ -5,6 +5,7 @@
     android:background="@color/White"
      >
     <LinearLayout
+        android:id="@+id/ll_parents"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -547,10 +548,31 @@
                 android:singleLine="true"
                 android:textSize="17sp" />
         </LinearLayout>
-
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/ll_parent"
+            >
+
+        </LinearLayout>
+        <Button
+            android:id="@+id/btn_add_ask"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn_blue"
+            android:text="新增问答"
+            android:layout_marginBottom="20dp"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:orientation="horizontal"
             >
             <Button
@@ -565,6 +587,7 @@
                 android:text="保存"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
+
             <!--<Button-->
                 <!--android:id="@+id/btn_upload"-->
                 <!--android:layout_width="match_parent"-->

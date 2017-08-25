@@ -4,11 +4,15 @@ import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -39,7 +43,7 @@ public class SenceNoteActivity extends Activity implements  DateTimeDialog.MyOnD
     private EditText et_ask_workadd, et_record_username,et_record_workadd;
     private EditText et_b_ask_phone,et_b_ask_card,et_b_ask_address,et_b_ask_home,et_b_ask_birth
             ,et_b_ask_username,et_b_ask_sex,et_b_ask_degree,et_b_ask_response;
-    private Button btn_save,btn_print;
+    private Button btn_save,btn_print,btn_add_ask;
     private String jqNum;
     LinearLayout mouse_starttime,mouse_endtime,starttime,endtime;
     TextView et_mouse_ask_starttime,et_mouse_ask_endtime,et_ask_starttime,et_ask_endtime;
@@ -94,6 +98,10 @@ public class SenceNoteActivity extends Activity implements  DateTimeDialog.MyOnD
         btn_save = (Button) findViewById(R.id.btn_save);
         btn_save.setOnClickListener(new OnClick());
 
+
+        btn_add_ask = (Button) findViewById(R.id.btn_add_ask);
+        btn_add_ask.setOnClickListener(new OnClick());
+
         btn_print = (Button) findViewById(R.id.btn_print);
         btn_print.setOnClickListener(new OnClick());
 
@@ -119,6 +127,7 @@ public class SenceNoteActivity extends Activity implements  DateTimeDialog.MyOnD
     }
 
     class OnClick implements OnClickListener {
+        @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
         @Override
         public void onClick(View v) {
             // TODO Auto-generated method stub
@@ -138,7 +147,13 @@ public class SenceNoteActivity extends Activity implements  DateTimeDialog.MyOnD
                     doScan();
                     finish();
                     break;
-
+                case R.id.btn_add_ask:
+                    if(line == 11){
+                        UtilTc.myToast(SenceNoteActivity.this,"最多可以添加十组问答！");
+                    }else {
+                        mLl_parent.addView(addView2(line));
+                    }
+                    break;
                 case R.id.btn_blReturn:
                     finish();
                     break;
@@ -164,17 +179,30 @@ public class SenceNoteActivity extends Activity implements  DateTimeDialog.MyOnD
             }
         }
     }
-
+    private LinearLayout mLl_parent;
     private void showAll() {
         dateTimeDialog.hideOrShow();
     }
+    EditText et_ask1,et_response1,
+            et_ask2,et_response2,
+            et_ask3,et_response3,
+            et_ask4,et_response4,
+            et_ask5,et_response5,
+            et_ask6,et_response6,
+            et_ask7,et_response7,
+            et_ask8,et_response8,
+            et_ask9,et_response9,
+            et_ask10,et_response10
+
+    ;
+    int line = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bl);
         String  sdcardPath = Environment.getExternalStorageDirectory().getAbsolutePath();
-
+        mLl_parent=(LinearLayout) findViewById(R.id.ll_parent);
         initWidgets();
         jqNum = getIntent().getStringExtra("name");
         file = new File(sdcardPath  + "/TC/wtxt/");
@@ -186,6 +214,73 @@ public class SenceNoteActivity extends Activity implements  DateTimeDialog.MyOnD
 
 
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
+    private View addView2(int size) {
+        // TODO 动态添加布局(java方式)
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+//      LayoutInflater inflater1=(LayoutInflater)mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+//      LayoutInflater inflater2 = getLayoutInflater();
+        LayoutInflater inflater3 = LayoutInflater.from(this);
+        View view = inflater3.inflate(R.layout.block_gym_album_list_item, null);
+        if(size ==1){
+            et_ask1 = (EditText)view.findViewById(R.id.et_b_ask);
+            et_response1 = (EditText)view.findViewById(R.id.et_b_response);
+            et_ask1.setId(et_ask1.generateViewId());
+            et_response1.setId(et_response1.generateViewId());
+        }else  if(size ==2){
+            et_ask2 = (EditText)view.findViewById(R.id.et_b_ask);
+            et_response2 = (EditText)view.findViewById(R.id.et_b_response);
+            et_ask2.setId(et_ask2.generateViewId());
+            et_response2.setId(et_response2.generateViewId());
+        }else  if(size ==3){
+            et_ask3 = (EditText)view.findViewById(R.id.et_b_ask);
+            et_response3 = (EditText)view.findViewById(R.id.et_b_response);
+            et_ask3.setId(et_ask3.generateViewId());
+            et_response3.setId(et_response3.generateViewId());
+        }else  if(size ==4){
+            et_ask4 = (EditText)view.findViewById(R.id.et_b_ask);
+            et_response4 = (EditText)view.findViewById(R.id.et_b_response);
+            et_ask4.setId(et_ask4.generateViewId());
+            et_response4.setId(et_response4.generateViewId());
+        }else  if(size ==5){
+            et_ask5 = (EditText)view.findViewById(R.id.et_b_ask);
+            et_response5 = (EditText)view.findViewById(R.id.et_b_response);
+            et_ask5.setId(et_ask5.generateViewId());
+            et_response5.setId(et_response5.generateViewId());
+        }else  if(size ==6){
+            et_ask6 = (EditText)view.findViewById(R.id.et_b_ask);
+            et_response6 = (EditText)view.findViewById(R.id.et_b_response);
+            et_ask6.setId(et_ask6.generateViewId());
+            et_response6.setId(et_response6.generateViewId());
+        }else  if(size ==7){
+            et_ask7 = (EditText)view.findViewById(R.id.et_b_ask);
+            et_response7 = (EditText)view.findViewById(R.id.et_b_response);
+            et_ask7.setId(et_ask7.generateViewId());
+            et_response7.setId(et_response7.generateViewId());
+        }else  if(size ==8){
+            et_ask8 = (EditText)view.findViewById(R.id.et_b_ask);
+            et_response8 = (EditText)view.findViewById(R.id.et_b_response);
+            et_ask8.setId(et_ask8.generateViewId());
+            et_response8.setId(et_response8.generateViewId());
+        }else  if(size ==9){
+            et_ask9 = (EditText)view.findViewById(R.id.et_b_ask);
+            et_response9 = (EditText)view.findViewById(R.id.et_b_response);
+            et_ask9.setId(et_ask9.generateViewId());
+            et_response9.setId(et_response9.generateViewId());
+        }else  if(size ==10){
+            et_ask10 = (EditText)view.findViewById(R.id.et_b_ask);
+            et_response10 = (EditText)view.findViewById(R.id.et_b_response);
+            et_ask10.setId(et_ask10.generateViewId());
+            et_response10.setId(et_response10.generateViewId());
+        }
+
+        line++;
+        view.setLayoutParams(lp);
+        return view;
+    }
+
 
     private void saveContent() {
 //        if (et_blTitle.getText().toString().trim().equals("") && et_blContent.getText().toString().trim().equals("")) {
@@ -254,6 +349,80 @@ public class SenceNoteActivity extends Activity implements  DateTimeDialog.MyOnD
         map.put("$START$", et_ask_starttime.getText().toString());
         map.put("$END$", et_ask_endtime.getText().toString());
 
+        if(et_ask1 != null && !et_ask1.getText().toString().equals("")) {
+            map.put("$ASK1$", "问: "+et_ask1.getText().toString());
+            map.put("$ANSER1$", "答: "+et_response1.getText().toString());
+        }else{
+            map.put("$ASK1$", "");
+            map.put("$ANSER1$", "");
+        }
+
+        if(et_ask2 != null && !et_ask2.getText().toString().equals("")) {
+            map.put("$ASK2$", "问: "+et_ask2.getText().toString());
+            map.put("$ANSER2$", "答: "+et_response2.getText().toString());
+        }else{
+            map.put("$ASK2$", "");
+            map.put("$ANSER2$", "");
+        }
+        if(et_ask3 != null && !et_ask3.getText().toString().equals("")) {
+            map.put("$ASK3$", "问: "+et_ask3.getText().toString());
+            map.put("$ANSER3$", "答: "+et_response3.getText().toString());
+        }else{
+            map.put("$ASK3$", "");
+            map.put("$ANSER3$", "");
+        }
+        if(et_ask4 != null && !et_ask4.getText().toString().equals("")) {
+            map.put("$ASK4$", "问: "+et_ask4.getText().toString());
+            map.put("$ANSER4$", "答: "+et_response4.getText().toString());
+        }else{
+            map.put("$ASK4$", "");
+            map.put("$ANSER4$", "");
+        }
+
+        if(et_ask5 != null && !et_ask5.getText().toString().equals("")) {
+            map.put("$ASK5$", "问: "+et_ask5.getText().toString());
+            map.put("$ANSER5$", "答: "+et_response5.getText().toString());
+        }else{
+            map.put("$ASK5$", "");
+            map.put("$ANSER5$", "");
+        }
+        if(et_ask6 != null && !et_ask6.getText().toString().equals("")) {
+            map.put("$ASK6$", "问: "+et_ask6.getText().toString());
+            map.put("$ANSER6$", "答: "+et_response6.getText().toString());
+        }else{
+            map.put("$ASK6$", "");
+            map.put("$ANSER6$", "");
+        }
+
+        if(et_ask7 != null && !et_ask7.getText().toString().equals("")) {
+            map.put("$ASK7$", "问: "+et_ask7.getText().toString());
+            map.put("$ANSER7$", "答: "+et_response7.getText().toString());
+        }else{
+            map.put("$ASK7$", "");
+            map.put("$ANSER7$", "");
+        }
+        if(et_ask8 != null && !et_ask8.getText().toString().equals("")) {
+            map.put("$ASK8$", "问: "+et_ask8.getText().toString());
+            map.put("$ANSER8$", "答: "+et_response8.getText().toString());
+        }else{
+            map.put("$ASK8$", "");
+            map.put("$ANSER8$", "");
+        }
+        if(et_ask9 != null && !et_ask9.getText().toString().equals("")) {
+            map.put("$ASK9$", "问: "+et_ask9.getText().toString());
+            map.put("$ANSER9$", "答: "+et_response9.getText().toString());
+        }else{
+            map.put("$ASK9$", "");
+            map.put("$ANSER9$", "");
+        }
+
+        if(et_ask10 != null && !et_ask10.getText().toString().equals("")) {
+            map.put("$ASK10$", "问: "+et_ask10.getText().toString());
+            map.put("$ANSER10$", "答: "+et_response10.getText().toString());
+        }else{
+            map.put("$ASK10$", "");
+            map.put("$ANSER10$", "");
+        }
 
 
         writeDoc(newFile,map);
