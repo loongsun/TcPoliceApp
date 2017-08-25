@@ -32,7 +32,7 @@ public class UtilTc {
 	
 	//获取当前时间
 	public static String getCurrentTime(){
-	 SimpleDateFormat    formatter    =   new    SimpleDateFormat    ("yyyy-MM-dd HH:mm:ss");     
+	 SimpleDateFormat    formatter    =   new    SimpleDateFormat    ("yyyy-MM-dd HHmmss");
 	 Date    curDate    =   new    Date(System.currentTimeMillis());//获取当前时间     
 	 return   formatter.format(curDate);    
 	 

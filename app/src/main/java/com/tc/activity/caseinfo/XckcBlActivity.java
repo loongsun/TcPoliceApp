@@ -398,7 +398,7 @@ public class XckcBlActivity extends Activity {
 
                     mTotalSize = fileCount;
                     currentFile=currentFilePaht+"/"+bltxt.get(i);
-                    MyFTPDataTransferListener listener = new MyFTPDataTransferListener();
+                    MyFTPDataTransferListener listener = new MyFTPDataTransferListener(bltxt.get(i));
                     myFtp.upload(file, listener); // ÉÏ´«
                 }
             } catch (Exception e) {
@@ -447,6 +447,10 @@ public class XckcBlActivity extends Activity {
     }
     private String mediaFormat="";
     private class MyFTPDataTransferListener implements FTPDataTransferListener {
+        String fileName = "";
+        MyFTPDataTransferListener(String fileNameRet){
+            fileName = fileNameRet;
+        }
         @Override
         public void aborted() {
             // TODO Auto-generated method stub
@@ -461,7 +465,7 @@ public class XckcBlActivity extends Activity {
                 mediaType="ÎÄµµ";
             }
             new Thread(media).start();
-            File file = new File(Values.PATH_xckybl);
+            File file = new File(Values.PATH_xckybl+fileName);
             if(file.exists()) {
                 boolean isDel = file.delete();
             }

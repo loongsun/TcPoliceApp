@@ -66,7 +66,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:editable="false"
                     android:id="@+id/et_kyAjbh"
                     android:layout_width="match_parent"
@@ -97,7 +97,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_gajname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -134,7 +134,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_gaj"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -172,7 +172,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_pcs"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -209,7 +209,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_fasj"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -247,7 +247,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_fadd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -298,7 +298,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_dsrxm1"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -322,7 +322,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_dsrxb1"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -344,7 +344,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_dsrage1"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -376,7 +376,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_dsrzz"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -411,7 +411,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_dsrtz1"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -452,7 +452,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_dsrxm2"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -476,7 +476,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_dsrxb2"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -498,7 +498,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_dsrage2"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -530,7 +530,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_dsrzz2"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -565,7 +565,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_dsrtz2"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -605,7 +605,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_dsrxm3"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -629,7 +629,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_dsrxb3"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -651,7 +651,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_dsrage3"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -683,7 +683,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_dsrzz3"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -718,7 +718,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_dsrtz3"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -758,7 +758,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_dsrxm4"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -782,7 +782,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_dsrxb4"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -804,7 +804,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_dsrage4"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -836,7 +836,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_dsrzz4"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -871,7 +871,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_dsrtz4"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -926,7 +926,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_zrxm1"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -950,7 +950,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_zrxb1"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -972,7 +972,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_zrage1"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -1004,7 +1004,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_zrzz1"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -1039,7 +1039,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_zrbh1"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -1078,7 +1078,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_zrxm2"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -1102,7 +1102,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_zrxb2"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -1124,7 +1124,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_zrage2"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -1156,7 +1156,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_zrzz2"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -1191,7 +1191,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_zrbh2"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -1244,7 +1244,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_wfxwsygj"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -1278,7 +1278,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_cwshqk"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -1312,7 +1312,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_xcphqk"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -1346,7 +1346,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_qt"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -1380,7 +1380,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_bz"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -1414,7 +1414,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_cjry1"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -1448,7 +1448,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_cjry2"
                     android:layout_weight="1"
                     android:layout_width="0dp"
@@ -1482,7 +1482,7 @@
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_jzr"
                     android:layout_weight="1"
                     android:layout_width="0dp"

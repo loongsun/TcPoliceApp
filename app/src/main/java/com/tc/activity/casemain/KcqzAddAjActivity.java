@@ -48,6 +48,7 @@ public class KcqzAddAjActivity extends Activity {
     RadioButton rb_xzaj,rb_xsaj;
     EditText tv_anjian_name;
     Button save;
+    ImageView btn_blReturn;
     String a_name,error;
     String a_type = "ÐÌÊÂ°¸¼þ";
 //    Values.USERNAME
@@ -110,7 +111,13 @@ public class KcqzAddAjActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_anjian);
         ButterKnife.bind(this);
-
+        btn_blReturn = (ImageView)findViewById(R.id.btn_blReturn);
+        btn_blReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         initWidgets();
 
