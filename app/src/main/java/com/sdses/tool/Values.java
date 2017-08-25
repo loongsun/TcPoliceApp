@@ -23,6 +23,9 @@ public class Values {
     public static String PATH_RECORD=SDPATH+"/TC/wrecord/";
     public static String PATH_CAMERA=SDPATH+"/TC/wcamera/";
     public static String PATH_BOOKMARK=SDPATH+"/TC/wtxt/";
+    public static String PATH_xckybl=SDPATH+"/TC/wtxt/XCKYBL/";
+    public static String PATH_xcbl=SDPATH+"/TC/wtxt/XCBL/";
+    public static String PATH_jcbl=SDPATH+"/TC/wtxt/JCBL/";
     //dbjq
     public static List<PoliceStateListBean>dbjqList=new ArrayList<PoliceStateListBean>();
     public static PoliceStateListBean dbjq=new PoliceStateListBean();

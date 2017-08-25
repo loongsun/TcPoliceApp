@@ -161,6 +161,29 @@ public class JcBlActivity extends Activity {
     }
     //上传按钮
     public void BtnUploadBL(View view) {
+        File fileStart = new File(Values.ALLFILES+"wtxt/JCBL/");
+        boolean flag = getFileName2(fileStart.listFiles(), name);
+
+        if(flag){
+            //存在本地文件
+        }else{
+            try {
+                String  sdcardPath = Environment.getExternalStorageDirectory().getAbsolutePath();
+
+                File file = new File(sdcardPath  + "/TC/wtxt/JCBL/");
+                if (!file.exists()){
+                    file.mkdir();
+                }
+
+                String fileName = Values.PATH_BOOKMARK+"JCBL/" + name + "_" + UtilTc.getCurrentTime() + ".doc";
+                newPath = fileName;
+                InputStream inputStream = getAssets().open("jcbl.doc");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            doScan();
+        }
+
         startProgressDialog(UPLOAD);
         new Thread(uploadRun).start();
 
@@ -185,8 +208,8 @@ public class JcBlActivity extends Activity {
                 if(Values.dbjqList.size()>0)
                     plb= Values.dbjqList.get(0);
 
-                File fileStart = new File(Values.ALLFILES);
-                getFileName(fileStart.listFiles(), plb.getJqNum());
+                File fileStart = new File(Values.ALLFILES+"wtxt/JCBL/");
+                getFileName(fileStart.listFiles(), name);
 
                 //	myFtp.changeDirectory("wphoto");
 
@@ -197,9 +220,9 @@ public class JcBlActivity extends Activity {
                     //判断上传到哪个文件夹
                     if(bltxt.get(i).endsWith(".doc")){
                         myFtp.changeDirectory("../");
-                        myFtp.changeDirectory("wtxt");
-                        currentPath=Values.PATH_BOOKMARK;
-                        currentFilePaht="/wtxt";
+                        myFtp.changeDirectory("xcbl-jcbl");
+                        currentPath=Values.PATH_jcbl;
+                        currentFilePaht="/xcbl-jcbl";
                     }
 
                     File file = new File(currentPath+bltxt.get(i));
@@ -246,10 +269,15 @@ public class JcBlActivity extends Activity {
             UtilTc.showLog("currentFile:"+currentFile);
             UtilTc.showLog("currentFile 后3位"+currentFile.substring(currentFile.length()-3,currentFile.length()));
             mediaFormat=currentFile.substring(currentFile.length()-3,currentFile.length());
-//            if(mediaFormat.equals("doc")){
-//                mediaType="文档";
-//            }
-//            new Thread(media).start();
+            if(mediaFormat.equals("doc")){
+                mediaType="文档";
+            }
+            new Thread(media).start();
+
+            File file = new File(Values.PATH_jcbl);
+            if(file.exists()) {
+                boolean isDel = file.delete();
+            }
 
             Message msg;
             msg = Message.obtain();
@@ -304,36 +332,39 @@ public class JcBlActivity extends Activity {
         try {
             String  sdcardPath = Environment.getExternalStorageDirectory().getAbsolutePath();
 
-            File file = new File(sdcardPath  + "/TC/wtxt/XCBL/");
+            File file = new File(sdcardPath  + "/TC/wtxt/JCBL/");
             if (!file.exists()){
                 file.mkdir();
             }
 
-            String fileName = Values.PATH_BOOKMARK+"XCBL/" + name + "_" + UtilTc.getCurrentTime() + ".doc";
+            String fileName = Values.PATH_BOOKMARK+"JCBL/" + name + "_" + UtilTc.getCurrentTime() + ".doc";
             newPath = fileName;
             InputStream inputStream = getAssets().open("jcbl.doc");
         } catch (Exception e) {
             e.printStackTrace();
         }
         doScan();
+        //查看
+        doOpenWord();
     }
     //打印笔录
     public void BtnPrintBL(View view) {
         try {
             String  sdcardPath = Environment.getExternalStorageDirectory().getAbsolutePath();
 
-            File file = new File(sdcardPath  + "/TC/wtxt/XCBL/");
+            File file = new File(sdcardPath  + "/TC/wtxt/JCBL/");
             if (!file.exists()){
                 file.mkdir();
             }
 
-            String fileName = Values.PATH_BOOKMARK+"XCBL/" + name + "_" + UtilTc.getCurrentTime() + ".doc";
+            String fileName = Values.PATH_BOOKMARK+"JCBL/" + name + "_" + UtilTc.getCurrentTime() + ".doc";
             newPath = fileName;
             InputStream inputStream = getAssets().open("jcbl.doc");
         } catch (Exception e) {
             e.printStackTrace();
         }
         doScan();
+
     }
 
 
@@ -453,8 +484,7 @@ public class JcBlActivity extends Activity {
         map.put("$JZR$", et_jzr.getText().toString());
 
         writeDoc(newFile,map);
-        //查看
-        doOpenWord();
+
     }
     /**
      * 调用手机中安装的可打开word的软件
@@ -512,4 +542,74 @@ public class JcBlActivity extends Activity {
             e.printStackTrace();
         }
     }
+
+    private boolean getFileName2(File[] files, String jqNum) {
+        boolean isFlag = false;
+        if (files != null)// nullPointer
+        {
+            for (File file : files) {
+                if (file.isDirectory()) {
+                    getFileName2(file.listFiles(), jqNum);
+                } else {
+                    String fileName = file.getName();
+                    if (fileName.contains(jqNum) && fileName.endsWith(".doc")) {
+                        Log.e("e", "fileName"+fileName);
+                        isFlag =  true;
+
+                    }
+                }
+            }
+        }
+        return isFlag;
+    }
+
+    private String 						mediaType="";
+    //上传媒体信息
+    Runnable media=new Runnable() {
+        @Override
+        public void run() {
+            String url_passenger = "http://61.176.222.166:8765/interface/addmeiti/";
+            HttpPost httpRequest = new HttpPost(url_passenger);
+            List<NameValuePair> params = new ArrayList<NameValuePair>();
+            //查询出出警时间和到达现场时间
+//            mApp.getmDota().jq_queryTime(plb.getJqNum());
+            params.add(new BasicNameValuePair("A_ID", name));
+            params.add(new BasicNameValuePair("A_type", mediaType));
+            params.add(new BasicNameValuePair("A_Format",mediaFormat));
+            params.add(new BasicNameValuePair("A_MM",
+                    currentFile));
+            try {
+                UrlEncodedFormEntity formEntity = new UrlEncodedFormEntity(
+                        params, "UTF-8");
+                httpRequest.setEntity(formEntity);
+                // 取得HTTP response
+                HttpResponse httpResponse = new DefaultHttpClient()
+                        .execute(httpRequest);
+                Log.e("code", "code"
+                        + httpResponse.getStatusLine().getStatusCode());
+                if (httpResponse.getStatusLine().getStatusCode() == 200) {
+                    String strResult = EntityUtils.toString(httpResponse
+                            .getEntity());
+                    Log.e("e", "上传媒体的值是：" + strResult);
+                    // json 解析
+                    JSONTokener jsonParser = new JSONTokener(strResult);
+                    JSONObject person = (JSONObject) jsonParser.nextValue();
+                    String code = person.getString("error code");
+                    if (code.trim().equals("0")) {
+                        //上传成功
+                        //	mHandler.sendEmptyMessage(Values.SUCCESS_RECORDUPLOAD);
+                    } else if (code.trim().equals("10003")) {
+                        JSONObject jb = person.getJSONObject("data");
+                        errorMessage = jb.getString("message");
+                        mHandler.sendEmptyMessage(Values.ERROR_OTHER);
+                    }
+                } else {
+                    mHandler.sendEmptyMessage(Values.ERROR_CONNECT);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                mHandler.sendEmptyMessage(Values.ERROR_CONNECT);
+            }
+        }
+    };
 }

@@ -66,7 +66,7 @@ public class SenceCheck extends Activity {
         waitingHandler = new Handler(){//主界面信息处理
             @Override
             public void handleMessage(Message msg){
-                switch(Integer.valueOf(msg.obj.toString()))
+                switch(msg.what)
                 {
                     case 100:
                         mCommonAdapter.updateView(0);
