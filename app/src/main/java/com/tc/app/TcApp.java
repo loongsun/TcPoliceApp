@@ -12,6 +12,7 @@ import com.baidu.mapapi.SDKInitializer;
 import com.lb.baidumapdemo.face.LocationFace;
 import com.tc.dbhandle.DatabaseContext;
 import com.tc.dbhandle.Dota;
+import com.tc.util.HomeCrashHandler;
 
 import java.io.File;
 
@@ -38,7 +39,7 @@ public class TcApp extends Application {
 	public void sendHandleMsg(int flag, Handler handle, Bundle b) {
 		Handler sendHandler = new Handler();
 		Message childMsg = sendHandler.obtainMessage();
-		childMsg.obj = "" + flag;
+		childMsg.what = flag;
 		if (b != null)
 			childMsg.setData(b);
 		if (handle != null)
@@ -48,6 +49,10 @@ public class TcApp extends Application {
 	public void onCreate() {
 		super.onCreate();
 		mContent = getApplicationContext();
+
+		HomeCrashHandler crashHandler = HomeCrashHandler.getInstance();
+		crashHandler.init(getApplicationContext());
+
 		// µÿÕº≥ı ºªØ
 	 	SDKInitializer.initialize(getApplicationContext());
 		new com.sdses.tool.LocationFaceUtil(getApplicationContext(),

@@ -111,7 +111,7 @@
             android:textColor="@color/text_11"
             android:textSize="17sp" />
 
-        <EditText
+        <com.tc.view.LineEditText
             android:id="@+id/et_ask_address"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -140,7 +140,7 @@
             android:textColor="@color/text_11"
             android:textSize="17sp" />
 
-        <EditText
+        <com.tc.view.LineEditText
             android:id="@+id/et_ask_username"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -167,7 +167,7 @@
             android:textColor="@color/text_11"
             android:textSize="17sp" />
 
-        <EditText
+        <com.tc.view.LineEditText
             android:id="@+id/et_ask_workadd"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -194,7 +194,7 @@
             android:textColor="@color/text_11"
             android:textSize="17sp" />
 
-        <EditText
+        <com.tc.view.LineEditText
             android:id="@+id/et_record_username"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -221,7 +221,7 @@
             android:textColor="@color/text_11"
             android:textSize="17sp" />
 
-        <EditText
+        <com.tc.view.LineEditText
             android:id="@+id/et_record_workadd"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -248,7 +248,7 @@
             android:textColor="@color/text_11"
             android:textSize="17sp" />
 
-        <EditText
+        <com.tc.view.LineEditText
             android:id="@+id/et_b_ask_username"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -275,7 +275,7 @@
             android:textColor="@color/text_11"
             android:textSize="17sp" />
 
-        <EditText
+        <com.tc.view.LineEditText
             android:id="@+id/et_b_ask_sex"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -302,7 +302,7 @@
             android:textColor="@color/text_11"
             android:textSize="17sp" />
 
-        <EditText
+        <com.tc.view.LineEditText
             android:id="@+id/et_b_ask_birth"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -328,7 +328,7 @@
             android:text="文化程度:"
             android:textColor="@color/text_11"
             android:textSize="17sp" />
-        <EditText
+        <com.tc.view.LineEditText
             android:id="@+id/et_b_ask_degree"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -355,7 +355,7 @@
             android:textColor="@color/text_11"
             android:textSize="17sp" />
 
-        <EditText
+        <com.tc.view.LineEditText
             android:id="@+id/et_b_ask_home"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -382,16 +382,16 @@
             android:textColor="@color/text_11"
             android:textSize="17sp" />
 
-        <EditText
+        <com.tc.view.LineEditText
             android:id="@+id/et_b_ask_address"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
             android:hint=""
+            android:background="@null"
             android:padding="6dp"
             android:singleLine="true"
-            android:background="@null"
             android:textColor="@color/colorPrimary"
             android:textSize="17sp" />
     </LinearLayout>
@@ -409,7 +409,7 @@
                 android:textColor="@color/text_11"
                 android:textSize="17sp" />
 
-            <EditText
+            <com.tc.view.LineEditText
                 android:id="@+id/et_b_ask_card"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
@@ -436,7 +436,7 @@
                 android:textColor="@color/text_11"
                 android:textSize="17sp" />
 
-            <EditText
+            <com.tc.view.LineEditText
                 android:id="@+id/et_b_ask_phone"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
@@ -535,7 +535,7 @@
                 android:text="请回答:"
                 android:textColor="@color/text_11"
                 android:textSize="17sp" />
-            <EditText
+            <com.tc.view.LineEditText
                 android:id="@+id/et_b_ask_response"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"

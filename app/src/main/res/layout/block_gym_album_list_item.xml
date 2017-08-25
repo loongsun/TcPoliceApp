@@ -17,7 +17,7 @@
             android:text="问:"
             android:textColor="@color/text_11"
             android:textSize="17sp" />
-        <EditText
+        <com.tc.view.LineEditText
             android:id="@+id/et_b_ask"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
             android:text="答:"
             android:textColor="@color/text_11"
             android:textSize="17sp" />
-        <EditText
+        <com.tc.view.LineEditText
             android:id="@+id/et_b_response"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

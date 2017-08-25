@@ -707,56 +707,57 @@ public class SenceExcute extends Activity  {
 				
 					}
 				});
-				//word文件删除
-				holder.iv_delete.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View arg0) {
-
-						final ConfirmDialog confirmDialog = new ConfirmDialog(mContent, "确定要删除吗?", "删除", "取消");
-						confirmDialog.show();
-						confirmDialog.setClicklistener(new ConfirmDialog.ClickListenerInterface() {
-							@Override
-							public void doConfirm() {
-								// TODO Auto-generated method stub
-								confirmDialog.dismiss();
-								String ret = bltxt.get(position);
-								Log.e("e", "onClick"+ret);
-								File file = new File(Values.PATH_BOOKMARK+ret);
-								if(file.exists()){
-									boolean isDel = file.delete();
-									if(isDel){
-										bltxt.remove(position);
-										notifyDataSetChanged();
-									}
-								}
-							}
-
-							@Override
-							public void doCancel() {
-								// TODO Auto-generated method stub
-								confirmDialog.dismiss();
-							}
-						});
-
-
-					}
-				});
-
-				//word文件编辑
-				holder.iv_edit.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View arg0) {
-						Log.e("e", "onClick");
-						String ret = bltxt.get(position);
-						Log.e("e", "onClick"+ret);
-						doOpenWord(Values.PATH_BOOKMARK+ret);
-
-					}
-				});
 				mView.setTag(holder);
 			} else {
 				holder = (ViewHolder) mView.getTag();
 			}
+
+			//word文件删除
+			holder.iv_delete.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View arg0) {
+
+					final ConfirmDialog confirmDialog = new ConfirmDialog(mContent, "确定要删除吗?", "删除", "取消");
+					confirmDialog.show();
+					confirmDialog.setClicklistener(new ConfirmDialog.ClickListenerInterface() {
+						@Override
+						public void doConfirm() {
+							// TODO Auto-generated method stub
+							confirmDialog.dismiss();
+							String ret = bltxt.get(position);
+							Log.e("e", "onClick"+ret);
+							File file = new File(Values.PATH_BOOKMARK+ret);
+							if(file.exists()){
+								boolean isDel = file.delete();
+								if(isDel){
+									bltxt.remove(position);
+									notifyDataSetChanged();
+								}
+							}
+						}
+
+						@Override
+						public void doCancel() {
+							// TODO Auto-generated method stub
+							confirmDialog.dismiss();
+						}
+					});
+
+
+				}
+			});
+
+			//word文件编辑
+			holder.iv_edit.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View arg0) {
+					Log.e("e", "onClick");
+					String ret = bltxt.get(position);
+					Log.e("e", "onClick"+ret);
+					doOpenWord(Values.PATH_BOOKMARK+ret);
+
+				}
+			});
 			String ret = bltxt.get(position);
 			UtilTc.showLog("ret       :"+ret);
 			holder.tv_blTitle.setText(ret);

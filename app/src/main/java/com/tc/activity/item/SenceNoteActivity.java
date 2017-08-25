@@ -1,5 +1,6 @@
 package com.tc.activity.item;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -24,6 +25,7 @@ import com.sdses.tool.DateTimeDialog;
 import com.sdses.tool.UtilTc;
 import com.sdses.tool.Values;
 import com.tc.application.R;
+import com.tc.view.LineEditText;
 
 import org.apache.poi.hwpf.HWPFDocument;
 import org.apache.poi.hwpf.usermodel.Range;
@@ -183,7 +185,7 @@ public class SenceNoteActivity extends Activity implements  DateTimeDialog.MyOnD
     private void showAll() {
         dateTimeDialog.hideOrShow();
     }
-    EditText et_ask1,et_response1,
+    LineEditText et_ask1,et_response1,
             et_ask2,et_response2,
             et_ask3,et_response3,
             et_ask4,et_response4,
@@ -215,7 +217,7 @@ public class SenceNoteActivity extends Activity implements  DateTimeDialog.MyOnD
 
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
+
     private View addView2(int size) {
         // TODO 动态添加布局(java方式)
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
@@ -225,55 +227,55 @@ public class SenceNoteActivity extends Activity implements  DateTimeDialog.MyOnD
         LayoutInflater inflater3 = LayoutInflater.from(this);
         View view = inflater3.inflate(R.layout.block_gym_album_list_item, null);
         if(size ==1){
-            et_ask1 = (EditText)view.findViewById(R.id.et_b_ask);
-            et_response1 = (EditText)view.findViewById(R.id.et_b_response);
-            et_ask1.setId(et_ask1.generateViewId());
-            et_response1.setId(et_response1.generateViewId());
+            et_ask1 = (LineEditText)view.findViewById(R.id.et_b_ask);
+            et_response1 = (com.tc.view.LineEditText)view.findViewById(R.id.et_b_response);
+//            et_ask1.setId(et_ask1.generateViewId());
+//            et_response1.setId(et_response1.generateViewId());
         }else  if(size ==2){
-            et_ask2 = (EditText)view.findViewById(R.id.et_b_ask);
-            et_response2 = (EditText)view.findViewById(R.id.et_b_response);
-            et_ask2.setId(et_ask2.generateViewId());
-            et_response2.setId(et_response2.generateViewId());
+            et_ask2 = (LineEditText)view.findViewById(R.id.et_b_ask);
+            et_response2 = (LineEditText)view.findViewById(R.id.et_b_response);
+//            et_ask2.setId(et_ask2.generateViewId());
+//            et_response2.setId(et_response2.generateViewId());
         }else  if(size ==3){
-            et_ask3 = (EditText)view.findViewById(R.id.et_b_ask);
-            et_response3 = (EditText)view.findViewById(R.id.et_b_response);
-            et_ask3.setId(et_ask3.generateViewId());
-            et_response3.setId(et_response3.generateViewId());
+            et_ask3 = (LineEditText)view.findViewById(R.id.et_b_ask);
+            et_response3 = (LineEditText)view.findViewById(R.id.et_b_response);
+//            et_ask3.setId(et_ask3.generateViewId());
+//            et_response3.setId(et_response3.generateViewId());
         }else  if(size ==4){
-            et_ask4 = (EditText)view.findViewById(R.id.et_b_ask);
-            et_response4 = (EditText)view.findViewById(R.id.et_b_response);
-            et_ask4.setId(et_ask4.generateViewId());
-            et_response4.setId(et_response4.generateViewId());
+            et_ask4 = (LineEditText)view.findViewById(R.id.et_b_ask);
+            et_response4 = (LineEditText)view.findViewById(R.id.et_b_response);
+//            et_ask4.setId(et_ask4.generateViewId());
+//            et_response4.setId(et_response4.generateViewId());
         }else  if(size ==5){
-            et_ask5 = (EditText)view.findViewById(R.id.et_b_ask);
-            et_response5 = (EditText)view.findViewById(R.id.et_b_response);
-            et_ask5.setId(et_ask5.generateViewId());
-            et_response5.setId(et_response5.generateViewId());
+            et_ask5 = (LineEditText)view.findViewById(R.id.et_b_ask);
+            et_response5 = (LineEditText)view.findViewById(R.id.et_b_response);
+//            et_ask5.setId(et_ask5.generateViewId());
+//            et_response5.setId(et_response5.generateViewId());
         }else  if(size ==6){
-            et_ask6 = (EditText)view.findViewById(R.id.et_b_ask);
-            et_response6 = (EditText)view.findViewById(R.id.et_b_response);
-            et_ask6.setId(et_ask6.generateViewId());
-            et_response6.setId(et_response6.generateViewId());
+            et_ask6 = (LineEditText)view.findViewById(R.id.et_b_ask);
+            et_response6 = (LineEditText)view.findViewById(R.id.et_b_response);
+//            et_ask6.setId(et_ask6.generateViewId());
+//            et_response6.setId(et_response6.generateViewId());
         }else  if(size ==7){
-            et_ask7 = (EditText)view.findViewById(R.id.et_b_ask);
-            et_response7 = (EditText)view.findViewById(R.id.et_b_response);
-            et_ask7.setId(et_ask7.generateViewId());
-            et_response7.setId(et_response7.generateViewId());
+            et_ask7 = (LineEditText)view.findViewById(R.id.et_b_ask);
+            et_response7 = (LineEditText)view.findViewById(R.id.et_b_response);
+//            et_ask7.setId(et_ask7.generateViewId());
+//            et_response7.setId(et_response7.generateViewId());
         }else  if(size ==8){
-            et_ask8 = (EditText)view.findViewById(R.id.et_b_ask);
-            et_response8 = (EditText)view.findViewById(R.id.et_b_response);
-            et_ask8.setId(et_ask8.generateViewId());
-            et_response8.setId(et_response8.generateViewId());
+            et_ask8 = (LineEditText)view.findViewById(R.id.et_b_ask);
+            et_response8 = (LineEditText)view.findViewById(R.id.et_b_response);
+//            et_ask8.setId(et_ask8.generateViewId());
+//            et_response8.setId(et_response8.generateViewId());
         }else  if(size ==9){
-            et_ask9 = (EditText)view.findViewById(R.id.et_b_ask);
-            et_response9 = (EditText)view.findViewById(R.id.et_b_response);
-            et_ask9.setId(et_ask9.generateViewId());
-            et_response9.setId(et_response9.generateViewId());
+            et_ask9 = (LineEditText)view.findViewById(R.id.et_b_ask);
+            et_response9 = (LineEditText)view.findViewById(R.id.et_b_response);
+//            et_ask9.setId(et_ask9.generateViewId());
+//            et_response9.setId(et_response9.generateViewId());
         }else  if(size ==10){
-            et_ask10 = (EditText)view.findViewById(R.id.et_b_ask);
-            et_response10 = (EditText)view.findViewById(R.id.et_b_response);
-            et_ask10.setId(et_ask10.generateViewId());
-            et_response10.setId(et_response10.generateViewId());
+            et_ask10 = (LineEditText)view.findViewById(R.id.et_b_ask);
+            et_response10 = (LineEditText)view.findViewById(R.id.et_b_response);
+//            et_ask10.setId(et_ask10.generateViewId());
+//            et_response10.setId(et_response10.generateViewId());
         }
 
         line++;

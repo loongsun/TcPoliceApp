@@ -19,6 +19,7 @@ import com.sdses.tool.UtilTc;
 import com.sdses.tool.Values;
 import com.tc.activity.ChagePassActivity;
 import com.tc.activity.LoginActivity;
+import com.tc.app.TcApp;
 import com.tc.application.R;
 import com.tc.view.CustomProgressDialog;
 
@@ -47,7 +48,8 @@ public class KcqzAddAjActivity extends Activity {
     RadioButton rb_xzaj,rb_xsaj;
     EditText tv_anjian_name;
     Button save;
-    String a_type,a_name,error;
+    String a_name,error;
+    String a_type = "刑事案件";
 //    Values.USERNAME
     //用户名
     private CustomProgressDialog progressDialog = null;
@@ -85,25 +87,20 @@ public class KcqzAddAjActivity extends Activity {
             }
         });
 
-        rb_xzaj.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        rb_xzaj.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-                    a_type = "行政案件";
-                }
+            public void onClick(View v) {
+                a_type = "行政案件";
+                Log.e("e","本点击"+a_type);
             }
         });
-
-
-        rb_xsaj.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        rb_xsaj.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
-                    a_type = "刑事案件";
-                }
+            public void onClick(View v) {
+                a_type = "刑事案件";
+                Log.e("e","本点击"+a_type);
             }
         });
-
     }
 
 
@@ -126,6 +123,8 @@ public class KcqzAddAjActivity extends Activity {
                 case 200:
                     UtilTc.myToast(getApplicationContext(), "成功");
                     stopProgressDialog();
+                    TcApp ia = (TcApp)getApplicationContext();
+                    ia.sendHandleMsg(9988,KcqzMainList.stateHandler);
                     finish();
                     break;
                 case 404:
@@ -143,12 +142,12 @@ public class KcqzAddAjActivity extends Activity {
         @Override
         public void run() {
             // TODO Auto-generated method stub
-            String url_passenger = "http://61.176.222.166:8765/interface/updatePassword/";
+            String url_passenger = "http://61.176.222.166:8765/interface/addaj/";
             HttpPost httpRequest = new HttpPost(url_passenger);
             List<NameValuePair> params = new ArrayList<NameValuePair>();
             params.add(new BasicNameValuePair("A_Type",a_type));
             params.add(new BasicNameValuePair("PNUM", Values.USERNAME));
-            params.add(new BasicNameValuePair("A_Name", tv_anjian_name.getText().toString()+"临时笔录"));
+            params.add(new BasicNameValuePair("A_Name", tv_anjian_name.getText().toString()+"-临时笔录"));
             params.add(new BasicNameValuePair("PSTATE", "9"));
             Log.e("e","a_type is "+a_type);
             try {

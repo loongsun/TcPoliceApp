@@ -12,8 +12,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.sdses.bean.PoliceStateListBean;
@@ -21,6 +21,7 @@ import com.sdses.tool.UtilTc;
 import com.sdses.tool.Values;
 import com.tc.activity.SenceCheck;
 import com.tc.activity.SenceCheck2;
+
 import com.tc.application.R;
 import com.tc.view.CustomProgressDialog;
 
@@ -48,6 +49,7 @@ public class KcqzMainList extends Fragment {
     private CustomProgressDialog progressDialog = null;
     Button btn_add_aj;//新增案件
     String errorMessage = "";
+    public static Handler stateHandler = null;
     private void startProgressDialog(int type) {
         if (progressDialog == null) {
             progressDialog = CustomProgressDialog.createDialog(getActivity());
@@ -96,6 +98,32 @@ public class KcqzMainList extends Fragment {
         initWidgets();
 
         initData();
+
+        stateHandler = new Handler() {
+
+            public void handleMessage(android.os.Message msg) {
+                stopProgressDialog();
+                switch (msg.what) {
+                    case Values.ERROR_CONNECT:
+                        UtilTc.myToastForContent(getActivity().getApplicationContext());
+                        break;
+                    case Values.SUCCESS_SSJQ:
+                        lv_kcqz.setAdapter(mCommonAdapter);
+                        break;
+                    case Values.ERROR_NOUSER:
+                        UtilTc.myToast(getActivity().getApplicationContext(), errorMessage);
+                        break;
+                    case Values.ERROR_OTHER:
+                        UtilTc.myToast(getActivity().getApplicationContext(), "其它错误:"
+                                + errorMessage);
+                        break;
+                    case 9988:
+                        Log.e("e","刷新数据");
+                        initData();
+                        break;
+                }
+            };
+        };
     }
     private void initData() {
         stateList.clear();
@@ -141,32 +169,34 @@ public class KcqzMainList extends Fragment {
 
                 holder.tv_jqPosition = (TextView) mView
                         .findViewById(R.id.tv_address);
-                holder.parentLayout = (LinearLayout) mView
+                holder.parentLayout = (RelativeLayout) mView
                         .findViewById(R.id.lin_jqInfo);
-                holder.parentLayout.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View arg0) {
-                        Log.e("e", "onClick");
-                        if(stateList.get(position).getWtype().equals("刑事案件")){
-                            startActivity(new Intent(getActivity(), SenceCheck.class)
-                                    .putExtra("name",stateList.get(position).getJqNum())
-                                    .putExtra("anjianname",stateList.get(position).getJqName())
-                            );
-                        }else {
-                            startActivity(new Intent(getActivity(), SenceCheck2.class)
-                                    .putExtra("name",stateList.get(position).getJqNum())
-                                    .putExtra("anjianname",stateList.get(position).getJqName())
-                            );
-                        }
-
-                    }
-                });
                 mView.setTag(holder);
             } else {
                 holder = (ViewHolder) mView.getTag();
             }
+
+            holder.parentLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View arg0) {
+                    Log.e("e", "onClick");
+                    if(stateList.get(position).getWtype().equals("刑事案件")){
+                        startActivity(new Intent(getActivity(), SenceCheck.class)
+                                .putExtra("name",stateList.get(position).getJqNum())
+                                .putExtra("anjianname",stateList.get(position).getJqName())
+                        );
+                    }else {
+                        startActivity(new Intent(getActivity(), SenceCheck2.class)
+                                .putExtra("name",stateList.get(position).getJqNum())
+                                .putExtra("anjianname",stateList.get(position).getJqName())
+                        );
+                    }
+
+                }
+            });
+
             PoliceStateListBean ret = stateList.get(position);
-            holder.tv_jqName.setText(ret.getJqName()+"("+ret.getWtype()+")");
+            holder.tv_jqName.setText(ret.getJqName());
             if(ret.getWtype().equals("刑事案件")){
                 holder.iv_photo.setImageResource(R.drawable.lostcar);
             }else if(ret.getWtype().equals("行政案件")){
@@ -181,7 +211,7 @@ public class KcqzMainList extends Fragment {
         private class ViewHolder {
             TextView tv_jqName, tv_jqTime, tv_jqPosition;
             ImageView iv_photo;
-            LinearLayout parentLayout;
+            RelativeLayout parentLayout;
         }
     }
 
@@ -192,7 +222,8 @@ public class KcqzMainList extends Fragment {
             // TODO Auto-generated method stub
                 stateList = new ArrayList<PoliceStateListBean>();
                 stateList.clear();
-                String url_passenger = "http://61.176.222.166:8765/interface/OneMapLable/GetLables.asp";
+
+            String url_passenger = "http://61.176.222.166:8765/interface/OneMapLable/GetLables.asp";
                 HttpPost httpRequest = new HttpPost(url_passenger);
                 List<NameValuePair> params = new ArrayList<NameValuePair>();
 //                params.add(new BasicNameValuePair("pnum", Values.USERNAME));
@@ -266,25 +297,5 @@ public class KcqzMainList extends Fragment {
     };
 
 
-    Handler stateHandler = new Handler() {
 
-        public void handleMessage(android.os.Message msg) {
-            stopProgressDialog();
-            switch (msg.what) {
-                case Values.ERROR_CONNECT:
-                    UtilTc.myToastForContent(getActivity().getApplicationContext());
-                    break;
-                case Values.SUCCESS_SSJQ:
-                    lv_kcqz.setAdapter(mCommonAdapter);
-                    break;
-                case Values.ERROR_NOUSER:
-                    UtilTc.myToast(getActivity().getApplicationContext(), errorMessage);
-                    break;
-                case Values.ERROR_OTHER:
-                    UtilTc.myToast(getActivity().getApplicationContext(), "其它错误:"
-                            + errorMessage);
-                    break;
-            }
-        };
-    };
 }
