@@ -2,6 +2,7 @@ package com.tc.view;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -10,7 +11,8 @@ import android.widget.TextView;
 import com.tc.application.R;
 
 public class VoiceDialog {
-	
+
+	private static final String TAG = VoiceDialog.class.getSimpleName();
 	private Dialog mDialog;
 	
 	private ImageView mIcon;
@@ -31,6 +33,7 @@ public class VoiceDialog {
 		mIcon = (ImageView) mDialog.findViewById(R.id.img_record);
 		mVideo = (ImageView) mDialog.findViewById(R.id.img_voice);
 		mLable = (TextView) mDialog.findViewById(R.id.tv_dialogcontent);
+		mDialog.setCancelable(true);
 		mDialog.show();
 	}
 	
@@ -77,6 +80,10 @@ public class VoiceDialog {
 		}
 		
 	}
+
+	public Dialog getDialog(){
+		return this.mDialog;
+	}
 	
 	/**
 	 * 录音的等级
@@ -84,11 +91,17 @@ public class VoiceDialog {
 	 */
 	public void updateVoiceLevel(int level){
 		if (mDialog != null&& mDialog.isShowing()) {
+			Log.i(TAG, "updateVoiceLevel " + level);
 //			mIcon.setVisibility(View.VISIBLE);
 //			mVideo.setVisibility(View.VISIBLE);
 //			mLable.setVisibility(View.VISIBLE);
 			
 			//根据资源ID动态加载图片
+			if(level>7){
+				level = 7;
+			}else if(level<=0){
+				level= 1;
+			}
 			int resid = mContext.getResources().getIdentifier("v"+level, "drawable", mContext.getPackageName());
 			mVideo.setImageResource(resid);
 			//mVideo.setImageResource(R.drawable.call_interface_hands_free);

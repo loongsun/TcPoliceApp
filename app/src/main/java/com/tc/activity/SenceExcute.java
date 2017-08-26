@@ -61,6 +61,7 @@ import it.sauronsoftware.ftp4j.FTPDataTransferListener;
 
 public class SenceExcute extends Activity  {
 
+	private static final String TAG = SenceExcute.class.getSimpleName();
 	private FTPClient myFtp;
 	private int fileCount = 0;
 	private int mTotalSize = 0;
@@ -197,13 +198,20 @@ public class SenceExcute extends Activity  {
 					if(mVoiceDialog ==null){
 						mVoiceDialog = new VoiceDialog(SenceExcute.this);
 					}
+
 					mVoiceDialog.showRecordingDialog();
+					mVoiceDialog.getDialog().setOnCancelListener(new DialogInterface.OnCancelListener() {
+						@Override
+						public void onCancel(DialogInterface dialog) {
+							btn_record.performClick();
+//							Toast.makeText(SenceExcute.this,"cancle",Toast.LENGTH_SHORT).show();
+						}
+					});
 					startRecording();
 					mHandler.obtainMessage(Values.MSG_REFRSH_RECORD).sendToTarget();
 				} else
 					{
 					btn_record.setText("录音");
-					mIsRecording = false;
 					UtilTc.myToast(getApplicationContext(), "录音已保存");
 
 					stopRecording();
@@ -213,15 +221,11 @@ public class SenceExcute extends Activity  {
 						tv_recordCount.setText(""+record.size());
 						mCommonAdapter.notifyDataSetChanged();
 
-					//getFilesInfo();
-					if(mHandler.hasMessages(Values.MSG_REFRSH_RECORD)){
-						mHandler.removeMessages(Values.MSG_REFRSH_RECORD);
-					}
-					if(mVoiceDialog !=null){
-						mVoiceDialog.dismissDialog();
-					}
+
+
+						//getFilesInfo();
 					tv_recordCount.setText(""+record.size());
-					btn_record.setText("开始");
+//					btn_record.setText("开始");
 				}
 				break;
 			case R.id.btn_bookmark:
@@ -487,12 +491,16 @@ public class SenceExcute extends Activity  {
 		}
 	}
 
-	public int getVoiceLevel(int maxLevel){
-		if (mediaRecorder!=null){//mMediaRecorder.getMaxAmplitude()值在1-12367之间
-			try{//返回值在1-7之间
-				return maxLevel * mediaRecorder.getMaxAmplitude() / 12368 + 1;
-			}catch (Exception e){
+	public int getVoiceLevel(int maxLevel) {
+		if (mediaRecorder != null) {//mMediaRecorder.getMaxAmplitude()值在1-12367之间
+			try {//返回值在1-7之间
+				int value =  maxLevel * mediaRecorder.getMaxAmplitude() / 12368 + 1;
+				Log.i(TAG,"max value = "+mediaRecorder.getMaxAmplitude());
+				Log.i(TAG,"getVoiceLevel "+value);
+				return value;
+			} catch (Exception e) {
 				e.printStackTrace();
+				Log.e(TAG, "getVoiceLevel ", e);
 			}
 		}
 		return 1;
@@ -500,6 +508,7 @@ public class SenceExcute extends Activity  {
 
 
 	private void startRecording() {
+		mIsRecording = true;
 		recordFile = new File(Values.PATH_RECORD + plb.getJqNum()+"_"
 				+ UtilTc.getCurrentTime() + ".amr");
 		mediaRecorder = new MediaRecorder();
@@ -517,18 +526,31 @@ public class SenceExcute extends Activity  {
 			mediaRecorder.prepare();
 			mediaRecorder.start();
 		} catch (IllegalStateException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Log.e(TAG,"startRecording",e);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Log.e(TAG,"startRecording",e);
 		}
 	}
 
 	private void stopRecording() {
-		if (recordFile != null) {
+		mIsRecording = false;
+		if (recordFile != null && mediaRecorder!=null) {
 			mediaRecorder.stop();
 			mediaRecorder.release();
+		}
+		if(mHandler.hasMessages(Values.MSG_REFRSH_RECORD)){
+			mHandler.removeMessages(Values.MSG_REFRSH_RECORD);
+		}
+		if(mVoiceDialog !=null){
+			mVoiceDialog.dismissDialog();
+		}
+	}
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		if(mIsRecording){
+			stopRecording();
 		}
 	}
 
@@ -733,6 +755,7 @@ public class SenceExcute extends Activity  {
 		}
 		@Override
 		public int getCount() {
+			Log.i(TAG,"GET COUNT");
 			if (allList!=null) {
 				UtilTc.showLog(" bltxt.size()"+ bltxt.size());
 				return allList.size();
