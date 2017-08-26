@@ -1,0 +1,30 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.accumulation.opensystemfileordir.app.FileDirManagerMainActivity">
+    <item
+        android:id="@+id/action_dir_camera"
+        android:title="相机"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_dir_download"
+        android:title="下载"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_dir_music"
+        android:title="音乐"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_dir_photo"
+        android:title="照片"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_dir_video"
+        android:title="视频"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+</menu>

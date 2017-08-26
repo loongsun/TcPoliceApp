@@ -15,8 +15,7 @@
         <ImageView
             android:id="@+id/item_img_zfqz"
             android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@color/Red" />
+            android:layout_height="40dp" />
     </LinearLayout>
 
     <LinearLayout

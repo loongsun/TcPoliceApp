@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.media.MediaRecorder;
+import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -69,7 +70,7 @@ public class SenceExcute extends Activity  {
 	// 文字信息显示
 	private TextView tv_jqName, tv_jqNum, tv_jqTime, tv_jqPolice;
 	// 采集信息数量
-	private TextView tv_photoCount, tv_recordCount, tv_cameraCount;
+	private TextView tv_photoCount, tv_recordCount, tv_cameraCount,tv_docCount;
 	// 笔录
 	private ListView lv_bookmark;
 	// 按钮
@@ -86,10 +87,13 @@ public class SenceExcute extends Activity  {
 	File recordFile;
 	// 文件列表
 	private List<String> allList = new ArrayList<String>();
+
 	private List<String> bltxt = new ArrayList<String>();
 	private List<String> camera = new ArrayList<String>();
 	private List<String> record = new ArrayList<String>();
 	private List<String> photoList=new ArrayList<String>();
+
+
 	private String errorMessage = "";
 	private TcApp mApp;
 	private boolean isShowPage=false;
@@ -103,6 +107,17 @@ public class SenceExcute extends Activity  {
 	private String mediaFormat="";
 	private VoiceDialog mVoiceDialog;
 	private boolean mIsRecording = false;
+
+
+
+
+	public String[] allFiles;
+	private String SCAN_PATH ;
+	private static final String FILE_TYPE="*/*";
+	private MediaScannerConnection conn;
+
+
+
 
 	// 进度框
 	private void startProgressDialog(int type) {
@@ -131,18 +146,24 @@ public class SenceExcute extends Activity  {
 				R.id.tv_recordcount);
 		tv_cameraCount = (TextView) findViewById(
 				R.id.tv_cameracount);
+		tv_docCount=(TextView)findViewById(R.id.tv_doccount) ;
+
 		// 文字信息
 		tv_jqName = (TextView) findViewById(R.id.tv_jqName);
 		tv_jqNum = (TextView) findViewById(R.id.tv_jqId);
 		tv_jqTime = (TextView) findViewById(R.id.tv_jqTime);
 		tv_jqPolice = (TextView) findViewById(R.id.tv_jqPolice);
+
+		//list
 		lv_bookmark = (ListView) findViewById(R.id.lv_bookmark);
+		lv_bookmark.setAdapter(mCommonAdapter);
 		// 按钮
 		btn_photo = (Button) findViewById(R.id.btn_photo);
 		btn_record = (Button) findViewById(R.id.btn_record);
 		btn_camera = (Button) findViewById(R.id.btn_camera);
 		btn_bookmark = (Button) findViewById(R.id.btn_bookmark);
 		btn_upload = (Button) findViewById(R.id.btn_upload);
+
 		btn_photo.setOnClickListener(new OnClick());
 		btn_record.setOnClickListener(new OnClick());
 		btn_camera.setOnClickListener(new OnClick());
@@ -161,33 +182,38 @@ public class SenceExcute extends Activity  {
 			// TODO Auto-generated method stub
 			switch (v.getId()) {
 			case R.id.btn_photo:
-				Intent cameraintent = new Intent(
-						MediaStore.ACTION_IMAGE_CAPTURE);
+				Intent cameraintent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 				// 指定调用相机拍照后照片的储存路径
 				cameraintent.putExtra(
 						MediaStore.EXTRA_OUTPUT,
-						Uri.fromFile(new File(Values.PATH_PHOTO + jqId+"_"
-								+ UtilTc.getCurrentTime() + ".jpg")));
+						Uri.fromFile(new File(Values.PATH_PHOTO + jqId+"_" + UtilTc.getCurrentTime() + ".jpg")));
 				startActivityForResult(cameraintent, PHOTO_REQUEST_TAKEPHOTO);
 				break;
 			case R.id.btn_record:
-				if (!mIsRecording) {
+				if (!mIsRecording)
+				{
 					btn_record.setText("结束");
-					UtilTc.myToast(getApplicationContext(),
-							"请开始录音");
+					UtilTc.myToast(getApplicationContext(), "请开始录音");
 					if(mVoiceDialog ==null){
 						mVoiceDialog = new VoiceDialog(SenceExcute.this);
 					}
 					mVoiceDialog.showRecordingDialog();
 					startRecording();
 					mHandler.obtainMessage(Values.MSG_REFRSH_RECORD).sendToTarget();
-				} else {
+				} else
+					{
+					btn_record.setText("录音");
 					mIsRecording = false;
-					UtilTc.myToast(getApplicationContext(),
-							"录音已保存");
+					UtilTc.myToast(getApplicationContext(), "录音已保存");
+
 					stopRecording();
-					record.clear();
-					getFilesInfo();
+
+						record.add(recordFile.getName());
+						allList.add(recordFile.getName());
+						tv_recordCount.setText(""+record.size());
+						mCommonAdapter.notifyDataSetChanged();
+
+					//getFilesInfo();
 					if(mHandler.hasMessages(Values.MSG_REFRSH_RECORD)){
 						mHandler.removeMessages(Values.MSG_REFRSH_RECORD);
 					}
@@ -203,6 +229,7 @@ public class SenceExcute extends Activity  {
 				break;
 			case R.id.btn_camera:
 				startLx();
+				//resume会刷新
 				break;
 			case R.id.btn_upload:// 上传
 				startProgressDialog(UPLOAD);
@@ -219,16 +246,18 @@ public class SenceExcute extends Activity  {
 		}
 	}
 	//获取所有文件
-	private void getAllList(){
-		if(bltxt.size()>0)
-		allList.addAll(bltxt);
-		if(photoList.size()>0)
-		allList.addAll(photoList);
-		if(camera.size()>0)
-		allList.addAll(camera);
-		if(record.size()>0)
-		allList.addAll(record);
-	}
+//	private void getAllList()
+//
+//	{
+//		if(bltxt.size()>0)
+//		allList.addAll(bltxt);
+//		if(photoList.size()>0)
+//		allList.addAll(photoList);
+//		if(camera.size()>0)
+//		allList.addAll(camera);
+//		if(record.size()>0)
+//		allList.addAll(record);
+//	}
 	
 	public class SendFile extends Thread {
 		private String currentPath="";
@@ -238,13 +267,10 @@ public class SenceExcute extends Activity  {
 				myFtp = new FTPClient();
 				myFtp.connect("61.176.222.166", 21); // 连接
 				myFtp.login("admin", "1234"); // 登录
-			//	myFtp.changeDirectory("wphoto");
-				
-			//	String path=Environment.getExternalStorageDirectory().getAbsolutePath()+"/temp.jpg";
-			//	Log.e("path", "path"+path);
-				getAllList();
+
 				UtilTc.showLog("file count:"+allList.size());
-				for(int i=0;i<allList.size();i++){
+				for(int i=0;i<allList.size();i++)
+				{
 				 //判断上传到哪个文件夹
 				 if(allList.get(i).endsWith(".doc")){
 					 myFtp.changeDirectory("../");
@@ -282,18 +308,7 @@ public class SenceExcute extends Activity  {
 				e.printStackTrace();
 				mHandler.sendEmptyMessage(Values.ERROR_UPLOAD);
 			}
-			
-//			 catch (FTPAbortedException e1) {
-//				e1.printStackTrace();
-//			} catch (IllegalStateException e2) {
-//				e2.printStackTrace();
-//			} catch (IOException e3) {
-//				e3.printStackTrace();
-//			} catch (FTPIllegalReplyException e4) {
-//				e4.printStackTrace();
-//			} catch (FTPException e5) {
-//				e5.printStackTrace();
-//			}
+
 		}
 	}
 
@@ -315,24 +330,33 @@ public class SenceExcute extends Activity  {
 	@Override
 	public void onResume() {
 		// TODO Auto-generated method stub
-		UtilTc.showLog("senceExcute");
-		if(isShowPage){
+		UtilTc.showLog("onresum****************************in the senceExcute");
+		refreshList();
+		super.onResume();
+	}
+    private void refreshList()
+	{
+		if(isShowPage)
+		{
+			allList.clear();
+
 			photoList.clear();
 			camera.clear();
 			record.clear();
 			bltxt.clear();
+
+
 			getFilesInfo();
-		
-			UtilTc.showLog("bl.size()"+bltxt.size()+photoList.size());
+
 			tv_photoCount.setText(""+photoList.size());
 			tv_cameraCount.setText(""+camera.size());
 			tv_recordCount.setText(""+record.size());
-			//mCommonAdapter.notifyDataSetChanged();
-			lv_bookmark.setAdapter(mCommonAdapter);
-		}
-		super.onResume();
-	}
+			tv_docCount.setText(""+bltxt.size());
 
+			mCommonAdapter.notifyDataSetChanged();
+
+		}
+	}
 	private void getFilesInfo() {
 		File file = new File(Values.ALLFILES);
 		getFileName(file.listFiles(), plb.getJqNum());
@@ -357,7 +381,7 @@ public class SenceExcute extends Activity  {
 	
 	
     private void isShowPage(){
-       //  mApp.getmDota().jq_query("0");
+
     	mApp.getmDota().jq_queryOne("0", getIntent().getStringExtra("dbjqsence"));
         String size=""+Values.dbjqList.size();
         if(Values.dbjqList.size()>0)
@@ -397,13 +421,10 @@ public class SenceExcute extends Activity  {
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		// TODO Auto-generated method stub
 		super.onActivityResult(requestCode, resultCode, data);
-		switch (requestCode) {
+		switch (requestCode)
+		{
 		case PHOTO_REQUEST_TAKEPHOTO:// 当选择拍照时调用
-			// startPhotoZoom(Uri.fromFile(new
-			// File(Environment.getExternalStorageDirectory()+"/wphoto/"+jqId+UtilTc.getCurrentTime()+".jpg")));
-//			tv_photoCount.setText(""
-//					+ Integer.parseInt(tv_photoCount.getText().toString()
-//							.trim() + 1));
+	 //resume()会刷新界面
 
 			break;
 		case PHOTO_REQUEST_GALLERY:// 当选择从本地获取图片时
@@ -513,28 +534,33 @@ public class SenceExcute extends Activity  {
 
 	// -------------------------遍历文件
 	private void getFileName(File[] files, String jqNum) {
-//		bltxt.clear();
-//		camera.clear();
-//		record.clear();
+
 		if (files != null)// nullPointer
 		{
 			for (File file : files) {
 				if (file.isDirectory()) {
 					getFileName(file.listFiles(), jqNum);
-				} else {
+				}
+				else
+					{
 					String fileName = file.getName();
+
 					if (fileName.contains(jqNum) && fileName.endsWith(".doc")) {
 						Log.e("e", "fileName"+fileName);
 						bltxt.add(fileName);
+						allList.add(fileName);
 						UtilTc.showLog("bltxt sss"+bltxt.size());
 					} else if (fileName.contains(jqNum)
 							&& fileName.endsWith(".mp4")) {
 						camera.add(fileName);
+						allList.add(fileName);
 					} else if (fileName.contains(jqNum)
 							&& fileName.endsWith(".amr")) {
+						allList.add(fileName);
 						record.add(fileName);
 					}else if(fileName.contains(jqNum)&&fileName.endsWith(".jpg")){
 						Log.e("e", "fileName"+fileName);
+						allList.add(fileName);
 						photoList.add(fileName);
 					}
 				}
@@ -608,7 +634,6 @@ public class SenceExcute extends Activity  {
 				break;
 			case Values.SUCCESS_UPLOAD:
 				UtilTc.showLog("文件上传成功");
-
 				stopProgressDialog();
 				new Thread(uploadInfo).start();
 				//改变警情状态
@@ -653,6 +678,52 @@ public class SenceExcute extends Activity  {
 			//请先到www.olivephone.com/e.apk下载并安装
 		}
 	}
+	//WPS查看
+	private void doOpenPhoto(String newPath){
+		Intent intent = new Intent();
+		intent.setAction("android.intent.action.VIEW");
+		intent.addCategory("android.intent.category.DEFAULT");
+		String fileMimeType = "image/*";
+		intent.setDataAndType(Uri.fromFile(new File(newPath)), fileMimeType);
+		try{
+			startActivity(intent);
+		} catch(ActivityNotFoundException e) {
+			//检测到系统尚未安装OliveOffice的apk程序
+			Toast.makeText(this, "未找到软件", Toast.LENGTH_LONG).show();
+			//请先到www.olivephone.com/e.apk下载并安装
+		}
+	}
+	//WPS查看
+	private void doOpenAudio(String newPath){
+		Intent intent = new Intent();
+		intent.setAction("android.intent.action.VIEW");
+		intent.addCategory("android.intent.category.DEFAULT");
+		String fileMimeType = "audio/*";
+		intent.setDataAndType(Uri.fromFile(new File(newPath)), fileMimeType);
+		try{
+			startActivity(intent);
+		} catch(ActivityNotFoundException e) {
+			//检测到系统尚未安装OliveOffice的apk程序
+			Toast.makeText(this, "未找到软件", Toast.LENGTH_LONG).show();
+			//请先到www.olivephone.com/e.apk下载并安装
+		}
+	}
+	//WPS查看
+	private void doOpenVedio(String newPath){
+		Intent intent = new Intent();
+		intent.setAction("android.intent.action.VIEW");
+		intent.addCategory("android.intent.category.DEFAULT");
+		String fileMimeType = "vedio/*";
+		intent.setDataAndType(Uri.fromFile(new File(newPath)), fileMimeType);
+		try{
+			startActivity(intent);
+		} catch(ActivityNotFoundException e) {
+			//检测到系统尚未安装OliveOffice的apk程序
+			Toast.makeText(this, "未找到软件", Toast.LENGTH_LONG).show();
+			//请先到www.olivephone.com/e.apk下载并安装
+		}
+	}
+
 	//bl list
 	private class CommonAdapter extends BaseAdapter {
 
@@ -662,9 +733,9 @@ public class SenceExcute extends Activity  {
 		}
 		@Override
 		public int getCount() {
-			if (bltxt!=null) {
+			if (allList!=null) {
 				UtilTc.showLog(" bltxt.size()"+ bltxt.size());
-				return bltxt.size();
+				return allList.size();
 			}
 			UtilTc.showLog("返回0了");
 			return 0;
@@ -672,8 +743,8 @@ public class SenceExcute extends Activity  {
 
 		@Override
 		public Object getItem(int position) {
-			if (bltxt != null) {
-				return bltxt.get(position);
+			if (allList != null) {
+				return allList.get(position);
 			}
 			return null;
 		}
@@ -698,7 +769,7 @@ public class SenceExcute extends Activity  {
 				holder.iv_delete = (ImageView) mView.findViewById(R.id.iv_delete);
 				holder.iv_edit = (ImageView) mView.findViewById(R.id.iv_edit);
 
-				holder.parentLayout = (RelativeLayout) mView
+				holder.parentLayout = (LinearLayout) mView
 						.findViewById(R.id.lin_bl);
 				holder.parentLayout.setOnClickListener(new OnClickListener() {
 					@Override
@@ -724,14 +795,30 @@ public class SenceExcute extends Activity  {
 						public void doConfirm() {
 							// TODO Auto-generated method stub
 							confirmDialog.dismiss();
-							String ret = bltxt.get(position);
-							Log.e("e", "onClick"+ret);
-							File file = new File(Values.PATH_BOOKMARK+ret);
-							if(file.exists()){
+
+							File file=null;
+							String ret = allList.get(position);
+
+
+							if (ret.endsWith(".doc")) {
+								file = new File(Values.PATH_BOOKMARK+ret);
+
+							} else if (  ret.endsWith(".mp4")) {
+								file = new File(Values.PATH_CAMERA+ret);
+							} else if (ret.endsWith(".amr"))
+							{
+								file = new File(Values.PATH_RECORD+ret);
+							}else if ( ret.endsWith(".jpg")){
+								file = new File(Values.PATH_PHOTO+ret);
+							}
+
+
+							if(file.exists())
+							{
 								boolean isDel = file.delete();
-								if(isDel){
-									bltxt.remove(position);
-									notifyDataSetChanged();
+								if(isDel)
+								{
+									refreshList();
 								}
 							}
 						}
@@ -751,21 +838,36 @@ public class SenceExcute extends Activity  {
 			holder.iv_edit.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
-					Log.e("e", "onClick");
-					String ret = bltxt.get(position);
-					Log.e("e", "onClick"+ret);
-					doOpenWord(Values.PATH_BOOKMARK+ret);
+
+					String ret = allList.get(position);
+					if (ret.endsWith(".doc")) {
+
+						doOpenWord(Values.PATH_BOOKMARK+ret);
+
+					} else if (  ret.endsWith(".mp4"))
+					{
+						doOpenVedio(Values.PATH_CAMERA+ret);
+
+					} else if (ret.endsWith(".amr"))
+					{
+						doOpenAudio( Values.PATH_RECORD+ret);
+
+					}else if ( ret.endsWith(".jpg")){
+						doOpenPhoto(Values.PATH_PHOTO+ret);
+
+					}
+
 
 				}
 			});
-			String ret = bltxt.get(position);
+			String ret = allList.get(position);
 			UtilTc.showLog("ret       :"+ret);
 			holder.tv_blTitle.setText(ret);
 			return mView;
 		}
 		private class ViewHolder {
 			TextView tv_blTitle;
-			RelativeLayout parentLayout;
+			LinearLayout parentLayout;
 			ImageView iv_delete,iv_edit;
 		}
 	}

@@ -246,6 +246,7 @@ public class PoliceStateActivity extends Fragment {
 								pl.setJqTime(jqob.getString("wtime"));
 								pl.setWx(jqob.getString("wx"));
 								pl.setWy(jqob.getString("wy"));
+								pl.setWtype(jqob.getString("wtype"));
 								pl.setBjrName(jqob.getString("wperson"));
 								stateList.add(pl);
 							}
@@ -410,6 +411,7 @@ public class PoliceStateActivity extends Fragment {
 			holder.tv_jqName.setText(ret.getJqName());
 			holder.tv_jqTime.setText(ret.getJqTime());
 			holder.tv_jqPosition.setText(ret.getJqPosition());
+			Log.e("adapter","**************"+ret.getWtype());
 			if(ret.getWtype().equals("ÐÌÊÂ°¸¼þ"))
 			{
 				BitmapDrawable drawable=getDrawableFromId(R.drawable.icon_xs);

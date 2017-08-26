@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@color/White"
-    android:orientation="vertical" >
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/titletc"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="@drawable/titlebg"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/btn_senceExcuteBack"
@@ -18,28 +19,26 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="20dp"
             android:gravity="center_vertical"
-            android:src="@drawable/icon_return" >
-        </ImageView>
+            android:src="@drawable/icon_return"></ImageView>
 
         <TextView
-            android:layout_weight="1"
-            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
             android:text="现场执法"
             android:textColor="#ffffff"
             android:textSize="20sp" />
 
         <ImageView
-            android:visibility="invisible"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="20dp"
             android:gravity="center_vertical"
-            android:src="@drawable/icon_return" >
-        </ImageView>
+            android:src="@drawable/icon_return"
+            android:visibility="invisible"></ImageView>
     </LinearLayout>
 
     <!-- 警情名称 -->
@@ -47,151 +46,146 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal" >
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/titletc"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="20dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_weight="1"
             android:text="警情名称:"
-            android:textColor="@color/Black"
-            android:textSize="18sp" />
+            android:textColor="#82000000"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tv_jqName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="left|center_vertical"
+            android:layout_weight="1"
             android:text="警情名称"
-            android:textColor="@color/info"
-            android:textSize="16sp" />
-    </LinearLayout>
-    <!-- 警情名称 -->
+            android:textColor="#C8000000"
+            android:textSize="14sp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal" >
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="20dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_weight="1"
             android:text="案件编号:"
-            android:textColor="@color/Black"
-            android:textSize="18sp" />
+            android:textColor="#82000000"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tv_jqId"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
+            android:layout_gravity="left|center_vertical"
+            android:layout_weight="1"
             android:text="10002"
-            android:textColor="@color/info"
-            android:textSize="16sp" />
+            android:textColor="#C8000000"
+            android:textSize="14sp" />
+
     </LinearLayout>
+    <!-- 警情名称 -->
+
+
     <!-- 警情名称 -->
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal" >
+
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+
+
+        android:background="@color/titletc"
+        android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="20dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_weight="1"
             android:text="时间:"
-            android:textColor="@color/Black"
-            android:textSize="18sp" />
+            android:textColor="#82000000"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tv_jqTime"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
+            android:layout_gravity="left|center_vertical"
+            android:layout_weight="1"
             android:text="20170726"
-            android:textColor="@color/info"
-            android:textSize="16sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal" >
+            android:textColor="#C8000000"
+            android:textSize="14sp" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="20dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_weight="1"
             android:text="报警人:"
-            android:textColor="@color/Black"
-            android:textSize="18sp" />
+
+            android:textColor="#82000000"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tv_jqPolice"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
+            android:layout_gravity="left|center_vertical"
+            android:layout_weight="1"
             android:text="10002"
-            android:textColor="@color/info"
-            android:textSize="16sp" />
+            android:textColor="#C8000000"
+            android:textSize="14sp" />
+
     </LinearLayout>
+
     <!-- 3个按钮 -->
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginTop="20dp"
-        android:background="@color/titletc"
+        android:layout_height="60dp"
         android:orientation="horizontal">
-
         <!-- 拍照 -->
 
         <LinearLayout
             android:id="@+id/lin_photo"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/lin_xczf_btn3">
+            android:layout_weight="1">
 
             <ImageView
                 android:id="@+id/icon_zp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="30dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="16dp"
+
+                android:layout_weight="1"
                 android:src="@drawable/icon_zp" />
             <!-- test -->
 
             <TextView
                 android:id="@+id/tv_photocount"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="20dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:background="@drawable/icon_state"
                 android:text="0"
                 android:textColor="@color/White" />
 
-            <View
-                android:id="@+id/v_ssjq"
-                android:layout_width="2dp"
-                android:layout_height="60dp"
-                android:layout_marginLeft="35dp"
-                android:layout_marginTop="20dp"
-                android:background="@color/line" />
         </LinearLayout>
 
         <!-- 录音 -->
@@ -200,31 +194,25 @@
             android:id="@+id/lin_record"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/lin_xczf_btn3">
+            android:layout_weight="1">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="30dp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+
+                android:layout_marginLeft="16dp"
+                android:layout_weight="1"
                 android:src="@drawable/icon_ly" />
 
             <TextView
                 android:id="@+id/tv_recordcount"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="20dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:background="@drawable/icon_state"
                 android:text="0"
                 android:textColor="@color/White" />
 
-            <View
-                android:layout_width="2dp"
-                android:layout_height="60dp"
-                android:layout_marginLeft="35dp"
-                android:layout_marginTop="20dp"
-                android:background="@color/line" />
+
         </LinearLayout>
 
         <!-- 录像 -->
@@ -233,21 +221,45 @@
             android:id="@+id/lin_camera"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/lin_xczf_btn3">
+            android:layout_weight="1">
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="35dp"
-                android:layout_marginTop="30dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="16dp"
+
+                android:layout_weight="1"
                 android:src="@drawable/icon_lx" />
 
             <TextView
                 android:id="@+id/tv_cameracount"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="20dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/icon_state"
+                android:text="0"
+                android:textColor="@color/White" />
+        </LinearLayout>
+
+        <!-- 文档-->
+
+        <LinearLayout
+            android:id="@+id/lin_doc"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="16dp"
+
+                android:layout_weight="1"
+                android:src="@drawable/icon_doc" />
+
+            <TextView
+                android:id="@+id/tv_doccount"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:background="@drawable/icon_state"
                 android:text="0"
                 android:textColor="@color/White" />
@@ -255,20 +267,13 @@
     </LinearLayout>
     <!-- 笔录 -->
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:text="询问笔录信息"
-        android:textColor="@color/Black"
-        android:textSize="18sp" />
-
     <ListView
         android:id="@+id/lv_bookmark"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:background="#ffffff"
         android:divider="@color/horbluedivilinecolor"
         android:dividerHeight="1.0dip"
         android:drawSelectorOnTop="false"
@@ -278,7 +283,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:layout_marginBottom="10dp"
+        android:background="#ffffff"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/btn_photo"

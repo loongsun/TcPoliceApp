@@ -71,14 +71,11 @@ public class SenceCheck extends Activity {
                     case 100:
                         mCommonAdapter.updateView(0);
                         break;
-
                 }
             }
         };
         super.onCreate(savedInstanceState);
     }
-
-
 
     private void initData(){
         stateList.clear();

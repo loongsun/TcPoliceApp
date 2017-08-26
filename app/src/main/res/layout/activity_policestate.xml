@@ -9,37 +9,35 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="@drawable/titlebg"
-        android:orientation="horizontal" >
+        android:orientation="vertical">
 
         <ImageView
             android:id="@+id/btn_policestateReturn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="4dp"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="2dp"
             android:gravity="center_vertical"
-            android:src="@drawable/icon_return" >
-        </ImageView>
+            android:padding="4dp"
+            android:src="@drawable/icon_return"></ImageView>
 
         <TextView
-            android:gravity="center"
-            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
             android:text="警情信息"
             android:textColor="#ffffff"
             android:textSize="20sp" />
 
         <ImageView
-            android:visibility="invisible"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="20dp"
-            android:gravity="center_vertical">
-        </ImageView>
+            android:gravity="center_vertical"
+            android:visibility="invisible"></ImageView>
     </LinearLayout>
 
     <LinearLayout
@@ -49,97 +47,140 @@
         android:background="@color/titletc" >
 
 
-        <RelativeLayout
-            android:gravity="center"
+        <LinearLayout
             android:id="@+id/re_layout_one"
-            android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_height="match_parent">
-            <TextView
-                android:gravity="center"
-                android:id="@+id/tv_ssjq"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="实时警情"
-                android:textColor="@color/bluetc"
-                android:textSize="18sp" />
-            <View
-                android:id="@+id/v_ssjq"
-                android:layout_width="2dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_toRightOf="@id/tv_ssjq"
-                android:background="@color/line" />
-
-            <View
-                android:id="@+id/v_state_ssjq"
-                android:layout_width="100dp"
-                android:layout_height="3dp"
-                android:layout_alignParentBottom="true"
-                android:background="@color/statemain" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_toRightOf="@+id/re_layout_one"
-            android:id="@+id/re_layout_two"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
-            <TextView
-                android:gravity="center"
-                android:id="@+id/tv_dbjq"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="待办警情"
-                android:textColor="@color/bluetc"
-                android:textSize="18sp" />
-
-            <View
-                android:visibility="gone"
-                android:id="@+id/v_state_dbjq"
-                android:layout_width="100dp"
-                android:layout_height="3dp"
-                android:layout_alignParentBottom="true"
-                android:background="@color/statemain" />
-
-            <View
-                android:id="@+id/v_dbjq"
-                android:layout_width="2dp"
-                android:layout_height="20dp"
-                android:layout_below="@id/tv_login"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="20dp"
-                android:layout_toRightOf="@id/tv_dbjq"
-                android:background="@color/line" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_gravity="center"
             android:gravity="center"
-            android:layout_toRightOf="@+id/re_layout_two"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
-            <TextView
-                android:gravity="center"
-                android:id="@+id/tv_lsjq"
-                android:layout_width="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_ssjq"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="实时警情"
+                    android:textColor="@color/bluetc"
+                    android:textSize="18sp" />
+
+                <View
+                    android:id="@+id/v_ssjq"
+                    android:layout_width="2dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_toRightOf="@id/tv_ssjq"
+                    android:background="@color/line" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:orientation="horizontal">
+
+                <View
+                    android:id="@+id/v_state_ssjq"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/statemain" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/re_layout_two"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_dbjq"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="待办警情"
+                    android:textColor="@color/bluetc"
+                    android:textSize="18sp" />
+
+                <View
+                    android:id="@+id/v_dbjq"
+                    android:layout_width="2dp"
+                    android:layout_height="20dp"
+
+                    android:background="@color/line" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:orientation="horizontal">
+
+
+                <View
+                    android:id="@+id/v_state_dbjq"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_alignParentBottom="false"
+                    android:background="@color/statemain"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical|center_horizontal|center"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_lsjq"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_weight="1"
+                android:gravity="center"
                 android:text="历史警情"
                 android:textColor="@color/bluetc"
                 android:textSize="18sp" />
 
             <View
-                android:visibility="gone"
                 android:id="@+id/v_state_lsjq"
-                android:layout_width="100dp"
+                android:layout_width="match_parent"
                 android:layout_height="3dp"
                 android:layout_alignParentBottom="true"
-                android:background="@color/statemain" />
-        </RelativeLayout>
+                android:background="@color/statemain"
+                android:visibility="gone" />
+        </LinearLayout>
 
 
 
@@ -151,9 +192,10 @@
         android:id="@+id/lv_police"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:divider="@color/horbluedivilinecolor"
-        android:dividerHeight="1.0dip"
+
         android:drawSelectorOnTop="false"
+        android:divider="#eee"
+        android:dividerHeight="0.5dp"
         android:listSelector="@drawable/lv_selector" />
 
 </LinearLayout>

@@ -2,10 +2,7 @@ package com.global;
 
 import android.os.Environment;
 
-/**
- * 作者：loongsun on 2016/8/9 09:11
- * 邮箱：loongsun@qq.com
- */
+
 public class Constant {
 
     public static final String NFCIp = "115.28.2.173";

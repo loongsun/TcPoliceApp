@@ -35,17 +35,20 @@ public class MainTabActivity extends FragmentActivity{
 	private String mTextviewArray[] = {"执法取证", "刑事勘查","一图标注","信息查询", "现场笔录","用户中心"};
 	public static PoliceStateListBean plb;
 	private int tabPage=0;
-	public void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState)
+	{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_tab_layout);
         initView();
         getIntentInfo();
     }
 	
-	private void getIntentInfo(){
+	private void getIntentInfo()
+	{
 		plb=(PoliceStateListBean) getIntent().getSerializableExtra("jqInfo");
 		tabPage=getIntent().getIntExtra("tab", 0);
-		if(tabPage!=0){
+		if(tabPage!=0)
+		{
 			mTabHost.setCurrentTab(tabPage);
 			UtilTc.showLog(plb.getJqName());
 		}
@@ -63,7 +66,8 @@ public class MainTabActivity extends FragmentActivity{
 		mTabHost.setup(this, getSupportFragmentManager(), R.id.realtabcontent);	
 		//得到fragment的个数
 		int count = fragmentArray.length;	
-		for(int i = 0; i < count; i++){	
+		for(int i = 0; i < count; i++)
+		{
 			//为每一个Tab按钮设置图标、文字和内容
 			TabSpec tabSpec = mTabHost.newTabSpec(mTextviewArray[i]).setIndicator(getTabItemView(i));
 			//将Tab按钮添加进Tab选项卡中
