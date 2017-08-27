@@ -69,7 +69,7 @@ public class LsJqInfoActivity extends Activity{
 		tv_jqNum.setText(plb.getJqNum());
 		tv_jqTime.setText(plb.getJqTime());
 		tv_jqBjr.setText(plb.getBjrName());
-		//»ñÈ¡ÁÐ±íÊý¾Ý
+		//ï¿½ï¿½È¡ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½
 		File file = new File(Values.ALLFILES);
 		listFiles.clear();
 		getFileName(file.listFiles(), plb.getJqNum());
@@ -82,7 +82,7 @@ public class LsJqInfoActivity extends Activity{
 				UtilTc.showLog("listFiles"+ listFiles.size());
 				return listFiles.size();
 			}
-			UtilTc.showLog("·µ»Ø0ÁË");
+			UtilTc.showLog("ï¿½ï¿½ï¿½ï¿½0ï¿½ï¿½");
 			return 0;
 		}
 		@Override
@@ -124,12 +124,12 @@ public class LsJqInfoActivity extends Activity{
 			String ret = listFiles.get(position);
 			UtilTc.showLog("ret       :"+ret);
 			holder.tv_blTitle.setText(ret);
-			//wordÎÄ¼þÉ¾³ý
+			//wordï¿½Ä¼ï¿½É¾ï¿½ï¿½
 			holder.iv_delete.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
 
-					final ConfirmDialog confirmDialog = new ConfirmDialog(LsJqInfoActivity.this, "È·¶¨ÒªÉ¾³ýÂð?", "É¾³ý", "È¡Ïû");
+					final ConfirmDialog confirmDialog = new ConfirmDialog(LsJqInfoActivity.this, "È·ï¿½ï¿½ÒªÉ¾ï¿½ï¿½ï¿½ï¿½?", "É¾ï¿½ï¿½", "È¡ï¿½ï¿½");
 					confirmDialog.show();
 					confirmDialog.setClicklistener(new ConfirmDialog.ClickListenerInterface() {
 						@Override
@@ -176,7 +176,7 @@ public class LsJqInfoActivity extends Activity{
 				}
 			});
 
-			//wordÎÄ¼þ±à¼­
+			//wordï¿½Ä¼ï¿½ï¿½à¼­
 			holder.iv_edit.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
@@ -211,7 +211,7 @@ public class LsJqInfoActivity extends Activity{
 			LinearLayout parentLayout;
 		}
 	}
-	//WPS²é¿´
+	//WPSï¿½é¿´
 	private void doOpenWord(String newPath){
 		Intent intent = new Intent();
 		intent.setAction("android.intent.action.VIEW");
@@ -221,12 +221,12 @@ public class LsJqInfoActivity extends Activity{
 		try{
 			startActivity(intent);
 		} catch(ActivityNotFoundException e) {
-			//¼ì²âµ½ÏµÍ³ÉÐÎ´°²×°OliveOfficeµÄapk³ÌÐò
-			Toast.makeText(this, "Î´ÕÒµ½Èí¼þ", Toast.LENGTH_LONG).show();
-			//ÇëÏÈµ½www.olivephone.com/e.apkÏÂÔØ²¢°²×°
+			//ï¿½ï¿½âµ½ÏµÍ³ï¿½ï¿½Î´ï¿½ï¿½×°OliveOfficeï¿½ï¿½apkï¿½ï¿½ï¿½ï¿½
+			Toast.makeText(this, "Î´ï¿½Òµï¿½ï¿½ï¿½ï¿½", Toast.LENGTH_LONG).show();
+			//ï¿½ï¿½ï¿½Èµï¿½www.olivephone.com/e.apkï¿½ï¿½ï¿½Ø²ï¿½ï¿½ï¿½×°
 		}
 	}
-	//WPS²é¿´
+	//WPSï¿½é¿´
 	private void doOpenPhoto(String newPath){
 		Intent intent = new Intent();
 		intent.setAction("android.intent.action.VIEW");
@@ -236,12 +236,12 @@ public class LsJqInfoActivity extends Activity{
 		try{
 			startActivity(intent);
 		} catch(ActivityNotFoundException e) {
-			//¼ì²âµ½ÏµÍ³ÉÐÎ´°²×°OliveOfficeµÄapk³ÌÐò
-			Toast.makeText(this, "Î´ÕÒµ½Èí¼þ", Toast.LENGTH_LONG).show();
-			//ÇëÏÈµ½www.olivephone.com/e.apkÏÂÔØ²¢°²×°
+			//ï¿½ï¿½âµ½ÏµÍ³ï¿½ï¿½Î´ï¿½ï¿½×°OliveOfficeï¿½ï¿½apkï¿½ï¿½ï¿½ï¿½
+			Toast.makeText(this, "Î´ï¿½Òµï¿½ï¿½ï¿½ï¿½", Toast.LENGTH_LONG).show();
+			//ï¿½ï¿½ï¿½Èµï¿½www.olivephone.com/e.apkï¿½ï¿½ï¿½Ø²ï¿½ï¿½ï¿½×°
 		}
 	}
-	//WPS²é¿´
+	//WPSï¿½é¿´
 	private void doOpenAudio(String newPath){
 		Intent intent = new Intent();
 		intent.setAction("android.intent.action.VIEW");
@@ -251,12 +251,12 @@ public class LsJqInfoActivity extends Activity{
 		try{
 			startActivity(intent);
 		} catch(ActivityNotFoundException e) {
-			//¼ì²âµ½ÏµÍ³ÉÐÎ´°²×°OliveOfficeµÄapk³ÌÐò
-			Toast.makeText(this, "Î´ÕÒµ½Èí¼þ", Toast.LENGTH_LONG).show();
-			//ÇëÏÈµ½www.olivephone.com/e.apkÏÂÔØ²¢°²×°
+			//ï¿½ï¿½âµ½ÏµÍ³ï¿½ï¿½Î´ï¿½ï¿½×°OliveOfficeï¿½ï¿½apkï¿½ï¿½ï¿½ï¿½
+			Toast.makeText(this, "Î´ï¿½Òµï¿½ï¿½ï¿½ï¿½", Toast.LENGTH_LONG).show();
+			//ï¿½ï¿½ï¿½Èµï¿½www.olivephone.com/e.apkï¿½ï¿½ï¿½Ø²ï¿½ï¿½ï¿½×°
 		}
 	}
-	//WPS²é¿´
+	//WPSï¿½é¿´
 	private void doOpenVedio(String newPath){
 		Intent intent = new Intent();
 		intent.setAction("android.intent.action.VIEW");
@@ -266,9 +266,9 @@ public class LsJqInfoActivity extends Activity{
 		try{
 			startActivity(intent);
 		} catch(ActivityNotFoundException e) {
-			//¼ì²âµ½ÏµÍ³ÉÐÎ´°²×°OliveOfficeµÄapk³ÌÐò
-			Toast.makeText(this, "Î´ÕÒµ½Èí¼þ", Toast.LENGTH_LONG).show();
-			//ÇëÏÈµ½www.olivephone.com/e.apkÏÂÔØ²¢°²×°
+			//ï¿½ï¿½âµ½ÏµÍ³ï¿½ï¿½Î´ï¿½ï¿½×°OliveOfficeï¿½ï¿½apkï¿½ï¿½ï¿½ï¿½
+			Toast.makeText(this, "Î´ï¿½Òµï¿½ï¿½ï¿½ï¿½", Toast.LENGTH_LONG).show();
+			//ï¿½ï¿½ï¿½Èµï¿½www.olivephone.com/e.apkï¿½ï¿½ï¿½Ø²ï¿½ï¿½ï¿½×°
 		}
 	}
 
@@ -281,17 +281,17 @@ public class LsJqInfoActivity extends Activity{
 					getFileName(file.listFiles(), jqNum);
 				} else {
 					String fileName = file.getName();
-					if (fileName.contains(jqNum) && fileName.endsWith(".txt")) {
+					if (fileName.startsWith(jqNum) && fileName.endsWith(".doc")) {
 						Log.e("e", "fileName"+fileName);
 						listFiles.add(fileName);
 						UtilTc.showLog("bltxt sss"+listFiles.size());
-					} else if (fileName.contains(jqNum)
+					} else if (fileName.startsWith(jqNum)
 							&& fileName.endsWith(".mp4")) {
 						listFiles.add(fileName);
-					} else if (fileName.contains(jqNum)
+					} else if (fileName.startsWith(jqNum)
 							&& fileName.endsWith(".amr")) {
 						listFiles.add(fileName);
-					}else if(fileName.contains(jqNum)&&fileName.endsWith(".jpg")){
+					}else if(fileName.startsWith(jqNum)&&fileName.endsWith(".jpg")){
 						Log.e("e", "fileName"+fileName);
 						listFiles.add(fileName);
 					}
@@ -299,24 +299,24 @@ public class LsJqInfoActivity extends Activity{
 			}
 		}
 	}
-	//ÁÐ±íµã»÷
+	//ï¿½Ð±ï¿½ï¿½ï¿½
 	private void  itemOnClick(int position){
 		String mimeType=listFiles.get(position);
 		if(mimeType.endsWith(".txt")){
-			//²é¿´txt
+			//ï¿½é¿´txt
 			startActivity(new Intent(LsJqInfoActivity.this,LsTxtAcitvity.class).
 					putExtra("txtName", mimeType));
 		}else if(mimeType.endsWith(".amr")){
-			//²¥·ÅÂ¼Òô
+			//ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½
 			startActivity(new Intent(LsJqInfoActivity.this,LsAmrActivity.class).
 					putExtra("amrName", mimeType));
 		}else if(mimeType.endsWith(".mp4")){
-			//²¥·ÅÊÓÆµ
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æµ
 			startActivity(new Intent(LsJqInfoActivity.this,LsMp4Activity.class).
 					putExtra("mp4Name", mimeType));
 			
 		}else if(mimeType.endsWith(".jpg")){
-			//²é¿´ÕÕÆ¬
+			//ï¿½é¿´ï¿½ï¿½Æ¬
 			startActivity(new Intent(LsJqInfoActivity.this,LsJpgActivity.class).
 					putExtra("jpgName", mimeType));
 		}

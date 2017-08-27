@@ -575,20 +575,20 @@ public class SenceExcute extends Activity  {
 					{
 					String fileName = file.getName();
 
-					if (fileName.contains(jqNum) && fileName.endsWith(".doc")) {
+					if (fileName.startsWith(jqNum) && fileName.endsWith(".doc")) {
 						Log.e("e", "fileName"+fileName);
 						bltxt.add(fileName);
 						allList.add(fileName);
 						UtilTc.showLog("bltxt sss"+bltxt.size());
-					} else if (fileName.contains(jqNum)
+					} else if (fileName.startsWith(jqNum)
 							&& fileName.endsWith(".mp4")) {
 						camera.add(fileName);
 						allList.add(fileName);
-					} else if (fileName.contains(jqNum)
+					} else if (fileName.startsWith(jqNum)
 							&& fileName.endsWith(".amr")) {
 						allList.add(fileName);
 						record.add(fileName);
-					}else if(fileName.contains(jqNum)&&fileName.endsWith(".jpg")){
+					}else if(fileName.startsWith(jqNum)&&fileName.endsWith(".jpg")){
 						Log.e("e", "fileName"+fileName);
 						allList.add(fileName);
 						photoList.add(fileName);
