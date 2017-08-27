@@ -108,6 +108,7 @@
             android:screenOrientation="portrait"></activity>
         <activity
             android:name="com.tc.activity.SenceExcute"
+
             android:screenOrientation="portrait"></activity>
         <activity
             android:name="com.tc.activity.item.LsJqInfoActivity"
@@ -141,7 +142,6 @@
         <activity
             android:name="com.tc.activity.item.GoodsQueryActivity"
             android:screenOrientation="portrait" />
-        <activity android:name="com.tc.activity.FileDirManagerMainActivity"></activity>
         <!-- 一维码 -->
         <activity
             android:name="com.example.qr_codescan.MipcaActivityCapture"

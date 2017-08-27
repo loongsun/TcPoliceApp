@@ -83,7 +83,8 @@ public class MarkerMapActivity extends Activity implements
 			// TODO Auto-generated method stub
 			switch (v.getId()) {
 			case R.id.btn_policeGo:// 确认出警
-				if(btn_policeGo.getText().toString().equals("确认出警")){
+				if(btn_policeGo.getText().toString().equals("确认出警"))
+				{
 					  new Thread(polickGoRun).start();
 				}else{
 					UtilTc.myToast(getApplicationContext(), "已出警");
@@ -124,11 +125,14 @@ public class MarkerMapActivity extends Activity implements
 			mContentValues.put("dbjqNum", plb.getJqNum());
 			mContentValues.put("dbjqwx", plb.getWx());
 			mContentValues.put("dbjqwy", plb.getWy());
+		    mContentValues.put("dbjqwtype",plb.getWtype());
 			mContentValues.put("dbjqaddress", plb.getJqPosition());
 			mContentValues.put("dbjqbjrdh", plb.getBjrPhone());
 			mContentValues.put("dbjqbjrname", plb.getBjrName());
 			mContentValues.put("isPoliceGoTime", UtilTc.getCurrentTime());
-			mApp.getmDota().insert(Values.DB_JQINFO, mContentValues);
+
+			long ret=mApp.getmDota().insert(Values.DB_JQINFO, mContentValues);
+		Log.e("dbresutl","ret="+ret);
 	}
 
 	private void arriveSence() {

@@ -41,382 +41,377 @@
     </LinearLayout>
 
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:orientation="vertical">
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:orientation="horizontal">
 
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:background="@color/White"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="物品条码"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <EditText
-
-                    android:id="@+id/et_codeCamera"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:clickable="false"
-                    android:cursorVisible="true"
-                    android:editable="false"
-                    android:hint=""
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-
-                <Button
-                    android:id="@+id/btn_wpCamera"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="3dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/icon_sm"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
-                android:background="@color/line" />
+                android:text="物品条码"
+                android:textColor="@color/Black"
+                android:textSize="16sp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <EditText
+
+                android:id="@+id/et_codeCamera"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
                 android:background="@color/White"
-                android:orientation="horizontal">
+                android:clickable="false"
+                android:cursorVisible="true"
+                android:editable="false"
+                android:hint=""
+                android:textColor="@color/Black"
+                android:textCursorDrawable="@null"
+                android:textSize="18sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="物品条码"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_wpCode"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-
-                <Button
-                    android:id="@+id/btn_wpCode"
-                    android:layout_width="80dp"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="3dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/btn_blue"
-                    android:text="查询"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/line" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/btn_wpCamera"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:background="@color/White"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="物品名称"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_wpName"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:textColor="@color/Black"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-
-                <Button
-                    android:id="@+id/btn_wpName"
-                    android:layout_width="80dp"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="3dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/btn_blue"
-                    android:text="查询"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="16dp"
                 android:layout_marginTop="10dp"
-                android:background="@color/line" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/lin_result"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="10dp"
-                    android:text="物品名称:"
-                    android:textColor="@color/Black"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/tv_wpreName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="10dp"
-                    android:textColor="@color/Black"
-                    android:textSize="20sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/lin_result"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="10dp"
-                    android:text="物品条码:"
-                    android:textColor="@color/Black"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/tv_wpreCode"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="10dp"
-                    android:textColor="@color/Black"
-                    android:textSize="20sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/lin_result"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="10dp"
-                    android:text="生产厂家:"
-                    android:textColor="@color/Black"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/tv_wpreSccj"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="10dp"
-                    android:textColor="@color/Black"
-                    android:textSize="20sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/lin_result"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="10dp"
-                    android:text="物品类别:"
-                    android:textColor="@color/Black"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/tv_wpreLb"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="10dp"
-                    android:textColor="@color/Black"
-                    android:textSize="20sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/lin_result"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="10dp"
-                    android:text="生产日期:"
-                    android:textColor="@color/Black"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/tv_wpreDate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="10dp"
-                    android:textColor="@color/Black"
-                    android:textSize="20sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/lin_result"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="10dp"
-                    android:text="商品国别:"
-                    android:textColor="@color/Black"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/tv_wpreSpgb"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="10dp"
-                    android:textColor="@color/Black"
-                    android:textSize="20sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="130dp">
-
-                <Button
-                    android:id="@+id/btn_wpreLast"
-                    android:layout_width="80dp"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/btn_blue"
-                    android:text="上一条"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/tv_wpreCount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:gravity="center_horizontal"
-                    android:text="1/1"
-                    android:textColor="@color/Black"
-                    android:textSize="20sp" />
-
-                <Button
-                    android:id="@+id/btn_wpreNext"
-                    android:layout_width="80dp"
-                    android:layout_height="40dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/btn_blue"
-                    android:text="下一条"
-                    android:textSize="16sp" />
-            </LinearLayout>
-            <!-- 底边栏-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_alignParentBottom="true"
-                android:layout_marginTop="110dp"
-                android:background="@color/Black"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:src="@drawable/icon_message" />
-
-                <TextView
-                    android:id="@+id/tv_hint"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="5dp"
-                    android:textColor="@color/White"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
+                android:background="@drawable/icon_sm"
+                android:textSize="16sp" />
         </LinearLayout>
 
-    </ScrollView>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@color/White"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:text="物品条码"
+                android:textColor="@color/Black"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_wpCode"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:cursorVisible="true"
+                android:textColor="@color/Black"
+                android:textCursorDrawable="@null"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btn_wpCode"
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_blue"
+                android:text="查询"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@color/White"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:text="物品名称"
+                android:textColor="@color/Black"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_wpName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:cursorVisible="true"
+                android:textColor="@color/Black"
+                android:textCursorDrawable="@null"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btn_wpName"
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_blue"
+                android:text="查询"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/line" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lin_result"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:text="物品名称:"
+                android:textColor="@color/Black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_wpreName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/Black"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lin_result"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:text="物品条码:"
+                android:textColor="@color/Black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_wpreCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/Black"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lin_result"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:text="生产厂家:"
+                android:textColor="@color/Black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_wpreSccj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/Black"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lin_result"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:text="物品类别:"
+                android:textColor="@color/Black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_wpreLb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/Black"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lin_result"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:text="生产日期:"
+                android:textColor="@color/Black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_wpreDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/Black"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lin_result"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:text="商品国别:"
+                android:textColor="@color/Black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_wpreSpgb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/Black"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btn_wpreLast"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_blue"
+                android:text="上一条"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_wpreCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="1/1"
+                android:textColor="@color/Black"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btn_wpreNext"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_blue"
+                android:text="下一条"
+                android:textSize="16sp" />
+        </LinearLayout>
+        <!-- 底边栏-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="102dp"
+            android:background="@drawable/tz_bg"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/icon_tz" />
+
+            <TextView
+                android:id="@+id/tv_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/White"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+    </LinearLayout>
 </LinearLayout>

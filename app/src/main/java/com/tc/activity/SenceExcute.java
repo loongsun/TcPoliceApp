@@ -53,7 +53,9 @@ import org.json.JSONTokener;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import it.sauronsoftware.ftp4j.FTPClient;
@@ -273,10 +275,13 @@ public class SenceExcute extends Activity  {
 				myFtp.login("admin", "1234"); // 登录
 
 				UtilTc.showLog("file count:"+allList.size());
-				for(int i=0;i<allList.size();i++)
+				int i=0;
+				if(allList.size()>0)
+				//for(int i=0;i<allList.size();i++)
 				{
 				 //判断上传到哪个文件夹
-				 if(allList.get(i).endsWith(".doc")){
+				 if(allList.get(i).endsWith(".doc"))
+				 {
 					 myFtp.changeDirectory("../");
 					 myFtp.changeDirectory("wtxt");
 					 currentPath=Values.PATH_BOOKMARK;
@@ -308,8 +313,11 @@ public class SenceExcute extends Activity  {
 					MyFTPDataTransferListener listener = new MyFTPDataTransferListener();
 					myFtp.upload(file, listener); // 上传
 				}
-			} catch (Exception e) {
+			}
+			catch (Exception e)
+			{
 				e.printStackTrace();
+				UtilTc.showLog("Thread catch");
 				mHandler.sendEmptyMessage(Values.ERROR_UPLOAD);
 			}
 
@@ -600,12 +608,20 @@ public class SenceExcute extends Activity  {
 			List<NameValuePair> params = new ArrayList<NameValuePair>();
 			//查询出出警时间和到达现场时间
 			mApp.getmDota().jq_queryTime(plb.getJqNum());
-			Log.e("1231312", "pnum"+plb.getJqNum()+ Values.POLICE_GOTIME);
+
+
+			String starttime2=null;
+			String endtime2=null;
+			SimpleDateFormat  format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			endtime2=starttime2=format.format(new Date());
+
+
+				Log.e("wupdate1231312", "pnum"+plb.getJqNum()+ Values.POLICE_GOTIME);
 			params.add(new BasicNameValuePair("wnum", plb.getJqNum()));
 			params.add(new BasicNameValuePair("wstate", "2"));
-			params.add(new BasicNameValuePair("starttime", Values.POLICE_GOTIME));
-			params.add(new BasicNameValuePair("endtime",
-					Values.POLICE_ARRIVETIME));
+			params.add(new BasicNameValuePair("starttime", starttime2));
+			params.add(new BasicNameValuePair("endtime", endtime2));
+			Log.e("wupdate1231312", "params="+params.toString());
 			try {
 				UrlEncodedFormEntity formEntity = new UrlEncodedFormEntity(
 						params, "UTF-8");
@@ -613,8 +629,7 @@ public class SenceExcute extends Activity  {
 				// 取得HTTP response
 				HttpResponse httpResponse = new DefaultHttpClient()
 						.execute(httpRequest);
-				Log.e("code", "code"
-						+ httpResponse.getStatusLine().getStatusCode());
+				Log.e("code", "code" + httpResponse.getStatusLine().getStatusCode());
 				if (httpResponse.getStatusLine().getStatusCode() == 200) {
 					String strResult = EntityUtils.toString(httpResponse
 							.getEntity());
@@ -643,7 +658,52 @@ public class SenceExcute extends Activity  {
 	
 	Handler mHandler = new Handler() {
 		public void handleMessage(android.os.Message msg) {
-			switch (msg.what) {
+			switch (msg.what)
+			{
+				case Values.ONE_UPLOAD:
+
+					// TODO Auto-generated method stub
+					UtilTc.showLog("currentFile:"+currentFile);
+					UtilTc.showLog("currentFile 后3位"+currentFile.substring(currentFile.length()-3,currentFile.length()));
+					mediaFormat=currentFile.substring(currentFile.length()-3,currentFile.length());
+					if(mediaFormat.equals("doc"))
+					{
+						mediaType="文档";
+    				tv_docCount.setText(""+(bltxt.size()-1));
+					}else if(mediaFormat.equals("amr")){
+						mediaType="音频";
+						tv_recordCount.setText(""+(record.size()-1));
+					}else if(mediaFormat.equals("mp4")){
+						mediaType="视频";
+						tv_cameraCount.setText(""+(camera.size()-1));
+					}else if(mediaFormat.equals("jpg")){
+						mediaType="图片";
+						tv_photoCount.setText(""+(photoList.size()-1));
+					}
+					new Thread(media).start();
+
+					Log.e("update file","*******************%%%%%%%%%filename="+allList.get(0));
+					allList.remove(0);
+					mCommonAdapter.notifyDataSetChanged();
+
+					Log.e("update file","*******************%%%%%%%%%");
+
+
+					//最后一个上传完成  通知案件状态改变
+					if(allList.size()==0)
+					{
+						UtilTc.showLog("文件上传成功");
+						stopProgressDialog();
+						new Thread(uploadInfo).start();
+					}
+					else
+					{
+						SendFile sf = new SendFile();
+						sf.start();
+					}
+
+
+					break;
 			case Values.SUCCESS_RECORDUPLOAD://上传成功 待办警情变为历史警情
 				successForJq();
 				break;
@@ -720,7 +780,7 @@ public class SenceExcute extends Activity  {
 		Intent intent = new Intent();
 		intent.setAction("android.intent.action.VIEW");
 		intent.addCategory("android.intent.category.DEFAULT");
-		String fileMimeType = "audio/*";
+		String fileMimeType = "audio/amr";
 		intent.setDataAndType(Uri.fromFile(new File(newPath)), fileMimeType);
 		try{
 			startActivity(intent);
@@ -735,7 +795,7 @@ public class SenceExcute extends Activity  {
 		Intent intent = new Intent();
 		intent.setAction("android.intent.action.VIEW");
 		intent.addCategory("android.intent.category.DEFAULT");
-		String fileMimeType = "vedio/*";
+		String fileMimeType = "video/mp4";
 		intent.setDataAndType(Uri.fromFile(new File(newPath)), fileMimeType);
 		try{
 			startActivity(intent);
@@ -788,19 +848,14 @@ public class SenceExcute extends Activity  {
 						getApplicationContext()).inflate(
 						R.layout.item_bltxt, null);
 				holder = new ViewHolder();
+
+
 				holder.tv_blTitle = (TextView) mView.findViewById(R.id.tv_blTitle);
 				holder.iv_delete = (ImageView) mView.findViewById(R.id.iv_delete);
 				holder.iv_edit = (ImageView) mView.findViewById(R.id.iv_edit);
 
-				holder.parentLayout = (LinearLayout) mView
-						.findViewById(R.id.lin_bl);
-				holder.parentLayout.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View arg0) {
-						Log.e("e", "onClick");
-				
-					}
-				});
+				holder.parentLayout = (LinearLayout) mView.findViewById(R.id.lin_bl);
+
 				mView.setTag(holder);
 			} else {
 				holder = (ViewHolder) mView.getTag();
@@ -883,6 +938,13 @@ public class SenceExcute extends Activity  {
 
 				}
 			});
+			holder.parentLayout.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View arg0) {
+					Log.e("e", "onClick");
+				}
+			});
+
 			String ret = allList.get(position);
 			UtilTc.showLog("ret       :"+ret);
 			holder.tv_blTitle.setText(ret);
@@ -900,30 +962,22 @@ public class SenceExcute extends Activity  {
 			// TODO Auto-generated method stub
 		}
 		@Override
-		public void completed() {// 上传成功
-			// TODO Auto-generated method stub
-			UtilTc.showLog("currentFile:"+currentFile);
-			UtilTc.showLog("currentFile 后3位"+currentFile.substring(currentFile.length()-3,currentFile.length()));
-			mediaFormat=currentFile.substring(currentFile.length()-3,currentFile.length());
-			if(mediaFormat.equals("doc")){
-				mediaType="文档";
-			}else if(mediaFormat.equals("amr")){
-				mediaType="音频";
-			}else if(mediaFormat.equals("mp4")){
-				mediaType="视频";
-			}else if(mediaFormat.equals("jpg")){
-				mediaType="图片";
-			}
-			new Thread(media).start();
+		public void completed() {// 上传成
 
-			Message msg;
-			msg = Message.obtain();
-			msg.what = Values.SUCCESS_UPLOAD;
-			mHandler.sendMessage(msg);
+
+				Message msg;
+				msg = Message.obtain();
+				msg.what = Values.ONE_UPLOAD;
+				mHandler.sendMessage(msg);
+
+
+
 		}
 		@Override
 		public void failed() {// 上传失败
 			// TODO Auto-generated method stub
+
+			UtilTc.showLog("MyFTPDataTransferListener  failed:");
 			Message msg;
 			msg = Message.obtain();
 			msg.what = Values.ERROR_UPLOAD;
@@ -938,7 +992,8 @@ public class SenceExcute extends Activity  {
 			mHandler.sendMessage(msg);
 		}
 		@Override
-		public void transferred(int length) {// 上传过程监听
+		public void transferred(int length)
+		{// 上传过程监听
 			int progress = length;
 			i = i + length;
 			System.out.println("mTotalSize=" + mTotalSize);
@@ -970,7 +1025,7 @@ public class SenceExcute extends Activity  {
 			List<NameValuePair> params = new ArrayList<NameValuePair>();
 			//查询出出警时间和到达现场时间
 			mApp.getmDota().jq_queryTime(plb.getJqNum());
-			Log.e("1231312", "pnum"+plb.getJqNum()+ Values.POLICE_GOTIME);
+			Log.e("addmeiti1231312", "pnum"+plb.getJqNum()+ Values.POLICE_GOTIME);
 			params.add(new BasicNameValuePair("A_ID", plb.getJqNum()));
 			params.add(new BasicNameValuePair("A_type", mediaType));
 			params.add(new BasicNameValuePair("A_Format",mediaFormat));

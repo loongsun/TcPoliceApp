@@ -66,4 +66,7 @@ public class Values {
     public final static int ERROR_GETFACEIMAGE=0x22;
     public final static int MSG_REFRSH_RECORD = 0x23;
 
+    public final static int ONE_UPLOAD = 0x24;
+
+
 }

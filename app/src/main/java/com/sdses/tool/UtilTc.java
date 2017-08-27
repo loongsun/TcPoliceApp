@@ -20,7 +20,7 @@ public class UtilTc {
 	private static boolean isLog=true;
 	public static String sdPath=Environment.getExternalStorageDirectory().getAbsolutePath();
 	public static void myToast(Context context,String str){
-		Toast.makeText(context, str, Toast.LENGTH_LONG).show();
+		Toast.makeText(context, str, Toast.LENGTH_SHORT).show();
 	}
 	public static void myToastForContent(Context context){
 		Toast.makeText(context, "连接失败,请检查网络和服务器", Toast.LENGTH_LONG).show();
@@ -32,7 +32,7 @@ public class UtilTc {
 	
 	//获取当前时间
 	public static String getCurrentTime(){
-	 SimpleDateFormat    formatter    =   new    SimpleDateFormat    ("yyyy-MM-dd HHmmss");
+	 SimpleDateFormat    formatter    =   new    SimpleDateFormat    ("yyyy-MM-dd HH:mm:ss");
 	 Date    curDate    =   new    Date(System.currentTimeMillis());//获取当前时间     
 	 return   formatter.format(curDate);    
 	 

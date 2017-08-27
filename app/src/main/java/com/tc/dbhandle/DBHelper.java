@@ -14,7 +14,7 @@ public class DBHelper extends SQLiteOpenHelper {
 	
 	static final String SQL_TABLE_Info = "CREATE TABLE IF NOT EXISTS dbJqInfo(_id INTEGER PRIMARY KEY AUTOINCREMENT,"
 			+ "dbjqname VARCHAR(50),dbjqtime VARCHAR(30),"
-			+ "dbjqNum VARCHAR(50),dbjqwx VARCHAR(20),dbjqwy VARCHAR(20),"
+			+ "dbjqNum VARCHAR(50),dbjqwx VARCHAR(20),dbjqwy VARCHAR(20),dbjqwtype VARCHAR(20),"
 			+ "dbjqaddress VARCHAR(200),dbjqbjrdh VARCHAR(20),"
 			+ "dbjqbjrname VARCHAR(50),flag VARCHAR(5),"
 			+ "isPoliceGo VARCHAR(5),isArrive VARCHAR(5),"
@@ -23,7 +23,7 @@ public class DBHelper extends SQLiteOpenHelper {
 	
 	static final String SQL_TABLE_LsInfo = "CREATE TABLE IF NOT EXISTS lsJqInfo(_id INTEGER PRIMARY KEY AUTOINCREMENT,"
 			+ "lsjqname VARCHAR(50),lsjqtime VARCHAR(30),"
-			+ "lsjqNum VARCHAR(50),lsjqwx VARCHAR(20),lsjqwy VARCHAR(20),"
+			+ "lsjqNum VARCHAR(50),lsjqwx VARCHAR(20),lsjqwy VARCHAR(20),dbjqwtype VARCHAR(20),"
 			+ "lsjqaddress VARCHAR(200),lsjqbjrdh VARCHAR(20),lsjqbjrname VARCHAR(50))";
 	public DBHelper(Context context, String name, CursorFactory factory,
 			int version) {

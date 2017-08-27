@@ -48,7 +48,6 @@
         android:id="@+id/lv_kcqzList"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:divider="#eee"
         android:dividerHeight="0.5dp"
         android:drawSelectorOnTop="false"

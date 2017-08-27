@@ -390,7 +390,8 @@ public class PoliceStateActivity extends Fragment {
 						{
 							intentToMap(position);
 						}
-					} else if (Values.JQ_STATESBTN == 1) {
+					} else if (Values.JQ_STATESBTN == 1)
+					{
 						// 判断案件编号
 						if (isRepeatJq(position)) {
 							UtilTc.myToast(getActivity()
@@ -399,7 +400,8 @@ public class PoliceStateActivity extends Fragment {
 						} else {
 							intentToMap(position);
 						}
-					} else if (Values.JQ_STATESBTN == 3) {
+					} else if (Values.JQ_STATESBTN == 3)
+					{
 						// 历史警情
 						intentToLs(position);
 					}

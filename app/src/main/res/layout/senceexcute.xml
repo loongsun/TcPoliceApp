@@ -180,9 +180,10 @@
 
             <TextView
                 android:id="@+id/tv_photocount"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:background="@drawable/icon_state"
+                android:gravity="center_vertical|center_horizontal"
                 android:text="0"
                 android:textColor="@color/White" />
 
@@ -206,9 +207,10 @@
 
             <TextView
                 android:id="@+id/tv_recordcount"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:background="@drawable/icon_state"
+                android:gravity="center_horizontal"
                 android:text="0"
                 android:textColor="@color/White" />
 
@@ -233,8 +235,8 @@
 
             <TextView
                 android:id="@+id/tv_cameracount"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:background="@drawable/icon_state"
                 android:text="0"
                 android:textColor="@color/White" />
@@ -258,8 +260,8 @@
 
             <TextView
                 android:id="@+id/tv_doccount"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:background="@drawable/icon_state"
                 android:text="0"
                 android:textColor="@color/White" />
@@ -274,8 +276,8 @@
         android:layout_marginTop="10dp"
         android:layout_weight="1"
         android:background="#ffffff"
-        android:divider="@color/horbluedivilinecolor"
-        android:dividerHeight="1.0dip"
+        android:divider="#eee"
+        android:dividerHeight="0.5dp"
         android:drawSelectorOnTop="false"
         android:listSelector="@drawable/lv_selector" />
     <!-- 按钮 -->

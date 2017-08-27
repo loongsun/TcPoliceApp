@@ -47,8 +47,7 @@ public class Dota {
 
 	/**
 	 * 
-	 * 
-	 * @param context
+	 *
 	 * @return
 	 */
 	public boolean deleteDatabase(String database_name) {
@@ -158,9 +157,12 @@ public class Dota {
 					plb.setJqNum(cursor.getString(3));
 					plb.setWx(cursor.getString(4));
 					plb.setWy(cursor.getString(5));
-					plb.setJqPosition(cursor.getString(6));
-					plb.setBjrPhone(cursor.getString(7));
-					plb.setBjrName(cursor.getString(8));
+					plb.setWtype(cursor.getString(6));
+
+					plb.setJqPosition(cursor.getString(7));
+					plb.setBjrPhone(cursor.getString(8));
+					plb.setBjrName(cursor.getString(9));
+
 					if(states.equals("0"))
 					Values.dbjqList.add(plb);
 					else
@@ -185,7 +187,7 @@ public class Dota {
 	}
 	
 	
-	public synchronized String jq_ToMapQuery(String jqNum) {
+	public synchronized String jq_ToMapQuery(String jqNum) {//是否到达现场
 		Cursor cursor = null;
 		SQLiteDatabase db = null;
 		try {
@@ -194,7 +196,7 @@ public class Dota {
 					new String[] {jqNum});
 			if (cursor != null ){
 				cursor.moveToFirst();
-				return  cursor.getString(11);
+				return  cursor.getString(12);
 			}else{
 				
 			}
@@ -231,9 +233,12 @@ public class Dota {
 					plb.setJqNum(cursor.getString(3));
 					plb.setWx(cursor.getString(4));
 					plb.setWy(cursor.getString(5));
-					plb.setJqPosition(cursor.getString(6));
-					plb.setBjrPhone(cursor.getString(7));
-					plb.setBjrName(cursor.getString(8));
+
+					plb.setWtype(cursor.getString(6));
+					plb.setJqPosition(cursor.getString(7));
+					plb.setBjrPhone(cursor.getString(8));
+					plb.setBjrName(cursor.getString(9));
+
 					if(states.equals("0"))
 					Values.dbjqList.add(plb);
 					else
@@ -268,8 +273,8 @@ public class Dota {
 					new String[] {jqNum});
 			if (cursor != null ){
 				cursor.moveToFirst();
-				Values.POLICE_GOTIME=cursor.getString(12);
-				Values.POLICE_ARRIVETIME=cursor.getString(13);
+				Values.POLICE_GOTIME=cursor.getString(13);
+				Values.POLICE_ARRIVETIME=cursor.getString(14);
 				UtilTc.showLog("Values.POLICE_GOTIME"+Values.POLICE_GOTIME);
 				UtilTc.showLog("Values.POLICE_ARRIVETIME"+Values.POLICE_ARRIVETIME);
 				return true;

@@ -42,7 +42,6 @@ public class MainTabActivity extends FragmentActivity{
         initView();
         getIntentInfo();
     }
-	
 	private void getIntentInfo()
 	{
 		plb=(PoliceStateListBean) getIntent().getSerializableExtra("jqInfo");
@@ -52,7 +51,6 @@ public class MainTabActivity extends FragmentActivity{
 			mTabHost.setCurrentTab(tabPage);
 			UtilTc.showLog(plb.getJqName());
 		}
-	
 	}
 	/**
 	 * 

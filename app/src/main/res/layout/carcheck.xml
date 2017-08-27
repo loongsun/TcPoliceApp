@@ -42,9 +42,10 @@
 
 
     <ScrollView
-        android:paddingTop="@dimen/activity_vertical_margin"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:paddingTop="@dimen/activity_vertical_margin">
 
 
         <LinearLayout
@@ -64,6 +65,8 @@
                     android:id="@+id/linearlayout_carnum"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="10dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -71,46 +74,46 @@
                         style="@style/BASEINFO_500BH_TEXTVIEW"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/label_carnum" />
+                        android:text="@string/label_carnum"
+                        android:textSize="16sp" />
 
                     <Spinner
                         android:id="@+id/spinnerareashot"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="30dp"
                         android:background="@drawable/spinner_bg"
                         android:entries="@array/Area_Array"
                         android:prompt="@string/carinfo_area_Prompt"
                         android:spinnerMode="dialog" />
 
                     <Spinner
-                        android:layout_marginLeft="15dp"
                         android:id="@+id/spinnerchatshort"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="5dp"
                         android:background="@drawable/spinner_bg"
                         android:entries="@array/ShortArea_Array"
                         android:prompt="@string/carinfo_shortarea_Prompt"
                         android:spinnerMode="dialog" />
 
                     <EditText
-                        android:layout_weight="1"
                         android:id="@+id/EditTextCarNum"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:background="@null"
                         android:cursorVisible="true"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                         android:textColor="@color/Black"
                         android:textCursorDrawable="@null"
-                        android:textSize="18sp" />
+                        android:textSize="16sp" />
 
                     <Button
-                        android:layout_marginRight="5dp"
                         android:id="@+id/carinfo_btnquerycarnum"
                         android:layout_width="80dp"
-                        android:layout_height="40dp"
+                        android:layout_height="35dp"
                         android:background="@drawable/btn_xczf"
-                        android:text="@string/btn_text_query"
-                        android:textSize="18sp" />
+                        android:text="@string/btn_text_query" />
                 </LinearLayout>
 
                 <View
@@ -126,6 +129,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/linearlayout_carnum"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="10dp"
                     android:layout_marginTop="25dip"
                     android:orientation="horizontal">
 
@@ -134,28 +139,27 @@
                         style="@style/BASEINFO_500BH_TEXTVIEW"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/label_engine" />
+                        android:text="@string/label_engine"
+                        android:textSize="16sp" />
 
                     <EditText
                         android:id="@+id/et_fdjh"
-                        android:layout_weight="1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:background="@null"
                         android:cursorVisible="true"
 
                         android:textColor="@color/Black"
                         android:textCursorDrawable="@null"
-                        android:textSize="18sp" />
+                        android:textSize="16sp" />
 
                     <Button
-                        android:layout_marginRight="5dp"
                         android:id="@+id/carinfo_btnqueryenginenum"
                         android:layout_width="80dp"
-                        android:layout_height="40dp"
+                        android:layout_height="35dp"
                         android:background="@drawable/btn_xczf"
-                        android:text="@string/btn_text_query"
-                        android:textSize="18sp" />
+                        android:text="@string/btn_text_query" />
                 </LinearLayout>
 
                 <View
@@ -170,6 +174,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/linearlayout_enginenum"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="10dp"
                     android:layout_marginTop="25dip"
                     android:orientation="horizontal">
 
@@ -178,27 +184,26 @@
                         style="@style/BASEINFO_500BH_TEXTVIEW"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/label_frame" />
+                        android:text="@string/label_frame"
+                        android:textSize="16sp" />
 
                     <EditText
                         android:id="@+id/et_cjhm"
-                        android:layout_weight="1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:background="@null"
                         android:cursorVisible="true"
                         android:textColor="@color/Black"
                         android:textCursorDrawable="@null"
-                        android:textSize="18sp" />
+                        android:textSize="16sp" />
 
                     <Button
-                        android:layout_marginRight="5dp"
                         android:id="@+id/carinfo_btnqueryframenum"
                         android:layout_width="80dp"
-                        android:layout_height="40dp"
+                        android:layout_height="35dp"
                         android:background="@drawable/btn_xczf"
-                        android:text="@string/btn_text_query"
-                        android:textSize="18sp" />
+                        android:text="@string/btn_text_query" />
                 </LinearLayout>
 
                 <View
@@ -213,6 +218,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/linearlayout_framenum"
+                    android:layout_marginLeft="16dp"
                     android:layout_marginTop="20dp"
                     android:orientation="horizontal">
 
@@ -222,7 +228,7 @@
                         android:layout_marginTop="10dp"
                         android:text="车牌类型"
                         android:textColor="@color/Black"
-                        android:textSize="20sp" />
+                        android:textSize="16sp" />
 
                     <RadioGroup
                         android:id="@+id/rg_car"
@@ -238,10 +244,10 @@
                             android:textColor="@color/Black" />
 
                         <RadioButton
-                            android:layout_marginRight="15dp"
                             android:id="@+id/rb_carblue"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginRight="15dp"
                             android:text="蓝牌"
                             android:textColor="@color/Black" />
                     </RadioGroup>
@@ -260,6 +266,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/lin_last"
+                    android:layout_marginLeft="16dp"
                     android:layout_marginTop="50dp"
                     android:orientation="horizontal"
                     android:visibility="gone">
@@ -288,6 +295,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/lin_result"
+                    android:layout_marginLeft="16dp"
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
@@ -298,7 +306,7 @@
                         android:layout_marginLeft="10dp"
                         android:text="车牌号码:"
                         android:textColor="@color/Black"
-                        android:textSize="20sp" />
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/tv_carResultNum"
@@ -308,7 +316,7 @@
                         android:layout_marginLeft="10dp"
                         android:text="123"
                         android:textColor="@color/Black"
-                        android:textSize="20sp" />
+                        android:textSize="16sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -316,6 +324,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/lin_cph"
+                    android:layout_marginLeft="16dp"
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
@@ -326,7 +335,7 @@
                         android:layout_marginLeft="10dp"
                         android:text="车牌种类:"
                         android:textColor="@color/Black"
-                        android:textSize="20sp" />
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/tv_carResultZL"
@@ -336,7 +345,7 @@
                         android:layout_marginLeft="10dp"
                         android:text="123"
                         android:textColor="@color/Black"
-                        android:textSize="20sp" />
+                        android:textSize="16sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -344,6 +353,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/lin_carZL"
+                    android:layout_marginLeft="16dp"
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
@@ -354,7 +364,7 @@
                         android:layout_marginLeft="10dp"
                         android:text="车身颜色:"
                         android:textColor="@color/Black"
-                        android:textSize="20sp" />
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/tv_carColor"
@@ -364,7 +374,7 @@
                         android:layout_marginLeft="10dp"
                         android:text="123"
                         android:textColor="@color/Black"
-                        android:textSize="20sp" />
+                        android:textSize="16sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -372,6 +382,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/lin_carRColor"
+                    android:layout_marginLeft="16dp"
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
@@ -382,7 +393,7 @@
                         android:layout_marginLeft="10dp"
                         android:text="发动机号:"
                         android:textColor="@color/Black"
-                        android:textSize="20sp" />
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/tv_fdjh"
@@ -392,13 +403,15 @@
                         android:layout_marginLeft="10dp"
                         android:text="123"
                         android:textColor="@color/Black"
-                        android:textSize="20sp" />
+                        android:textSize="16sp" />
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/lin_cjhm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/lin_fdjh"
+                    android:layout_marginLeft="16dp"
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
@@ -409,7 +422,7 @@
                         android:layout_marginLeft="10dp"
                         android:text="车架号码:"
                         android:textColor="@color/Black"
-                        android:textSize="20sp" />
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/tv_cjhm"
@@ -419,7 +432,7 @@
                         android:layout_marginLeft="10dp"
                         android:text="123"
                         android:textColor="@color/Black"
-                        android:textSize="20sp" />
+                        android:textSize="16sp" />
                 </LinearLayout>
                 <!--  <TextView
                       android:layout_marginLeft="10dp"
@@ -435,9 +448,11 @@
                       android:textSize="20sp" />-->
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_alignParentBottom="true"
-                    android:background="@color/Black"
+                    android:layout_height="35dp"
+                    android:layout_alignParentBottom="false"
+                    android:layout_below="@+id/lin_cjhm"
+                    android:layout_marginTop="90dp"
+                    android:background="@drawable/tz_bg"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -445,7 +460,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:layout_marginTop="5dp"
-                        android:src="@drawable/icon_message" />
+                        android:src="@drawable/icon_tz" />
 
                     <TextView
                         android:id="@+id/tv_hint"

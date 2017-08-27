@@ -5,8 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,11 +20,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.sdses.bean.PoliceStateListBean;
 import com.sdses.tool.UtilTc;
 import com.sdses.tool.Values;
 import com.tc.application.R;
+import com.tc.util.ConfirmDialog;
 import com.tc.view.LsAmrActivity;
 import com.tc.view.LsJpgActivity;
 import com.tc.view.LsMp4Activity;
@@ -43,19 +47,12 @@ public class LsJqInfoActivity extends Activity{
 		tv_jqTime=(TextView)findViewById(R.id.tv_lsjqTime);
 		tv_jqBjr=(TextView)findViewById(R.id.tv_lsjqbjr);
 		lv_lsList=(ListView)findViewById(R.id.lv_lsList);
-		btn_lsBack=(ImageView)findViewById(R.id.btn_lsBack);
+		btn_lsBack=(ImageView)findViewById(R.id.btn_lsBackls);
 	}
-
-	class OnClick implements  OnClickListener{
-		@Override
-		public void onClick(View v) {
-			switch (v.getId()){
-				case R.id.btn_lsBack:
-					finish();
-					break;
-			}
-		}
-	}
+	 public void onFinish(View v)
+	 {
+		 this.finish();
+	 }
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -110,18 +107,16 @@ public class LsJqInfoActivity extends Activity{
 						getApplicationContext()).inflate(
 						R.layout.item_bltxt, null);
 				holder = new ViewHolder();
+
+
 				holder.tv_blTitle = (TextView) mView.findViewById(R.id.tv_blTitle);
+				holder.iv_delete = (ImageView) mView.findViewById(R.id.iv_delete);
+				holder.iv_edit = (ImageView) mView.findViewById(R.id.iv_edit);
+
+
 				holder.parentLayout = (LinearLayout) mView
 						.findViewById(R.id.lin_bl);
-				holder.parentLayout.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View arg0) {
-						Log.e("e", "onClick");
-						//列表点击  区分文件类型
-						itemOnClick(position);
-						
-					}
-				});
+
 				mView.setTag(holder);
 			} else {
 				holder = (ViewHolder) mView.getTag();
@@ -129,14 +124,154 @@ public class LsJqInfoActivity extends Activity{
 			String ret = listFiles.get(position);
 			UtilTc.showLog("ret       :"+ret);
 			holder.tv_blTitle.setText(ret);
+			//word文件删除
+			holder.iv_delete.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View arg0) {
+
+					final ConfirmDialog confirmDialog = new ConfirmDialog(LsJqInfoActivity.this, "确定要删除吗?", "删除", "取消");
+					confirmDialog.show();
+					confirmDialog.setClicklistener(new ConfirmDialog.ClickListenerInterface() {
+						@Override
+						public void doConfirm() {
+							// TODO Auto-generated method stub
+							confirmDialog.dismiss();
+
+							File file=null;
+							String ret = listFiles.get(position);
+
+
+							if (ret.endsWith(".doc")) {
+								file = new File(Values.PATH_BOOKMARK+ret);
+
+							} else if (  ret.endsWith(".mp4")) {
+								file = new File(Values.PATH_CAMERA+ret);
+							} else if (ret.endsWith(".amr"))
+							{
+								file = new File(Values.PATH_RECORD+ret);
+							}else if ( ret.endsWith(".jpg")){
+								file = new File(Values.PATH_PHOTO+ret);
+							}
+
+
+							if(file.exists())
+							{
+								boolean isDel = file.delete();
+								if(isDel)
+								{
+									listFiles.remove(position);
+									notifyDataSetChanged();
+								}
+							}
+						}
+
+						@Override
+						public void doCancel() {
+							// TODO Auto-generated method stub
+							confirmDialog.dismiss();
+						}
+					});
+
+
+				}
+			});
+
+			//word文件编辑
+			holder.iv_edit.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View arg0) {
+
+					String ret = listFiles.get(position);
+					if (ret.endsWith(".doc")) {
+
+						doOpenWord(Values.PATH_BOOKMARK+ret);
+
+					} else if (  ret.endsWith(".mp4"))
+					{
+						doOpenVedio(Values.PATH_CAMERA+ret);
+
+					} else if (ret.endsWith(".amr"))
+					{
+						doOpenAudio( Values.PATH_RECORD+ret);
+
+					}else if ( ret.endsWith(".jpg")){
+						doOpenPhoto(Values.PATH_PHOTO+ret);
+
+					}
+
+
+				}
+			});
+
 			return mView;
 		}
 		private class ViewHolder {
 			TextView tv_blTitle;
+			ImageView iv_delete,iv_edit;
 			LinearLayout parentLayout;
 		}
 	}
-	
+	//WPS查看
+	private void doOpenWord(String newPath){
+		Intent intent = new Intent();
+		intent.setAction("android.intent.action.VIEW");
+		intent.addCategory("android.intent.category.DEFAULT");
+		String fileMimeType = "application/msword";
+		intent.setDataAndType(Uri.fromFile(new File(newPath)), fileMimeType);
+		try{
+			startActivity(intent);
+		} catch(ActivityNotFoundException e) {
+			//检测到系统尚未安装OliveOffice的apk程序
+			Toast.makeText(this, "未找到软件", Toast.LENGTH_LONG).show();
+			//请先到www.olivephone.com/e.apk下载并安装
+		}
+	}
+	//WPS查看
+	private void doOpenPhoto(String newPath){
+		Intent intent = new Intent();
+		intent.setAction("android.intent.action.VIEW");
+		intent.addCategory("android.intent.category.DEFAULT");
+		String fileMimeType = "image/*";
+		intent.setDataAndType(Uri.fromFile(new File(newPath)), fileMimeType);
+		try{
+			startActivity(intent);
+		} catch(ActivityNotFoundException e) {
+			//检测到系统尚未安装OliveOffice的apk程序
+			Toast.makeText(this, "未找到软件", Toast.LENGTH_LONG).show();
+			//请先到www.olivephone.com/e.apk下载并安装
+		}
+	}
+	//WPS查看
+	private void doOpenAudio(String newPath){
+		Intent intent = new Intent();
+		intent.setAction("android.intent.action.VIEW");
+		intent.addCategory("android.intent.category.DEFAULT");
+		String fileMimeType = "audio/amr";
+		intent.setDataAndType(Uri.fromFile(new File(newPath)), fileMimeType);
+		try{
+			startActivity(intent);
+		} catch(ActivityNotFoundException e) {
+			//检测到系统尚未安装OliveOffice的apk程序
+			Toast.makeText(this, "未找到软件", Toast.LENGTH_LONG).show();
+			//请先到www.olivephone.com/e.apk下载并安装
+		}
+	}
+	//WPS查看
+	private void doOpenVedio(String newPath){
+		Intent intent = new Intent();
+		intent.setAction("android.intent.action.VIEW");
+		intent.addCategory("android.intent.category.DEFAULT");
+		String fileMimeType = "video/mp4";
+		intent.setDataAndType(Uri.fromFile(new File(newPath)), fileMimeType);
+		try{
+			startActivity(intent);
+		} catch(ActivityNotFoundException e) {
+			//检测到系统尚未安装OliveOffice的apk程序
+			Toast.makeText(this, "未找到软件", Toast.LENGTH_LONG).show();
+			//请先到www.olivephone.com/e.apk下载并安装
+		}
+	}
+
 	private void getFileName(File[] files, String jqNum) {
 
 		if (files != null)// nullPointer

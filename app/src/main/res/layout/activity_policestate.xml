@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="@drawable/titlebg"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/btn_policestateReturn"
@@ -188,14 +188,13 @@
     </LinearLayout>
 
     <ListView
-        android:layout_marginTop="20dp"
         android:id="@+id/lv_police"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
 
-        android:drawSelectorOnTop="false"
         android:divider="#eee"
         android:dividerHeight="0.5dp"
+        android:drawSelectorOnTop="false"
         android:listSelector="@drawable/lv_selector" />
 
 </LinearLayout>

@@ -78,7 +78,7 @@
                 android:layout_marginTop="20dp"
                 android:text="人员查询"
                 android:textColor="@color/Black"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <View
@@ -111,7 +111,7 @@
                 android:layout_marginTop="20dp"
                 android:text="车辆查询"
                 android:textColor="@color/Black"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
         </LinearLayout>
     </LinearLayout>
 
@@ -152,7 +152,7 @@
                 android:layout_marginTop="20dp"
                 android:text="企业查询"
                 android:textColor="@color/Black"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <View
@@ -184,7 +184,7 @@
                 android:layout_marginTop="20dp"
                 android:text="物品查询"
                 android:textColor="@color/Black"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
         </LinearLayout>
     </LinearLayout>
 
