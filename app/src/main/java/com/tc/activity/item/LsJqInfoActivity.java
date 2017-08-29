@@ -69,7 +69,7 @@ public class LsJqInfoActivity extends Activity{
 		tv_jqNum.setText(plb.getJqNum());
 		tv_jqTime.setText(plb.getJqTime());
 		tv_jqBjr.setText(plb.getBjrName());
-		//��ȡ�б�����
+		//????��?????
 		File file = new File(Values.ALLFILES);
 		listFiles.clear();
 		getFileName(file.listFiles(), plb.getJqNum());
@@ -82,7 +82,7 @@ public class LsJqInfoActivity extends Activity{
 				UtilTc.showLog("listFiles"+ listFiles.size());
 				return listFiles.size();
 			}
-			UtilTc.showLog("����0��");
+			UtilTc.showLog("????0??");
 			return 0;
 		}
 		@Override
@@ -124,12 +124,12 @@ public class LsJqInfoActivity extends Activity{
 			String ret = listFiles.get(position);
 			UtilTc.showLog("ret       :"+ret);
 			holder.tv_blTitle.setText(ret);
-			//word�ļ�ɾ��
+			//word??????
 			holder.iv_delete.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
 
-					final ConfirmDialog confirmDialog = new ConfirmDialog(LsJqInfoActivity.this, "ȷ��Ҫɾ����?", "ɾ��", "ȡ��");
+					final ConfirmDialog confirmDialog = new ConfirmDialog(LsJqInfoActivity.this,"Delete it?", "ok", "chancel");
 					confirmDialog.show();
 					confirmDialog.setClicklistener(new ConfirmDialog.ClickListenerInterface() {
 						@Override
@@ -176,7 +176,7 @@ public class LsJqInfoActivity extends Activity{
 				}
 			});
 
-			//word�ļ��༭
+			//word?????
 			holder.iv_edit.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
@@ -211,7 +211,7 @@ public class LsJqInfoActivity extends Activity{
 			LinearLayout parentLayout;
 		}
 	}
-	//WPS�鿴
+	//WPS??
 	private void doOpenWord(String newPath){
 		Intent intent = new Intent();
 		intent.setAction("android.intent.action.VIEW");
@@ -221,12 +221,12 @@ public class LsJqInfoActivity extends Activity{
 		try{
 			startActivity(intent);
 		} catch(ActivityNotFoundException e) {
-			//��⵽ϵͳ��δ��װOliveOffice��apk����
-			Toast.makeText(this, "δ�ҵ����", Toast.LENGTH_LONG).show();
-			//���ȵ�www.olivephone.com/e.apk���ز���װ
+			//???????��???OliveOffice??apk????
+			Toast.makeText(this, "��??????", Toast.LENGTH_LONG).show();
+			//?????www.olivephone.com/e.apk????????
 		}
 	}
-	//WPS�鿴
+	//WPS??
 	private void doOpenPhoto(String newPath){
 		Intent intent = new Intent();
 		intent.setAction("android.intent.action.VIEW");
@@ -236,12 +236,12 @@ public class LsJqInfoActivity extends Activity{
 		try{
 			startActivity(intent);
 		} catch(ActivityNotFoundException e) {
-			//��⵽ϵͳ��δ��װOliveOffice��apk����
-			Toast.makeText(this, "δ�ҵ����", Toast.LENGTH_LONG).show();
-			//���ȵ�www.olivephone.com/e.apk���ز���װ
+			//???????��???OliveOffice??apk????
+			Toast.makeText(this, "��??????", Toast.LENGTH_LONG).show();
+			//?????www.olivephone.com/e.apk????????
 		}
 	}
-	//WPS�鿴
+	//WPS??
 	private void doOpenAudio(String newPath){
 		Intent intent = new Intent();
 		intent.setAction("android.intent.action.VIEW");
@@ -251,12 +251,12 @@ public class LsJqInfoActivity extends Activity{
 		try{
 			startActivity(intent);
 		} catch(ActivityNotFoundException e) {
-			//��⵽ϵͳ��δ��װOliveOffice��apk����
-			Toast.makeText(this, "δ�ҵ����", Toast.LENGTH_LONG).show();
-			//���ȵ�www.olivephone.com/e.apk���ز���װ
+			//???????��???OliveOffice??apk????
+			Toast.makeText(this, "��??????", Toast.LENGTH_LONG).show();
+			//?????www.olivephone.com/e.apk????????
 		}
 	}
-	//WPS�鿴
+	//WPS??
 	private void doOpenVedio(String newPath){
 		Intent intent = new Intent();
 		intent.setAction("android.intent.action.VIEW");
@@ -266,9 +266,9 @@ public class LsJqInfoActivity extends Activity{
 		try{
 			startActivity(intent);
 		} catch(ActivityNotFoundException e) {
-			//��⵽ϵͳ��δ��װOliveOffice��apk����
-			Toast.makeText(this, "δ�ҵ����", Toast.LENGTH_LONG).show();
-			//���ȵ�www.olivephone.com/e.apk���ز���װ
+			//???????��???OliveOffice??apk????
+			Toast.makeText(this, "��??????", Toast.LENGTH_LONG).show();
+			//?????www.olivephone.com/e.apk????????
 		}
 	}
 
@@ -299,24 +299,24 @@ public class LsJqInfoActivity extends Activity{
 			}
 		}
 	}
-	//�б���
+	//?��???
 	private void  itemOnClick(int position){
 		String mimeType=listFiles.get(position);
 		if(mimeType.endsWith(".txt")){
-			//�鿴txt
+			//??txt
 			startActivity(new Intent(LsJqInfoActivity.this,LsTxtAcitvity.class).
 					putExtra("txtName", mimeType));
 		}else if(mimeType.endsWith(".amr")){
-			//����¼��
+			//???????
 			startActivity(new Intent(LsJqInfoActivity.this,LsAmrActivity.class).
 					putExtra("amrName", mimeType));
 		}else if(mimeType.endsWith(".mp4")){
-			//������Ƶ
+			//???????
 			startActivity(new Intent(LsJqInfoActivity.this,LsMp4Activity.class).
 					putExtra("mp4Name", mimeType));
 			
 		}else if(mimeType.endsWith(".jpg")){
-			//�鿴��Ƭ
+			//?????
 			startActivity(new Intent(LsJqInfoActivity.this,LsJpgActivity.class).
 					putExtra("jpgName", mimeType));
 		}
