@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="第一步" />
+        android:text="基本信息" />
 
     <Button
         android:id="@+id/tv_btn"
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="第二步" />
+        android:text="现场图" />
 
     <Button
         android:id="@+id/anime_btn"
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="第三步" />
+        android:text="痕迹物证" />
 
     <Button
         android:id="@+id/variety_btn"
@@ -35,6 +35,6 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="第四步" />
+        android:text="分析意见" />
 
 </LinearLayout>
