@@ -35,11 +35,13 @@ import org.apache.poi.hwpf.usermodel.Range;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
+import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -463,7 +465,7 @@ public class JcBlActivity extends Activity {
     };
 
 
-    private void doScan(){
+    private void  doScan(){
         //获取模板文件
 //        File demoFile=new File(demoPath);
         //创建生成的文件
@@ -529,7 +531,24 @@ public class JcBlActivity extends Activity {
             for(Map.Entry<String, String> entry : map.entrySet())
             {
                 range.replaceText(entry.getKey(), entry.getValue());
+
             }
+
+//            FileOutputStream out1 = null;
+//            CustomXWPFDocument doc = new CustomXWPFDocument();
+//            try {
+//                URL url =  new URL("http://f.hiphotos.baidu.com/image/h%3D200/sign=333f3ac494510fb367197097e932c893/a8014c086e061d95df89434571f40ad163d9ca84.jpg");
+//                BufferedInputStream fis = new BufferedInputStream(url.openStream());
+//                String picId = doc.addPictureData(fis, XWPFDocument.PICTURE_TYPE_JPEG);
+//                doc.createPicture(picId, doc.getNextPicNameNumber(XWPFDocument.PICTURE_TYPE_JPEG), 200, 200);
+//
+//                out = new FileOutputStream("simple.docx");
+//                doc.write(out1);
+//                out1.close();
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+
             ByteArrayOutputStream ostream = new ByteArrayOutputStream();
             FileOutputStream out = new FileOutputStream(newFile, true);
             hdt.write(ostream);
