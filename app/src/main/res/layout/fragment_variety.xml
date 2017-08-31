@@ -71,10 +71,13 @@
                     android:textSize="18sp" />
 
                 <HorizontalScrollView
+                    android:paddingRight="20px"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <RadioGroup
+                        android:id="@+id/radio_xianchangfenxi_group"
+                        android:paddingRight="50px"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -82,12 +85,14 @@
                         android:orientation="horizontal">
 
                         <RadioButton
+                            android:id="@+id/radio_xianchangfenxi_1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="实地勘察"
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/radio_xianchangfenxi_2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -95,6 +100,7 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/radio_xianchangfenxi_3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -102,6 +108,7 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/radio_xianchangfenxi_4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -136,10 +143,13 @@
                     android:textSize="18sp" />
 
                 <HorizontalScrollView
+                    android:paddingRight="20px"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <RadioGroup
+                        android:id="@+id/anjianxingzhi_radio_group"
+                        android:paddingRight="50px"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -147,13 +157,14 @@
                         android:orientation="horizontal">
 
                         <RadioButton
+                            android:id="@+id/anjianxingzhi_radiobutton_1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="其他诈骗案"
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
-                            android:id="@+id/radioButton"
+                            android:id="@+id/anjianxingzhi_radiobutton_2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -161,6 +172,7 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/anjianxingzhi_radiobutton_3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -168,6 +180,7 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/anjianxingzhi_radiobutton_4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -175,6 +188,7 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/anjianxingzhi_radiobutton_5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -182,6 +196,7 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/anjianxingzhi_radiobutton_6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -189,48 +204,56 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/anjianxingzhi_radiobutton_7"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:text="入室抢劫案"
                             android:textColor="@color/colorPrimary" />
                         <RadioButton
+                            android:id="@+id/anjianxingzhi_radiobutton_8"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:text="矛盾激化"
                             android:textColor="@color/colorPrimary" />
                         <RadioButton
+                            android:id="@+id/anjianxingzhi_radiobutton_9"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:text="其他盗窃案"
                             android:textColor="@color/colorPrimary" />
                         <RadioButton
+                            android:id="@+id/anjianxingzhi_radiobutton_10"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:text="盗窃车内物品"
                             android:textColor="@color/colorPrimary" />
                         <RadioButton
+                            android:id="@+id/anjianxingzhi_radiobutton_11"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:text="盗窃宾馆案件"
                             android:textColor="@color/colorPrimary" />
                         <RadioButton
+                            android:id="@+id/anjianxingzhi_radiobutton_12"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:text="技术性开锁盗窃"
                             android:textColor="@color/colorPrimary" />
                         <RadioButton
+                            android:id="@+id/anjianxingzhi_radiobutton_13"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:text="攀爬入室盗窃"
                             android:textColor="@color/colorPrimary" />
                         <RadioButton
+                            android:id="@+id/anjianxingzhi_radiobutton_14"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -266,10 +289,13 @@
                     android:textSize="18sp" />
 
                 <HorizontalScrollView
+                    android:paddingRight="20px"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <RadioGroup
+                        android:id="@+id/xuanzeduixinag_radio_group"
+                        android:paddingRight="50px"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -277,12 +303,14 @@
                         android:orientation="horizontal">
 
                         <RadioButton
+                            android:id="@+id/xuanzeduixiang_radio_button1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="少女"
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/xuanzeduixiang_radio_button2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -290,6 +318,7 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/xuanzeduixiang_radio_button3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -297,6 +326,7 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/xuanzeduixiang_radio_button4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -333,10 +363,13 @@
                     android:textSize="18sp" />
 
                 <HorizontalScrollView
+                    android:paddingRight="20px"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <RadioGroup
+                        android:id="@+id/xuanzechusuo_radio_group"
+                        android:paddingRight="50px"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -344,12 +377,14 @@
                         android:orientation="horizontal">
 
                         <RadioButton
+                            android:id="@+id/xuanzechusuo_radio_button1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="超市"
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/xuanzechusuo_radio_button2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -357,6 +392,7 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/xuanzechusuo_radio_button3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -364,6 +400,7 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/xuanzechusuo_radio_button4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -371,6 +408,7 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/xuanzechusuo_radio_button5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -378,30 +416,35 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/xuanzechusuo_radio_button6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:text="高层楼房"
                             android:textColor="@color/colorPrimary" />
                         <RadioButton
+                            android:id="@+id/xuanzechusuo_radio_button7"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:text="其他繁华地段"
                             android:textColor="@color/colorPrimary" />
                         <RadioButton
+                            android:id="@+id/xuanzechusuo_radio_button8"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:text="商业区"
                             android:textColor="@color/colorPrimary" />
                         <RadioButton
+                            android:id="@+id/xuanzechusuo_radio_button9"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:text="普通楼房"
                             android:textColor="@color/colorPrimary" />
                         <RadioButton
+                            android:id="@+id/xuanzechusuo_radio_button10"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -438,10 +481,13 @@
                     android:textSize="18sp" />
 
                 <HorizontalScrollView
+                    android:paddingRight="20px"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <RadioGroup
+                        android:id="@+id/zuoanshiji_radio_group"
+                        android:paddingRight="50px"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -449,12 +495,14 @@
                         android:orientation="horizontal">
 
                         <RadioButton
+                            android:id="@+id/zuoanshiji_radio_button1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="雪天"
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/zuoanshiji_radio_button2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -462,6 +510,7 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/zuoanshiji_radio_button3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -469,6 +518,7 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/zuoanshiji_radio_button4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -476,6 +526,7 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/zuoanshiji_radio_button5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -483,6 +534,7 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/zuoanshiji_radio_button6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -490,6 +542,7 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/zuoanshiji_radio_button7"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -526,10 +579,13 @@
                     android:textSize="18sp" />
 
                 <HorizontalScrollView
+                    android:paddingRight="20px"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <RadioGroup
+                        android:id="@+id/zuoanrukou_radio_group"
+                        android:paddingRight="50px"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -537,12 +593,14 @@
                         android:orientation="horizontal">
 
                         <RadioButton
+                            android:id="@+id/zuoanrukou_radio_button1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="其他"
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/zuoanrukou_radio_button2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -550,6 +608,7 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/zuoanrukou_radio_button3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -557,6 +616,7 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/zuoanrukou_radio_button4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -593,10 +653,13 @@
                     android:textSize="18sp" />
 
                 <HorizontalScrollView
+                    android:paddingRight="20px"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <RadioGroup
+                        android:id="@+id/zuoanshouduan_radio_group"
+                        android:paddingRight="50px"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -604,12 +667,14 @@
                         android:orientation="horizontal">
 
                         <RadioButton
+                            android:id="@+id/zuoanshouduan_radio_button1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="持钝器"
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/zuoanshouduan_radio_button2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -617,6 +682,7 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/zuoanshouduan_radio_button3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -624,6 +690,7 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/zuoanshouduan_radio_button4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -631,6 +698,7 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/zuoanshouduan_radio_button5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -638,6 +706,7 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/zuoanshouduan_radio_button6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -645,12 +714,14 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/zuoanshouduan_radio_button7"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:text="插片开锁"
                             android:textColor="@color/colorPrimary" />
                         <RadioButton
+                            android:id="@+id/zuoanshouduan_radio_button8"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -658,6 +729,7 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/zuoanshouduan_radio_button9"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -694,10 +766,13 @@
                     android:textSize="18sp" />
 
                 <HorizontalScrollView
+                    android:paddingRight="20px"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <RadioGroup
+                        android:id="@+id/ruqinfangshi_radio_group"
+                        android:paddingRight="50px"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -705,19 +780,22 @@
                         android:orientation="horizontal">
 
                         <RadioButton
+                            android:id="@+id/ruqinfangshi_radio_button1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="和平进入现场"
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/ruqinfangshi_radio_button2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
-                            android:text="破坏门锁"
+                            android:text="和平进入现场"
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/ruqinfangshi_radio_button3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -725,6 +803,7 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/ruqinfangshi_radio_button4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -732,6 +811,7 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/ruqinfangshi_radio_button5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -739,6 +819,7 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/ruqinfangshi_radio_button6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -746,6 +827,7 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/ruqinfangshi_radio_button7"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -753,6 +835,7 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/ruqinfangshi_radio_button8"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -760,6 +843,7 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/ruqinfangshi_radio_button9"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -798,10 +882,13 @@
                     android:textSize="18sp" />
 
                 <HorizontalScrollView
+                    android:paddingRight="20px"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <RadioGroup
+                        android:id="@+id/zuoantedian_radio_group"
+                        android:paddingRight="50px"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -809,12 +896,14 @@
                         android:orientation="horizontal">
 
                         <RadioButton
+                            android:id="@+id/zuoantedian_radio_button1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="重复作案"
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/zuoantedian_radio_button2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -822,6 +911,7 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/zuoantedian_radio_button3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -861,6 +951,8 @@
                     android:layout_height="wrap_content">
 
                     <RadioGroup
+                        android:id="@+id/zuoanmudi_radio_group"
+                        android:paddingRight="50px"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -868,12 +960,14 @@
                         android:orientation="horizontal">
 
                         <RadioButton
+                            android:id="@+id/zuoanmudi_radio_button1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="淫欲"
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/zuoanmudi_radio_button2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -881,6 +975,7 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/zuoanmudi_radio_button3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -888,6 +983,7 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/zuoanmudi_radio_button4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -895,6 +991,7 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/zuoanmudi_radio_button5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -902,6 +999,7 @@
                             android:textColor="@color/colorPrimary" />
 
                         <RadioButton
+                            android:id="@+id/zuoanmudi_radio_button6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -939,7 +1037,7 @@
                     android:textSize="18sp" />
 
                 <EditText
-                    android:text=""
+                    android:id="@+id/ZARS_edit"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
             </LinearLayout>
@@ -969,7 +1067,7 @@
                     android:textSize="18sp" />
 
                 <EditText
-                    android:text=""
+                    android:id="@+id/ZADD_edit"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
             </LinearLayout>
@@ -990,7 +1088,7 @@
                     android:textSize="18sp" />
 
                 <EditText
-                    android:text=""
+                    android:id="@+id/ZAGJ_edit"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
             </LinearLayout>
@@ -1019,7 +1117,7 @@
                     android:textSize="18sp" />
 
                 <EditText
-                    android:text=""
+                    android:id="@+id/ZAGC_edit"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
             </LinearLayout>

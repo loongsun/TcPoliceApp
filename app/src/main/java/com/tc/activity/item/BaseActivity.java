@@ -38,6 +38,7 @@ public class BaseActivity extends Activity {
 	}
 
 	protected String getEInfoByCode(int code) {
+
 //
 //		String str = "µÇÂ½Ê§°Ü";
 //		switch (code) {

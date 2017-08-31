@@ -69,6 +69,7 @@
                     android:textSize="18sp" />
 
                 <EditText
+                    android:id="@+id/MC_edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -106,6 +107,7 @@
                     android:textSize="18sp" />
 
                 <EditText
+                    android:id="@+id/JBTZ_edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -142,6 +144,7 @@
                     android:textSize="18sp" />
 
                 <EditText
+                    android:id="@+id/SL_edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -178,6 +181,7 @@
                     android:textSize="18sp" />
 
                 <EditText
+                    android:id="@+id/TQBW_edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -215,6 +219,7 @@
                     android:textSize="18sp" />
 
                 <EditText
+                    android:id="@+id/TQFF_edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -251,6 +256,7 @@
                     android:textSize="18sp" />
 
                 <EditText
+                    android:id="@+id/TQR_edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -287,6 +293,7 @@
                     android:textSize="18sp" />
 
                 <EditText
+                    android:id="@+id/BZ_edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -323,6 +330,7 @@
                     android:textSize="18sp" />
 
                 <EditText
+                    android:id="@+id/JZR_edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -359,7 +367,7 @@
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/three_get_time"
+                    android:id="@+id/TQSJ_edit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
@@ -369,42 +377,6 @@
                     android:hint=""
                     android:clickable="true"
                     android:focusableInTouchMode="false"
-                    android:textColor="@color/colorPrimary"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:layout_weight="1"
-                android:background="@color/line" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:background="@color/White"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="图片:"
-                    android:textColor="@color/text_11"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
                     android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
