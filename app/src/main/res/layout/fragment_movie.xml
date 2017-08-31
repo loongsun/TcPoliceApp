@@ -186,10 +186,12 @@
                     android:textSize="18sp" />
 
                 <HorizontalScrollView
+                    android:paddingRight="20px"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <RadioGroup
+                        android:paddingRight="50px"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -839,11 +841,13 @@
                     android:textSize="18sp" />
 
                 <HorizontalScrollView
+                    android:paddingRight="20px"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
 
                     <RadioGroup
+                        android:paddingRight="50px"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -941,10 +945,12 @@
                     android:textSize="18sp" />
 
                 <HorizontalScrollView
+                    android:paddingRight="20px"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <RadioGroup
+                        android:paddingRight="50px"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -1000,10 +1006,12 @@
                     android:textSize="18sp" />
 
                 <HorizontalScrollView
+                    android:paddingRight="20px"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <RadioGroup
+                        android:paddingRight="50px"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -1073,10 +1081,12 @@
                     android:textSize="18sp" />
 
                 <HorizontalScrollView
+                    android:paddingRight="20px"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <RadioGroup
+                        android:paddingRight="50px"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"

@@ -23,7 +23,7 @@ import butterknife.Unbinder;
 public class AnimeFragment extends Fragment {
     @BindView(R.id.btn_xczpReturn)
     ImageView btnXczpReturn;
-    @BindView(R.id.three_get_time)
+    @BindView(R.id.TQSJ_edit)
     EditText getTime;
     @BindView(R.id.save_btn)
     Button saveBtn;
@@ -43,12 +43,12 @@ public class AnimeFragment extends Fragment {
         unbinder.unbind();
     }
 
-    @OnClick({R.id.btn_xczpReturn, R.id.three_get_time, R.id.save_btn})
+    @OnClick({R.id.btn_xczpReturn, R.id.TQSJ_edit, R.id.save_btn})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_xczpReturn:
                 break;
-            case R.id.three_get_time:
+            case R.id.TQSJ_edit:
 
                 DateWheelDialogN kyDateChooseDialog3 = new DateWheelDialogN(getActivity(), new DateWheelDialogN.DateChooseInterface() {
                     @Override

@@ -8,7 +8,9 @@
         android:id="@+id/button_view_include"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/title_layout">
+        android:layout_below="@+id/title_layout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <include layout="@layout/activity_bottom_btns" />
     </LinearLayout>

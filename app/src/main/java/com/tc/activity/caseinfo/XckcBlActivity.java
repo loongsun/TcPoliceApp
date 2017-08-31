@@ -54,31 +54,32 @@ public class XckcBlActivity extends Activity {
     //采集项
     private EditText et_kyAjbh, et_kyKydw, et_kyZpbgdw, et_kyZpsj, et_kySy, et_kyBeginTime, et_kyEndTime, et_kyXcdd,
             et_kyXcbhqk, et_kyWd, et_kySd, et_kyFx, et_kyZhr, et_kyZhrDw, et_kyZhrZw, et_kyKyqk, et_kyHzt, et_kyZx,
-            et_kyLx, et_kyLy, et_kyBlr, et_kyZtr, et_kyZxr, et_kyLxr, et_kyLyr,et_kyTime;
+            et_kyLx, et_kyLy, et_kyBlr, et_kyZtr, et_kyZxr, et_kyLxr, et_kyLyr, et_kyTime;
 
-    EditText et_brqm1,et_brdw1,et_brzw1;
-    EditText et_brqm2,et_brdw2,et_brzw2;
-    EditText et_brqm3,et_brdw3,et_brzw3;
-    EditText et_brqm4,et_brdw4,et_brzw4;
-    EditText et_brqm5,et_brdw5,et_brzw5;
-    EditText et_brqm6,et_brdw6,et_brzw6;
+    EditText et_brqm1, et_brdw1, et_brzw1;
+    EditText et_brqm2, et_brdw2, et_brzw2;
+    EditText et_brqm3, et_brdw3, et_brzw3;
+    EditText et_brqm4, et_brdw4, et_brzw4;
+    EditText et_brqm5, et_brdw5, et_brzw5;
+    EditText et_brqm6, et_brdw6, et_brzw6;
 
-    EditText et_jzrqm1,et_jzrxb1,et_jzrsr1,et_jzrzz1;
-    EditText et_jzrqm2,et_jzrxb2,et_jzrsr2,et_jzrzz2;
+    EditText et_jzrqm1, et_jzrxb1, et_jzrsr1, et_jzrzz1;
+    EditText et_jzrqm2, et_jzrxb2, et_jzrsr2, et_jzrzz2;
     TcApp ia;
 
     private RadioGroup rg_kyTq, rg_kyXctj, rg_kyGx;
     private ImageView btn_kcblReturn;
     private String newPath = "";
-    private String name="";
-    private String kyTq="";
-    private String kyXctj="";
-    private String kyGx="";
-    private RadioButton rb_qing,rb_yin,rb_yu,rb_wu,rb_xue,rb_bdxc,rb_ysxc,rb_zrg,rb_dg;
+    private String name = "";
+    private String kyTq = "";
+    private String kyXctj = "";
+    private String kyGx = "";
+    private RadioButton rb_qing, rb_yin, rb_yu, rb_wu, rb_xue, rb_bdxc, rb_ysxc, rb_zrg, rb_dg;
 
-    private final static int UPLOAD=1;
+    private final static int UPLOAD = 1;
     String errorMessage = "";
     private CustomProgressDialog progressDialog = null;
+
     // 进度框
     private void startProgressDialog(int type) {
         if (progressDialog == null) {
@@ -91,6 +92,7 @@ public class XckcBlActivity extends Activity {
         }
         progressDialog.show();
     }
+
     // 取消进度框
     private void stopProgressDialog() {
         if (progressDialog != null) {
@@ -175,9 +177,9 @@ public class XckcBlActivity extends Activity {
         et_kyBeginTime.setOnClickListener(new Onclick());
         et_kyEndTime.setOnClickListener(new Onclick());
 
-        btn_kcblReturn=(ImageView)findViewById(R.id.btn_kcblReturn);
+        btn_kcblReturn = (ImageView) findViewById(R.id.btn_kcblReturn);
         btn_kcblReturn.setOnClickListener(new Onclick());
-        name=getIntent().getStringExtra("name");
+        name = getIntent().getStringExtra("name");
         et_kyAjbh.setText(name);
         et_kyZpsj.setOnClickListener(new Onclick());
 
@@ -196,15 +198,15 @@ public class XckcBlActivity extends Activity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
-                if(checkedId == rb_yin.getId()){
+                if (checkedId == rb_yin.getId()) {
                     kyTq = "阴";
-                }else if(checkedId == rb_qing.getId()){
+                } else if (checkedId == rb_qing.getId()) {
                     kyTq = "晴";
-                }else if(checkedId == rb_yu.getId()){
+                } else if (checkedId == rb_yu.getId()) {
                     kyTq = "雨";
-                }else if(checkedId == rb_wu.getId()){
+                } else if (checkedId == rb_wu.getId()) {
                     kyTq = "雾";
-                }else if(checkedId == rb_xue.getId()){
+                } else if (checkedId == rb_xue.getId()) {
                     kyTq = "雪";
                 }
             }
@@ -213,9 +215,9 @@ public class XckcBlActivity extends Activity {
         rg_kyXctj.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if(checkedId == rb_bdxc.getId()){
+                if (checkedId == rb_bdxc.getId()) {
                     kyXctj = "变动现场";
-                }else if(checkedId == rb_ysxc.getId()){
+                } else if (checkedId == rb_ysxc.getId()) {
                     kyXctj = "原始现场";
                 }
             }
@@ -224,9 +226,9 @@ public class XckcBlActivity extends Activity {
         rg_kyGx.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if(checkedId == rb_zrg.getId()){
+                if (checkedId == rb_zrg.getId()) {
                     kyGx = "自然光";
-                }else if(checkedId == rb_dg.getId()){
+                } else if (checkedId == rb_dg.getId()) {
                     kyGx = "灯光";
                 }
             }
@@ -235,10 +237,10 @@ public class XckcBlActivity extends Activity {
 
     }
 
-    class Onclick implements View.OnClickListener{
+    class Onclick implements View.OnClickListener {
         @Override
         public void onClick(View v) {
-            switch(v.getId()){
+            switch (v.getId()) {
                 case R.id.et_kyBeginTime:
                     UtilTc.showLog("et_kyBeginTime");
                     DateWheelDialogN startDateChooseDialog = new DateWheelDialogN(XckcBlActivity.this, new DateWheelDialogN.DateChooseInterface() {
@@ -321,28 +323,29 @@ public class XckcBlActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_case_xckcbl);
-        ia = (TcApp)TcApp.mContent;
+        ia = (TcApp) TcApp.mContent;
         initWidgets();
     }
+
     //上传按钮
     public void BtnUploadBL(View view) {
 
 
-        File fileStart = new File(Values.ALLFILES+"wtxt/XCKYBL/");
+        File fileStart = new File(Values.ALLFILES + "wtxt/XCKYBL/");
         boolean flag = getFileName2(fileStart.listFiles(), name);
 
-        if(flag){
+        if (flag) {
             //存在本地文件
-        }else{
+        } else {
             try {
-                String  sdcardPath = Environment.getExternalStorageDirectory().getAbsolutePath();
+                String sdcardPath = Environment.getExternalStorageDirectory().getAbsolutePath();
 
-                File file = new File(sdcardPath  + "/TC/wtxt/XCKYBL/");
-                if (!file.exists()){
+                File file = new File(sdcardPath + "/TC/wtxt/XCKYBL/");
+                if (!file.exists()) {
                     file.mkdir();
                 }
 
-                String fileName = Values.PATH_BOOKMARK+"XCKYBL/" + name + "_" + UtilTc.getCurrentTime() + ".doc";
+                String fileName = Values.PATH_BOOKMARK + "XCKYBL/" + name + "_" + UtilTc.getCurrentTime() + ".doc";
                 newPath = fileName;
                 InputStream inputStream = getAssets().open("xckybl.doc");
             } catch (Exception e) {
@@ -358,14 +361,17 @@ public class XckcBlActivity extends Activity {
         SendFile sf = new SendFile();
         sf.start();
     }
+
     private FTPClient myFtp;
     private PoliceStateListBean plb;
     String currentFilePaht = "";
-    private String currentFile="";
+    private String currentFile = "";
     private int fileCount = 0;
     private int mTotalSize = 0;
+
     public class SendFile extends Thread {
-        private String currentPath="";
+        private String currentPath = "";
+
         @Override
         public void run() {
             try {
@@ -373,10 +379,10 @@ public class XckcBlActivity extends Activity {
                 myFtp.connect("61.176.222.166", 21); // 连接
                 myFtp.login("admin", "1234"); // 登录
 
-                if(Values.dbjqList.size()>0)
-                    plb= Values.dbjqList.get(0);
+                if (Values.dbjqList.size() > 0)
+                    plb = Values.dbjqList.get(0);
 
-                File fileStart = new File(Values.ALLFILES+"wtxt/XCKYBL/");
+                File fileStart = new File(Values.ALLFILES + "wtxt/XCKYBL/");
                 getFileName(fileStart.listFiles(), name);
 
                 //	myFtp.changeDirectory("wphoto");
@@ -384,20 +390,20 @@ public class XckcBlActivity extends Activity {
                 //	String path=Environment.getExternalStorageDirectory().getAbsolutePath()+"/temp.jpg";
                 //	Log.e("path", "path"+path);
 
-                for(int i=0;i<bltxt.size();i++){
+                for (int i = 0; i < bltxt.size(); i++) {
                     //判断上传到哪个文件夹
-                    if(bltxt.get(i).endsWith(".doc")){
+                    if (bltxt.get(i).endsWith(".doc")) {
                         myFtp.changeDirectory("../");
                         myFtp.changeDirectory("xcbl-xckybl");
-                        currentPath=Values.PATH_xckybl;
-                        currentFilePaht="/xcbl-xckybl";
+                        currentPath = Values.PATH_xckybl;
+                        currentFilePaht = "/xcbl-xckybl";
                     }
 
-                    File file = new File(currentPath+bltxt.get(i));
+                    File file = new File(currentPath + bltxt.get(i));
                     fileCount = (int) file.length();
 
                     mTotalSize = fileCount;
-                    currentFile=currentFilePaht+"/"+bltxt.get(i);
+                    currentFile = currentFilePaht + "/" + bltxt.get(i);
                     MyFTPDataTransferListener listener = new MyFTPDataTransferListener(bltxt.get(i));
                     myFtp.upload(file, listener); // 上传
                 }
@@ -407,7 +413,9 @@ public class XckcBlActivity extends Activity {
             }
         }
     }
+
     private List<String> bltxt = new ArrayList<String>();
+
     private void getFileName(File[] files, String jqNum) {
         bltxt.clear();
         if (files != null)// nullPointer
@@ -418,7 +426,7 @@ public class XckcBlActivity extends Activity {
                 } else {
                     String fileName = file.getName();
                     if (fileName.contains(jqNum) && fileName.endsWith(".doc")) {
-                        Log.e("e", "fileName"+fileName);
+                        Log.e("e", "fileName" + fileName);
                         bltxt.add(fileName);
                     }
                 }
@@ -436,8 +444,8 @@ public class XckcBlActivity extends Activity {
                 } else {
                     String fileName = file.getName();
                     if (fileName.contains(jqNum) && fileName.endsWith(".doc")) {
-                        Log.e("e", "fileName"+fileName);
-                        isFlag =  true;
+                        Log.e("e", "fileName" + fileName);
+                        isFlag = true;
 
                     }
                 }
@@ -445,28 +453,33 @@ public class XckcBlActivity extends Activity {
         }
         return isFlag;
     }
-    private String mediaFormat="";
+
+    private String mediaFormat = "";
+
     private class MyFTPDataTransferListener implements FTPDataTransferListener {
         String fileName = "";
-        MyFTPDataTransferListener(String fileNameRet){
+
+        MyFTPDataTransferListener(String fileNameRet) {
             fileName = fileNameRet;
         }
+
         @Override
         public void aborted() {
             // TODO Auto-generated method stub
         }
+
         @Override
         public void completed() {// 上传成功
             // TODO Auto-generated method stub
-            UtilTc.showLog("currentFile:"+currentFile);
-            UtilTc.showLog("currentFile 后3位"+currentFile.substring(currentFile.length()-3,currentFile.length()));
-            mediaFormat=currentFile.substring(currentFile.length()-3,currentFile.length());
-            if(mediaFormat.equals("doc")){
-                mediaType="文档";
+            UtilTc.showLog("currentFile:" + currentFile);
+            UtilTc.showLog("currentFile 后3位" + currentFile.substring(currentFile.length() - 3, currentFile.length()));
+            mediaFormat = currentFile.substring(currentFile.length() - 3, currentFile.length());
+            if (mediaFormat.equals("doc")) {
+                mediaType = "文档";
             }
             new Thread(media).start();
-            File file = new File(Values.PATH_xckybl+fileName);
-            if(file.exists()) {
+            File file = new File(Values.PATH_xckybl + fileName);
+            if (file.exists()) {
                 boolean isDel = file.delete();
             }
             Message msg;
@@ -474,6 +487,7 @@ public class XckcBlActivity extends Activity {
             msg.what = Values.SUCCESS_UPLOAD;
             mHandler1.sendMessage(msg);
         }
+
         @Override
         public void failed() {// 上传失败
             // TODO Auto-generated method stub
@@ -482,6 +496,7 @@ public class XckcBlActivity extends Activity {
             msg.what = Values.ERROR_UPLOAD;
             mHandler1.sendMessage(msg);
         }
+
         @Override
         public void started() {// 上传开始
             // TODO Auto-generated method stub
@@ -490,6 +505,7 @@ public class XckcBlActivity extends Activity {
             msg.what = 2;
             mHandler1.sendMessage(msg);
         }
+
         @Override
         public void transferred(int length) {// 上传过程监听
             int progress = length;
@@ -515,19 +531,22 @@ public class XckcBlActivity extends Activity {
                     stopProgressDialog();
                     break;
             }
-        };
+        }
+
+        ;
     };
+
     //预览编辑
     public void BtneditBL(View view) {
         try {
-            String  sdcardPath = Environment.getExternalStorageDirectory().getAbsolutePath();
+            String sdcardPath = Environment.getExternalStorageDirectory().getAbsolutePath();
 
-            File file = new File(sdcardPath  + "/TC/wtxt/XCKYBL/");
-            if (!file.exists()){
+            File file = new File(sdcardPath + "/TC/wtxt/XCKYBL/");
+            if (!file.exists()) {
                 file.mkdir();
             }
 
-            String fileName = Values.PATH_BOOKMARK+"XCKYBL/" + name + "_" + UtilTc.getCurrentTime() + ".doc";
+            String fileName = Values.PATH_BOOKMARK + "XCKYBL/" + name + "_" + UtilTc.getCurrentTime() + ".doc";
             newPath = fileName;
             InputStream inputStream = getAssets().open("xckybl.doc");
         } catch (Exception e) {
@@ -541,14 +560,14 @@ public class XckcBlActivity extends Activity {
     //打印笔录
     public void BtnPrintBL(View view) {
         try {
-            String  sdcardPath = Environment.getExternalStorageDirectory().getAbsolutePath();
+            String sdcardPath = Environment.getExternalStorageDirectory().getAbsolutePath();
 
-            File file = new File(sdcardPath  + "/TC/wtxt/XCKYBL/");
-            if (!file.exists()){
+            File file = new File(sdcardPath + "/TC/wtxt/XCKYBL/");
+            if (!file.exists()) {
                 file.mkdir();
             }
 
-            String fileName = Values.PATH_BOOKMARK+"XCKYBL/" + name + "_" + UtilTc.getCurrentTime() + ".doc";
+            String fileName = Values.PATH_BOOKMARK + "XCKYBL/" + name + "_" + UtilTc.getCurrentTime() + ".doc";
             newPath = fileName;
             InputStream inputStream = getAssets().open("xckybl.doc");
         } catch (Exception e) {
@@ -569,7 +588,7 @@ public class XckcBlActivity extends Activity {
                     UtilTc.myToastForContent(getApplicationContext());
                     break;
                 case Values.ERROR_OTHER:
-                    UtilTc.myToast(getApplicationContext(), ""+ errorMessage);
+                    UtilTc.myToast(getApplicationContext(), "" + errorMessage);
                     stopProgressDialog();
                     break;
                 case Values.ERROR_NULLVALUEFROMSERVER:
@@ -577,102 +596,104 @@ public class XckcBlActivity extends Activity {
                     stopProgressDialog();
                     break;
                 case Values.SUCCESS_FORRESULR:
-                    UtilTc.myToast(getApplicationContext(), ""+ errorMessage);
+                    UtilTc.myToast(getApplicationContext(), "" + errorMessage);
                     stopProgressDialog();
                     ia.sendHandleMsg(100, SenceCheck.waitingHandler);
                     break;
             }
-        };
+        }
+
+        ;
     };
 
-    Runnable uploadRun=new Runnable(){
+    Runnable uploadRun = new Runnable() {
         @Override
         public void run() {
-            String url_passenger ="http://61.176.222.166:8765/interface/xs/ADD_ZF_XS_XCKYBL.asp";
-            HttpPost httpRequest =new HttpPost(url_passenger);
-            List<NameValuePair> params=new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("A_ID",name));
-            params.add(new BasicNameValuePair("XCKYDW",et_kyKydw.getText().toString()));
-            params.add(new BasicNameValuePair("ZPBGDW",et_kyZpbgdw.getText().toString()));
-            params.add(new BasicNameValuePair("ZPSJ",et_kyZpsj.getText().toString()));
-            params.add(new BasicNameValuePair("KYSY",et_kySy.getText().toString()));
-            params.add(new BasicNameValuePair("XCKYKSSJ",et_kyBeginTime.getText().toString()));
-            params.add(new BasicNameValuePair("XCKYJSSJ",et_kyEndTime.getText().toString()));
+            String url_passenger = "http://61.176.222.166:8765/interface/xs/ADD_ZF_XS_XCKYBL.asp";
+            HttpPost httpRequest = new HttpPost(url_passenger);
+            List<NameValuePair> params = new ArrayList<NameValuePair>();
+            params.add(new BasicNameValuePair("A_ID", name));
+            params.add(new BasicNameValuePair("XCKYDW", et_kyKydw.getText().toString()));
+            params.add(new BasicNameValuePair("ZPBGDW", et_kyZpbgdw.getText().toString()));
+            params.add(new BasicNameValuePair("ZPSJ", et_kyZpsj.getText().toString()));
+            params.add(new BasicNameValuePair("KYSY", et_kySy.getText().toString()));
+            params.add(new BasicNameValuePair("XCKYKSSJ", et_kyBeginTime.getText().toString()));
+            params.add(new BasicNameValuePair("XCKYJSSJ", et_kyEndTime.getText().toString()));
 
 
-            params.add(new BasicNameValuePair("XCDD",et_kyXcdd.getText().toString()));
-            params.add(new BasicNameValuePair("XCBHQK",et_kyXcbhqk.getText().toString()));
-            params.add(new BasicNameValuePair("TQ",kyTq));
-            params.add(new BasicNameValuePair("WD",et_kyWd.getText().toString()));
-            params.add(new BasicNameValuePair("SD",et_kySd.getText().toString()));
-            params.add(new BasicNameValuePair("FX",et_kyFx.getText().toString()));
-            params.add(new BasicNameValuePair("KGQXCTJ",kyXctj));
-            params.add(new BasicNameValuePair("XCKYGX",kyGx));
-            params.add(new BasicNameValuePair("XCKYZHR",et_kyZhr.getText().toString()));
-            params.add(new BasicNameValuePair("XCKYZHRDW",et_kyZhrDw.getText().toString()));
-            params.add(new BasicNameValuePair("XCKYZHRZW",et_kyZhrZw.getText().toString()));
-            params.add(new BasicNameValuePair("XCKYQK",et_kyKyqk.getText().toString()));
-            params.add(new BasicNameValuePair("XCKYHZT",et_kyHzt.getText().toString()));
-            params.add(new BasicNameValuePair("XCKYZX",et_kyZx.getText().toString()));
+            params.add(new BasicNameValuePair("XCDD", et_kyXcdd.getText().toString()));
+            params.add(new BasicNameValuePair("XCBHQK", et_kyXcbhqk.getText().toString()));
+            params.add(new BasicNameValuePair("TQ", kyTq));
+            params.add(new BasicNameValuePair("WD", et_kyWd.getText().toString()));
+            params.add(new BasicNameValuePair("SD", et_kySd.getText().toString()));
+            params.add(new BasicNameValuePair("FX", et_kyFx.getText().toString()));
+            params.add(new BasicNameValuePair("KGQXCTJ", kyXctj));
+            params.add(new BasicNameValuePair("XCKYGX", kyGx));
+            params.add(new BasicNameValuePair("XCKYZHR", et_kyZhr.getText().toString()));
+            params.add(new BasicNameValuePair("XCKYZHRDW", et_kyZhrDw.getText().toString()));
+            params.add(new BasicNameValuePair("XCKYZHRZW", et_kyZhrZw.getText().toString()));
+            params.add(new BasicNameValuePair("XCKYQK", et_kyKyqk.getText().toString()));
+            params.add(new BasicNameValuePair("XCKYHZT", et_kyHzt.getText().toString()));
+            params.add(new BasicNameValuePair("XCKYZX", et_kyZx.getText().toString()));
 
-            params.add(new BasicNameValuePair("XCKYLX",et_kyLx.getText().toString()));
-            params.add(new BasicNameValuePair("XCKYLY",et_kyLy.getText().toString()));
+            params.add(new BasicNameValuePair("XCKYLX", et_kyLx.getText().toString()));
+            params.add(new BasicNameValuePair("XCKYLY", et_kyLy.getText().toString()));
 
-            params.add(new BasicNameValuePair("BLR",et_kyBlr.getText().toString()));
-            params.add(new BasicNameValuePair("ZTR",et_kyZtr.getText().toString()));
-            params.add(new BasicNameValuePair("ZXR",et_kyZxr.getText().toString()));
-            params.add(new BasicNameValuePair("LXR",et_kyLxr.getText().toString()));
-            params.add(new BasicNameValuePair("LYR",et_kyLyr.getText().toString()));
-            params.add(new BasicNameValuePair("KYSJ",et_kyTime.getText().toString()));
-            Log.e("e","params 是"+params);
-            try{
-                UrlEncodedFormEntity formEntity = new UrlEncodedFormEntity(params,"UTF-8");
+            params.add(new BasicNameValuePair("BLR", et_kyBlr.getText().toString()));
+            params.add(new BasicNameValuePair("ZTR", et_kyZtr.getText().toString()));
+            params.add(new BasicNameValuePair("ZXR", et_kyZxr.getText().toString()));
+            params.add(new BasicNameValuePair("LXR", et_kyLxr.getText().toString()));
+            params.add(new BasicNameValuePair("LYR", et_kyLyr.getText().toString()));
+            params.add(new BasicNameValuePair("KYSJ", et_kyTime.getText().toString()));
+            Log.e("e", "params 是" + params);
+            try {
+                UrlEncodedFormEntity formEntity = new UrlEncodedFormEntity(params, "UTF-8");
                 httpRequest.setEntity(formEntity);
                 //取得HTTP response
-                HttpResponse httpResponse=new DefaultHttpClient().execute(httpRequest);
-                Log.e("code", "code"+httpResponse.getStatusLine().getStatusCode());
-                if(httpResponse.getStatusLine().getStatusCode()==200){
-                    String strResult= EntityUtils.toString(httpResponse.getEntity());
-                    Log.e("e", "传回来的值是："+strResult);
-                    if(strResult==null||strResult.equals("")){
+                HttpResponse httpResponse = new DefaultHttpClient().execute(httpRequest);
+                Log.e("code", "code" + httpResponse.getStatusLine().getStatusCode());
+                if (httpResponse.getStatusLine().getStatusCode() == 200) {
+                    String strResult = EntityUtils.toString(httpResponse.getEntity());
+                    Log.e("e", "传回来的值是：" + strResult);
+                    if (strResult == null || strResult.equals("")) {
                         mHandler.sendEmptyMessage(Values.ERROR_NULLVALUEFROMSERVER);
                         return;
                     }
                     //json 解析
                     JSONTokener jsonParser = new JSONTokener(strResult);
                     JSONObject person = (JSONObject) jsonParser.nextValue();
-                    String code=person.getString("error code");
+                    String code = person.getString("error code");
                     //{ "error code":0, "data":{ "message":"", "result":"盗抢车辆", "car":{ "hphm":"辽A12345", "hpzl":"蓝牌", "csys":"黑色", "fdjh":"888888", "cjhm":"987654321" } } }
-                    if(code.trim().equals("0")){
-                    //    jsResult=person.getJSONObject("data");
+                    if (code.trim().equals("0")) {
+                        //    jsResult=person.getJSONObject("data");
                         JSONObject jb = person.getJSONObject("data");
                         errorMessage = jb.getString("message");
                         mHandler.sendEmptyMessage(Values.SUCCESS_FORRESULR);
-                    }else if(code.trim().equals("10003")){
+                    } else if (code.trim().equals("10003")) {
                         JSONObject jb = person.getJSONObject("data");
                         errorMessage = jb.getString("message");
                         mHandler.sendEmptyMessage(Values.ERROR_OTHER);
-                    }else if(code.trim().equals("10001")){
+                    } else if (code.trim().equals("10001")) {
                         JSONObject jb = person.getJSONObject("data");
                         errorMessage = jb.getString("message");
                         mHandler.sendEmptyMessage(Values.ERROR_OTHER);
                     }
-                }else{
-                 //   mHandler.sendEmptyMessage(Values.ERROR_CONNECT);
+                } else {
+                    //   mHandler.sendEmptyMessage(Values.ERROR_CONNECT);
                 }
-            }catch(Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
-              //  mHandler.sendEmptyMessage(Values.ERROR_CONNECT);
+                //  mHandler.sendEmptyMessage(Values.ERROR_CONNECT);
             }
         }
     };
 
 
-    private void doScan(){
+    private void doScan() {
         //获取模板文件
 //        File demoFile=new File(demoPath);
         //创建生成的文件
-        File newFile=new File(newPath);
+        File newFile = new File(newPath);
         Map<String, String> map = new HashMap<String, String>();
         map.put("$XCKYDW$", et_kyKydw.getText().toString());
         map.put("$BGDW$", et_kyZpbgdw.getText().toString());
@@ -731,7 +752,6 @@ public class XckcBlActivity extends Activity {
         map.put("$BRZW6$", et_brzw6.getText().toString());
 
 
-
         map.put("$JZRQM1$", et_jzrqm1.getText().toString());
         map.put("$JZRSEX1$", et_jzrxb1.getText().toString());
         map.put("$JZRSR1$", et_jzrsr1.getText().toString());
@@ -742,34 +762,34 @@ public class XckcBlActivity extends Activity {
         map.put("$JZRSR2$", et_jzrsr2.getText().toString());
         map.put("$JZRZZ2$", et_jzrzz2.getText().toString());
 
-        writeDoc(newFile,map);
+        writeDoc(newFile, map);
     }
+
     /**
      * 调用手机中安装的可打开word的软件
      */
-    private void doOpenWord(){
+    private void doOpenWord() {
         Intent intent = new Intent();
         intent.setAction("android.intent.action.VIEW");
         intent.addCategory("android.intent.category.DEFAULT");
         String fileMimeType = "application/msword";
         intent.setDataAndType(Uri.fromFile(new File(newPath)), fileMimeType);
-        try{
+        try {
             startActivity(intent);
-        } catch(ActivityNotFoundException e) {
+        } catch (ActivityNotFoundException e) {
             //检测到系统尚未安装OliveOffice的apk程序
             Toast.makeText(this, "未找到软件", Toast.LENGTH_LONG).show();
             //请先到www.olivephone.com/e.apk下载并安装
         }
     }
+
     /**
      * demoFile 模板文件
      * newFile 生成文件
      * map 要填充的数据
-     * */
-    public void writeDoc( File newFile ,Map<String, String> map)
-    {
-        try
-        {
+     */
+    public void writeDoc(File newFile, Map<String, String> map) {
+        try {
             InputStream in = getAssets().open("xckybl.doc");
 //            FileInputStream in = new FileInputStream(demoFile);
             HWPFDocument hdt = new HWPFDocument(in);
@@ -779,8 +799,7 @@ public class XckcBlActivity extends Activity {
             // System.out.println(range.text());
 
             // 替换文本内容
-            for(Map.Entry<String, String> entry : map.entrySet())
-            {
+            for (Map.Entry<String, String> entry : map.entrySet()) {
                 range.replaceText(entry.getKey(), entry.getValue());
             }
             ByteArrayOutputStream ostream = new ByteArrayOutputStream();
@@ -790,20 +809,16 @@ public class XckcBlActivity extends Activity {
             out.write(ostream.toByteArray());
             out.close();
             ostream.close();
-        }
-        catch(IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private String 						mediaType="";
+    private String mediaType = "";
     //上传媒体信息
-    Runnable media=new Runnable() {
+    Runnable media = new Runnable() {
         @Override
         public void run() {
             String url_passenger = "http://61.176.222.166:8765/interface/addmeiti/";
@@ -813,9 +828,8 @@ public class XckcBlActivity extends Activity {
 //            mApp.getmDota().jq_queryTime(plb.getJqNum());
             params.add(new BasicNameValuePair("A_ID", name));
             params.add(new BasicNameValuePair("A_type", mediaType));
-            params.add(new BasicNameValuePair("A_Format",mediaFormat));
-            params.add(new BasicNameValuePair("A_MM",
-                    currentFile));
+            params.add(new BasicNameValuePair("A_Format", mediaFormat));
+            params.add(new BasicNameValuePair("A_MM", currentFile));
             try {
                 UrlEncodedFormEntity formEntity = new UrlEncodedFormEntity(
                         params, "UTF-8");
