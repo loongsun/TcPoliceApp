@@ -38,6 +38,7 @@ public class BaseActivity extends Activity {
 	}
 
 	protected String getEInfoByCode(int code) {
+
 //
 //		String str = "登陆失败";
 //		switch (code) {
