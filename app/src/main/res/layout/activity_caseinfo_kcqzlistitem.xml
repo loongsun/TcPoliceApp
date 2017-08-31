@@ -11,34 +11,7 @@
     android:background="@drawable/bg_round_blue"
     android:padding="5dp"
     android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="案件编号"
-            android:textColor="@color/text_11"
-            android:textSize="18sp" />
-
-        <EditText
-            android:editable="false"
-            android:id="@+id/et_hjAjbh"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:background="@null"
-            android:cursorVisible="true"
-            android:hint=""
-            android:textColor="@color/colorPrimary"
-            android:textCursorDrawable="@null"
-            android:textSize="18sp" />
-    </LinearLayout>
 
 
     <LinearLayout
@@ -56,7 +29,7 @@
             android:textColor="@color/text_11"
             android:textSize="18sp" />
 
-        <EditText
+        <com.tc.view.LineEditText
             android:id="@+id/et_hjmc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -87,7 +60,7 @@
             android:textColor="@color/text_11"
             android:textSize="18sp" />
 
-        <EditText
+        <com.tc.view.LineEditText
             android:id="@+id/et_hjjbtz"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -116,7 +89,7 @@
             android:textColor="@color/text_11"
             android:textSize="18sp" />
 
-        <EditText
+        <com.tc.view.LineEditText
             android:id="@+id/et_hjsl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -146,7 +119,7 @@
             android:textColor="@color/text_11"
             android:textSize="18sp" />
 
-        <EditText
+        <com.tc.view.LineEditText
             android:id="@+id/et_hjtqbw"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -177,7 +150,7 @@
             android:textColor="@color/text_11"
             android:textSize="18sp" />
 
-        <EditText
+        <com.tc.view.LineEditText
             android:id="@+id/et_hjtqff"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -208,7 +181,7 @@
             android:textColor="@color/text_11"
             android:textSize="18sp" />
 
-        <EditText
+        <com.tc.view.LineEditText
             android:id="@+id/et_hjtqr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -238,7 +211,7 @@
             android:textColor="@color/text_11"
             android:textSize="18sp" />
 
-        <EditText
+        <com.tc.view.LineEditText
             android:id="@+id/et_hjbz"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -253,66 +226,5 @@
     </LinearLayout>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:background="@color/White"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"
-            android:text="见证人"
-            android:textColor="@color/text_11"
-            android:textSize="18sp" />
-
-        <EditText
-            android:id="@+id/et_hjjzr"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:background="@null"
-            android:cursorVisible="true"
-            android:hint=""
-            android:textColor="@color/colorPrimary"
-            android:textCursorDrawable="@null"
-            android:textSize="18sp" />
-    </LinearLayout>
-
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:background="@color/White"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"
-            android:text="提取时间"
-            android:textColor="@color/text_11"
-            android:textSize="18sp" />
-
-        <EditText
-            android:editable="false"
-            android:id="@+id/et_hjtqsj"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:background="@null"
-            android:cursorVisible="true"
-            android:textColor="@color/colorPrimary"
-            android:textCursorDrawable="@null"
-            android:textSize="18sp" />
-    </LinearLayout>
     </LinearLayout>
 </LinearLayout>

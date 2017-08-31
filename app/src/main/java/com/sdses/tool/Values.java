@@ -26,6 +26,7 @@ public class Values {
     public static String PATH_xckybl=SDPATH+"/TC/wtxt/XCKYBL/";
     public static String PATH_xcbl=SDPATH+"/TC/wtxt/XCBL/";
     public static String PATH_jcbl=SDPATH+"/TC/wtxt/JCBL/";
+    public static String PATH_hjqz=SDPATH+"/TC/wtxt/HJQZ/";
     //dbjq
     public static List<PoliceStateListBean>dbjqList=new ArrayList<PoliceStateListBean>();
     public static PoliceStateListBean dbjq=new PoliceStateListBean();

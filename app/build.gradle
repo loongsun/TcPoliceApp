@@ -24,9 +24,9 @@ android {
         targetSdkVersion 21
         multiDexEnabled true
 
-        ndk {
 
-            abiFilters "armeabi"
+        ndk {
+            abiFilters "armeabi",'x86'
         }
     }
 
