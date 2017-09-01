@@ -19,6 +19,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -101,13 +103,42 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
     private String newPath = "";
     private String name = "";
 
+    //基本信息
+    private String checkboxstr1,checkboxstr2,checkboxstr3,checkboxstr4;
+    private String AJLB = null, SFMA = null, SFXA = null, BHCS = null, XCTJ = null, TQZK = null, GZTJ = null;
+    private RadioGroup anjianleibie_radio_group;
+    private RadioButton mAJLBRadio1, mAJLBRadio2, mAJLBRadio3, mAJLBRadio4, mAJLBRadio5, mAJLBRadio6,
+            mAJLBRadio7, mAJLBRadio8, mAJLBRadio9, mAJLBRadio10, mAJLBRadio11, mAJLBRadio12, mAJLBRadio13;
+    private RadioGroup shifoumingan_radio;
+    private RadioButton mSFMARadio1, mSFMARadio2;
+
+    private RadioGroup shifouxingan_Radio;
+    private RadioButton mSFXARadio1, mSFXARadio2;
+
+    private RadioGroup baohucuoshi_radio;
+    private CheckBox mBHCSChenkbox1, mBHCSChenkbox2, mBHCSChenkbox3, mBHCSChenkbox4;
+
+    private RadioGroup xianchangtiaojian_radio;
+    private RadioButton mXCTJRadio1,mXCTJRadio2,mXCTJRadio3;
+
+    private RadioGroup tianqiqingkuang_radio;
+    private RadioButton mTQQKRadio1,mTQQKRadio2,mTQQKRadio3,mTQQKRadio4,mTQQKRadio5;
+
+    private RadioGroup guangzhaotiaojian_radio;
+    private RadioButton mGZTJRadio1,mGZTJRadio2,mGZTJRadio3;
+
+
+    private EditText AFQY_edit, AFDD_edit,anfaquhua_edit,KTDD_edit,KYSY_edit,AFGC_edit,baohuren_name_edit,
+            baohuren_company_edit,XCZH_edit,et_kyKydw,et_kyZpbgdw,xianchangyiliuwu_edit,kanyanqingkuang_edit,
+    baoanren_edit,sunshiwupin_edit,shangwangqingkuang_edit,jianzhenren_edit;
+
     //痕迹物证
     private EditText A_ID_edit, MC_edit, JBTZ_edit, SL_edit, TQBW_edit, TQFF_edit, TQR_edit, BZ_edit,
-            JZR_edit, TQSJ_edit,CBYJ_edit,GZJY_edit,XCFXDW_edit,XCFXR_edit;
+            JZR_edit, TQSJ_edit, CBYJ_edit, GZJY_edit, XCFXDW_edit, XCFXR_edit;
 
     //分析意见
     private EditText ZARS_edit, ZADD_edit, ZAGJ_edit, ZAGC_edit;
-    String XCFXYJCL = null, AJXZ= null, XZDX= null, XZCS= null, ZASJ= null, ZARK= null, ZACK= null, ZASD= null, QRFS= null, ZATD= null, ZADJMD= null;
+    String XCFXYJCL = null, AJXZ = null, XZDX = null, XZCS = null, ZASJ = null, ZARK = null, ZACK = null, ZASD = null, QRFS = null, ZATD = null, ZADJMD = null;
     RadioButton mXCFXRadio1, mXCFXRadio2, mXCFXRadio3, mXCFXRadio4;
     RadioGroup radio_xianchangfenxi_group;
 
@@ -126,19 +157,19 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
     RadioButton mZASJRadio1, mZASJRadio2, mZASJRadio3, mZASJRadio4, mZASJRadio5, mZASJRadio6, mZASJRadio7;
 
     RadioGroup zuoanrukou_radio_group;
-    RadioButton mZARKRadio1,mZARKRadio2,mZARKRadio3,mZARKRadio4;
+    RadioButton mZARKRadio1, mZARKRadio2, mZARKRadio3, mZARKRadio4;
 
     RadioGroup zuoanshouduan_radio_group;
-    RadioButton mZASDRadio1,mZASDRadio2,mZASDRadio3,mZASDRadio4,mZASDRadio5,mZASDRadio6,mZASDRadio7,mZASDRadio8,mZASDRadio9;
+    RadioButton mZASDRadio1, mZASDRadio2, mZASDRadio3, mZASDRadio4, mZASDRadio5, mZASDRadio6, mZASDRadio7, mZASDRadio8, mZASDRadio9;
 
     RadioGroup ruqinfangshi_radio_group;
-    RadioButton mRQFSRadio1,mRQFSRadio2,mRQFSRadio3,mRQFSRadio4,mRQFSRadio5,mRQFSRadio6,mRQFSRadio7,mRQFSRadio8,mRQFSRadio9;
+    RadioButton mRQFSRadio1, mRQFSRadio2, mRQFSRadio3, mRQFSRadio4, mRQFSRadio5, mRQFSRadio6, mRQFSRadio7, mRQFSRadio8, mRQFSRadio9;
 
     RadioGroup zuoantedian_radio_group;
-    RadioButton mZATDRadio1,mZATDRadio2,mZATDRadio3;
+    RadioButton mZATDRadio1, mZATDRadio2, mZATDRadio3;
 
     RadioGroup zuoanmudi_radio_group;
-    RadioButton mZAMDRadio1,mZAMDRadio2,mZAMDRadio3,mZAMDRadio4,mZAMDRadio5,mZAMDRadio6;
+    RadioButton mZAMDRadio1, mZAMDRadio2, mZAMDRadio3, mZAMDRadio4, mZAMDRadio5, mZAMDRadio6;
 
 
     int num = 0;
@@ -205,8 +236,8 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
         BZ_edit = (EditText) this.findViewById(R.id.TQR_edit);
         JZR_edit = (EditText) this.findViewById(R.id.JZR_edit);
         TQSJ_edit = (EditText) this.findViewById(R.id.TQSJ_edit);
-        CBYJ_edit = (EditText)this.findViewById(R.id.CBYJ_edit);
-        GZJY_edit = (EditText)this.findViewById(R.id.GZJY_edit);
+        CBYJ_edit = (EditText) this.findViewById(R.id.CBYJ_edit);
+        GZJY_edit = (EditText) this.findViewById(R.id.GZJY_edit);
         XCFXDW_edit = (EditText) this.findViewById(R.id.XCFXDW_edit);
         XCFXR_edit = (EditText) this.findViewById(R.id.XCFXR_edit);
 
@@ -517,7 +548,213 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
             }
         });
 
+//基本信息
+        mBHCSChenkbox1 = findViewById(R.id.baohucuoshi_checkbox1);
+        mBHCSChenkbox2 = findViewById(R.id.baohucuoshi_checkbox2);
+        mBHCSChenkbox3 = findViewById(R.id.baohucuoshi_checkbox3);
+        mBHCSChenkbox4 = findViewById(R.id.baohucuoshi_checkbox4);
 
+        anjianleibie_radio_group = findViewById(R.id.anjianleibie_radio_group);
+        mAJLBRadio1 = findViewById(R.id.anjianleibie_radio_button1);
+        mAJLBRadio2 = findViewById(R.id.anjianleibie_radio_button2);
+        mAJLBRadio3 = findViewById(R.id.anjianleibie_radio_button3);
+        mAJLBRadio4 = findViewById(R.id.anjianleibie_radio_button4);
+        mAJLBRadio5 = findViewById(R.id.anjianleibie_radio_button5);
+        mAJLBRadio6 = findViewById(R.id.anjianleibie_radio_button6);
+        mAJLBRadio7 = findViewById(R.id.anjianleibie_radio_button7);
+        mAJLBRadio8 = findViewById(R.id.anjianleibie_radio_button8);
+        mAJLBRadio9 = findViewById(R.id.anjianleibie_radio_button9);
+        mAJLBRadio10 = findViewById(R.id.anjianleibie_radio_button10);
+        mAJLBRadio11 = findViewById(R.id.anjianleibie_radio_button11);
+        mAJLBRadio12 = findViewById(R.id.anjianleibie_radio_button12);
+        mAJLBRadio13 = findViewById(R.id.anjianleibie_radio_button13);
+
+        anjianleibie_radio_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, @IdRes int checkedId) {
+
+
+                if (checkedId == mAJLBRadio1.getId()) {
+                    AJLB = "诈骗";
+                } else if (checkedId == mAJLBRadio2.getId()) {
+                    AJLB = "敲诈勒索";
+                } else if (checkedId == mAJLBRadio3.getId()) {
+                    AJLB = "盗窃路财案";
+                } else if (checkedId == mAJLBRadio4.getId()) {
+                    AJLB = "放火案件";
+                } else if (checkedId == mAJLBRadio5.getId()) {
+                    AJLB = "盗窃电动自称车";
+                } else if (checkedId == mAJLBRadio6.getId()) {
+                    AJLB = "盗窃车内财物";
+                } else if (checkedId == mAJLBRadio7.getId()) {
+                    AJLB = "其他类别案";
+                } else if (checkedId == mAJLBRadio8.getId()) {
+                    AJLB = "强奸";
+                } else if (checkedId == mAJLBRadio9.getId()) {
+                    AJLB = "扒窃案";
+                } else if (checkedId == mAJLBRadio10.getId()) {
+                    AJLB = "入户抢劫";
+                } else if (checkedId == mAJLBRadio11.getId()) {
+                    AJLB = "故意伤害案";
+                } else if (checkedId == mAJLBRadio12.getId()) {
+                    AJLB = "其他盗窃案件";
+                } else if (checkedId == mAJLBRadio13.getId()) {
+                    AJLB = "入室盗窃案";
+                }
+            }
+        });
+//
+        shifoumingan_radio = findViewById(R.id.shifoumingan_radio);
+        mSFMARadio1 = findViewById(R.id.shifoumingan_radio_button1);
+        mSFMARadio2 = findViewById(R.id.shifoumingan_radio_button2);
+        shifoumingan_radio.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, @IdRes int checkedId) {
+
+                if (checkedId == mSFMARadio1.getId()) {
+                    SFMA = "是";
+                } else if (checkedId == mSFMARadio2.getId()) {
+                    SFMA = "否";
+                }
+            }
+        });
+
+        shifouxingan_Radio = findViewById(R.id.shifouxingan_Radio);
+        mSFXARadio1 = findViewById(R.id.shifouxingan_radio_button1);
+        mSFXARadio2 = findViewById(R.id.shifouxingan_radio_button2);
+        shifouxingan_Radio.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, @IdRes int checkedId) {
+                if (checkedId == mSFXARadio1.getId()) {
+                    SFXA = "是";
+                } else if (checkedId == mSFXARadio2.getId()) {
+                    SFXA = "否";
+                }
+            }
+        });
+//
+        baohucuoshi_radio = findViewById(R.id.baohucuoshi_radio);
+        mBHCSChenkbox1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (isChecked) {
+                    checkboxstr1= "设立警戒带，划定禁行区域";
+                } else {
+                    checkboxstr1 = "";
+                }
+            }
+        });
+
+        mBHCSChenkbox2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (isChecked) {
+                    checkboxstr2= "专人看护现场，防止他人进入";
+                } else {
+                    checkboxstr2 = "";
+                }
+            }
+        });
+
+        mBHCSChenkbox3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (isChecked) {
+                    checkboxstr3= "被害人自行保护";
+                } else {
+                    checkboxstr3 = "";
+                }
+            }
+        });
+
+        mBHCSChenkbox4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if (isChecked) {
+                    checkboxstr4 = "其他措施";
+                } else {
+                    checkboxstr4 = "";
+                }
+            }
+        });
+
+        xianchangtiaojian_radio = findViewById(R.id.xianchangtiaojian_radio);
+        mXCTJRadio1 = findViewById(R.id.xianchangtiaojian_radio_button1);
+        mXCTJRadio2 = findViewById(R.id.xianchangtiaojian_radio_button2);
+        mXCTJRadio3 = findViewById(R.id.xianchangtiaojian_radio_button3);
+
+        xianchangtiaojian_radio.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, @IdRes int checkedId) {
+                if (checkedId == mXCTJRadio1.getId()) {
+                    XCTJ = "原始现场";
+                } else if (checkedId == mXCTJRadio2.getId()) {
+                    XCTJ = "变动现场";
+                } else if (checkedId == mXCTJRadio3.getId()) {
+                    XCTJ = "不确定现场";
+                }
+            }
+        });
+
+        tianqiqingkuang_radio = findViewById(R.id.tianqiqingkuang_radio);
+        mTQQKRadio1 = findViewById(R.id.tianqiqingkuang_radio_button1);
+        mTQQKRadio2 = findViewById(R.id.tianqiqingkuang_radio_button2);
+        mTQQKRadio3 = findViewById(R.id.tianqiqingkuang_radio_button3);
+        mTQQKRadio4 = findViewById(R.id.tianqiqingkuang_radio_button4);
+        mTQQKRadio5 = findViewById(R.id.tianqiqingkuang_radio_button5);
+
+        tianqiqingkuang_radio.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, @IdRes int checkedId) {
+
+                if (checkedId == mTQQKRadio1.getId()) {
+                    TQZK = "阴";
+                } else if (checkedId == mTQQKRadio2.getId()) {
+                    TQZK = "晴";
+                } else if (checkedId == mTQQKRadio3.getId()) {
+                    TQZK = "雨";
+                } else if (checkedId == mTQQKRadio4.getId()) {
+                    TQZK = "雾";
+                } else if (checkedId == mTQQKRadio5.getId()) {
+                    TQZK = "雪";
+                }
+            }
+        });
+
+        guangzhaotiaojian_radio = findViewById(R.id.guangzhaotiaojian_radio);
+        mGZTJRadio1 = findViewById(R.id.guangzhaotiaojian_radio_button1);
+        mGZTJRadio1 = findViewById(R.id.guangzhaotiaojian_radio_button1);
+        mGZTJRadio1 = findViewById(R.id.guangzhaotiaojian_radio_button1);
+
+        guangzhaotiaojian_radio.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, @IdRes int checkedId) {
+                if (checkedId == mGZTJRadio1.getId()) {
+                    GZTJ = "自然光";
+                } else if (checkedId == mGZTJRadio2.getId()) {
+                    GZTJ = "灯光";
+                } else if (checkedId == mGZTJRadio3.getId()) {
+                    GZTJ = "特种光";
+                }
+            }
+        });
+
+        anfaquhua_edit = findViewById(R.id.anfaquhua_edit);
+        AFDD_edit = findViewById(R.id.AFDD_edit);
+        KTDD_edit = findViewById(R.id.KTDD_edit);
+        KYSY_edit = findViewById(R.id.KYSY_edit);
+        AFGC_edit = findViewById(R.id.AFGC_edit);
+        baohuren_name_edit = findViewById(R.id.baohuren_name_edit);
+        baohuren_company_edit= findViewById(R.id.baohuren_company_edit);
+        XCZH_edit = findViewById(R.id.XCZH_edit);
+        et_kyKydw = findViewById(R.id.et_kyKydw);
+        et_kyZpbgdw = findViewById(R.id.et_kyZpbgdw);
+        xianchangyiliuwu_edit = findViewById(R.id.xianchangyiliuwu_edit);
+        kanyanqingkuang_edit = findViewById(R.id.kanyanqingkuang_edit);
+        baoanren_edit = findViewById(R.id.baoanren_edit);
+        sunshiwupin_edit = findViewById(R.id.sunshiwupin_edit);
+        shangwangqingkuang_edit = findViewById(R.id.shangwangqingkuang_edit);
+        jianzhenren_edit = findViewById(R.id.jianzhenren_edit);
 
 
     }
@@ -653,8 +890,37 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
                 switch (posId) {
                     case R.id.movie_btn:
 
+//
+//                        if (A_ID_edit.getText().toString().trim().equals("")) {
+//                            Toast.makeText(ia, "案件编号不能为空", Toast.LENGTH_SHORT).show();
+//                        } else if (MC_edit.getText().toString().trim().equals("")) {
+//                            Toast.makeText(ia, "名称不能为空", Toast.LENGTH_SHORT).show();
+//                        } else if (JBTZ_edit.getText().toString().trim().equals("")) {
+//                            Toast.makeText(ia, "基本特征不能为空", Toast.LENGTH_SHORT).show();
+//                        } else if (SL_edit.getText().toString().trim().equals("")) {
+//                            Toast.makeText(ia, "数量不能为空", Toast.LENGTH_SHORT).show();
+//                        } else if (TQBW_edit.getText().toString().trim().equals("")) {
+//                            Toast.makeText(ia, "提取部位不能为空", Toast.LENGTH_SHORT).show();
+//                        } else if (TQFF_edit.getText().toString().trim().equals("")) {
+//                            Toast.makeText(ia, "提取方法不能为空", Toast.LENGTH_SHORT).show();
+//                        } else if (TQR_edit.getText().toString().trim().equals("")) {
+//                            Toast.makeText(ia, "提取人不能为空", Toast.LENGTH_SHORT).show();
+//                        } else if (TQSJ_edit.getText().toString().trim().equals("")) {
+//                            Toast.makeText(ia, "提取时间不能为空", Toast.LENGTH_SHORT).show();
+//
+//                        } else {
+//                            uploadHJWZ();
+//                            startProgressDialog(UPLOAD);
+//                            new Thread(uploadRunJiBenXinXi).start();
+//
+//
+//                            setBackgroundColorById(R.id.tv_btn);
+//                            operateNextTv.setText("下一步");
+//                        }
+
                         setBackgroundColorById(R.id.tv_btn);
                         operateNextTv.setText("下一步");
+
                         break;
 
                     case R.id.tv_btn:
@@ -714,24 +980,24 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
                             Toast.makeText(ia, "案件性质不能为空", Toast.LENGTH_SHORT).show();
                         } else if (XZDX == null) {
                             Toast.makeText(ia, "选择对象不能为空", Toast.LENGTH_SHORT).show();
-                        }else if (XZCS == null) {
+                        } else if (XZCS == null) {
                             Toast.makeText(ia, "选择处所不能为空", Toast.LENGTH_SHORT).show();
-                        }else if (ZASJ == null) {
+                        } else if (ZASJ == null) {
                             Toast.makeText(ia, "作案时机不能为空", Toast.LENGTH_SHORT).show();
-                        }else if (ZARK == null) {
+                        } else if (ZARK == null) {
                             Toast.makeText(ia, "作案入口不能为空", Toast.LENGTH_SHORT).show();
-                        }else if (ZASD == null) {
+                        } else if (ZASD == null) {
                             Toast.makeText(ia, "作案手段不能为空", Toast.LENGTH_SHORT).show();
-                        }else if (QRFS == null) {
+                        } else if (QRFS == null) {
                             Toast.makeText(ia, "入侵方式不能为空", Toast.LENGTH_SHORT).show();
-                        }else if (ZATD == null) {
+                        } else if (ZATD == null) {
                             Toast.makeText(ia, "作案特点不能为空", Toast.LENGTH_SHORT).show();
-                        }else if (ZADJMD == null) {
+                        } else if (ZADJMD == null) {
                             Toast.makeText(ia, "作案动机目的不能为空", Toast.LENGTH_SHORT).show();
                         } else {
                             uploadHJWZ();
                             startProgressDialog(UPLOAD);
-                            new Thread(uploadRun).start();
+                            new Thread(uploadRunFenxiiJan).start();
 
                             operateNextTv.setText("提交");
                             finish();
@@ -1416,9 +1682,9 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
             params.add(new BasicNameValuePair("AJXZ", AJXZ));
             params.add(new BasicNameValuePair("XZDX", XZDX));
             params.add(new BasicNameValuePair("XZCS", XZCS));
-            params.add(new BasicNameValuePair("ZASJ",ZASJ));
+            params.add(new BasicNameValuePair("ZASJ", ZASJ));
             params.add(new BasicNameValuePair("ZARK", ZARK));
-            params.add(new BasicNameValuePair("ZASD",ZASD));
+            params.add(new BasicNameValuePair("ZASD", ZASD));
             params.add(new BasicNameValuePair("QRFS", QRFS));
             params.add(new BasicNameValuePair("ZATD", ZATD));
             params.add(new BasicNameValuePair("ZADJMD", ZADJMD));
@@ -1427,12 +1693,111 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
             params.add(new BasicNameValuePair("ZAGJ", ZAGJ_edit.getText().toString()));
             params.add(new BasicNameValuePair("ZAGC", ZAGC_edit.getText().toString()));
             params.add(new BasicNameValuePair("ZARTD", ZATD));
-            params.add(new BasicNameValuePair("CBYJYGJ",CBYJ_edit.getText().toString() ));
+            params.add(new BasicNameValuePair("CBYJYGJ", CBYJ_edit.getText().toString()));
             params.add(new BasicNameValuePair("GZJY", GZJY_edit.getText().toString()));
             params.add(new BasicNameValuePair("XCFXDW", XCFXDW_edit.getText().toString()));
             params.add(new BasicNameValuePair("XCFXR", XCFXR_edit.getText().toString()));
             params.add(new BasicNameValuePair("FXSJ", ""));
-            params.add(new BasicNameValuePair("PNUM","警号"));
+            params.add(new BasicNameValuePair("PNUM", "警号"));
+
+
+            Log.e("e", "params 是" + params);
+            try {
+                UrlEncodedFormEntity formEntity = new UrlEncodedFormEntity(params, "UTF-8");
+                httpRequest.setEntity(formEntity);
+                //取得HTTP response
+                HttpResponse httpResponse = new DefaultHttpClient().execute(httpRequest);
+                Log.e("code", "code" + httpResponse.getStatusLine().getStatusCode());
+                if (httpResponse.getStatusLine().getStatusCode() == 200) {
+                    String strResult = EntityUtils.toString(httpResponse.getEntity());
+                    Log.e("e", "传回来的值是：" + strResult);
+                    if (strResult == null || strResult.equals("")) {
+                        mHandler.sendEmptyMessage(Values.ERROR_NULLVALUEFROMSERVER);
+                        return;
+                    }
+                    //json 解析
+                    JSONTokener jsonParser = new JSONTokener(strResult);
+                    JSONObject person = (JSONObject) jsonParser.nextValue();
+                    String code = person.getString("error code");
+                    //{ "error code":0, "data":{ "message":"", "result":"盗抢车辆", "car":{ "hphm":"辽A12345", "hpzl":"蓝牌", "csys":"黑色", "fdjh":"888888", "cjhm":"987654321" } } }
+                    if (code.trim().equals("0")) {
+                        //    jsResult=person.getJSONObject("data");
+                        JSONObject jb = person.getJSONObject("data");
+                        errorMessage = jb.getString("message");
+                        mHandler.sendEmptyMessage(Values.SUCCESS_FORRESULR);
+                    } else if (code.trim().equals("10003")) {
+                        JSONObject jb = person.getJSONObject("data");
+                        errorMessage = jb.getString("message");
+                        mHandler.sendEmptyMessage(Values.ERROR_OTHER);
+                    } else if (code.trim().equals("10001")) {
+                        JSONObject jb = person.getJSONObject("data");
+                        errorMessage = jb.getString("message");
+                        mHandler.sendEmptyMessage(Values.ERROR_OTHER);
+                    }
+                } else {
+                    //   mHandler.sendEmptyMessage(Values.ERROR_CONNECT);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                //  mHandler.sendEmptyMessage(Values.ERROR_CONNECT);
+            }
+        }
+    };
+
+    //    分析意见数据上传
+    Runnable uploadRunJiBenXinXi = new Runnable() {
+        @Override
+        public void run() {
+            String url_passenger = "http://61.176.222.166:8765/interface/xskc/ADD_ZF_XSKC01.asp";
+            HttpPost httpRequest = new HttpPost(url_passenger);
+            List<NameValuePair> params = new ArrayList<NameValuePair>();
+            params.add(new BasicNameValuePair("A_ID", anjiannum.getText().toString()));
+            params.add(new BasicNameValuePair("A_SLID",A_ID_edit.getText().toString()));
+            params.add(new BasicNameValuePair("AJLB", AJLB));
+            params.add(new BasicNameValuePair("FAQH", anfaquhua_edit.getText().toString()));
+            params.add(new BasicNameValuePair("SFMA", SFMA));
+            params.add(new BasicNameValuePair("SFXA", SFXA));
+            params.add(new BasicNameValuePair("FASJ1", oneStartTime.getText().toString()));
+            params.add(new BasicNameValuePair("FASJ2", oneEndingTime.getText().toString()));
+            params.add(new BasicNameValuePair("FADD", AFDD_edit.getText().toString()));
+            params.add(new BasicNameValuePair("PASJ", oneEndTime.getText().toString()));
+            params.add(new BasicNameValuePair("ZPBGDW", ""));//
+            params.add(new BasicNameValuePair("JKSJ", ""));//
+            params.add(new BasicNameValuePair("JJR", ""));//接警人
+            params.add(new BasicNameValuePair("ZPFS", ""));//指派方式
+            params.add(new BasicNameValuePair("CJSJ", ""));//出警时间
+            params.add(new BasicNameValuePair("KSKYSJ", ""));//勘验时间开始
+            params.add(new BasicNameValuePair("JSKYSJ", ""));//勘验时间结束
+            params.add(new BasicNameValuePair("KYDD",KTDD_edit.getText().toString()));
+            params.add(new BasicNameValuePair("KYSY", KYSY_edit.getText().toString()));
+            params.add(new BasicNameValuePair("AJFXGC", AFGC_edit.getText().toString()));
+            params.add(new BasicNameValuePair("BHRXM", baohuren_name_edit.getText().toString()));
+            params.add(new BasicNameValuePair("BHRDW", baohuren_company_edit.getText().toString()));
+            params.add(new BasicNameValuePair("BHCS", checkboxstr1+checkboxstr2+checkboxstr3));
+
+            params.add(new BasicNameValuePair("BHSJ", oneSaveTime.getText().toString()));
+            params.add(new BasicNameValuePair("XCWPFDCD", ""));//现场物品翻动程度
+            params.add(new BasicNameValuePair("XCTJ", XCTJ));
+            params.add(new BasicNameValuePair("TQZK", TQZK));
+            params.add(new BasicNameValuePair("WD", ""));//温度
+            params.add(new BasicNameValuePair("SD", ""));//湿度
+            params.add(new BasicNameValuePair("FX", ""));//风向
+            params.add(new BasicNameValuePair("GZTJ", GZTJ));
+            params.add(new BasicNameValuePair("XCZHRY", XCZH_edit.getText().toString()));
+            params.add(new BasicNameValuePair("KYJCRY", et_kyKydw.getText().toString()));
+            params.add(new BasicNameValuePair("QTDDXCRY", et_kyZpbgdw.getText().toString()));//其他
+            params.add(new BasicNameValuePair("XCYLW", xianchangyiliuwu_edit.getText().toString()));
+
+
+            params.add(new BasicNameValuePair("KYJCQK", kanyanqingkuang_edit.getText().toString()));
+            params.add(new BasicNameValuePair("BHRBAR", baoanren_edit.getText().toString()));
+            params.add(new BasicNameValuePair("SSWP", sunshiwupin_edit.getText().toString()));
+            params.add(new BasicNameValuePair("LX", ""));//录像
+            params.add(new BasicNameValuePair("LY", ""));//录音
+            params.add(new BasicNameValuePair("SWQK", shangwangqingkuang_edit.getText().toString()));
+            params.add(new BasicNameValuePair("SSWPZJZ", ""));//损失物品总价值
+            params.add(new BasicNameValuePair("JZR", jianzhenren_edit.getText().toString()));
+            params.add(new BasicNameValuePair("PNUM", "上传警号"));
 
 
             Log.e("e", "params 是" + params);
