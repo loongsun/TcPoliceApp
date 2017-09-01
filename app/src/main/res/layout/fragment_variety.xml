@@ -61,28 +61,28 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:text="现场分析依据的材料"
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <HorizontalScrollView
-                    android:paddingRight="20px"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:paddingRight="20px">
 
                     <RadioGroup
                         android:id="@+id/radio_xianchangfenxi_group"
-                        android:paddingRight="50px"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:paddingRight="50px">
 
                         <RadioButton
                             android:id="@+id/radio_xianchangfenxi_1"
@@ -133,28 +133,28 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:text="案件性质："
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <HorizontalScrollView
-                    android:paddingRight="20px"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:paddingRight="20px">
 
                     <RadioGroup
                         android:id="@+id/anjianxingzhi_radio_group"
-                        android:paddingRight="50px"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:paddingRight="50px">
 
                         <RadioButton
                             android:id="@+id/anjianxingzhi_radiobutton_1"
@@ -210,6 +210,7 @@
                             android:layout_marginLeft="10dp"
                             android:text="入室抢劫案"
                             android:textColor="@color/colorPrimary" />
+
                         <RadioButton
                             android:id="@+id/anjianxingzhi_radiobutton_8"
                             android:layout_width="wrap_content"
@@ -217,6 +218,7 @@
                             android:layout_marginLeft="10dp"
                             android:text="矛盾激化"
                             android:textColor="@color/colorPrimary" />
+
                         <RadioButton
                             android:id="@+id/anjianxingzhi_radiobutton_9"
                             android:layout_width="wrap_content"
@@ -224,6 +226,7 @@
                             android:layout_marginLeft="10dp"
                             android:text="其他盗窃案"
                             android:textColor="@color/colorPrimary" />
+
                         <RadioButton
                             android:id="@+id/anjianxingzhi_radiobutton_10"
                             android:layout_width="wrap_content"
@@ -231,6 +234,7 @@
                             android:layout_marginLeft="10dp"
                             android:text="盗窃车内物品"
                             android:textColor="@color/colorPrimary" />
+
                         <RadioButton
                             android:id="@+id/anjianxingzhi_radiobutton_11"
                             android:layout_width="wrap_content"
@@ -238,6 +242,7 @@
                             android:layout_marginLeft="10dp"
                             android:text="盗窃宾馆案件"
                             android:textColor="@color/colorPrimary" />
+
                         <RadioButton
                             android:id="@+id/anjianxingzhi_radiobutton_12"
                             android:layout_width="wrap_content"
@@ -245,6 +250,7 @@
                             android:layout_marginLeft="10dp"
                             android:text="技术性开锁盗窃"
                             android:textColor="@color/colorPrimary" />
+
                         <RadioButton
                             android:id="@+id/anjianxingzhi_radiobutton_13"
                             android:layout_width="wrap_content"
@@ -252,6 +258,7 @@
                             android:layout_marginLeft="10dp"
                             android:text="攀爬入室盗窃"
                             android:textColor="@color/colorPrimary" />
+
                         <RadioButton
                             android:id="@+id/anjianxingzhi_radiobutton_14"
                             android:layout_width="wrap_content"
@@ -279,28 +286,28 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:text="选择对象："
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <HorizontalScrollView
-                    android:paddingRight="20px"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:paddingRight="20px">
 
                     <RadioGroup
                         android:id="@+id/xuanzeduixinag_radio_group"
-                        android:paddingRight="50px"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:paddingRight="50px">
 
                         <RadioButton
                             android:id="@+id/xuanzeduixiang_radio_button1"
@@ -353,28 +360,28 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:text="选择处所："
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <HorizontalScrollView
-                    android:paddingRight="20px"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:paddingRight="20px">
 
                     <RadioGroup
                         android:id="@+id/xuanzechusuo_radio_group"
-                        android:paddingRight="50px"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:paddingRight="50px">
 
                         <RadioButton
                             android:id="@+id/xuanzechusuo_radio_button1"
@@ -422,6 +429,7 @@
                             android:layout_marginLeft="10dp"
                             android:text="高层楼房"
                             android:textColor="@color/colorPrimary" />
+
                         <RadioButton
                             android:id="@+id/xuanzechusuo_radio_button7"
                             android:layout_width="wrap_content"
@@ -429,6 +437,7 @@
                             android:layout_marginLeft="10dp"
                             android:text="其他繁华地段"
                             android:textColor="@color/colorPrimary" />
+
                         <RadioButton
                             android:id="@+id/xuanzechusuo_radio_button8"
                             android:layout_width="wrap_content"
@@ -436,6 +445,7 @@
                             android:layout_marginLeft="10dp"
                             android:text="商业区"
                             android:textColor="@color/colorPrimary" />
+
                         <RadioButton
                             android:id="@+id/xuanzechusuo_radio_button9"
                             android:layout_width="wrap_content"
@@ -443,6 +453,7 @@
                             android:layout_marginLeft="10dp"
                             android:text="普通楼房"
                             android:textColor="@color/colorPrimary" />
+
                         <RadioButton
                             android:id="@+id/xuanzechusuo_radio_button10"
                             android:layout_width="wrap_content"
@@ -471,28 +482,28 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:text="作案时机："
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <HorizontalScrollView
-                    android:paddingRight="20px"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:paddingRight="20px">
 
                     <RadioGroup
                         android:id="@+id/zuoanshiji_radio_group"
-                        android:paddingRight="50px"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:paddingRight="50px">
 
                         <RadioButton
                             android:id="@+id/zuoanshiji_radio_button1"
@@ -569,28 +580,28 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:text="作案入口："
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <HorizontalScrollView
-                    android:paddingRight="20px"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:paddingRight="20px">
 
                     <RadioGroup
                         android:id="@+id/zuoanrukou_radio_group"
-                        android:paddingRight="50px"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:paddingRight="50px">
 
                         <RadioButton
                             android:id="@+id/zuoanrukou_radio_button1"
@@ -643,28 +654,28 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:text="作案手段："
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <HorizontalScrollView
-                    android:paddingRight="20px"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:paddingRight="20px">
 
                     <RadioGroup
                         android:id="@+id/zuoanshouduan_radio_group"
-                        android:paddingRight="50px"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:paddingRight="50px">
 
                         <RadioButton
                             android:id="@+id/zuoanshouduan_radio_button1"
@@ -720,6 +731,7 @@
                             android:layout_marginLeft="10dp"
                             android:text="插片开锁"
                             android:textColor="@color/colorPrimary" />
+
                         <RadioButton
                             android:id="@+id/zuoanshouduan_radio_button8"
                             android:layout_width="wrap_content"
@@ -756,28 +768,28 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:text="入侵方式："
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <HorizontalScrollView
-                    android:paddingRight="20px"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:paddingRight="20px">
 
                     <RadioGroup
                         android:id="@+id/ruqinfangshi_radio_group"
-                        android:paddingRight="50px"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:paddingRight="50px">
 
                         <RadioButton
                             android:id="@+id/ruqinfangshi_radio_button1"
@@ -864,7 +876,6 @@
                 android:background="@color/line" />
 
 
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
@@ -872,28 +883,28 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:text="作案特点："
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <HorizontalScrollView
-                    android:paddingRight="20px"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:paddingRight="20px">
 
                     <RadioGroup
                         android:id="@+id/zuoantedian_radio_group"
-                        android:paddingRight="50px"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:paddingRight="50px">
 
                         <RadioButton
                             android:id="@+id/zuoantedian_radio_button1"
@@ -937,11 +948,11 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:text="作案目的："
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
@@ -952,12 +963,12 @@
 
                     <RadioGroup
                         android:id="@+id/zuoanmudi_radio_group"
-                        android:paddingRight="50px"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_weight="1"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:paddingRight="50px">
 
                         <RadioButton
                             android:id="@+id/zuoanmudi_radio_button1"
@@ -1019,7 +1030,6 @@
                 android:background="@color/line" />
 
 
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
@@ -1027,11 +1037,11 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:text="作案人数："
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
@@ -1057,11 +1067,11 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:text="作案地点："
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
@@ -1107,11 +1117,11 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:text="操作过程："
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
@@ -1137,19 +1147,19 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:text="作案人特点："
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:text=""
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:text="" />
             </LinearLayout>
 
             <View
@@ -1166,19 +1176,20 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:text="串并意见与根据："
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:text=""
+                    android:id="@+id/CBYJ_edit"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:text="" />
             </LinearLayout>
 
             <View
@@ -1195,19 +1206,20 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:drawableRight="@mipmap/ic_small_star"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
+                    android:drawableRight="@mipmap/ic_small_star"
                     android:text="工作建议："
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:text=""
+                    android:id="@+id/GZJY_edit"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:text="" />
             </LinearLayout>
 
             <View
@@ -1233,9 +1245,10 @@
                     android:textSize="18sp" />
 
                 <EditText
-                    android:text=""
+                    android:id="@+id/XCFXDW_edit"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:text="" />
             </LinearLayout>
 
             <View
@@ -1261,9 +1274,10 @@
                     android:textSize="18sp" />
 
                 <EditText
-                    android:text=""
+                    android:id="@+id/XCFXR_edit"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:text="" />
             </LinearLayout>
 
             <View
@@ -1275,17 +1289,17 @@
 
 
             <Button
-                android:visibility="invisible"
-                android:layout_marginBottom="40dp"
                 android:id="@+id/next_btn"
-                android:layout_marginRight="30dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="50dp"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
+                android:layout_marginBottom="40dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="50dp"
                 android:background="@drawable/btn_blue"
                 android:text="下一步"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:visibility="invisible" />
 
 
         </LinearLayout>

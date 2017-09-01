@@ -102,11 +102,12 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
     private String name = "";
 
     //痕迹物证
-    private EditText A_ID_edit, MC_edit, JBTZ_edit, SL_edit, TQBW_edit, TQFF_edit, TQR_edit, BZ_edit, JZR_edit, TQSJ_edit;
+    private EditText A_ID_edit, MC_edit, JBTZ_edit, SL_edit, TQBW_edit, TQFF_edit, TQR_edit, BZ_edit,
+            JZR_edit, TQSJ_edit,CBYJ_edit,GZJY_edit,XCFXDW_edit,XCFXR_edit;
 
     //分析意见
     private EditText ZARS_edit, ZADD_edit, ZAGJ_edit, ZAGC_edit;
-    String XCFXYJCL, AJXZ, XZDX, XZCS, ZASJ, ZARK, ZACK, ZASD, QRFS, ZATD, ZADJMD;
+    String XCFXYJCL = null, AJXZ= null, XZDX= null, XZCS= null, ZASJ= null, ZARK= null, ZACK= null, ZASD= null, QRFS= null, ZATD= null, ZADJMD= null;
     RadioButton mXCFXRadio1, mXCFXRadio2, mXCFXRadio3, mXCFXRadio4;
     RadioGroup radio_xianchangfenxi_group;
 
@@ -204,6 +205,10 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
         BZ_edit = (EditText) this.findViewById(R.id.TQR_edit);
         JZR_edit = (EditText) this.findViewById(R.id.JZR_edit);
         TQSJ_edit = (EditText) this.findViewById(R.id.TQSJ_edit);
+        CBYJ_edit = (EditText)this.findViewById(R.id.CBYJ_edit);
+        GZJY_edit = (EditText)this.findViewById(R.id.GZJY_edit);
+        XCFXDW_edit = (EditText) this.findViewById(R.id.XCFXDW_edit);
+        XCFXR_edit = (EditText) this.findViewById(R.id.XCFXR_edit);
 
 //分析意见
         ZARS_edit = findViewById(R.id.ZARS_edit);
@@ -647,6 +652,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
 
                 switch (posId) {
                     case R.id.movie_btn:
+
                         setBackgroundColorById(R.id.tv_btn);
                         operateNextTv.setText("下一步");
                         break;
@@ -691,9 +697,46 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
                         break;
 
                     case R.id.variety_btn:
+                        //分析意见
+                        if (A_ID_edit.getText().toString().trim().equals("")) {
+                            Toast.makeText(ia, "案件编号不能为空", Toast.LENGTH_SHORT).show();
+                        } else if (ZARS_edit.getText().toString().trim().equals("")) {
+                            Toast.makeText(ia, "作案人数不能为空", Toast.LENGTH_SHORT).show();
+                        } else if (ZADD_edit.getText().toString().trim().equals("")) {
+                            Toast.makeText(ia, "作案地点不能为空", Toast.LENGTH_SHORT).show();
+                        } else if (ZAGJ_edit.getText().toString().trim().equals("")) {
+                            Toast.makeText(ia, "作案工具不能为空", Toast.LENGTH_SHORT).show();
+                        } else if (ZAGC_edit.getText().toString().trim().equals("")) {
+                            Toast.makeText(ia, "作案过程不能为空", Toast.LENGTH_SHORT).show();
+                        } else if (XCFXYJCL == null) {
+                            Toast.makeText(ia, "现场分析依据材料不能为空", Toast.LENGTH_SHORT).show();
+                        } else if (AJXZ == null) {
+                            Toast.makeText(ia, "案件性质不能为空", Toast.LENGTH_SHORT).show();
+                        } else if (XZDX == null) {
+                            Toast.makeText(ia, "选择对象不能为空", Toast.LENGTH_SHORT).show();
+                        }else if (XZCS == null) {
+                            Toast.makeText(ia, "选择处所不能为空", Toast.LENGTH_SHORT).show();
+                        }else if (ZASJ == null) {
+                            Toast.makeText(ia, "作案时机不能为空", Toast.LENGTH_SHORT).show();
+                        }else if (ZARK == null) {
+                            Toast.makeText(ia, "作案入口不能为空", Toast.LENGTH_SHORT).show();
+                        }else if (ZASD == null) {
+                            Toast.makeText(ia, "作案手段不能为空", Toast.LENGTH_SHORT).show();
+                        }else if (QRFS == null) {
+                            Toast.makeText(ia, "入侵方式不能为空", Toast.LENGTH_SHORT).show();
+                        }else if (ZATD == null) {
+                            Toast.makeText(ia, "作案特点不能为空", Toast.LENGTH_SHORT).show();
+                        }else if (ZADJMD == null) {
+                            Toast.makeText(ia, "作案动机目的不能为空", Toast.LENGTH_SHORT).show();
+                        } else {
+                            uploadHJWZ();
+                            startProgressDialog(UPLOAD);
+                            new Thread(uploadRun).start();
+
+                            operateNextTv.setText("提交");
+                            finish();
+                        }
 //                        Toast.makeText(this, "保存", Toast.LENGTH_SHORT).show();
-                        operateNextTv.setText("提交");
-                        finish();
                         break;
 
 
@@ -1361,4 +1404,77 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
     };
 
 
+    //    分析意见数据上传
+    Runnable uploadRunFenxiiJan = new Runnable() {
+        @Override
+        public void run() {
+            String url_passenger = "http://61.176.222.166:8765/interface/xskc/ADD_ZF_XSKC04.asp";
+            HttpPost httpRequest = new HttpPost(url_passenger);
+            List<NameValuePair> params = new ArrayList<NameValuePair>();
+            params.add(new BasicNameValuePair("A_ID", "1233"));
+            params.add(new BasicNameValuePair("XCFXYJCL", XCFXYJCL));
+            params.add(new BasicNameValuePair("AJXZ", AJXZ));
+            params.add(new BasicNameValuePair("XZDX", XZDX));
+            params.add(new BasicNameValuePair("XZCS", XZCS));
+            params.add(new BasicNameValuePair("ZASJ",ZASJ));
+            params.add(new BasicNameValuePair("ZARK", ZARK));
+            params.add(new BasicNameValuePair("ZASD",ZASD));
+            params.add(new BasicNameValuePair("QRFS", QRFS));
+            params.add(new BasicNameValuePair("ZATD", ZATD));
+            params.add(new BasicNameValuePair("ZADJMD", ZADJMD));
+            params.add(new BasicNameValuePair("ZARS", ZARS_edit.getText().toString()));
+            params.add(new BasicNameValuePair("ZADD", ZADD_edit.getText().toString()));
+            params.add(new BasicNameValuePair("ZAGJ", ZAGJ_edit.getText().toString()));
+            params.add(new BasicNameValuePair("ZAGC", ZAGC_edit.getText().toString()));
+            params.add(new BasicNameValuePair("ZARTD", ZATD));
+            params.add(new BasicNameValuePair("CBYJYGJ",CBYJ_edit.getText().toString() ));
+            params.add(new BasicNameValuePair("GZJY", GZJY_edit.getText().toString()));
+            params.add(new BasicNameValuePair("XCFXDW", XCFXDW_edit.getText().toString()));
+            params.add(new BasicNameValuePair("XCFXR", XCFXR_edit.getText().toString()));
+            params.add(new BasicNameValuePair("FXSJ", ""));
+            params.add(new BasicNameValuePair("PNUM","警号"));
+
+
+            Log.e("e", "params 是" + params);
+            try {
+                UrlEncodedFormEntity formEntity = new UrlEncodedFormEntity(params, "UTF-8");
+                httpRequest.setEntity(formEntity);
+                //取得HTTP response
+                HttpResponse httpResponse = new DefaultHttpClient().execute(httpRequest);
+                Log.e("code", "code" + httpResponse.getStatusLine().getStatusCode());
+                if (httpResponse.getStatusLine().getStatusCode() == 200) {
+                    String strResult = EntityUtils.toString(httpResponse.getEntity());
+                    Log.e("e", "传回来的值是：" + strResult);
+                    if (strResult == null || strResult.equals("")) {
+                        mHandler.sendEmptyMessage(Values.ERROR_NULLVALUEFROMSERVER);
+                        return;
+                    }
+                    //json 解析
+                    JSONTokener jsonParser = new JSONTokener(strResult);
+                    JSONObject person = (JSONObject) jsonParser.nextValue();
+                    String code = person.getString("error code");
+                    //{ "error code":0, "data":{ "message":"", "result":"盗抢车辆", "car":{ "hphm":"辽A12345", "hpzl":"蓝牌", "csys":"黑色", "fdjh":"888888", "cjhm":"987654321" } } }
+                    if (code.trim().equals("0")) {
+                        //    jsResult=person.getJSONObject("data");
+                        JSONObject jb = person.getJSONObject("data");
+                        errorMessage = jb.getString("message");
+                        mHandler.sendEmptyMessage(Values.SUCCESS_FORRESULR);
+                    } else if (code.trim().equals("10003")) {
+                        JSONObject jb = person.getJSONObject("data");
+                        errorMessage = jb.getString("message");
+                        mHandler.sendEmptyMessage(Values.ERROR_OTHER);
+                    } else if (code.trim().equals("10001")) {
+                        JSONObject jb = person.getJSONObject("data");
+                        errorMessage = jb.getString("message");
+                        mHandler.sendEmptyMessage(Values.ERROR_OTHER);
+                    }
+                } else {
+                    //   mHandler.sendEmptyMessage(Values.ERROR_CONNECT);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                //  mHandler.sendEmptyMessage(Values.ERROR_CONNECT);
+            }
+        }
+    };
 }
