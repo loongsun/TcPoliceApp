@@ -67,6 +67,7 @@ import it.sauronsoftware.ftp4j.FTPClient;
 import it.sauronsoftware.ftp4j.FTPDataTransferListener;
 
 import static com.baidu.navisdk.BNaviModuleManager.getActivity;
+import static com.tc.application.R.id.one_save_time;
 
 /**
  * 作者：陈鹤 on 2017/8/25.
@@ -87,7 +88,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
     EditText oneEndingTime;
     @BindView(R.id.one_end_time)
     EditText oneEndTime;
-    @BindView(R.id.one_save_time)
+    @BindView(one_save_time)
     EditText oneSaveTime;
     @BindView(R.id.TQSJ_edit)
     EditText threeGetTime;
@@ -104,7 +105,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
     private String name = "";
 
     //基本信息
-    private String checkboxstr1,checkboxstr2,checkboxstr3,checkboxstr4;
+    private String checkboxstr1, checkboxstr2, checkboxstr3, checkboxstr4;
     private String AJLB = null, SFMA = null, SFXA = null, BHCS = null, XCTJ = null, TQZK = null, GZTJ = null;
     private RadioGroup anjianleibie_radio_group;
     private RadioButton mAJLBRadio1, mAJLBRadio2, mAJLBRadio3, mAJLBRadio4, mAJLBRadio5, mAJLBRadio6,
@@ -119,18 +120,18 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
     private CheckBox mBHCSChenkbox1, mBHCSChenkbox2, mBHCSChenkbox3, mBHCSChenkbox4;
 
     private RadioGroup xianchangtiaojian_radio;
-    private RadioButton mXCTJRadio1,mXCTJRadio2,mXCTJRadio3;
+    private RadioButton mXCTJRadio1, mXCTJRadio2, mXCTJRadio3;
 
     private RadioGroup tianqiqingkuang_radio;
-    private RadioButton mTQQKRadio1,mTQQKRadio2,mTQQKRadio3,mTQQKRadio4,mTQQKRadio5;
+    private RadioButton mTQQKRadio1, mTQQKRadio2, mTQQKRadio3, mTQQKRadio4, mTQQKRadio5;
 
     private RadioGroup guangzhaotiaojian_radio;
-    private RadioButton mGZTJRadio1,mGZTJRadio2,mGZTJRadio3;
+    private RadioButton mGZTJRadio1, mGZTJRadio2, mGZTJRadio3;
 
 
-    private EditText AFQY_edit, AFDD_edit,anfaquhua_edit,KTDD_edit,KYSY_edit,AFGC_edit,baohuren_name_edit,
-            baohuren_company_edit,XCZH_edit,et_kyKydw,et_kyZpbgdw,xianchangyiliuwu_edit,kanyanqingkuang_edit,
-    baoanren_edit,sunshiwupin_edit,shangwangqingkuang_edit,jianzhenren_edit;
+    private EditText AFQY_edit, AFDD_edit, anfaquhua_edit, KTDD_edit, KYSY_edit, AFGC_edit, baohuren_name_edit,
+            baohuren_company_edit, XCZH_edit, et_kyKydw, et_kyZpbgdw, xianchangyiliuwu_edit, kanyanqingkuang_edit,
+            baoanren_edit, sunshiwupin_edit, shangwangqingkuang_edit, jianzhenren_edit;
 
     //痕迹物证
     private EditText A_ID_edit, MC_edit, JBTZ_edit, SL_edit, TQBW_edit, TQFF_edit, TQR_edit, BZ_edit,
@@ -638,7 +639,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if (isChecked) {
-                    checkboxstr1= "设立警戒带，划定禁行区域";
+                    checkboxstr1 = "设立警戒带，划定禁行区域";
                 } else {
                     checkboxstr1 = "";
                 }
@@ -649,7 +650,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if (isChecked) {
-                    checkboxstr2= "专人看护现场，防止他人进入";
+                    checkboxstr2 = "专人看护现场，防止他人进入";
                 } else {
                     checkboxstr2 = "";
                 }
@@ -660,7 +661,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                 if (isChecked) {
-                    checkboxstr3= "被害人自行保护";
+                    checkboxstr3 = "被害人自行保护";
                 } else {
                     checkboxstr3 = "";
                 }
@@ -745,7 +746,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
         KYSY_edit = findViewById(R.id.KYSY_edit);
         AFGC_edit = findViewById(R.id.AFGC_edit);
         baohuren_name_edit = findViewById(R.id.baohuren_name_edit);
-        baohuren_company_edit= findViewById(R.id.baohuren_company_edit);
+        baohuren_company_edit = findViewById(R.id.baohuren_company_edit);
         XCZH_edit = findViewById(R.id.XCZH_edit);
         et_kyKydw = findViewById(R.id.et_kyKydw);
         et_kyZpbgdw = findViewById(R.id.et_kyZpbgdw);
@@ -874,7 +875,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
     }
 
     @OnClick({R.id.take_photo_tv, R.id.operate_next_tv, R.id.one_start_time, R.id.one_ending_time,
-            R.id.one_end_time, R.id.one_save_time, R.id.TQSJ_edit})
+            R.id.one_end_time, one_save_time, R.id.TQSJ_edit})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.take_photo_tv:
@@ -891,35 +892,80 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
                     case R.id.movie_btn:
 
 //
-//                        if (A_ID_edit.getText().toString().trim().equals("")) {
-//                            Toast.makeText(ia, "案件编号不能为空", Toast.LENGTH_SHORT).show();
-//                        } else if (MC_edit.getText().toString().trim().equals("")) {
-//                            Toast.makeText(ia, "名称不能为空", Toast.LENGTH_SHORT).show();
-//                        } else if (JBTZ_edit.getText().toString().trim().equals("")) {
-//                            Toast.makeText(ia, "基本特征不能为空", Toast.LENGTH_SHORT).show();
-//                        } else if (SL_edit.getText().toString().trim().equals("")) {
-//                            Toast.makeText(ia, "数量不能为空", Toast.LENGTH_SHORT).show();
-//                        } else if (TQBW_edit.getText().toString().trim().equals("")) {
-//                            Toast.makeText(ia, "提取部位不能为空", Toast.LENGTH_SHORT).show();
-//                        } else if (TQFF_edit.getText().toString().trim().equals("")) {
-//                            Toast.makeText(ia, "提取方法不能为空", Toast.LENGTH_SHORT).show();
-//                        } else if (TQR_edit.getText().toString().trim().equals("")) {
-//                            Toast.makeText(ia, "提取人不能为空", Toast.LENGTH_SHORT).show();
-//                        } else if (TQSJ_edit.getText().toString().trim().equals("")) {
-//                            Toast.makeText(ia, "提取时间不能为空", Toast.LENGTH_SHORT).show();
-//
-//                        } else {
-//                            uploadHJWZ();
-//                            startProgressDialog(UPLOAD);
-//                            new Thread(uploadRunJiBenXinXi).start();
-//
-//
-//                            setBackgroundColorById(R.id.tv_btn);
-//                            operateNextTv.setText("下一步");
-//                        }
+                        if (A_ID_edit.getText().toString().trim().equals("")) {
+                            Toast.makeText(ia, "案件编号不能为空", Toast.LENGTH_SHORT).show();
+                        } else if (AJLB == null) {
+                            Toast.makeText(ia, "案件类别不能为空", Toast.LENGTH_SHORT).show();
+                        } else if (anfaquhua_edit.getText().toString().equals("")) {
+                            Toast.makeText(ia, "发案区划不能为空", Toast.LENGTH_SHORT).show();
+                        } else if (SFMA == null) {
+                            Toast.makeText(ia, "是否命案不能为空", Toast.LENGTH_SHORT).show();
+                        } else if (SFXA == null) {
+                            Toast.makeText(ia, "是否刑案不能为空", Toast.LENGTH_SHORT).show();
+                        } else if (oneStartTime.getText().toString().trim().equals("")) {
+                            Toast.makeText(ia, "发案时间不能为空", Toast.LENGTH_SHORT).show();
+                        } else if (oneEndingTime.getText().toString().trim().equals("")) {
+                            Toast.makeText(ia, "法案时间截止不能为空", Toast.LENGTH_SHORT).show();
+                        } else if (AFDD_edit.getText().toString().trim().equals("")) {
+                            Toast.makeText(ia, "法案地点不能为空", Toast.LENGTH_SHORT).show();
 
-                        setBackgroundColorById(R.id.tv_btn);
-                        operateNextTv.setText("下一步");
+                        } else if (oneEndTime.getText().toString().trim().equals("")) {
+                            Toast.makeText(ia, "破案时间不能为空", Toast.LENGTH_SHORT).show();
+
+                        } else if (KTDD_edit.getText().toString().trim().equals("")) {
+                            Toast.makeText(ia, "勘验地点不能为空", Toast.LENGTH_SHORT).show();
+
+                        } else if (baohuren_name_edit.getText().toString().trim().equals("")) {
+                            Toast.makeText(ia, "保护人姓名不能为空", Toast.LENGTH_SHORT).show();
+
+                        }else if (baohuren_company_edit.getText().toString().trim().equals("")) {
+                            Toast.makeText(ia, "保护单位不能为空", Toast.LENGTH_SHORT).show();
+
+                       }else if (BHCS == null) {
+                            Toast.makeText(ia, "保护措施不能为空", Toast.LENGTH_SHORT).show();
+
+                        }else if (TQZK == null) {
+                            Toast.makeText(ia, "天气状况不能为空", Toast.LENGTH_SHORT).show();
+
+                        }else if (oneSaveTime.getText().toString().equals("")) {
+                            Toast.makeText(ia, "保护时间不能为空", Toast.LENGTH_SHORT).show();
+
+                        }else if (XCTJ == null) {
+                            Toast.makeText(ia, "现场条件不能为空", Toast.LENGTH_SHORT).show();
+
+                        }else if (GZTJ == null) {
+                            Toast.makeText(ia, "光照条件不能为空", Toast.LENGTH_SHORT).show();
+
+                        }else if (XCZH_edit.getText().toString().equals("")) {
+                            Toast.makeText(ia, "现场指挥人员不能为空", Toast.LENGTH_SHORT).show();
+
+                        }else if (et_kyKydw.getText().toString().equals("")) {
+                            Toast.makeText(ia, "勘验检查人员不能为空", Toast.LENGTH_SHORT).show();
+
+                        }else if (et_kyZpbgdw.getText().toString().equals("")) {
+                            Toast.makeText(ia, "其他到场人员不能为空", Toast.LENGTH_SHORT).show();
+
+                        }else if (baoanren_edit.getText().toString().equals("")) {
+                            Toast.makeText(ia, "被害人/报案人员不能为空", Toast.LENGTH_SHORT).show();
+
+                        }else if (jianzhenren_edit.getText().toString().equals("")) {
+                            Toast.makeText(ia, "见证人不能为空", Toast.LENGTH_SHORT).show();
+
+                        }
+
+
+                        else {
+                            uploadHJWZ();
+                            startProgressDialog(UPLOAD);
+                            new Thread(uploadRunJiBenXinXi).start();
+
+
+                            setBackgroundColorById(R.id.tv_btn);
+                            operateNextTv.setText("下一步");
+                        }
+
+//                        setBackgroundColorById(R.id.tv_btn);
+//                        operateNextTv.setText("下一步");
 
                         break;
 
@@ -1041,7 +1087,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
                 kyDateChooseDialog5.showDateChooseDialog();
                 break;
 
-            case R.id.one_save_time:
+            case one_save_time:
                 DateWheelDialogN kyDateChooseDialog6 = new DateWheelDialogN(this, new DateWheelDialogN.DateChooseInterface() {
                     @Override
                     public void getDateTime(String time, boolean longTimeChecked) {
@@ -1752,7 +1798,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
             HttpPost httpRequest = new HttpPost(url_passenger);
             List<NameValuePair> params = new ArrayList<NameValuePair>();
             params.add(new BasicNameValuePair("A_ID", anjiannum.getText().toString()));
-            params.add(new BasicNameValuePair("A_SLID",A_ID_edit.getText().toString()));
+            params.add(new BasicNameValuePair("A_SLID", A_ID_edit.getText().toString()));
             params.add(new BasicNameValuePair("AJLB", AJLB));
             params.add(new BasicNameValuePair("FAQH", anfaquhua_edit.getText().toString()));
             params.add(new BasicNameValuePair("SFMA", SFMA));
@@ -1768,12 +1814,12 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
             params.add(new BasicNameValuePair("CJSJ", ""));//出警时间
             params.add(new BasicNameValuePair("KSKYSJ", ""));//勘验时间开始
             params.add(new BasicNameValuePair("JSKYSJ", ""));//勘验时间结束
-            params.add(new BasicNameValuePair("KYDD",KTDD_edit.getText().toString()));
+            params.add(new BasicNameValuePair("KYDD", KTDD_edit.getText().toString()));
             params.add(new BasicNameValuePair("KYSY", KYSY_edit.getText().toString()));
             params.add(new BasicNameValuePair("AJFXGC", AFGC_edit.getText().toString()));
             params.add(new BasicNameValuePair("BHRXM", baohuren_name_edit.getText().toString()));
             params.add(new BasicNameValuePair("BHRDW", baohuren_company_edit.getText().toString()));
-            params.add(new BasicNameValuePair("BHCS", checkboxstr1+checkboxstr2+checkboxstr3));
+            params.add(new BasicNameValuePair("BHCS", checkboxstr1 + checkboxstr2 + checkboxstr3));
 
             params.add(new BasicNameValuePair("BHSJ", oneSaveTime.getText().toString()));
             params.add(new BasicNameValuePair("XCWPFDCD", ""));//现场物品翻动程度
