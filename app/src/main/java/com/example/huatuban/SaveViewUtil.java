@@ -15,7 +15,7 @@ public class SaveViewUtil {
 	private static final File rootDir = new File(Environment.getExternalStorageDirectory()+File.separator+"huaban/");
 
 	/**保存截图的方法*/
-	public static boolean saveScreen(View view){
+	public static boolean saveScreen(View view,String ajNum){
 		//判断sdcard是否可用
 		if(!Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())){
 			return false;
@@ -30,7 +30,7 @@ public class SaveViewUtil {
 		view.buildDrawingCache();
 		Bitmap bitmap = view.getDrawingCache();
 		try {
-			bitmap.compress(CompressFormat.JPEG, 100, new FileOutputStream(new File(rootDir,System.currentTimeMillis()+".jpg")));
+			bitmap.compress(CompressFormat.JPEG, 100, new FileOutputStream(new File(rootDir,ajNum+".jpg")));
 			return true;
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

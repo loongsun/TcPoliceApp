@@ -97,9 +97,7 @@ public class KcqzMainList extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initWidgets();
-
         initData();
-
         stateHandler = new Handler() {
 
             public void handleMessage(android.os.Message msg) {

@@ -5,6 +5,7 @@
     android:background="@color/White"
     android:orientation="vertical">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -42,21 +43,30 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <com.example.huatuban.HuaBanView
             android:id="@+id/huaBanView1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#ffffffff" />
+            android:background="#0f000000" />
+
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/btn_save"
             android:layout_width="100dp"
-            android:layout_height="60dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="100dp"
+            android:layout_height="35dp"
+
             android:background="@drawable/btn_blue"
             android:text="上传"
             android:textSize="20sp" />
@@ -64,13 +74,11 @@
         <Button
             android:id="@+id/btn_re"
             android:layout_width="100dp"
-            android:layout_height="60dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="60dp"
+            android:layout_height="35dp"
+
+            android:layout_marginLeft="50dp"
             android:background="@drawable/btn_blue"
             android:text="重画"
             android:textSize="20sp" />
-
-    </RelativeLayout>
+    </LinearLayout>
 </LinearLayout>
