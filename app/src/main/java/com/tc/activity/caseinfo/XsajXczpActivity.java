@@ -14,7 +14,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.sdses.bean.PoliceStateListBean;
 import com.sdses.tool.UtilTc;
 import com.sdses.tool.Values;
 import com.tc.activity.SenceCheck;
@@ -299,6 +298,7 @@ public class XsajXczpActivity extends Activity {
             try {
                 UrlEncodedFormEntity formEntity = new UrlEncodedFormEntity(
                         params, "UTF-8");
+
                 httpRequest.setEntity(formEntity);
                 // È¡µÃHTTP response
                 HttpResponse httpResponse = new DefaultHttpClient().execute(httpRequest);
