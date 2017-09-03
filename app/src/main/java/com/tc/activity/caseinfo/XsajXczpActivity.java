@@ -50,6 +50,7 @@ public class XsajXczpActivity extends Activity {
     private String ajNum;
     private int upflag=1;
 
+
     private void initWidgets()
     {
         iv_1=(ImageView)findViewById(R.id.iv_1);
