@@ -49,6 +49,7 @@ public class XsajXczpActivity extends Activity {
     private static String picPath2=Environment.getExternalStorageDirectory() + "/" + "TC/xczp2" + ".jpg";
     private String ajNum;
     private int upflag=1;
+
     private void initWidgets()
     {
         iv_1=(ImageView)findViewById(R.id.iv_1);

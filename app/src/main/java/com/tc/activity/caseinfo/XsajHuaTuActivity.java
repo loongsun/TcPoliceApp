@@ -50,6 +50,7 @@ import it.sauronsoftware.ftp4j.FTPDataTransferListener;
 
 public class XsajHuaTuActivity extends Activity {
 
+
     /**画画的内容区*/
     private HuaBanView hbView;
     /**设置粗细的Dialog*/

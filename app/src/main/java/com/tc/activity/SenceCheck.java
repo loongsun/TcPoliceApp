@@ -85,6 +85,8 @@ public class SenceCheck extends Activity {
             }
         };
         super.onCreate(savedInstanceState);
+
+
     }
 
     private void initData(){
