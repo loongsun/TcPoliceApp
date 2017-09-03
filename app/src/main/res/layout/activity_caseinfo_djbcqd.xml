@@ -41,10 +41,17 @@
             android:visibility="invisible"></ImageView>
     </LinearLayout>
 
-    <ScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="50dp"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -65,10 +72,10 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="案件编号"
-                    android:textColor="@color/Red"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_djbcName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -78,17 +85,12 @@
                     android:cursorVisible="true"
                     android:editable="false"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/line" />
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -103,10 +105,10 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="公安机关名称"
-                    android:textColor="@color/Red"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_djbcmc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -115,17 +117,12 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/line" />
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -140,10 +137,10 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="案由"
-                    android:textColor="@color/Red"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_djbcAy"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -152,17 +149,11 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Black"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/line" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -177,10 +168,10 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="办案单位"
-                    android:textColor="@color/Red"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_djbcDw"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -194,12 +185,7 @@
                     android:textSize="18sp" />
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/line" />
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -214,10 +200,10 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="持有人"
-                    android:textColor="@color/Red"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_djbcCyr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -231,12 +217,6 @@
                     android:textSize="18sp" />
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/line" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -251,7 +231,7 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="性别"
-                    android:textColor="@color/Red"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
                 <RadioGroup
@@ -267,7 +247,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
                         android:text="男"
-                        android:textColor="@color/Black" />
+                        android:textColor="@color/colorPrimary" />
 
                     <RadioButton
                         android:id="@+id/rb_handWomen"
@@ -275,15 +255,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:text="女"
-                        android:textColor="@color/Black" />
+                        android:textColor="@color/colorPrimary" />
                 </RadioGroup>
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:background="@color/line" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -298,10 +273,10 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="出生日期"
-                    android:textColor="@color/Red"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_djbcCsrq"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -311,17 +286,12 @@
                     android:cursorVisible="true"
                     android:editable="false"
                     android:hint=""
-                    android:textColor="@color/Red"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/line" />
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -336,10 +306,10 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="现住址"
-                    android:textColor="@color/Red"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_djbcXzz"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -348,17 +318,12 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Red"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/line" />
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -373,10 +338,10 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="工作单位"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_djbcGzdw"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -385,17 +350,12 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Red"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/line" />
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -410,10 +370,10 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="联系电话"
-                    android:textColor="@color/Black"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_djbcLxDh"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -422,54 +382,10 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Red"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
             </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/line" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:background="@color/White"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:text="备注"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />
-
-                <EditText
-                    android:id="@+id/et_djbcBz"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@null"
-                    android:cursorVisible="true"
-                    android:hint=""
-                    android:textColor="@color/Red"
-                    android:textCursorDrawable="@null"
-                    android:textSize="18sp" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/line" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -484,10 +400,10 @@
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:text="证据持有人"
-                    android:textColor="@color/Red"
+                    android:textColor="@color/text_11"
                     android:textSize="18sp" />
 
-                <EditText
+                <com.tc.view.LineEditText
                     android:id="@+id/et_djbcZjcyr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -496,30 +412,151 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
-                    android:textColor="@color/Red"
+                    android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />
             </LinearLayout>
-
-            <View
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/line" />
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/btn_xczf"
-                android:text="上传"
-                android:textColor="@color/White"
-                android:textSize="18sp" />
+                android:background="@color/White"
+                android:orientation="horizontal">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="见证人"
+                    android:textColor="@color/text_11"
+                    android:textSize="18sp" />
+
+                <com.tc.view.LineEditText
+                    android:id="@+id/et_jianzhengren"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/colorPrimary"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@color/White"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="办案人"
+                    android:textColor="@color/text_11"
+                    android:textSize="18sp" />
+
+                <com.tc.view.LineEditText
+                    android:id="@+id/et_bananren"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:hint=""
+                    android:textColor="@color/colorPrimary"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@color/White"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:text="日期"
+                    android:textColor="@color/text_11"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/et_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@null"
+                    android:cursorVisible="true"
+                    android:editable="false"
+                    android:hint=""
+                    android:textColor="@color/colorPrimary"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+            </LinearLayout>
+            <ListView
+                android:id="@+id/lv_xqqzList"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginBottom="5dp"
+                android:divider="@color/white"
+                android:dividerHeight="10dip"
+                android:drawSelectorOnTop="false"
+                android:listSelector="@drawable/lv_selector" />
 
         </LinearLayout>
     </ScrollView>
-</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="15dp"
+        >
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_xczf"
+            android:onClick="BtneditBL"
+            android:text="预览编辑"
+            android:textColor="@color/White"
+            android:textSize="18sp" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_xczf"
+            android:onClick="BtnUploadBL"
+            android:text="上传"
+            android:textColor="@color/White"
+            android:textSize="18sp" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_xczf"
+            android:onClick="BtnPrintBL"
+            android:text="打印"
+            android:textColor="@color/White"
+            android:textSize="18sp" />
+    </LinearLayout>
+</RelativeLayout>
+    </LinearLayout>

@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +18,7 @@ import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -64,7 +67,7 @@ public class TqhjActivity extends Activity {
     ListView lv_xqqzList ;
     CommonAdapter.ViewHolder holder = null;
     private CommonAdapter mCommonAdapter = new CommonAdapter();
-//    List<String> stateList = new ArrayList<>();
+
     String name = "";
     private TextView et_hjtqsj;
     private LineEditText et_hjjzr,et_hjAjbh;
@@ -138,13 +141,53 @@ public class TqhjActivity extends Activity {
         });
 
 
-        for(int i =0;i<10;i++){
+        for(int i =0;i<14;i++){
             HjqzBean bean = new HjqzBean();
             hjqzBeanList.add(bean);
         }
         lv_xqqzList.setAdapter(mCommonAdapter);
+        setListViewHeightBasedOnChildren2(lv_xqqzList,true);
         mCommonAdapter.notifyDataSetChanged();
 
+    }
+
+
+    public void setListViewHeightBasedOnChildren2(ListView listView, boolean kill)
+    {
+        ListAdapter listAdapter = listView.getAdapter();
+
+        if (listAdapter == null) {
+            return;
+        }
+
+        int totalHeight = 0;
+
+        int list_count = 0;
+        if((listAdapter.getCount())>0)
+        {
+            list_count = (listAdapter.getCount())+1;
+        }
+        else
+        {
+            list_count = (listAdapter.getCount());
+        }
+
+        View listItem = listAdapter.getView(0, null, listView);
+        listItem.measure(0, 0);
+        totalHeight += listItem.getMeasuredHeight();
+
+        ViewGroup.LayoutParams params = listView.getLayoutParams();
+        if(kill == true)
+        {
+            params.height = (totalHeight+1)*list_count;
+        }
+        else
+        {
+            params.height = (totalHeight)*list_count;
+        }
+
+
+        listView.setLayoutParams(params);
     }
     class OnBtnClick implements View.OnClickListener{
         @Override
@@ -207,7 +250,6 @@ public class TqhjActivity extends Activity {
                 holder.et_hjtqr=(LineEditText)mView.findViewById(R.id.et_hjtqr);
                 holder.et_hjbz=(LineEditText)mView.findViewById(R.id.et_hjbz);
 
-
                 mView.setTag(holder);
             } else {
                 holder = (CommonAdapter.ViewHolder) mView.getTag();
@@ -220,6 +262,124 @@ public class TqhjActivity extends Activity {
             holder.et_hjtqff.setText(hjqzBeanList.get(position).getTqff());
             holder.et_hjtqr.setText(hjqzBeanList.get(position).getTqr());
             holder.et_hjbz.setText(hjqzBeanList.get(position).getBz());
+
+            holder.et_hjtqr.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+                    hjqzBeanList.get(position).setTqr(editable.toString());
+                }
+            });
+            holder.et_hjbz.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+                    hjqzBeanList.get(position).setBz(editable.toString());
+                }
+            });
+            holder.et_hjmc.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+                    LogUtils.e(position+"ÄÚÈÝ"+editable.toString());
+                    hjqzBeanList.get(position).setName(editable.toString());
+                }
+            });
+
+            holder.et_hjjbtz.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+                    hjqzBeanList.get(position).setJbtz(editable.toString());
+                }
+            });
+
+            holder.et_hjsl.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+                    hjqzBeanList.get(position).setSl(editable.toString());
+                }
+            });
+
+            holder.et_hjtqbw.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+                    hjqzBeanList.get(position).setTqbw(editable.toString());
+                }
+            });
+
+            holder.et_hjtqff.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable editable) {
+                    hjqzBeanList.get(position).setTqff(editable.toString());
+                }
+            });
 
             return mView;
         }
@@ -557,9 +717,8 @@ public class TqhjActivity extends Activity {
         map.put("$jzr$", et_hjjzr.getText().toString());
         map.put("$tqrAll$", "");
 
-
+        int i = 1;
         for(HjqzBean item :hjqzBeanList){
-            int i = 1;
             map.put("$xh"+i+"$", i+".");
             map.put("$name"+i+"$", item.getName());
             map.put("$jbtz"+i+"$", item.getJbtz());

@@ -57,10 +57,10 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
                 android:text="案件编号"
-                android:textColor="@color/Red"
+                android:textColor="@color/text_11"
                 android:textSize="18sp" />
 
-            <EditText
+            <com.tc.view.LineEditText
                 android:id="@+id/et_qyName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -70,17 +70,11 @@
                 android:cursorVisible="true"
                 android:editable="false"
                 android:hint=""
-                android:textColor="@color/Black"
+                android:textColor="@color/colorPrimary"
                 android:textCursorDrawable="@null"
                 android:textSize="18sp" />
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/line" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -95,10 +89,10 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
                 android:text="勘查号"
-                android:textColor="@color/Red"
+                android:textColor="@color/text_11"
                 android:textSize="18sp" />
 
-            <EditText
+            <com.tc.view.LineEditText
                 android:id="@+id/et_jszqMc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -107,17 +101,11 @@
                 android:background="@null"
                 android:cursorVisible="true"
                 android:hint=""
-                android:textColor="@color/Black"
+                android:textColor="@color/colorPrimary"
                 android:textCursorDrawable="@null"
                 android:textSize="18sp" />
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/line" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -132,10 +120,10 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
                 android:text="现场分析依据材料"
-                android:textColor="@color/Red"
+                android:textColor="@color/text_11"
                 android:textSize="18sp" />
 
-            <EditText
+            <com.tc.view.LineEditText
                 android:id="@+id/et_jszqSl"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -144,17 +132,11 @@
                 android:background="@null"
                 android:cursorVisible="true"
                 android:hint=""
-                android:textColor="@color/Black"
+                android:textColor="@color/colorPrimary"
                 android:textCursorDrawable="@null"
                 android:textSize="18sp" />
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/line" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -169,10 +151,10 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
                 android:text="侵害目标及损失"
-                android:textColor="@color/Red"
+                android:textColor="@color/text_11"
                 android:textSize="18sp" />
 
-            <EditText
+            <com.tc.view.LineEditText
                 android:id="@+id/et_jszqTz"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -181,17 +163,12 @@
                 android:background="@null"
                 android:cursorVisible="true"
                 android:hint=""
-                android:textColor="@color/Black"
+                android:textColor="@color/colorPrimary"
                 android:textCursorDrawable="@null"
                 android:textSize="18sp" />
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/line" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -207,10 +184,10 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
                 android:text="作案地点"
-                android:textColor="@color/Red"
+                android:textColor="@color/text_11"
                 android:textSize="18sp" />
 
-            <EditText
+            <com.tc.view.LineEditText
                 android:id="@+id/et_jszqBz"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -219,17 +196,69 @@
                 android:background="@null"
                 android:cursorVisible="true"
                 android:hint=""
-                android:textColor="@color/Black"
+                android:textColor="@color/colorPrimary"
                 android:textCursorDrawable="@null"
                 android:textSize="18sp" />
         </LinearLayout>
 
-        <View
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/line" />
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@color/White"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:text="作案进出口"
+                android:textColor="@color/text_11"
+                android:textSize="18sp" />
+
+            <com.tc.view.LineEditText
+                android:id="@+id/et_jinchukou"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@null"
+                android:cursorVisible="true"
+                android:hint=""
+                android:textColor="@color/colorPrimary"
+                android:textCursorDrawable="@null"
+                android:textSize="18sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@color/White"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:text="作案手段"
+                android:textColor="@color/text_11"
+                android:textSize="18sp" />
+
+            <com.tc.view.LineEditText
+                android:id="@+id/et_shouduan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@null"
+                android:cursorVisible="true"
+                android:hint=""
+                android:textColor="@color/colorPrimary"
+                android:textCursorDrawable="@null"
+                android:textSize="18sp" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -244,10 +273,10 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
                 android:text="作案时段"
-                android:textColor="@color/Red"
+                android:textColor="@color/text_11"
                 android:textSize="18sp" />
 
-            <EditText
+            <com.tc.view.LineEditText
                 android:id="@+id/et_jszqTjr"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -256,17 +285,11 @@
                 android:background="@null"
                 android:cursorVisible="true"
                 android:hint=""
-                android:textColor="@color/Red"
+                android:textColor="@color/colorPrimary"
                 android:textCursorDrawable="@null"
                 android:textSize="18sp" />
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/line" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -281,10 +304,10 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
                 android:text="侵入方式"
-                android:textColor="@color/Red"
+                android:textColor="@color/text_11"
                 android:textSize="18sp" />
 
-            <EditText
+            <com.tc.view.LineEditText
 
                 android:id="@+id/et_jszqTjsj"
                 android:layout_width="match_parent"
@@ -294,17 +317,12 @@
                 android:background="@null"
                 android:cursorVisible="true"
                 android:hint=""
-                android:textColor="@color/Red"
+                android:textColor="@color/colorPrimary"
                 android:textCursorDrawable="@null"
                 android:textSize="18sp" />
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/line" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -319,10 +337,10 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
                 android:text="作案工具"
-                android:textColor="@color/Red"
+                android:textColor="@color/text_11"
                 android:textSize="18sp" />
 
-            <EditText
+            <com.tc.view.LineEditText
                 android:id="@+id/et_jszqbgr"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -331,17 +349,12 @@
                 android:background="@null"
                 android:cursorVisible="true"
                 android:hint=""
-                android:textColor="@color/Red"
+                android:textColor="@color/colorPrimary"
                 android:textCursorDrawable="@null"
                 android:textSize="18sp" />
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/line" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -356,10 +369,10 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
                 android:text="作案动机目的"
-                android:textColor="@color/Red"
+                android:textColor="@color/text_11"
                 android:textSize="18sp" />
 
-            <EditText
+            <com.tc.view.LineEditText
                 android:id="@+id/et_jszqbgsj"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -368,17 +381,12 @@
                 android:background="@null"
                 android:cursorVisible="true"
                 android:hint=""
-                android:textColor="@color/Red"
+                android:textColor="@color/colorPrimary"
                 android:textCursorDrawable="@null"
                 android:textSize="18sp" />
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/line" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -393,10 +401,10 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
                 android:text="案件性质"
-                android:textColor="@color/Red"
+                android:textColor="@color/text_11"
                 android:textSize="18sp" />
 
-            <EditText
+            <com.tc.view.LineEditText
                 android:id="@+id/et_jszqbadw"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -405,17 +413,11 @@
                 android:background="@null"
                 android:cursorVisible="true"
                 android:hint=""
-                android:textColor="@color/Red"
+                android:textColor="@color/colorPrimary"
                 android:textCursorDrawable="@null"
                 android:textSize="18sp" />
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/line" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -430,11 +432,11 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
                 android:text="作案人数"
-                android:textColor="@color/Black"
+                android:textColor="@color/text_11"
                 android:textSize="18sp" />
 
-            <EditText
-                android:id="@+id/et_jszqbar"
+            <com.tc.view.LineEditText
+                android:id="@+id/et_zars"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -442,17 +444,12 @@
                 android:background="@null"
                 android:cursorVisible="true"
                 android:hint=""
-                android:textColor="@color/Red"
+                android:textColor="@color/colorPrimary"
                 android:textCursorDrawable="@null"
                 android:textSize="18sp" />
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/line" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -467,10 +464,11 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
                 android:text="作案过程"
-                android:textColor="@color/Black"
+                android:textColor="@color/text_11"
                 android:textSize="18sp" />
 
-            <EditText
+            <com.tc.view.LineEditText
+                android:id="@+id/ZAGC_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -478,17 +476,12 @@
                 android:background="@null"
                 android:cursorVisible="true"
                 android:hint=""
-                android:textColor="@color/Black"
+                android:textColor="@color/colorPrimary"
                 android:textCursorDrawable="@null"
                 android:textSize="18sp" />
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/line" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -503,10 +496,10 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
                 android:text="作案人特点"
-                android:textColor="@color/Black"
+                android:textColor="@color/text_11"
                 android:textSize="18sp" />
 
-            <EditText
+            <com.tc.view.LineEditText
                 android:id="@+id/et_jszqbasj"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -515,17 +508,12 @@
                 android:background="@null"
                 android:cursorVisible="true"
                 android:hint=""
-                android:textColor="@color/Black"
+                android:textColor="@color/colorPrimary"
                 android:textCursorDrawable="@null"
                 android:textSize="18sp" />
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/line" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -540,10 +528,11 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
                 android:text="串并意见与依据"
-                android:textColor="@color/Black"
+                android:textColor="@color/text_11"
                 android:textSize="18sp" />
 
-            <EditText
+            <com.tc.view.LineEditText
+                android:id="@+id/CBYJ_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -551,17 +540,11 @@
                 android:background="@null"
                 android:cursorVisible="true"
                 android:hint=""
-                android:textColor="@color/Black"
+                android:textColor="@color/colorPrimary"
                 android:textCursorDrawable="@null"
                 android:textSize="18sp" />
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/line" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -576,10 +559,11 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
                 android:text="工作建议"
-                android:textColor="@color/Black"
+                android:textColor="@color/text_11"
                 android:textSize="18sp" />
 
-            <EditText
+            <com.tc.view.LineEditText
+                android:id="@+id/GZJY_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -587,17 +571,10 @@
                 android:background="@null"
                 android:cursorVisible="true"
                 android:hint=""
-                android:textColor="@color/Black"
+                android:textColor="@color/colorPrimary"
                 android:textCursorDrawable="@null"
                 android:textSize="18sp" />
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/line" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -612,10 +589,11 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
                 android:text="现场分析人"
-                android:textColor="@color/Red"
+                android:textColor="@color/text_11"
                 android:textSize="18sp" />
 
-            <EditText
+            <com.tc.view.LineEditText
+                android:id="@+id/XCFXR_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -623,17 +601,10 @@
                 android:background="@null"
                 android:cursorVisible="true"
                 android:hint=""
-                android:textColor="@color/Black"
+                android:textColor="@color/colorPrimary"
                 android:textCursorDrawable="@null"
                 android:textSize="18sp" />
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/line" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -648,10 +619,10 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
                 android:text="报告时间"
-                android:textColor="@color/Red"
+                android:textColor="@color/text_11"
                 android:textSize="18sp" />
 
-            <EditText
+            <com.tc.view.LineEditText
                 android:id="@+id/et_bgtime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -661,27 +632,51 @@
                 android:cursorVisible="true"
                 android:editable="false"
                 android:hint=""
-                android:textColor="@color/Black"
+                android:textColor="@color/colorPrimary"
                 android:textCursorDrawable="@null"
                 android:textSize="18sp" />
         </LinearLayout>
 
-        <View
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/line" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/btn_xczf"
-            android:text="上传"
-            android:textColor="@color/White"
-            android:textSize="18sp" />
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="15dp"
+            >
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/btn_xczf"
+                android:onClick="BtneditBL"
+                android:text="预览编辑"
+                android:textColor="@color/White"
+                android:textSize="18sp" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/btn_xczf"
+                android:onClick="BtnUploadBL"
+                android:text="上传"
+                android:textColor="@color/White"
+                android:textSize="18sp" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/btn_xczf"
+                android:onClick="BtnPrintBL"
+                android:text="打印"
+                android:textColor="@color/White"
+                android:textSize="18sp" />
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>
