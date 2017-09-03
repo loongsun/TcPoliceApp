@@ -909,11 +909,12 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
                             Toast.makeText(ia, "法案时间截止不能为空", Toast.LENGTH_SHORT).show();
                         } else if (AFDD_edit.getText().toString().trim().equals("")) {
                             Toast.makeText(ia, "法案地点不能为空", Toast.LENGTH_SHORT).show();
+                        }
+//                        else if (oneEndTime.getText().toString().trim().equals("")) {
+//                            Toast.makeText(ia, "破案时间不能为空", Toast.LENGTH_SHORT).show();
+//                        }
 
-                        } else if (oneEndTime.getText().toString().trim().equals("")) {
-                            Toast.makeText(ia, "破案时间不能为空", Toast.LENGTH_SHORT).show();
-
-                        } else if (KTDD_edit.getText().toString().trim().equals("")) {
+                        else if (KTDD_edit.getText().toString().trim().equals("")) {
                             Toast.makeText(ia, "勘验地点不能为空", Toast.LENGTH_SHORT).show();
 
                         } else if (baohuren_name_edit.getText().toString().trim().equals("")) {
@@ -951,7 +952,6 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
 
                         }else if (jianzhenren_edit.getText().toString().equals("")) {
                             Toast.makeText(ia, "见证人不能为空", Toast.LENGTH_SHORT).show();
-
                         }
 
 
@@ -1017,9 +1017,11 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
                             Toast.makeText(ia, "作案人数不能为空", Toast.LENGTH_SHORT).show();
                         } else if (ZADD_edit.getText().toString().trim().equals("")) {
                             Toast.makeText(ia, "作案地点不能为空", Toast.LENGTH_SHORT).show();
-                        } else if (ZAGJ_edit.getText().toString().trim().equals("")) {
-                            Toast.makeText(ia, "作案工具不能为空", Toast.LENGTH_SHORT).show();
-                        } else if (ZAGC_edit.getText().toString().trim().equals("")) {
+                        }
+//                        else if (ZAGJ_edit.getText().toString().trim().equals("")) {
+//                            Toast.makeText(ia, "作案工具不能为空", Toast.LENGTH_SHORT).show();
+//                        }
+                        else if (ZAGC_edit.getText().toString().trim().equals("")) {
                             Toast.makeText(ia, "作案过程不能为空", Toast.LENGTH_SHORT).show();
                         } else if (XCFXYJCL == null) {
                             Toast.makeText(ia, "现场分析依据材料不能为空", Toast.LENGTH_SHORT).show();

@@ -3,6 +3,8 @@
     android:id="@+id/fragment_two"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
     android:background="@color/white"
     android:orientation="vertical" >
 
