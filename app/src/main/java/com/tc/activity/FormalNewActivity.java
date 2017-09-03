@@ -724,8 +724,8 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
 
         guangzhaotiaojian_radio = findViewById(R.id.guangzhaotiaojian_radio);
         mGZTJRadio1 = findViewById(R.id.guangzhaotiaojian_radio_button1);
-        mGZTJRadio1 = findViewById(R.id.guangzhaotiaojian_radio_button1);
-        mGZTJRadio1 = findViewById(R.id.guangzhaotiaojian_radio_button1);
+        mGZTJRadio2 = findViewById(R.id.guangzhaotiaojian_radio_button2);
+        mGZTJRadio3 = findViewById(R.id.guangzhaotiaojian_radio_button3);
 
         guangzhaotiaojian_radio.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -891,7 +891,8 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
                 switch (posId) {
                     case R.id.movie_btn:
 
-//
+                        BHCS = checkboxstr1 + checkboxstr2 + checkboxstr3 ;
+
                         if (A_ID_edit.getText().toString().trim().equals("")) {
                             Toast.makeText(ia, "案件编号不能为空", Toast.LENGTH_SHORT).show();
                         } else if (AJLB == null) {
