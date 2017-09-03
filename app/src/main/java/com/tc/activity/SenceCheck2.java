@@ -15,7 +15,9 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.tc.activity.caseinfo.BrBlActivity;
 import com.tc.activity.caseinfo.JcBlActivity;
+import com.tc.activity.caseinfo.KyBlActivity;
 import com.tc.activity.caseinfo.TqhjActivity;
 import com.tc.activity.caseinfo.XcBlActivity;
 import com.tc.activity.caseinfo.XsajFxbgActivity;
@@ -62,7 +64,7 @@ public class SenceCheck2 extends Activity {
         initWidgets();
         initData();
 
-        waitingHandler = new Handler(){//主界面信息处理
+        waitingHandler = new Handler(){//?????????????
             @Override
             public void handleMessage(Message msg){
                 switch(msg.what)
@@ -116,13 +118,13 @@ public class SenceCheck2 extends Activity {
             return position;
         }
         public void updateView(int itemIndex) {
-            //得到第一个可显示控件的位置，
+            //??????????????????λ???
             int visiblePosition = lv_xqqzList.getFirstVisiblePosition();
-            //只有当要更新的view在可见的位置时才更新，不可见时，跳过不更新
+            //??е???????view??????λ???????????????????????????
             if (itemIndex - visiblePosition >= 0) {
-                //得到要更新的item的view
+                //?????????item??view
                 View view = lv_xqqzList.getChildAt(itemIndex - visiblePosition);
-                //从view中取得holder
+                //??view?????holder
                 ViewHolder holder = (ViewHolder) view.getTag();
 
                 holder.iv = (ImageView) view.findViewById(R.id.iv);
@@ -174,13 +176,18 @@ public class SenceCheck2 extends Activity {
             startActivity(new Intent(SenceCheck2.this,JcBlActivity.class)
                     .putExtra("name",name));
         }else if(position==2){
-            startActivity(new Intent(SenceCheck2.this,TqhjActivity.class)
-                    .putExtra("name",name));
+            Intent intent = new Intent(SenceCheck2.this, KyBlActivity.class);
+            intent.putExtra("name",name);
+            startActivity(intent);
+//            startActivity(new Intent(SenceCheck2.this,TqhjActivity.class)
+//                    .putExtra("name",name));
         }else if(position==3){
-            //鐜板湪鍕樻煡鍥?
-            startActivity(new Intent(SenceCheck2.this, XsajHuaTuActivity.class));
+            Intent intent = new Intent(SenceCheck2.this, BrBlActivity.class);
+            intent.putExtra("name",name);
+            startActivity(intent);
+//            startActivity(new Intent(SenceCheck2.this, XsajHuaTuActivity.class));
         }else if(position==4){
-            //鐜板満鐓х墖
+            //现场照片
             startActivity(new Intent(SenceCheck2.this, XsajXczpActivity.class));
         }else if(position==5){
 
