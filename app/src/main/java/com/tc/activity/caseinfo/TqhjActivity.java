@@ -53,6 +53,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -65,6 +66,7 @@ import it.sauronsoftware.ftp4j.FTPDataTransferListener;
 
 public class TqhjActivity extends Activity {
     ListView lv_xqqzList ;
+    ImageView btn_kcqzListReturn;
     CommonAdapter.ViewHolder holder = null;
     private CommonAdapter mCommonAdapter = new CommonAdapter();
 
@@ -107,6 +109,8 @@ public class TqhjActivity extends Activity {
 
     private void initWidgets(){
 
+        btn_kcqzListReturn= (ImageView)findViewById(R.id.btn_kcqzListReturn);
+        btn_kcqzListReturn.setOnClickListener(new OnBtnClick());
         lv_xqqzList = (ListView)findViewById(R.id.lv_xqqzList);
 
         et_hjAjbh=(LineEditText)findViewById(R.id.et_hjAjbh);
@@ -459,9 +463,9 @@ public class TqhjActivity extends Activity {
                     //判断上传到哪个文件夹
                     if(bltxt.get(i).endsWith(".doc")){
                         myFtp.changeDirectory("../");
-                        myFtp.changeDirectory("xcbl-hjqz");
+                        myFtp.changeDirectory("xcbl-xs-hjqz");
                         currentPath=Values.PATH_hjqz;
-                        currentFilePaht="/xcbl-hjqz";
+                        currentFilePaht="/xcbl-xs-hjqz";
                     }
 
                     File file = new File(currentPath+bltxt.get(i));
@@ -560,12 +564,13 @@ public class TqhjActivity extends Activity {
             switch (msg.what) {
                 case Values.SUCCESS_UPLOAD:
                     UtilTc.showLog("文件上传成功");
-
+                    UtilTc.myToast(TqhjActivity.this,"上传成功");
                     stopProgressDialog();
                     //改变警情状态
                     break;
                 case Values.ERROR_UPLOAD:
                     UtilTc.showLog("文件上传失败");
+                    UtilTc.myToast(TqhjActivity.this,"上传失败");
                     stopProgressDialog();
                     break;
             }
@@ -708,8 +713,6 @@ public class TqhjActivity extends Activity {
         //创建生成的文件
         File newFile=new File(newPath);
         Map<String, String> map = new HashMap<String, String>();
-//        $xh$	$name$	$jbtz$	$sl$	$tqbw$	$tqff$	$tqr$	$bz$
-
 
         map.put("$year$", year);
         map.put("$month$", month);
@@ -760,7 +763,6 @@ public class TqhjActivity extends Activity {
         try
         {
             InputStream in = getAssets().open("xsaj_hjqz.doc");
-//            FileInputStream in = new FileInputStream(demoFile);
             HWPFDocument hdt = new HWPFDocument(in);
             // Fields fields = hdt.getFields();
             // 读取word文本内容
@@ -774,20 +776,7 @@ public class TqhjActivity extends Activity {
 
             }
 
-//            FileOutputStream out1 = null;
-//            CustomXWPFDocument doc = new CustomXWPFDocument();
-//            try {
-//                URL url =  new URL("http://f.hiphotos.baidu.com/image/h%3D200/sign=333f3ac494510fb367197097e932c893/a8014c086e061d95df89434571f40ad163d9ca84.jpg");
-//                BufferedInputStream fis = new BufferedInputStream(url.openStream());
-//                String picId = doc.addPictureData(fis, XWPFDocument.PICTURE_TYPE_JPEG);
-//                doc.createPicture(picId, doc.getNextPicNameNumber(XWPFDocument.PICTURE_TYPE_JPEG), 200, 200);
-//
-//                out = new FileOutputStream("simple.docx");
-//                doc.write(out1);
-//                out1.close();
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
+
 
             ByteArrayOutputStream ostream = new ByteArrayOutputStream();
             FileOutputStream out = new FileOutputStream(newFile, true);
@@ -796,10 +785,17 @@ public class TqhjActivity extends Activity {
             out.write(ostream.toByteArray());
             out.close();
             ostream.close();
-        }
-        catch(IOException e)
-        {
-            e.printStackTrace();
+
+//            OutputStream out = new FileOutputStream(newPath);
+//            byte[] buf = new byte[1024];
+//            int len;
+//            while ((len = in.read(buf)) > 0) {
+//                out.write(buf, 0, len);
+//            }
+//
+//            in.close();
+//            out.close();
+
         }
         catch(Exception e)
         {
