@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_ky_bl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    tools:context="com.tc.activity.caseinfo.KyBlActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- title -->
+            <include layout="@layout/common_header"/>
+
+            <!-- 案件编号 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/text_case"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="案 件 编 号："/>
+
+                <com.tc.view.LineEditText
+                    android:id="@+id/edt_number"
+                    style="@style/edt_case"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:editable="false"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    style="@style/text_case"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="公安局名称:"/>
+
+                <com.tc.view.LineEditText
+                    android:id="@+id/edt_office_name"
+                    style="@style/edt_case"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/text_case"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="开始时间:"/>
+
+                <com.tc.view.LineEditText
+                    android:id="@+id/edt_start_time"
+                    style="@style/edt_case"
+                    android:editable="false"
+                    android:inputType="none"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/layout_case">
+
+                <TextView
+                    style="@style/text_case"
+                    android:text="结束时间:"/>
+
+                <com.tc.view.LineEditText
+                    android:id="@+id/edt_end_time"
+                    style="@style/edt_case"
+                    android:editable="false"
+                    android:inputType="none"/>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/layout_case">
+
+                <TextView
+                    style="@style/text_case"
+                    android:text="勘验地点:"/>
+
+                <com.tc.view.LineEditText
+                    android:id="@+id/edt_place"
+                    style="@style/edt_case"/>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/layout_case">
+
+                <TextView
+                    style="@style/text_case"
+                    android:text="证件号码:"/>
+
+                <com.tc.view.LineEditText
+                    android:id="@+id/edt_card_number"
+                    style="@style/edt_case"/>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/layout_case">
+                <TextView
+                    style="@style/text_case"
+                    android:text="勘验人姓名:"/>
+                <com.tc.view.LineEditText
+                    style="@style/edt_case"
+                    android:id="@+id/edt_checker_name"/>
+            </LinearLayout>
+            <LinearLayout
+                style="@style/layout_case">
+                <TextView
+                    style="@style/text_case"
+                    android:text="勘验人工作单位:"/>
+                <com.tc.view.LineEditText
+                    style="@style/edt_case"
+                    android:id="@+id/edt_checker_office"/>
+            </LinearLayout>
+            <LinearLayout
+                style="@style/layout_case">
+                <TextView
+                   style="@style/text_case"
+                    android:text="勘验人职务"/>
+                <com.tc.view.LineEditText
+                    style="@style/edt_case"
+                    android:id="@+id/edt_checker_duty"
+                    />
+                </LinearLayout>
+
+            <LinearLayout
+                style="@style/layout_case">
+                <TextView
+                    style="@style/text_case"
+                    android:text="过程及结果:"/>
+                <com.tc.view.LineEditText
+                    style="@style/edt_case"
+                    android:id="@+id/edt_process"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                style="@style/layout_case">
+                <TextView
+                    style="@style/text_case"
+                    android:text="勘验人1:"/>
+                <com.tc.view.LineEditText
+                    style="@style/edt_case"
+                    android:id="@+id/edt_kanyan1"/>
+            </LinearLayout>
+            <LinearLayout
+                style="@style/layout_case">
+                <TextView
+                    style="@style/text_case"
+                    android:text="勘验人2:"/>
+                <com.tc.view.LineEditText
+                    style="@style/edt_case"
+                    android:id="@+id/edt_kan2"/>
+            </LinearLayout>
+            <LinearLayout
+                style="@style/layout_case">
+                <TextView
+                    style="@style/text_case"
+                    android:text="记录人"/>
+                <com.tc.view.LineEditText
+                    style="@style/edt_case"
+                    android:id="@+id/edt_recorder"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                style="@style/layout_case">
+                <TextView
+                    style="@style/text_case"
+                    android:text="见证人:"/>
+                <com.tc.view.LineEditText
+                   style="@style/edt_case"
+                    android:id="@+id/edt_witness"/>
+            </LinearLayout>
+
+            <!-- button -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp">
+
+                <Button
+                    android:id="@+id/btn_preview"
+                    style="@style/btn_case"
+                    android:text="预览编辑"
+                    />
+                <Button
+                    android:id="@+id/btn_upload"
+                    style="@style/btn_case"
+                    android:text="上传"
+                    />
+                <Button
+                    android:id="@+id/btn_print"
+                    style="@style/btn_case"
+                    android:text="打印"
+                    />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

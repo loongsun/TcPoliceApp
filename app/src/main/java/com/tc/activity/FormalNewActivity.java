@@ -356,23 +356,23 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
             public void onCheckedChanged(RadioGroup radioGroup, @IdRes int checkedId) {
                 if (checkedId == mXZCSRadio1.getId()) {
                     XZCS = "超市";
-                } else if (checkedId == mXZCSRadio1.getId()) {
+                } else if (checkedId == mXZCSRadio2.getId()) {
                     XZCS = "楼道";
-                } else if (checkedId == mXZCSRadio1.getId()) {
+                } else if (checkedId == mXZCSRadio3.getId()) {
                     XZCS = "美容美发厅";
-                } else if (checkedId == mXZCSRadio1.getId()) {
+                } else if (checkedId == mXZCSRadio4.getId()) {
                     XZCS = "居民小区";
-                } else if (checkedId == mXZCSRadio1.getId()) {
+                } else if (checkedId == mXZCSRadio5.getId()) {
                     XZCS = "网吧";
-                } else if (checkedId == mXZCSRadio1.getId()) {
+                } else if (checkedId == mXZCSRadio6.getId()) {
                     XZCS = "高层楼房";
-                } else if (checkedId == mXZCSRadio1.getId()) {
+                } else if (checkedId == mXZCSRadio7.getId()) {
                     XZCS = "其他繁华地段";
-                } else if (checkedId == mXZCSRadio1.getId()) {
+                } else if (checkedId == mXZCSRadio8.getId()) {
                     XZCS = "商业区";
-                } else if (checkedId == mXZCSRadio1.getId()) {
+                } else if (checkedId == mXZCSRadio9.getId()) {
                     XZCS = "普通楼房";
-                } else if (checkedId == mXZCSRadio1.getId()) {
+                } else if (checkedId == mXZCSRadio10.getId()) {
                     XZCS = "路旁";
                 }
             }
@@ -724,8 +724,8 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
 
         guangzhaotiaojian_radio = findViewById(R.id.guangzhaotiaojian_radio);
         mGZTJRadio1 = findViewById(R.id.guangzhaotiaojian_radio_button1);
-        mGZTJRadio1 = findViewById(R.id.guangzhaotiaojian_radio_button1);
-        mGZTJRadio1 = findViewById(R.id.guangzhaotiaojian_radio_button1);
+        mGZTJRadio2 = findViewById(R.id.guangzhaotiaojian_radio_button2);
+        mGZTJRadio3 = findViewById(R.id.guangzhaotiaojian_radio_button3);
 
         guangzhaotiaojian_radio.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -891,7 +891,8 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
                 switch (posId) {
                     case R.id.movie_btn:
 
-//
+                        BHCS = checkboxstr1 + checkboxstr2 + checkboxstr3 ;
+
                         if (A_ID_edit.getText().toString().trim().equals("")) {
                             Toast.makeText(ia, "案件编号不能为空", Toast.LENGTH_SHORT).show();
                         } else if (AJLB == null) {

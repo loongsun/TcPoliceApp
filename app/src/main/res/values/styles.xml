@@ -80,6 +80,45 @@
          <item name="android:activityCloseEnterAnimation">@anim/zoomin</item>
         <item name="android:activityCloseExitAnimation">@anim/zoomout</item>
     </style>
+    <style name="text_case">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18sp </item>
+        <item name="android:textColor">@color/text_11</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+    </style>
+    <style name="edt_case">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:background">@null</item>
+        <item name="android:cursorVisible">true</item>
+        <item name="android:hint">""</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="layout_case">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_marginLeft">10dp</item>
+    </style>
+
+    <style name="btn_case">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:background">@drawable/btn_xczf</item>
+        <item name="android:textColor">@color/White</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:gravity">center</item>
+    </style>
     
   <style name="dialogstyle">
   <!--设置dialog的背景-->
