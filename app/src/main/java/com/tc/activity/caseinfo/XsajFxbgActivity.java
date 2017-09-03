@@ -26,6 +26,7 @@ import com.kaer.sdk.utils.LogUtils;
 import com.sdses.bean.PoliceStateListBean;
 import com.sdses.tool.UtilTc;
 import com.sdses.tool.Values;
+import com.tc.activity.SenceCheck;
 import com.tc.activity.SenceCheck2;
 import com.tc.activity.dto.DjbcqdBean;
 import com.tc.app.TcApp;
@@ -171,6 +172,7 @@ public class XsajFxbgActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_caseinfo_xsajfxbg);
         initWidgets();
+        ia = (TcApp) TcApp.mContent;
         name=getIntent().getStringExtra("name");
         super.onCreate(savedInstanceState);
     }
@@ -339,6 +341,7 @@ public class XsajFxbgActivity extends Activity {
                 case Values.SUCCESS_UPLOAD:
                     UtilTc.showLog("文件上传成功");
                     UtilTc.myToast(XsajFxbgActivity.this,"上传成功");
+                    ia.sendHandleMsg(105, SenceCheck.waitingHandler);
                     stopProgressDialog();
                     //改变警情状态
                     break;

@@ -208,7 +208,7 @@ public class TqhjActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_caseinfo_kcqzlist);
-
+        ia = (TcApp) TcApp.mContent;
         name=getIntent().getStringExtra("name");
         initWidgets();
     }
@@ -565,6 +565,7 @@ public class TqhjActivity extends Activity {
                 case Values.SUCCESS_UPLOAD:
                     UtilTc.showLog("文件上传成功");
                     UtilTc.myToast(TqhjActivity.this,"上传成功");
+                    ia.sendHandleMsg(102, SenceCheck.waitingHandler);
                     stopProgressDialog();
                     //改变警情状态
                     break;
@@ -628,7 +629,6 @@ public class TqhjActivity extends Activity {
                     break;
                 case Values.SUCCESS_FORRESULR:
                     UtilTc.myToast(getApplicationContext(), ""+errorMessage);
-                    ia.sendHandleMsg(101, SenceCheck2.waitingHandler);
                     stopProgressDialog();
                     break;
                 case Values.ERROR_NULLVALUEFROMSERVER:
