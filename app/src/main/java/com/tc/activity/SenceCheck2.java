@@ -16,6 +16,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.tc.activity.caseinfo.BrBlActivity;
+import com.tc.activity.caseinfo.EvidenceActivity;
 import com.tc.activity.caseinfo.JcBlActivity;
 import com.tc.activity.caseinfo.KyBlActivity;
 import com.tc.activity.caseinfo.TqhjActivity;
@@ -206,7 +207,10 @@ public class SenceCheck2 extends Activity {
 //            startActivity(new Intent(SenceCheck2.this, XsajHuaTuActivity.class));
         }else if(position==4){
             //œ÷≥°’’∆¨
-            startActivity(new Intent(SenceCheck2.this, XsajXczpActivity.class));
+            Intent intent = new Intent(SenceCheck2.this, EvidenceActivity.class);
+            intent.putExtra("name",name);
+            startActivity(intent);
+//            startActivity(new Intent(SenceCheck2.this, XsajXczpActivity.class));
         }else if(position==5){
 
             startActivity(new Intent(SenceCheck2.this, XsajFxbgActivity.class)
