@@ -356,23 +356,23 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
             public void onCheckedChanged(RadioGroup radioGroup, @IdRes int checkedId) {
                 if (checkedId == mXZCSRadio1.getId()) {
                     XZCS = "超市";
-                } else if (checkedId == mXZCSRadio1.getId()) {
+                } else if (checkedId == mXZCSRadio2.getId()) {
                     XZCS = "楼道";
-                } else if (checkedId == mXZCSRadio1.getId()) {
+                } else if (checkedId == mXZCSRadio3.getId()) {
                     XZCS = "美容美发厅";
-                } else if (checkedId == mXZCSRadio1.getId()) {
+                } else if (checkedId == mXZCSRadio4.getId()) {
                     XZCS = "居民小区";
-                } else if (checkedId == mXZCSRadio1.getId()) {
+                } else if (checkedId == mXZCSRadio5.getId()) {
                     XZCS = "网吧";
-                } else if (checkedId == mXZCSRadio1.getId()) {
+                } else if (checkedId == mXZCSRadio6.getId()) {
                     XZCS = "高层楼房";
-                } else if (checkedId == mXZCSRadio1.getId()) {
+                } else if (checkedId == mXZCSRadio7.getId()) {
                     XZCS = "其他繁华地段";
-                } else if (checkedId == mXZCSRadio1.getId()) {
+                } else if (checkedId == mXZCSRadio8.getId()) {
                     XZCS = "商业区";
-                } else if (checkedId == mXZCSRadio1.getId()) {
+                } else if (checkedId == mXZCSRadio9.getId()) {
                     XZCS = "普通楼房";
-                } else if (checkedId == mXZCSRadio1.getId()) {
+                } else if (checkedId == mXZCSRadio10.getId()) {
                     XZCS = "路旁";
                 }
             }
