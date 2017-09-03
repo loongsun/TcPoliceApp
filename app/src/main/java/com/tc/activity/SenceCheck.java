@@ -35,17 +35,15 @@ public class SenceCheck extends Activity {
     private List<String> stateList = new ArrayList<String>();
     private String name="";
     TextView tv_ajname;
-    private void initWidgets() {
+    private void initWidgets()
+    {
         btn_kcqzReturn = (ImageView) findViewById(R.id.btn_kcqzReturn);
         btn_kcqzReturn.setOnClickListener(new OnClick());
         lv_xqqzList=(ListView)findViewById(R.id.lv_xqqzList);
         name=getIntent().getStringExtra("name");
-
         tv_ajname = (TextView)findViewById(R.id.tv_ajname);
         tv_ajname.setText(getIntent().getStringExtra("anjianname"));
-
     }
-
 
     class OnClick implements View.OnClickListener {
         @Override
@@ -71,10 +69,24 @@ public class SenceCheck extends Activity {
                     case 100:
                         mCommonAdapter.updateView(0);
                         break;
+                    case 101:
+                        mCommonAdapter.updateView(1);
+                        break;
+                    case 102:
+                        mCommonAdapter.updateView(2);
+                        break;
+                    case 103:
+                    mCommonAdapter.updateView(3);
+                    break;
+                    case 104:
+                        mCommonAdapter.updateView(4);
+                        break;
                 }
             }
         };
         super.onCreate(savedInstanceState);
+
+
     }
 
     private void initData(){
@@ -107,7 +119,8 @@ public class SenceCheck extends Activity {
             return null;
         }
 
-        public void updateView(int itemIndex) {
+        public void updateView(int itemIndex)
+        {
             //得到第一个可显示控件的位置，
             int visiblePosition = lv_xqqzList.getFirstVisiblePosition();
             //只有当要更新的view在可见的位置时才更新，不可见时，跳过不更新
@@ -139,19 +152,19 @@ public class SenceCheck extends Activity {
                 holder = new ViewHolder();
                 holder.tv_listName = (TextView) mView.findViewById(R.id.tv_name);
                 holder.iv = (ImageView) mView.findViewById(R.id.iv);
-                holder.parentLayout = (LinearLayout) mView
-                        .findViewById(R.id.lin_jqInfo);
-                holder.parentLayout.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View arg0) {
-                        Log.e("e", "onClick");
-                        itemOnClick(position);
-                    }
-                });
+                holder.parentLayout = (LinearLayout) mView.findViewById(R.id.lin_jqInfo);
+
                 mView.setTag(holder);
             } else {
                 holder = (ViewHolder) mView.getTag();
             }
+            holder.parentLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View arg0) {
+                    Log.e("e", "onClick");
+                    itemOnClick(position);
+                }
+            });
             holder.tv_listName.setText(stateList.get(position));
             return mView;
         }
@@ -175,10 +188,10 @@ public class SenceCheck extends Activity {
                     .putExtra("name",name));
         }else if(position==3){
             //现在勘查图
-            startActivity(new Intent(SenceCheck.this, XsajHuaTuActivity.class));
+            startActivity(new Intent(SenceCheck.this, XsajHuaTuActivity.class).putExtra("name",name));
         }else if(position==4){
             //现场照片
-            startActivity(new Intent(SenceCheck.this, XsajXczpActivity.class));
+            startActivity(new Intent(SenceCheck.this, XsajXczpActivity.class).putExtra("name",name));
         }else if(position==5){
 
             startActivity(new Intent(SenceCheck.this, XsajFxbgActivity.class)

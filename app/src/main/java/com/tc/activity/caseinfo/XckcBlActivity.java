@@ -95,7 +95,8 @@ public class XckcBlActivity extends Activity {
 
     // 取消进度框
     private void stopProgressDialog() {
-        if (progressDialog != null) {
+        if (progressDialog != null)
+        {
             progressDialog.dismiss();
             progressDialog = null;
         }
@@ -233,8 +234,6 @@ public class XckcBlActivity extends Activity {
                 }
             }
         });
-
-
     }
 
     class Onclick implements View.OnClickListener {
@@ -532,8 +531,6 @@ public class XckcBlActivity extends Activity {
                     break;
             }
         }
-
-        ;
     };
 
     //预览编辑
@@ -602,8 +599,6 @@ public class XckcBlActivity extends Activity {
                     break;
             }
         }
-
-        ;
     };
 
     Runnable uploadRun = new Runnable() {
