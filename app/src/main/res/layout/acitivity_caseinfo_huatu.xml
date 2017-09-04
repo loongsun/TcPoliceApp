@@ -46,7 +46,7 @@
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <com.example.huatuban.HuaBanView
+        <com.huatuban.HuaBanView
             android:id="@+id/huaBanView1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

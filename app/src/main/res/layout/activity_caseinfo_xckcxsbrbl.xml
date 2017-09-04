@@ -61,17 +61,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
+                android:layout_marginTop="16dp"
                 android:background="@color/White"
-                android:gravity="center_vertical|center_horizontal"
+                android:gravity="center_horizontal"
                 android:orientation="horizontal">
 
                 <com.tc.view.LineEditText
                     android:id="@+id/et_title"
-                    android:layout_width="100dp"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:background="@null"
                     android:cursorVisible="true"
-                    android:editable="false"
+                    android:editable="true"
+                    android:gravity="center_horizontal"
                     android:hint=""
                     android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
@@ -81,6 +83,8 @@
                     android:id="@+id/textView6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|left"
+                    android:gravity="bottom|left"
                     android:text="笔录"
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
@@ -90,6 +94,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
+                android:layout_marginTop="10dp"
                 android:background="@color/White"
                 android:orientation="horizontal">
 
@@ -220,7 +225,7 @@
                     android:textSize="18sp" />
 
                 <com.tc.view.LineEditText
-                    android:id="@+id/et_ct3"
+                    android:id="@+id/et_ctdsr"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"

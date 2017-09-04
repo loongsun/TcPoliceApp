@@ -197,7 +197,9 @@ public class SenceCheck extends Activity {
                     .putExtra("name",name));
         }else if(position==3){
             //现在勘查图
+            //startActivity(new Intent(SenceCheck.this, com.huatuban.MainActivity.class).putExtra("name",name));
             startActivity(new Intent(SenceCheck.this, XsajHuaTuActivity.class).putExtra("name",name));
+
         }else if(position==4){
             //现场照片
             startActivity(new Intent(SenceCheck.this, XsajXczpActivity.class).putExtra("name",name));

@@ -52,7 +52,7 @@ public class FormalSurveyFragment extends Fragment {
     private void startProgressDialog(int type) {
         if (progressDialog == null) {
             progressDialog = CustomProgressDialog.createDialog(getActivity());
-            progressDialog.setMessage("???????????,?????");
+            progressDialog.setMessage("开始上传");
         }
         progressDialog.show();
     }

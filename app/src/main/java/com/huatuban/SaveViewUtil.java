@@ -1,8 +1,4 @@
-package com.example.huatuban;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
+package com.huatuban;
 
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
@@ -10,12 +6,16 @@ import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+
 public class SaveViewUtil {
 	
-	private static final File rootDir = new File(Environment.getExternalStorageDirectory()+File.separator+"huaban/");
+	private static final File rootDir = new File(Environment.getExternalStorageDirectory()+ File.separator+"huaban/");
 
 	/**保存截图的方法*/
-	public static boolean saveScreen(View view,String ajNum){
+	public static boolean saveScreen(View view){
 		//判断sdcard是否可用
 		if(!Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())){
 			return false;
@@ -30,7 +30,7 @@ public class SaveViewUtil {
 		view.buildDrawingCache();
 		Bitmap bitmap = view.getDrawingCache();
 		try {
-			bitmap.compress(CompressFormat.JPEG, 100, new FileOutputStream(new File(rootDir,ajNum+".jpg")));
+			bitmap.compress(CompressFormat.JPEG, 100, new FileOutputStream(new File(rootDir, System.currentTimeMillis()+".jpg")));
 			return true;
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
