@@ -33,6 +33,7 @@ import android.widget.Toast;
 import com.sdses.bean.PoliceStateListBean;
 import com.sdses.tool.UtilTc;
 import com.sdses.tool.Values;
+import com.tc.activity.caseinfo.XckcXsBrBlActivity;
 import com.tc.app.TcApp;
 import com.tc.application.R;
 import com.tc.bean.ImageListBean;
@@ -173,7 +174,6 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
     RadioButton mZAMDRadio1, mZAMDRadio2, mZAMDRadio3, mZAMDRadio4, mZAMDRadio5, mZAMDRadio6;
 
 
-    int num = 0;
 
     private BackOrderAdapter mAdapter;
     private ArrayList<ImageListBean> mImageList;
@@ -763,16 +763,12 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
 
     private void initView() {
 
-        String name = getIntent().getStringExtra("name");
+        name = getIntent().getStringExtra("name");
         anjiannum.setText(name);
-
-
         anjianname.setText(getIntent().getStringExtra("anjianname"));
 
         photoRecycleview.setLayoutManager(new GridLayoutManager(getActivity(), 2));
         mAdapter = new BackOrderAdapter(mImageList, getActivity());
-//        mAdapter = new BackOrderAdapter(mAccount.getmImageList(),getActivity());
-
         photoRecycleview.setAdapter(mAdapter);
     }
 
@@ -867,8 +863,6 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
                 setBackgroundColorById(R.id.variety_btn);
                 operateNextTv.setText("提交");
                 break;
-
-
             default:
                 break;
         }
@@ -956,23 +950,21 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
 
 
                         else {
-                            uploadHJWZ();
+
                             startProgressDialog(UPLOAD);
                             new Thread(uploadRunJiBenXinXi).start();
-
 
                             setBackgroundColorById(R.id.tv_btn);
                             operateNextTv.setText("下一步");
                         }
 
-//                        setBackgroundColorById(R.id.tv_btn);
-//                        operateNextTv.setText("下一步");
-
                         break;
 
                     case R.id.tv_btn:
-                        setBackgroundColorById(R.id.anime_btn);
-                        operateNextTv.setText("下一步");
+
+
+                        SendFile sf = new  SendFile();
+                        sf.start();
                         break;
 
                     case R.id.anime_btn:
@@ -998,7 +990,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
                         } else if (TQSJ_edit.getText().toString().trim().equals("")) {
                             Toast.makeText(ia, "提取时间不能为空", Toast.LENGTH_SHORT).show();
                         } else {
-                            uploadHJWZ();
+
                             startProgressDialog(UPLOAD);
                             new Thread(uploadRun).start();
 
@@ -1044,7 +1036,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
                         } else if (ZADJMD == null) {
                             Toast.makeText(ia, "作案动机目的不能为空", Toast.LENGTH_SHORT).show();
                         } else {
-                            uploadHJWZ();
+
                             startProgressDialog(UPLOAD);
                             new Thread(uploadRunFenxiiJan).start();
 
@@ -1118,124 +1110,38 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
     }
 
     private void uploadHJWZ() {
-
-
-        File fileStart = new File(Values.ALLFILES + "wtxt/XCKYBL/");
-        boolean flag = getFileName2(fileStart.listFiles(), name);
-
-        if (flag) {
-            //存在本地文件
-        } else {
-            try {
-                String sdcardPath = Environment.getExternalStorageDirectory().getAbsolutePath();
-
-                File file = new File(sdcardPath + "/TC/wtxt/XCKYBL/");
-                if (!file.exists()) {
-                    file.mkdir();
-                }
-
-                String fileName = Values.PATH_BOOKMARK + "XCKYBL/" + name + "_" + UtilTc.getCurrentTime() + ".doc";
-                newPath = fileName;
-                InputStream inputStream = getAssets().open("xckybl.doc");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-//            doScan();
-        }
-
-
         startProgressDialog(UPLOAD);
         new Thread(uploadRun).start();
-
-        SendFile sf = new SendFile();
-        sf.start();
     }
 
-
-    private List<String> bltxt = new ArrayList<String>();
-
-    private void getFileName(File[] files, String jqNum) {
-        bltxt.clear();
-        if (files != null)// nullPointer
-        {
-            for (File file : files) {
-                if (file.isDirectory()) {
-                    getFileName(file.listFiles(), jqNum);
-                } else {
-                    String fileName = file.getName();
-                    if (fileName.contains(jqNum) && fileName.endsWith(".doc")) {
-                        Log.e("e", "fileName" + fileName);
-                        bltxt.add(fileName);
-                    }
-                }
-            }
-        }
-    }
-
-
-    private boolean getFileName2(File[] files, String jqNum) {
-        boolean isFlag = false;
-        if (files != null)// nullPointer
-        {
-            for (File file : files) {
-                if (file.isDirectory()) {
-                    getFileName2(file.listFiles(), jqNum);
-                } else {
-                    String fileName = file.getName();
-                    if (fileName.contains(jqNum) && fileName.endsWith(".doc")) {
-                        Log.e("e", "fileName" + fileName);
-                        isFlag = true;
-
-                    }
-                }
-            }
-        }
-        return isFlag;
-    }
 
     private FTPClient myFtp;
-    private PoliceStateListBean plb;
-    String currentFilePaht = "";
-    private String currentFile = "";
-    private int fileCount = 0;
-    private int mTotalSize = 0;
-
+    private int countFile=0;
     public class SendFile extends Thread {
         private String currentPath = "";
-
         @Override
         public void run() {
             try {
-                myFtp = new FTPClient();
-                myFtp.connect("61.176.222.166", 21); // 连接
-                myFtp.login("admin", "1234"); // 登录
 
-                if (Values.dbjqList.size() > 0)
-                    plb = Values.dbjqList.get(0);
+                if(countFile==0)
+                {
+                    myFtp = new FTPClient();
+                    myFtp.connect("61.176.222.166", 21); // 连接
+                    myFtp.login("admin", "1234"); // 登录
+                    myFtp.changeDirectory("../");
+                    myFtp.changeDirectory("xskc-zp");
 
-                File fileStart = new File(Values.ALLFILES + "wtxt/XCKYBL/");
-                getFileName(fileStart.listFiles(), name);
+                    Message msg;
+                    msg = Message.obtain();
+                    msg.what = Values.START_UPLOAD;
+                    mHandler.sendMessage(msg);
+                }
 
-                //	myFtp.changeDirectory("wphoto");
-
-                //	String path=Environment.getExternalStorageDirectory().getAbsolutePath()+"/temp.jpg";
-                //	Log.e("path", "path"+path);
-
-                for (int i = 0; i < bltxt.size(); i++) {
-                    //判断上传到哪个文件夹
-                    if (bltxt.get(i).endsWith(".doc")) {
-                        myFtp.changeDirectory("../");
-                        myFtp.changeDirectory("xcbl-xckybl");
-                        currentPath = Values.PATH_xckybl;
-                        currentFilePaht = "/xcbl-xckybl";
-                    }
-
-                    File file = new File(currentPath + bltxt.get(i));
-                    fileCount = (int) file.length();
-
-                    mTotalSize = fileCount;
-                    currentFile = currentFilePaht + "/" + bltxt.get(i);
-                    MyFTPDataTransferListener listener = new MyFTPDataTransferListener(bltxt.get(i));
+               if(countFile<mImageList.size())
+                {
+                    currentPath = mImageList.get(countFile).getImageUrl();
+                    File file = new File(currentPath);
+                    MyFTPDataTransferListener listener = new MyFTPDataTransferListener(currentPath);
                     myFtp.upload(file, listener); // 上传
                 }
             } catch (Exception e) {
@@ -1245,7 +1151,6 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
         }
     }
 
-    private String mediaFormat = "";
 
     private class MyFTPDataTransferListener implements FTPDataTransferListener {
         String fileName = "";
@@ -1262,21 +1167,13 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
         @Override
         public void completed() {// 上传成功
             // TODO Auto-generated method stub
-            UtilTc.showLog("currentFile:" + currentFile);
-            UtilTc.showLog("currentFile 后3位" + currentFile.substring(currentFile.length() - 3, currentFile.length()));
-            mediaFormat = currentFile.substring(currentFile.length() - 3, currentFile.length());
-            if (mediaFormat.equals("doc")) {
-                mediaType = "文档";
+
+
+            File file = new File(fileName);
+            if (file.exists()) {
+                  file.delete();
             }
             new Thread(media).start();
-            File file = new File(Values.PATH_xckybl + fileName);
-            if (file.exists()) {
-                boolean isDel = file.delete();
-            }
-            Message msg;
-            msg = Message.obtain();
-            msg.what = Values.SUCCESS_UPLOAD;
-            mHandler1.sendMessage(msg);
         }
 
         @Override
@@ -1291,20 +1188,12 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
         @Override
         public void started() {// 上传开始
             // TODO Auto-generated method stub
-            Message msg;
-            msg = Message.obtain();
-            msg.what = 2;
-            mHandler1.sendMessage(msg);
+
         }
 
         @Override
         public void transferred(int length) {// 上传过程监听
-            int progress = length;
-            Message msg;
-            msg = Message.obtain();
-            msg.what = 1;
-            msg.obj = progress;
-            mHandler1.sendMessage(msg);
+
         }
     }
 
@@ -1327,7 +1216,6 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
         ;
     };
 
-    private String mediaType = "";
     //上传媒体信息
     Runnable media = new Runnable() {
         @Override
@@ -1338,9 +1226,9 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
             //查询出出警时间和到达现场时间
 //            mApp.getmDota().jq_queryTime(plb.getJqNum());
             params.add(new BasicNameValuePair("A_ID", name));
-            params.add(new BasicNameValuePair("A_type", mediaType));
-            params.add(new BasicNameValuePair("A_Format", mediaFormat));
-            params.add(new BasicNameValuePair("A_MM", currentFile));
+            params.add(new BasicNameValuePair("A_type", "照片"));
+            params.add(new BasicNameValuePair("A_Format", "jpg"));
+            params.add(new BasicNameValuePair("A_MM", "/xskc-zp/"+mImageList.get(countFile).getImageName()));
             try {
                 UrlEncodedFormEntity formEntity = new UrlEncodedFormEntity(
                         params, "UTF-8");
@@ -1350,18 +1238,20 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
                         .execute(httpRequest);
                 Log.e("code", "code"
                         + httpResponse.getStatusLine().getStatusCode());
-                if (httpResponse.getStatusLine().getStatusCode() == 200) {
-                    String strResult = EntityUtils.toString(httpResponse
-                            .getEntity());
+                if (httpResponse.getStatusLine().getStatusCode() == 200)
+                {
+                    String strResult = EntityUtils.toString(httpResponse.getEntity());
                     Log.e("e", "上传媒体的值是：" + strResult);
                     // json 解析
                     JSONTokener jsonParser = new JSONTokener(strResult);
                     JSONObject person = (JSONObject) jsonParser.nextValue();
                     String code = person.getString("error code");
-                    if (code.trim().equals("0")) {
+                    if (code.trim().equals("0"))
+                    {
                         //上传成功
-                        //	mHandler.sendEmptyMessage(Values.SUCCESS_RECORDUPLOAD);
-                    } else if (code.trim().equals("10003")) {
+                        mHandler.sendEmptyMessage(Values.SUCCESS_RECORDUPLOAD);
+                    }
+                    else if (code.trim().equals("10003")) {
                         JSONObject jb = person.getJSONObject("data");
                         errorMessage = jb.getString("message");
                         mHandler.sendEmptyMessage(Values.ERROR_OTHER);
@@ -1377,117 +1267,6 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
     };
 
 
-//    private void doScan() {
-//        //获取模板文件
-////        File demoFile=new File(demoPath);
-//        //创建生成的文件
-//        File newFile = new File(newPath);
-//        Map<String, String> map = new HashMap<String, String>();
-//        map.put("$XCKYDW$", et_kyKydw.getText().toString());
-//        map.put("$BGDW$", et_kyZpbgdw.getText().toString());
-//        map.put("$TIME$", et_kyZpsj.getText().toString());
-//        map.put("$KYSY$", et_kySy.getText().toString());
-//
-//        map.put("$XCKYKSSJ$", et_kyBeginTime.getText().toString());
-//        map.put("$XCKYJSSJ$", et_kyEndTime.getText().toString());
-//        map.put("$XCDD$", et_kyXcdd.getText().toString());
-//        map.put("$SCBHQK$", et_kyXcbhqk.getText().toString());
-//        map.put("$TQ$", kyTq);
-//        map.put("$WD$", et_kyWd.getText().toString());
-//        map.put("$SD$", et_kySd.getText().toString());
-//        map.put("$FX$", et_kyFx.getText().toString());
-//        map.put("$XCTJ$", kyXctj);
-//        map.put("$GX$", kyGx);
-//        map.put("$ZHR$", et_kyZhr.getText().toString());
-//
-//        map.put("$DW$", et_kyZhrDw.getText().toString());
-//        map.put("$ZW$", et_kyZhrZw.getText().toString());
-//        map.put("$XCKYQK$", et_kyKyqk.getText().toString());
-//        map.put("$ZTNUM$", et_kyHzt.getText().toString());
-//
-//        map.put("$ZXNUM$", et_kyZx.getText().toString());
-//        map.put("$LX$", et_kyLx.getText().toString());
-//        map.put("$LYTIME$", et_kyLy.getText().toString());
-//
-//        map.put("$BLR$", et_kyBlr.getText().toString());
-//        map.put("$ZTR$", et_kyZtr.getText().toString());
-//        map.put("$ZXR$", et_kyZxr.getText().toString());
-//        map.put("$LXR$", et_kyLxr.getText().toString());
-//        map.put("$LYR$", et_kyLyr.getText().toString());
-//
-//        map.put("$BRQM1$", et_brqm1.getText().toString());
-//        map.put("$BRDW1$", et_brdw1.getText().toString());
-//        map.put("$BRZW1$", et_brzw1.getText().toString());
-//
-//        map.put("$BRQM2$", et_brqm2.getText().toString());
-//        map.put("$BRDW2$", et_brdw2.getText().toString());
-//        map.put("$BRZW2$", et_brzw2.getText().toString());
-//
-//        map.put("$BRQM3$", et_brqm3.getText().toString());
-//        map.put("$BRDW3$", et_brdw3.getText().toString());
-//        map.put("$BRZW3$", et_brzw3.getText().toString());
-//
-//        map.put("$BRQM4$", et_brqm4.getText().toString());
-//        map.put("$BRDW4$", et_brdw4.getText().toString());
-//        map.put("$BRZW4$", et_brzw4.getText().toString());
-//
-//        map.put("$BRQM5$", et_brqm5.getText().toString());
-//        map.put("$BRDW5$", et_brdw5.getText().toString());
-//        map.put("$BRZW5$", et_brzw5.getText().toString());
-//
-//        map.put("$BRQM6$", et_brqm6.getText().toString());
-//        map.put("$BRDW6$", et_brdw6.getText().toString());
-//        map.put("$BRZW6$", et_brzw6.getText().toString());
-//
-//
-//        map.put("$JZRQM1$", et_jzrqm1.getText().toString());
-//        map.put("$JZRSEX1$", et_jzrxb1.getText().toString());
-//        map.put("$JZRSR1$", et_jzrsr1.getText().toString());
-//        map.put("$JZRZZ1$", et_jzrzz1.getText().toString());
-//
-//        map.put("$JZRQM2$", et_jzrqm2.getText().toString());
-//        map.put("$JZRSEX2$", et_jzrxb2.getText().toString());
-//        map.put("$JZRSR2$", et_jzrsr2.getText().toString());
-//        map.put("$JZRZZ2$", et_jzrzz2.getText().toString());
-//
-//        writeDoc(newFile, map);
-//    }
-
-
-    /**
-     * demoFile 模板文件
-     * newFile 生成文件
-     * map 要填充的数据
-     */
-    public void writeDoc(File newFile, Map<String, String> map) {
-        try {
-            InputStream in = getAssets().open("xckybl.doc");
-//            FileInputStream in = new FileInputStream(demoFile);
-            HWPFDocument hdt = new HWPFDocument(in);
-            // Fields fields = hdt.getFields();
-            // 读取word文本内容
-            Range range = hdt.getRange();
-            // System.out.println(range.text());
-
-            // 替换文本内容
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                range.replaceText(entry.getKey(), entry.getValue());
-            }
-            ByteArrayOutputStream ostream = new ByteArrayOutputStream();
-            FileOutputStream out = new FileOutputStream(newFile, true);
-            hdt.write(ostream);
-            // 输出字节流
-            out.write(ostream.toByteArray());
-            out.close();
-            ostream.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         // TODO Auto-generated method stub
         super.onActivityResult(requestCode, resultCode, data);
@@ -1499,33 +1278,32 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
                 afterPhoto2(data);
                 break;
 
-
         }
     }
 
     private void afterPhoto2(Intent data) {
-        num++;
+        File file = new File(Values.PATH_XSKY);
+        if(!file.exists())
+        {
+            file.mkdirs();
+        }
+
         try {
             Bundle bundle = data.getExtras();
             Bitmap photo = (Bitmap) bundle.get("data");// 获取相机返回的数据，并转换为Bitmap图片格式
-            compressImage(photo, Environment.getExternalStorageDirectory() + "/" + "xczp" + num + ".jpg");
+
+            String fileName = UtilTc.getCurrentTime() + ".jpg";
+            String filePath= Values.PATH_XSKY+ fileName;
+            compressImage(photo, filePath);
             if (photo == null) {
-//                iv_2.setImageResource(R.drawable.icon_photo);
-            } else {
 
-//                for (int i = 0; i < dataArray.length(); i++) {
-//
-//                    mOrderList.add(new onLineOrderBean(dataArray.getJSONObject(i)));
-//
-//               }
+            }
+            else
+                {
 
-                mImageList.add(new ImageListBean(Environment.getExternalStorageDirectory() + "/" + "xczp" + num + ".jpg"));
+                mImageList.add(new ImageListBean(filePath,fileName));
                 mAccount.setmImageList(mImageList);
                 mAdapter.notifyDataSetChanged();
-
-//                mImageList.add() = new ImageListBean();
-                Log.e("图片路径afterPhoto2", "" + photo);
-//                iv_2.setImageBitmap(photo);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -1630,10 +1408,23 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
         public void handleMessage(android.os.Message msg) {
             switch (msg.what) {
                 case Values.SUCCESS_RECORDUPLOAD://
+                    countFile++;
+                    if(countFile==mImageList.size())
+                    {
+                        UtilTc.myToast(getApplicationContext(), "传输完毕");
+                        stopProgressDialog();
 
+                        setBackgroundColorById(R.id.anime_btn);
+                        operateNextTv.setText("下一步");
+                    }
+                    else
+                    {
+                        SendFile sf = new  SendFile();
+                        sf.start();
+                    }
                     break;
-                case Values.ERROR_CONNECT:
-                    UtilTc.myToastForContent(getApplicationContext());
+                case Values.START_UPLOAD:
+                    startProgressDialog(UPLOAD);
                     break;
                 case Values.ERROR_OTHER:
                     UtilTc.myToast(getApplicationContext(), "" + errorMessage);

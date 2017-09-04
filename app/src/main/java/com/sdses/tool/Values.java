@@ -33,6 +33,7 @@ public class Values {
     public static String PATH_XCKYQKFXBG =SDPATH+"/TC/wtxt/XCKYQKFXBG/";
 
     public static String PATH_XCBL =SDPATH+"/TC/XCBL/";
+    public static String PATH_XSKY =SDPATH+"/TC/XSKY/";
     //dbjq
     public static List<PoliceStateListBean>dbjqList=new ArrayList<PoliceStateListBean>();
     public static PoliceStateListBean dbjq=new PoliceStateListBean();

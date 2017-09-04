@@ -90,7 +90,7 @@ public class PhothFragment extends Fragment {
             case 1:
                 afterPhoto(data);
                 break;
-            case 2:// µ±Ñ¡ÔñÅÄÕÕÊ±µ÷ÓÃ
+            case 2:// ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½
                 afterPhoto2(data);
                 break;
 
@@ -102,25 +102,16 @@ public class PhothFragment extends Fragment {
         num++;
         try {
             Bundle bundle = data.getExtras();
-            Bitmap photo = (Bitmap) bundle.get("data");// »ñÈ¡Ïà»ú·µ»ØµÄÊý¾Ý£¬²¢×ª»»ÎªBitmapÍ¼Æ¬¸ñÊ½
+            Bitmap photo = (Bitmap) bundle.get("data");// ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½Ý£ï¿½ï¿½ï¿½×ªï¿½ï¿½ÎªBitmapÍ¼Æ¬ï¿½ï¿½Ê½
             compressImage(photo, Environment.getExternalStorageDirectory() + "/" + "xczp"+ num + ".jpg");
             if (photo == null) {
 //                iv_2.setImageResource(R.drawable.icon_photo);
             } else {
 
-//                for (int i = 0; i < dataArray.length(); i++) {
-//
-//                    mOrderList.add(new onLineOrderBean(dataArray.getJSONObject(i)));
-//
-//               }
-
-                mImageList.add(new ImageListBean(Environment.getExternalStorageDirectory() + "/" + "xczp" + num + ".jpg"));
+                mImageList.add(new ImageListBean(Environment.getExternalStorageDirectory() + "/" + "xczp" + num + ".jpg",""));
                 mAccount.setmImageList(mImageList);
                 mAdapter.notifyDataSetChanged();
 
-//                mImageList.add() = new ImageListBean();
-                Log.e("Í¼Æ¬Â·¾¶afterPhoto2",""+photo);
-//                iv_2.setImageBitmap(photo);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -129,12 +120,12 @@ public class PhothFragment extends Fragment {
     private void afterPhoto(Intent data) {
         try {
             Bundle bundle = data.getExtras();
-            Bitmap photo = (Bitmap) bundle.get("data");// »ñÈ¡Ïà»ú·µ»ØµÄÊý¾Ý£¬²¢×ª»»ÎªBitmapÍ¼Æ¬¸ñÊ½
+            Bitmap photo = (Bitmap) bundle.get("data");// ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½Ý£ï¿½ï¿½ï¿½×ªï¿½ï¿½ÎªBitmapÍ¼Æ¬ï¿½ï¿½Ê½
             compressImage(photo, Environment.getExternalStorageDirectory() + "/" + "xczp1" + ".jpg");
             if (photo == null) {
 //                iv_1.setImageResource(R.drawable.icon_photo);
             } else {
-                Log.e("Í¼Æ¬Â·¾¶afterPhoto1",""+photo);
+                Log.e("Í¼Æ¬Â·ï¿½ï¿½afterPhoto1",""+photo);
 
 //                iv_1.setImageBitmap(photo);
             }
@@ -147,14 +138,14 @@ public class PhothFragment extends Fragment {
     private Bitmap compressImage(Bitmap image, String filepath) {
         try {
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            image.compress(Bitmap.CompressFormat.JPEG, 100, baos);//ÖÊÁ¿Ñ¹Ëõ·½·¨£¬ÕâÀï100±íÊ¾²»Ñ¹Ëõ£¬°ÑÑ¹ËõºóµÄÊý¾Ý´æ·Åµ½baosÖÐ
+            image.compress(Bitmap.CompressFormat.JPEG, 100, baos);//ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½100ï¿½ï¿½Ê¾ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý´ï¿½Åµï¿½baosï¿½ï¿½
             int options = 100;
-            while (baos.toByteArray().length / 1024 > 200) {    //Ñ­»·ÅÐ¶ÏÈç¹ûÑ¹ËõºóÍ¼Æ¬ÊÇ·ñ´óÓÚ100kb,´óÓÚ¼ÌÐøÑ¹Ëõ
-                baos.reset();//ÖØÖÃbaos¼´Çå¿Õbaos
-                options -= 10;//Ã¿´Î¶¼¼õÉÙ10
-                image.compress(Bitmap.CompressFormat.JPEG, options, baos);//ÕâÀïÑ¹Ëõoptions%£¬°ÑÑ¹ËõºóµÄÊý¾Ý´æ·Åµ½baosÖÐ
+            while (baos.toByteArray().length / 1024 > 200) {    //Ñ­ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½Ç·ï¿½ï¿½ï¿½ï¿½100kb,ï¿½ï¿½ï¿½Ú¼ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½
+                baos.reset();//ï¿½ï¿½ï¿½ï¿½baosï¿½ï¿½ï¿½ï¿½ï¿½baos
+                options -= 10;//Ã¿ï¿½Î¶ï¿½ï¿½ï¿½ï¿½ï¿½10
+                image.compress(Bitmap.CompressFormat.JPEG, options, baos);//ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½options%ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý´ï¿½Åµï¿½baosï¿½ï¿½
             }
-            //Ñ¹ËõºÃºóÐ´ÈëÎÄ¼þÖÐ
+            //Ñ¹ï¿½ï¿½ï¿½Ãºï¿½Ð´ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
             FileOutputStream fos = new FileOutputStream(filepath);
             fos.write(baos.toByteArray());
             fos.flush();
@@ -202,7 +193,7 @@ public class PhothFragment extends Fragment {
 
 //            Picasso.with(mContext).load(mDatas.get(position).getImageUrl()).into(holder.Image);
             holder.Image.setImageURI(Uri.parse(mDatas.get(position).getImageUrl()));
-            Log.e("Í¼Æ¬Â·¾¶",mDatas.get(position).getImageUrl());
+            Log.e("Í¼Æ¬Â·ï¿½ï¿½",mDatas.get(position).getImageUrl());
 
 
         }

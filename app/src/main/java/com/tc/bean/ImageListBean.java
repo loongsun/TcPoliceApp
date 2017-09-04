@@ -8,12 +8,14 @@ package com.tc.bean;
 
 public class ImageListBean {
     private String imageUrl;
+    private String imageName;
 
 
 
-    public ImageListBean(String item) {
+    public ImageListBean(String item,String name) {
 
         this.imageUrl = item;
+        this.imageName = name;
 
     }
 
@@ -23,5 +25,13 @@ public class ImageListBean {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public String getImageName() {
+        return imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
     }
 }

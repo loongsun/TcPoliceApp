@@ -5,8 +5,8 @@ import com.tc.bean.ImageListBean;
 import java.util.ArrayList;
 
 /**
- * ï¿½ï¿½ï¿½ß£ï¿½ï¿½Âºï¿½ on 2017/4/23.
- * ï¿½æ±¾ï¿½ï¿½v1.0
+ * ???????? on 2017/4/23.
+ * ?·Ú??v1.0
  */
 
 public class Account {
