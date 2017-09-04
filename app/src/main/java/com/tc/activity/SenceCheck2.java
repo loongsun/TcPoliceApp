@@ -16,6 +16,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.tc.activity.caseinfo.BrBlActivity;
+import com.tc.activity.caseinfo.Evidence2Activity;
 import com.tc.activity.caseinfo.EvidenceActivity;
 import com.tc.activity.caseinfo.JcBlActivity;
 import com.tc.activity.caseinfo.KyBlActivity;
@@ -221,7 +222,7 @@ public class SenceCheck2 extends Activity {
 //                    .putExtra("name",name));
 
         }else if(position==6){
-            startActivity(new Intent(SenceCheck2.this, XsajJszjclActivity.class)
+            startActivity(new Intent(SenceCheck2.this, Evidence2Activity.class)
                     .putExtra("name",name));
 
         }
