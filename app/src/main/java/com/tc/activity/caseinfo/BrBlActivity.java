@@ -19,7 +19,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
-//è¾¨è®¤ç¬”å½•
+//±æÈÏ±ÊÂ¼
 public class BrBlActivity extends Activity {
 
     private static final String TAG = BrBlActivity.class.getSimpleName();
@@ -44,7 +44,7 @@ public class BrBlActivity extends Activity {
     private EditText mBrOffice;
     private EditText mBrDuty;
     private String mName;
-    public static final String BR_NAME = "BRBL";//è¾¨è®¤ç¬”å½•
+    public static final String BR_NAME = "BRBL";//±æÈÏ±ÊÂ¼
     private String mNewPath;
     private EditText mEdtObj;
     private EditText mEdtPlane;
@@ -60,7 +60,7 @@ public class BrBlActivity extends Activity {
     private void initView() {
         mImgBack = (ImageView)findViewById(R.id.img_back);
         mTitleTx = (TextView)findViewById(R.id.tx_head_title);
-        mTitleTx.setText("è¾¨è®¤ç¬”å½•");
+        mTitleTx.setText("±æÈÏ±ÊÂ¼");
         mImgBack.setOnClickListener(mOnClicKListener);
 
         mEdtNumber = (EditText)findViewById(R.id.edt_number);
@@ -115,7 +115,7 @@ public class BrBlActivity extends Activity {
                             mEditStartTime.setText(time);
                         }
                     });
-                    chooseDialog.setDateDialogTitle("å¼€å§‹æ—¶é—´");
+                    chooseDialog.setDateDialogTitle("¿ªÊ¼Ê±¼ä");
                     chooseDialog.showDateChooseDialog();
                     break;
                 case R.id.edt_end_time:
@@ -126,7 +126,7 @@ public class BrBlActivity extends Activity {
                             mEdtEndTime.setText(time);
                         }
                     });
-                    endDialog.setDateDialogTitle("å¼€å§‹æ—¶é—´");
+                    endDialog.setDateDialogTitle("¿ªÊ¼Ê±¼ä");
                     endDialog.showDateChooseDialog();
                     break;
                 case R.id.btn_preview:

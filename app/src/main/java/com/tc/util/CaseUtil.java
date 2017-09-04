@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
 
+import it.sauronsoftware.ftp4j.FTPClient;
 
 
 public class CaseUtil {
@@ -68,6 +69,22 @@ public class CaseUtil {
 
         }
 
+    }
+
+    public class SendFileTask extends  Thread{
+
+        @Override
+        public void run() {
+            super.run();
+            try{
+                FTPClient ftpClient = new FTPClient();
+                ftpClient.connect("61.176.222.166", 21);
+                ftpClient.login("admin","1234");
+
+            }catch (Exception e){
+                Log.e(TAG,"SendFileTask ",e);
+            }
+        }
     }
 
 

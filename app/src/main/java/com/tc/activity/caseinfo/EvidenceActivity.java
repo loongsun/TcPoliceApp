@@ -80,7 +80,7 @@ public class EvidenceActivity extends Activity {
     private void initView() {
         mBackImg = (ImageView)findViewById(R.id.img_back);
         mTitleTx = (TextView)findViewById(R.id.tx_head_title);
-        mTitleTx.setText("è¯æ®ç™»è®°æ¸…å•");
+        mTitleTx.setText("Ö¤¾İµÇ¼ÇÇåµ¥");
         mBackImg.setOnClickListener(mClickListener);
 
         mCaseNumber = findViewById(R.id.edt_number);
@@ -177,7 +177,7 @@ public class EvidenceActivity extends Activity {
     }
 
     public void setListViewHeightBasedOnChildren(ListView listView) {
-        // è·å–ListViewå¯¹åº”çš„Adapter
+        // »ñÈ¡ListView¶ÔÓ¦µÄAdapter
         ListAdapter listAdapter = listView.getAdapter();
         if (listAdapter == null) {
             return;
@@ -185,18 +185,18 @@ public class EvidenceActivity extends Activity {
 
         int totalHeight = 0;
         for (int i = 0, len = listAdapter.getCount(); i < len; i++) {
-            // listAdapter.getCount()è¿”å›æ•°æ®é¡¹çš„æ•°ç›®
+            // listAdapter.getCount()·µ»ØÊı¾İÏîµÄÊıÄ¿
             View listItem = listAdapter.getView(i, null, listView);
-            // è®¡ç®—å­é¡¹Vieçš„å®½é«˜w
+            // ¼ÆËã×ÓÏîVieµÄ¿í¸ßw
             listItem.measure(0, 0);
-            // ç»Ÿè®¡æ‰€æœ‰å­é¡¹çš„æ€»é«˜åº¦
+            // Í³¼ÆËùÓĞ×ÓÏîµÄ×Ü¸ß¶È
             totalHeight += listItem.getMeasuredHeight();
         }
 
         ViewGroup.LayoutParams params = listView.getLayoutParams();
         params.height = totalHeight+ (listView.getDividerHeight() * (listAdapter.getCount() - 1));
-        // listView.getDividerHeight()è·å–å­é¡¹é—´åˆ†éš”ç¬¦å ç”¨çš„é«˜åº¦
-        // params.heightæœ€åå¾—åˆ°æ•´ä¸ªListViewå®Œæ•´æ˜¾ç¤ºéœ€è¦çš„é«˜åº¦
+        // listView.getDividerHeight()»ñÈ¡×ÓÏî¼ä·Ö¸ô·ûÕ¼ÓÃµÄ¸ß¶È
+        // params.height×îºóµÃµ½Õû¸öListViewÍêÕûÏÔÊ¾ĞèÒªµÄ¸ß¶È
         listView.setLayoutParams(params);
     }
 

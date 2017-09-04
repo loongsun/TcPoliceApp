@@ -101,6 +101,7 @@ public class KyBlActivity extends Activity {
         mImgBack = (ImageView)findViewById(R.id.img_back);
         mTitleTx = (TextView)findViewById(R.id.tx_head_title);
         mTitleTx.setText("¿±Ñé±ÊÂ¼");
+        mImgBack.setOnClickListener(mOnClicKListener);
 
         mEdtNumber = (EditText)findViewById(R.id.edt_number);
         mEdtOfficeName = (EditText)findViewById(R.id.edt_office_name);
@@ -132,6 +133,9 @@ public class KyBlActivity extends Activity {
         @Override
         public void onClick(View view) {
             switch (view.getId()){
+                case R.id.img_back:
+                    finish();
+                    break;
                 case R.id.edt_start_time:
                     DateWheelDialogN chooseDialog = new DateWheelDialogN(KyBlActivity.this, new DateWheelDialogN.DateChooseInterface() {
                         @Override
