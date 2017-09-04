@@ -144,9 +144,47 @@
                     android:text="联系人电话:"/>
                 <com.tc.view.LineEditText
                     style="@style/edt_case"
+                    android:inputType="phone"
                     android:id="@+id/edt_phone"
                     />
             </LinearLayout>
+            <LinearLayout
+                style="@style/layout_case">
+                <TextView
+                    style="@style/text_case"
+                    android:text="保存开始时间:"/>
+                <com.tc.view.LineEditText
+                    style="@style/edt_case"
+                    android:inputType="none"
+                    android:editable="false"
+                    android:id="@+id/edt_start_time"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/layout_case">
+                <TextView
+                    style="@style/text_case"
+                    android:text="保存结束时间:"/>
+                <com.tc.view.LineEditText
+                    style="@style/edt_case"
+                    android:inputType="none"
+                    android:editable="false"
+                    android:id="@+id/edt_end_time"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/layout_case">
+                <TextView
+                    style="@style/text_case"
+                    android:text="保存地点"/>
+                <com.tc.view.LineEditText
+                    style="@style/edt_case"
+                    android:id="@+id/edt_save_place"
+                    />
+            </LinearLayout>
+
             <LinearLayout
                 style="@style/layout_case">
 
@@ -186,6 +224,26 @@
                     style="@style/edt_case"
                     android:id="@+id/edt_witness"/>
             </LinearLayout>
+            <LinearLayout
+                style="@style/layout_case">
+                <TextView
+                    style="@style/text_case"
+                    android:text="审批人:"/>
+                <com.tc.view.LineEditText
+                    style="@style/edt_case"
+                    android:id="@+id/edt_approval"/>
+            </LinearLayout>
+            <LinearLayout
+                style="@style/layout_case">
+                <TextView
+                    style="@style/text_case"
+                    android:text="签字时间:"/>
+                <com.tc.view.LineEditText
+                    style="@style/edt_case"
+                    android:editable="false"
+                    android:id="@+id/edt_signa_time"/>
+            </LinearLayout>
+
 
             <ListView
                 android:id="@+id/listview_evidece"

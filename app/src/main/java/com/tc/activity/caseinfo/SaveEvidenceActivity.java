@@ -33,10 +33,10 @@ import butterknife.OnTextChanged;
 
 import static com.tc.activity.caseinfo.BrBlActivity.BR_NAME;
 
-public class EvidenceActivity extends Activity {
+public class SaveEvidenceActivity extends Activity {
 
     private static final String TAG = EvidenceActivity.class.getSimpleName();
-    private static final String EVIDENCE_NAME = "evidence_name";
+    private static final String SAVE_EVIDENCE_NAME = "save_evidence";
     private String mName;
     private EditText mCaseNumber;
     private ListView mListView;
@@ -54,17 +54,21 @@ public class EvidenceActivity extends Activity {
     private EditText mLivePlace;
     private EditText mWorkPlace;
     private EditText mPhone;
-    private EditText mLawName;
     private EditText mWorkOne;
     private EditText mWorkTwo;
     private EditText mWitness;
     private String mNewPath;
+    private EditText mStartTime;
+    private EditText mEndTime;
+    private EditText mSavePlace;
+    private EditText mApproval;
+    private EditText mSigureTime;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_evidence);
+        setContentView(R.layout.activity_save_evidence);
         initData();
         initView();
     }
@@ -82,7 +86,7 @@ public class EvidenceActivity extends Activity {
     private void initView() {
         mBackImg = (ImageView)findViewById(R.id.img_back);
         mTitleTx = (TextView)findViewById(R.id.tx_head_title);
-        mTitleTx.setText("证据登记清单");
+        mTitleTx.setText("先行登记保存证据清单");
         mBackImg.setOnClickListener(mClickListener);
 
         mCaseNumber = findViewById(R.id.edt_number);
@@ -99,11 +103,19 @@ public class EvidenceActivity extends Activity {
         mLivePlace = (EditText)findViewById(R.id.edt_live_place);
         mWorkPlace = (EditText)findViewById(R.id.edt_work_place);
         mPhone = (EditText)findViewById(R.id.edt_phone);
-        mLawName = (EditText)findViewById(R.id.edt_law);
+
+        mStartTime = (EditText)findViewById(R.id.edt_start_time);
+        mEndTime = (EditText)findViewById(R.id.edt_end_time);
+        mStartTime.setOnClickListener(mClickListener);
+        mEndTime.setOnClickListener(mClickListener);
+        mSavePlace = (EditText)findViewById(R.id.edt_save_place);
 
         mWorkOne = (EditText)findViewById(R.id.edt_worker1);
         mWorkTwo = (EditText)findViewById(R.id.edt_worker2);
         mWitness = (EditText)findViewById(R.id.edt_witness);
+        mApproval = (EditText)findViewById(R.id.edt_approval);
+        mSigureTime = (EditText)findViewById(R.id.edt_signa_time);
+        mSigureTime.setOnClickListener(mClickListener);
 
         mListView = (ListView)findViewById(R.id.listview_evidece);
         mCommonAdapter = new CommonAdapter();
@@ -119,7 +131,8 @@ public class EvidenceActivity extends Activity {
                     finish();
                     break;
                 case R.id.edt_birthday:
-                    DateWheelDialogN chooseDialog = new DateWheelDialogN(EvidenceActivity.this, new DateWheelDialogN.DateChooseInterface() {
+                    DateWheelDialogN chooseDialog = new DateWheelDialogN(SaveEvidenceActivity.this, new DateWheelDialogN
+                            .DateChooseInterface() {
                         @Override
                         public void getDateTime(String time, boolean longTimeChecked) {
                             mBirthDay.setText(time);
@@ -128,17 +141,50 @@ public class EvidenceActivity extends Activity {
                     chooseDialog.setTimePickerGone(true);
                     chooseDialog.showDateChooseDialog();
                     break;
+                case R.id.edt_start_time:
+                    DateWheelDialogN startDialog = new DateWheelDialogN(SaveEvidenceActivity.this, new DateWheelDialogN
+                            .DateChooseInterface() {
+                        @Override
+                        public void getDateTime(String time, boolean longTimeChecked) {
+                            mStartTime.setText(time);
+                        }
+                    });
+                    startDialog.setTimePickerGone(true);
+                    startDialog.showDateChooseDialog();
+                    break;
+                case R.id.edt_end_time:
+                    DateWheelDialogN endDialog = new DateWheelDialogN(SaveEvidenceActivity.this, new DateWheelDialogN
+                            .DateChooseInterface() {
+                        @Override
+                        public void getDateTime(String time, boolean longTimeChecked) {
+                            mEndTime.setText(time);
+                        }
+                    });
+                    endDialog.setTimePickerGone(true);
+                    endDialog.showDateChooseDialog();
+                    break;
+                case R.id.edt_signa_time:
+                    DateWheelDialogN sigDialog = new DateWheelDialogN(SaveEvidenceActivity.this, new DateWheelDialogN
+                            .DateChooseInterface() {
+                        @Override
+                        public void getDateTime(String time, boolean longTimeChecked) {
+                            mSigureTime.setText(time);
+                        }
+                    });
+                    sigDialog.setTimePickerGone(true);
+                    sigDialog.showDateChooseDialog();
+                    break;
             }
         }
     };
 
     private void getFileName(){
         try{
-            File file = new File( Values.PATH_BOOKMARK + EVIDENCE_NAME);
+            File file = new File( Values.PATH_BOOKMARK + SAVE_EVIDENCE_NAME);
             if(!file.exists()){
                 file.mkdir();
             }
-            String fileName = Values.PATH_BOOKMARK+EVIDENCE_NAME+"/"+mName+"_"+ UtilTc.getCurrentTime()+".doc";
+            String fileName = Values.PATH_BOOKMARK+SAVE_EVIDENCE_NAME+"/"+mName+"_"+ UtilTc.getCurrentTime()+".doc";
             mNewPath = fileName;
         }catch (Exception e){
             Log.e(TAG,"getFileName ",e);
@@ -171,10 +217,14 @@ public class EvidenceActivity extends Activity {
         map.put("$LIVE_PLACE$",mLivePlace.getText().toString());
         map.put("$WORK_PLACE$",mWorkPlace.getText().toString());
         map.put("$PHONE$",mPhone.getText().toString());
-        map.put("$LAW$",mLawName.getText().toString());
+        map.put("$START_TIME$",mStartTime.getText().toString());
+        map.put("$END_TIME$",mEndTime.getText().toString());
+        map.put("$SAVE_PLACE$",mSavePlace.getText().toString());
         map.put("$work1$",mWorkOne.getText().toString());
         map.put("$work2$",mWorkTwo.getText().toString());
         map.put("$EVIDENCEMAN$",mWitness.getText().toString());
+        map.put("$APPROVAL$",mApproval.getText().toString());
+        map.put("$SIG_TIME$",mSigureTime.getText().toString());
 
         for(int i=0;i<mEvidenceList.size();i++){
             EvidenceBean evidenceBean = mEvidenceList.get(i);
@@ -185,13 +235,12 @@ public class EvidenceActivity extends Activity {
             map.put("$ATTR"+i+"$",evidenceBean.attr);
             map.put("$NOTE"+i+"$",evidenceBean.note);
         }
-        CaseUtil.writeDoc("zjdj.doc",file,map);
-
+        CaseUtil.writeDoc("bczj.doc",file,map);
     }
 
 
 
-private class CommonAdapter extends BaseAdapter{
+    private class CommonAdapter extends BaseAdapter{
 
         @Override
         public int getCount() {
@@ -212,7 +261,7 @@ private class CommonAdapter extends BaseAdapter{
         public View getView(int i, View view, ViewGroup viewGroup) {
             MyViewHolder myViewHolder = null;
             if (view == null) {
-                view = LayoutInflater.from(EvidenceActivity.this)
+                view = LayoutInflater.from(SaveEvidenceActivity.this)
                         .inflate(R.layout.item_evidence_view, viewGroup, false);
                 myViewHolder = new MyViewHolder();
                 myViewHolder.nameEdt = (EditText)view.findViewById(R.id.et_name);
