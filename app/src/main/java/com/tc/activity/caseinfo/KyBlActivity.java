@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.sdses.tool.UtilTc;
 import com.sdses.tool.Values;
 import com.tc.application.R;
+import com.tc.util.CaseUtil;
 import com.tc.view.CustomProgressDialog;
 import com.tc.view.DateWheelDialogN;
 
@@ -76,8 +77,18 @@ public class KyBlActivity extends Activity {
     private String mNewPath;
     private CustomProgressDialog mProcessDialog;
     private Handler mHandler = new Handler() {
+        @Override
         public void handleMessage(Message msg) {
-
+            switch (msg.what){
+                case Values.SUCCESS_UPLOAD:
+                    stopShopProcessDialog();
+                    Toast.makeText(KyBlActivity.this,"上传成功",Toast.LENGTH_SHORT).show();
+                    break;
+                case Values.ERROR_UPLOAD:
+                    stopShopProcessDialog();
+                    Toast.makeText(KyBlActivity.this,"上传失败",Toast.LENGTH_SHORT).show();
+                    break;
+            }
         }
     };
 
@@ -127,6 +138,7 @@ public class KyBlActivity extends Activity {
         mBtnUpload = (Button)findViewById(R.id.btn_upload);
         mBtnPrint = (Button)findViewById(R.id.btn_print);
         mBtnPreview.setOnClickListener(mOnClicKListener);
+        mBtnUpload.setOnClickListener(mOnClicKListener);
     }
 
     private View.OnClickListener mOnClicKListener = new View.OnClickListener() {
@@ -171,82 +183,25 @@ public class KyBlActivity extends Activity {
     };
 
     private void uploadDoc(){
-        File fileStart = new File(Values.ALLFILES+"wtxt/KYBL");
-        boolean flag = getfileName2(fileStart.listFiles(),mName);
-        if(flag){
-            //存在本地
-        }else{
+        startProcessDialog();
+        if(TextUtils.isEmpty(mNewPath)){
             getFileName();
             doScan();
-            startProcessDialog(1);
-            new Thread(uploadTask).start();
+        }
+        String ftpPath = "xcbl-xz-kybl";
+
+        CaseUtil.startUploadFile(mNewPath,ftpPath,mName,mHandler);
+    }
+
+
+    private void stopShopProcessDialog(){
+        if(mProcessDialog!=null){
+            mProcessDialog.dismiss();
         }
     }
 
-    public class SendFile extends Thread{
 
-    }
-
-    private String errorMessage;
-    Runnable uploadTask = new Runnable() {
-        @Override
-        public void run() {
-            String url = "http://61.176.222.166:8765/interface/xz/ADD_ZF_XZ_JCBL.asp";
-            HttpPost httpRequest = new HttpPost(url);
-            List<NameValuePair> params = new ArrayList<>();
-            params.add(new BasicNameValuePair("A_ID",mName));
-            params.add(new BasicNameValuePair("KSSJ",mEditStartTime.getText().toString()));
-            params.add(new BasicNameValuePair("JSSJ",mEdtEndTime.getText().toString()));
-            params.add(new BasicNameValuePair("JCDX",mCheckPlace.getText().toString()));
-            params.add(new BasicNameValuePair("JCZHM",mCardNumber.getText().toString()));
-            params.add(new BasicNameValuePair("JCRYXM",mCheckerName.getText().toString()));
-
-            params.add(new BasicNameValuePair("JCRYGZDW",mCheckerOffice.getText().toString()));
-            params.add(new BasicNameValuePair("JCRYZW",mCheckerDuty.getText().toString()));
-            params.add(new BasicNameValuePair("GCJJG",mProcess.getText().toString()));
-            params.add(new BasicNameValuePair("JCR",mKanyanOne.getText().toString()+","+mKanyanTwo.getText().toString()));
-            params.add(new BasicNameValuePair("JLR",mRecorder.getText().toString()));
-
-            try {
-                UrlEncodedFormEntity formEntity = new UrlEncodedFormEntity(params,"UTF-8");
-                httpRequest.setEntity(formEntity);
-                HttpResponse httpResponse = new DefaultHttpClient().execute(httpRequest);
-                int statusCode = httpResponse.getStatusLine().getStatusCode();
-                if(statusCode == 200){
-                    String strResult = EntityUtils.toString(httpResponse.getEntity());
-                    if(TextUtils.isEmpty(strResult)){
-                        mHandler.sendEmptyMessage(Values.ERROR_NULLVALUEFROMSERVER);
-                        return;
-                    }
-                    //json 解析
-                    JSONTokener jsonParser = new JSONTokener(strResult);
-                    JSONObject person = (JSONObject) jsonParser.nextValue();
-                    String code=person.getString("error code");
-                    //{ "error code":0, "data":{ "message":"", "result":"盗抢车辆", "car":{ "hphm":"辽A12345", "hpzl":"蓝牌", "csys":"黑色", "fdjh":"888888", "cjhm":"987654321" } } }
-                    if(code.trim().equals("0")){
-                        JSONObject jsResult=person.getJSONObject("data");
-                        errorMessage = jsResult.getString("message");
-                        mHandler.sendEmptyMessage(Values.SUCCESS_FORRESULR);
-                    }else if(code.trim().equals("10003")){
-                        JSONObject jb = person.getJSONObject("data");
-                        errorMessage = jb.getString("message");
-                        mHandler.sendEmptyMessage(Values.ERROR_UPLOAD);
-                    }else if(code.trim().equals("10001")){
-                        JSONObject jsResult=person.getJSONObject("data");
-                        errorMessage = jsResult.getString("message");
-                        mHandler.sendEmptyMessage(Values.ERROR_UPLOAD);
-                    }
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-        }
-    };
-
-    private void startProcessDialog(int type) {
+    private void startProcessDialog() {
         if(mProcessDialog == null){
             mProcessDialog = CustomProgressDialog.createDialog(this);
             mProcessDialog.setMessage("正在上传信息，请稍后");
@@ -254,23 +209,6 @@ public class KyBlActivity extends Activity {
         mProcessDialog.show();
     }
 
-    private boolean getfileName2(File[] files, String name) {
-        boolean isFlag = false;
-        if(files!=null){
-            for(File file :files){
-                if(file.isDirectory()){
-                    getfileName2(file.listFiles(),name);
-                }else{
-                    String fileName = file.getName();
-                    if(fileName.contains(name) && fileName.endsWith(".doc")){
-                        Log.e(TAG," file name = "+fileName);
-                        isFlag = true;
-                    }
-                }
-            }
-        }
-        return isFlag;
-    }
 
     private void printDoc(){
         getFileName();
