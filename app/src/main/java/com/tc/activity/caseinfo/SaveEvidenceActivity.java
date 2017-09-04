@@ -33,11 +33,10 @@ import butterknife.OnTextChanged;
 
 import static com.tc.activity.caseinfo.BrBlActivity.BR_NAME;
 
-public class SaveEvidenceActivity extends Activity {
+public class SaveEvidenceActivity extends CaseBaseActivity {
 
     private static final String TAG = EvidenceActivity.class.getSimpleName();
     private static final String SAVE_EVIDENCE_NAME = "save_evidence";
-    private String mName;
     private EditText mCaseNumber;
     private ListView mListView;
     private ArrayList<EvidenceBean> mEvidenceList = new ArrayList<>();
@@ -57,7 +56,6 @@ public class SaveEvidenceActivity extends Activity {
     private EditText mWorkOne;
     private EditText mWorkTwo;
     private EditText mWitness;
-    private String mNewPath;
     private EditText mStartTime;
     private EditText mEndTime;
     private EditText mSavePlace;
@@ -178,7 +176,8 @@ public class SaveEvidenceActivity extends Activity {
         }
     };
 
-    private void getFileName(){
+    @Override
+    protected void getFileName(){
         try{
             File file = new File( Values.PATH_BOOKMARK + SAVE_EVIDENCE_NAME);
             if(!file.exists()){
@@ -202,10 +201,16 @@ public class SaveEvidenceActivity extends Activity {
     }
 
     public void uploadFile(View view){
-
+        super.uploadDoc();
     }
 
-    private void doScan() {
+    @Override
+    protected String geFtpPth() {
+        return "xcbl-xz-xxdjbczjqd";
+    }
+
+    @Override
+    protected void doScan() {
         File file = new File(mNewPath);
         Map<String,String> map = new HashMap<>();
         map.put("$GAJ$",mOfficeName.getText().toString());

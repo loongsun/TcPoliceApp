@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.sdses.tool.UtilTc;
 import com.sdses.tool.Values;
+import com.tc.app.TcApp;
 import com.tc.application.R;
 import com.tc.util.CaseUtil;
 import com.tc.view.CustomProgressDialog;
@@ -51,7 +52,7 @@ import java.util.List;
 import java.util.Map;
 
 //勘验笔录
-public class KyBlActivity extends Activity {
+public class KyBlActivity extends CaseBaseActivity {
 
     private static final String TAG = KyBlActivity.class.getSimpleName();
     private ImageView mImgBack;
@@ -73,24 +74,7 @@ public class KyBlActivity extends Activity {
     private Button mBtnPreview;
     private Button mBtnUpload;
     private Button mBtnPrint;
-    private String mName;
-    private String mNewPath;
     private CustomProgressDialog mProcessDialog;
-    private Handler mHandler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            switch (msg.what){
-                case Values.SUCCESS_UPLOAD:
-                    stopShopProcessDialog();
-                    Toast.makeText(KyBlActivity.this,"上传成功",Toast.LENGTH_SHORT).show();
-                    break;
-                case Values.ERROR_UPLOAD:
-                    stopShopProcessDialog();
-                    Toast.makeText(KyBlActivity.this,"上传失败",Toast.LENGTH_SHORT).show();
-                    break;
-            }
-        }
-    };
 
 
     @Override
@@ -182,31 +166,25 @@ public class KyBlActivity extends Activity {
         }
     };
 
-    private void uploadDoc(){
-        startProcessDialog();
-        if(TextUtils.isEmpty(mNewPath)){
-            getFileName();
-            doScan();
-        }
-        String ftpPath = "xcbl-xz-kybl";
-
-        CaseUtil.startUploadFile(mNewPath,ftpPath,mName,mHandler);
+    protected void uploadDoc(){
+        super.uploadDoc();
+//        boolean netConnent = CaseUtil.isNetConnent(TcApp.mContent);
+//        if(!netConnent){
+//            Toast.makeText(TcApp.mContent,"当前网络未连接",Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+//        startProcessDialog();
+//        if(TextUtils.isEmpty(mNewPath)){
+//            getFileName();
+//            doScan();
+//        }
+//        String ftpPath = "xcbl-xz-kybl";
+//        CaseUtil.startUploadFile(mNewPath,ftpPath,mName,mHandler);
     }
 
-
-    private void stopShopProcessDialog(){
-        if(mProcessDialog!=null){
-            mProcessDialog.dismiss();
-        }
-    }
-
-
-    private void startProcessDialog() {
-        if(mProcessDialog == null){
-            mProcessDialog = CustomProgressDialog.createDialog(this);
-            mProcessDialog.setMessage("正在上传信息，请稍后");
-        }
-        mProcessDialog.show();
+    @Override
+    protected String geFtpPth() {
+        return "xcbl-xz-kybl";
     }
 
 
@@ -225,7 +203,8 @@ public class KyBlActivity extends Activity {
 
     }
 
-    private void getFileName() {
+    @Override
+    protected void getFileName() {
         try{
             String sdcardPath = Environment.getExternalStorageDirectory().getAbsolutePath();
             File file = new File(sdcardPath + "/TC/wtxt/KYBL");
@@ -256,8 +235,11 @@ public class KyBlActivity extends Activity {
 
     }
 
+
+
     //生成doc文件，并保存
-    private void doScan() {
+    @Override
+    protected void doScan() {
         File newFile = new File(mNewPath);
         Map<String,String> map = new HashMap<>();
         map.put("$GAJ$",mEdtOfficeName.getText().toString());
