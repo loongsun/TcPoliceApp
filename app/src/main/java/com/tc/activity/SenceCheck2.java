@@ -16,8 +16,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.tc.activity.caseinfo.BrBlActivity;
+import com.tc.activity.caseinfo.EvidenceActivity;
 import com.tc.activity.caseinfo.JcBlActivity;
 import com.tc.activity.caseinfo.KyBlActivity;
+import com.tc.activity.caseinfo.SaveEvidenceActivity;
 import com.tc.activity.caseinfo.TqhjActivity;
 import com.tc.activity.caseinfo.XcBlActivity;
 import com.tc.activity.caseinfo.XsajFxbgActivity;
@@ -205,12 +207,18 @@ public class SenceCheck2 extends Activity {
             startActivity(intent);
 //            startActivity(new Intent(SenceCheck2.this, XsajHuaTuActivity.class));
         }else if(position==4){
-            //现场照片
-            startActivity(new Intent(SenceCheck2.this, XsajXczpActivity.class));
+            //证据登记
+            Intent intent = new Intent(SenceCheck2.this, EvidenceActivity.class);
+            intent.putExtra("name",name);
+            startActivity(intent);
+//            startActivity(new Intent(SenceCheck2.this, XsajXczpActivity.class));
         }else if(position==5){
-
-            startActivity(new Intent(SenceCheck2.this, XsajFxbgActivity.class)
-                    .putExtra("name",name));
+            //保存证据清单
+            Intent intent = new Intent(SenceCheck2.this, SaveEvidenceActivity.class);
+            intent.putExtra("name",name);
+            startActivity(intent);
+//            startActivity(new Intent(SenceCheck2.this, XsajFxbgActivity.class)
+//                    .putExtra("name",name));
 
         }else if(position==6){
             startActivity(new Intent(SenceCheck2.this, XsajJszjclActivity.class)

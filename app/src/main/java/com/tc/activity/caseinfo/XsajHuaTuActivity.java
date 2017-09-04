@@ -19,10 +19,8 @@ import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.huatuban.HuaBanView;
-import com.example.huatuban.SaveViewUtil;
+import com.huatuban.HuaBanView;
 import com.sdses.bean.PoliceStateListBean;
 import com.sdses.tool.UtilTc;
 import com.sdses.tool.Values;
@@ -60,14 +58,15 @@ public class XsajHuaTuActivity extends Activity {
     private SeekBar widthSb;
     private int paintWidth;
     private Button btn_save,btn_re;
+
+
     private String ajNum;//name
-    private String  photoPath;
-
-
     private CustomProgressDialog progressDialog = null;
     private final static int UPLOAD = 1;
     private String errorMessage = "";
     TcApp myapp;
+    private String filePath;
+    private String fileName;
     // 进度框
     private void startProgressDialog(int type) {
         if (progressDialog == null) {
@@ -97,9 +96,10 @@ public class XsajHuaTuActivity extends Activity {
             // TODO Auto-generated method stub
             switch(v.getId()){
                 case R.id.btn_save:
-                    if(SaveViewUtil.saveScreen(hbView,ajNum))
+                    fileName=UtilTc.getCurrentTime()+".jpg";
+                    filePath= Environment.getExternalStorageDirectory()+File.separator+"huaban/"+fileName;
+                    if(SaveViewUtil.saveScreen(hbView,fileName))
                     {
-                       photoPath = Environment.getExternalStorageDirectory()+File.separator+"huaban/"+ajNum+".jpg";
                         UtilTc.showLog("截图成功");
                         SendFile sf = new SendFile();
                         sf.start();
@@ -118,6 +118,27 @@ public class XsajHuaTuActivity extends Activity {
         }
 
     }
+
+//    public void onSave(View v)
+//    {
+//        fileName=UtilTc.getCurrentTime()+".jpg";
+//        filePath= Environment.getExternalStorageDirectory()+File.separator+"huaban/"+fileName;
+//        if(SaveViewUtil.saveScreen(hbView,fileName))
+//        {
+//            UtilTc.showLog("截图成功");
+//            SendFile sf = new SendFile();
+//            sf.start();
+//        }
+//        else{
+//            //  Toast.makeText(XsajHuaTuActivity.this, "截图失败，请检查sdcard是否可用", 0).show();
+//            UtilTc.showLog("截图失败");
+//        }
+//    }
+//    public void onClear(View v)
+//    {
+//        Log.e("e", "重画");
+//        hbView.clearScreen();
+//    }
 
     private FTPClient myFtp;
     private PoliceStateListBean plb;
@@ -138,10 +159,10 @@ public class XsajHuaTuActivity extends Activity {
                 myFtp.login("admin", "1234"); // 登录
                 myFtp.changeDirectory("../");
                 myFtp.changeDirectory("xcbl-xs-xckypmt");
-                File file = new File(photoPath);
+                File file = new File(filePath);
                 if(file.exists())
                 {
-                    MyFTPDataTransferListener listener = new  MyFTPDataTransferListener(photoPath);
+                    MyFTPDataTransferListener listener = new  MyFTPDataTransferListener("");
                     myFtp.upload(file, listener); // 上传
                 }
 
@@ -274,7 +295,7 @@ public class XsajHuaTuActivity extends Activity {
             params.add(new BasicNameValuePair("A_ID", ajNum));
             params.add(new BasicNameValuePair("A_type", "图片"));
             params.add(new BasicNameValuePair("A_Format", "jpg"));
-            params.add(new BasicNameValuePair("A_MM", "/xcbl-xs-xckypmt"+"/"+ajNum+".jpg"));
+            params.add(new BasicNameValuePair("A_MM", "/xcbl-xs-xckypmt"+"/"+fileName));
             try {
                 UrlEncodedFormEntity formEntity = new UrlEncodedFormEntity(
                         params, "UTF-8");
@@ -334,8 +355,8 @@ public class XsajHuaTuActivity extends Activity {
                 paintWidth = progress+1;
             }
         });
-        hbView = (HuaBanView)findViewById(R.id.huaBanView1);
 
+        hbView =(HuaBanView)findViewById(R.id.huaBanView1);
         dialog = new AlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_info).setTitle("设置画笔宽度").
                 setView(dialogView).setPositiveButton("确定", new OnClickListener() {
 
@@ -352,8 +373,8 @@ public class XsajHuaTuActivity extends Activity {
         ajNum=getIntent().getStringExtra("name");
         //去掉应用标题栏
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.acitivity_caseinfo_huatu);
-
+        //setContentView(R.layout.acitivity_caseinfo_huatu);
+        setContentView(R.layout.activity_huban_main);
         myapp = (TcApp) TcApp.mContent;
         btn_save=(Button)findViewById(R.id.btn_save);
         btn_save.setOnClickListener(new BtnOnClick());

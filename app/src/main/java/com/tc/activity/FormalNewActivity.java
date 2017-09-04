@@ -909,11 +909,12 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
                             Toast.makeText(ia, "法案时间截止不能为空", Toast.LENGTH_SHORT).show();
                         } else if (AFDD_edit.getText().toString().trim().equals("")) {
                             Toast.makeText(ia, "法案地点不能为空", Toast.LENGTH_SHORT).show();
+                        }
+//                        else if (oneEndTime.getText().toString().trim().equals("")) {
+//                            Toast.makeText(ia, "破案时间不能为空", Toast.LENGTH_SHORT).show();
+//                        }
 
-                        } else if (oneEndTime.getText().toString().trim().equals("")) {
-                            Toast.makeText(ia, "破案时间不能为空", Toast.LENGTH_SHORT).show();
-
-                        } else if (KTDD_edit.getText().toString().trim().equals("")) {
+                        else if (KTDD_edit.getText().toString().trim().equals("")) {
                             Toast.makeText(ia, "勘验地点不能为空", Toast.LENGTH_SHORT).show();
 
                         } else if (baohuren_name_edit.getText().toString().trim().equals("")) {
@@ -951,7 +952,6 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
 
                         }else if (jianzhenren_edit.getText().toString().equals("")) {
                             Toast.makeText(ia, "见证人不能为空", Toast.LENGTH_SHORT).show();
-
                         }
 
 
@@ -1017,9 +1017,11 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
                             Toast.makeText(ia, "作案人数不能为空", Toast.LENGTH_SHORT).show();
                         } else if (ZADD_edit.getText().toString().trim().equals("")) {
                             Toast.makeText(ia, "作案地点不能为空", Toast.LENGTH_SHORT).show();
-                        } else if (ZAGJ_edit.getText().toString().trim().equals("")) {
-                            Toast.makeText(ia, "作案工具不能为空", Toast.LENGTH_SHORT).show();
-                        } else if (ZAGC_edit.getText().toString().trim().equals("")) {
+                        }
+//                        else if (ZAGJ_edit.getText().toString().trim().equals("")) {
+//                            Toast.makeText(ia, "作案工具不能为空", Toast.LENGTH_SHORT).show();
+//                        }
+                        else if (ZAGC_edit.getText().toString().trim().equals("")) {
                             Toast.makeText(ia, "作案过程不能为空", Toast.LENGTH_SHORT).show();
                         } else if (XCFXYJCL == null) {
                             Toast.makeText(ia, "现场分析依据材料不能为空", Toast.LENGTH_SHORT).show();
@@ -1659,7 +1661,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
             String url_passenger = "http://61.176.222.166:8765/interface/xskc/ADD_ZF_XSKC03.asp";
             HttpPost httpRequest = new HttpPost(url_passenger);
             List<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("A_ID", "1233"));
+            params.add(new BasicNameValuePair("A_ID", anjiannum.getText().toString()));
             params.add(new BasicNameValuePair("MC", MC_edit.getText().toString()));
             params.add(new BasicNameValuePair("JTZ", JBTZ_edit.getText().toString()));
             params.add(new BasicNameValuePair("SL", SL_edit.getText().toString()));
@@ -1724,7 +1726,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
             String url_passenger = "http://61.176.222.166:8765/interface/xskc/ADD_ZF_XSKC04.asp";
             HttpPost httpRequest = new HttpPost(url_passenger);
             List<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("A_ID", "1233"));
+            params.add(new BasicNameValuePair("A_ID", anjiannum.getText().toString()));
             params.add(new BasicNameValuePair("XCFXYJCL", XCFXYJCL));
             params.add(new BasicNameValuePair("AJXZ", AJXZ));
             params.add(new BasicNameValuePair("XZDX", XZDX));

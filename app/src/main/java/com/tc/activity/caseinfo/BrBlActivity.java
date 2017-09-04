@@ -2,6 +2,7 @@ package com.tc.activity.caseinfo;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -19,8 +20,8 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
-//è¾¨è®¤ç¬”å½•
-public class BrBlActivity extends Activity {
+//±æÈÏ±ÊÂ¼
+public class BrBlActivity extends CaseBaseActivity {
 
     private static final String TAG = BrBlActivity.class.getSimpleName();
     private ImageView mImgBack;
@@ -43,9 +44,8 @@ public class BrBlActivity extends Activity {
     private EditText mBrName;
     private EditText mBrOffice;
     private EditText mBrDuty;
-    private String mName;
-    public static final String BR_NAME = "BRBL";//è¾¨è®¤ç¬”å½•
-    private String mNewPath;
+
+    public static final String BR_NAME = "BRBL";//±æÈÏ±ÊÂ¼
     private EditText mEdtObj;
     private EditText mEdtPlane;
 
@@ -60,7 +60,7 @@ public class BrBlActivity extends Activity {
     private void initView() {
         mImgBack = (ImageView)findViewById(R.id.img_back);
         mTitleTx = (TextView)findViewById(R.id.tx_head_title);
-        mTitleTx.setText("è¾¨è®¤ç¬”å½•");
+        mTitleTx.setText("±æÈÏ±ÊÂ¼");
         mImgBack.setOnClickListener(mOnClicKListener);
 
         mEdtNumber = (EditText)findViewById(R.id.edt_number);
@@ -91,6 +91,8 @@ public class BrBlActivity extends Activity {
         mBtnUpload = (Button)findViewById(R.id.btn_upload);
         mBtnPrint = (Button)findViewById(R.id.btn_print);
         mBtnPreview.setOnClickListener(mOnClicKListener);
+        mBtnUpload.setOnClickListener(mOnClicKListener);
+        mBtnPrint.setOnClickListener(mOnClicKListener);
     }
 
     private void initData() {
@@ -115,7 +117,7 @@ public class BrBlActivity extends Activity {
                             mEditStartTime.setText(time);
                         }
                     });
-                    chooseDialog.setDateDialogTitle("å¼€å§‹æ—¶é—´");
+                    chooseDialog.setDateDialogTitle("¿ªÊ¼Ê±¼ä");
                     chooseDialog.showDateChooseDialog();
                     break;
                 case R.id.edt_end_time:
@@ -126,7 +128,7 @@ public class BrBlActivity extends Activity {
                             mEdtEndTime.setText(time);
                         }
                     });
-                    endDialog.setDateDialogTitle("å¼€å§‹æ—¶é—´");
+                    endDialog.setDateDialogTitle("¿ªÊ¼Ê±¼ä");
                     endDialog.showDateChooseDialog();
                     break;
                 case R.id.btn_preview:
@@ -143,7 +145,8 @@ public class BrBlActivity extends Activity {
 
     };
 
-    private void getFileName() {
+    @Override
+    protected void getFileName() {
         try{
             File file = new File( Values.PATH_BOOKMARK + BR_NAME);
             if(!file.exists()){
@@ -156,7 +159,8 @@ public class BrBlActivity extends Activity {
         }
     }
 
-    private void doScan(){
+    @Override
+    protected void doScan(){
         File newFile = new File(mNewPath);
         Map<String,String> map = new HashMap<>();
         map.put("$GAJ$",mEdtOfficeName.getText().toString());
@@ -180,8 +184,20 @@ public class BrBlActivity extends Activity {
         CaseUtil.writeDoc("brbl.doc",newFile,map);
     }
 
-    private void uploadDoc() {
+    protected void uploadDoc() {
+        super.uploadDoc();
+//        startProcessDialog();
+//        if(TextUtils.isEmpty(mNewPath)){
+//            getFileName();
+//            doScan();
+//        }
+//        String ftpPath = "xcbl-xz-brbl";
+//        CaseUtil.startUploadFile(mNewPath,ftpPath,mName,mHandler);
+    }
 
+    @Override
+    protected String geFtpPth() {
+        return "xcbl-xz-brbl";
     }
 
     private void printDoc() {

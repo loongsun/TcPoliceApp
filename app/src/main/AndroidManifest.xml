@@ -231,6 +231,10 @@
         </activity>
         <activity android:name="com.tc.activity.caseinfo.BrBlActivity">
         </activity>
+        <activity android:name="com.tc.activity.caseinfo.EvidenceActivity">
+        </activity>
+        <activity android:name="com.tc.activity.caseinfo.SaveEvidenceActivity">
+        </activity>
     </application>
 
 </manifest>
