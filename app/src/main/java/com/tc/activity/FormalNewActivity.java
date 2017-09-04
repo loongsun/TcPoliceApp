@@ -1661,7 +1661,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
             String url_passenger = "http://61.176.222.166:8765/interface/xskc/ADD_ZF_XSKC03.asp";
             HttpPost httpRequest = new HttpPost(url_passenger);
             List<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("A_ID", "1233"));
+            params.add(new BasicNameValuePair("A_ID", anjiannum.getText().toString()));
             params.add(new BasicNameValuePair("MC", MC_edit.getText().toString()));
             params.add(new BasicNameValuePair("JTZ", JBTZ_edit.getText().toString()));
             params.add(new BasicNameValuePair("SL", SL_edit.getText().toString()));
@@ -1726,7 +1726,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
             String url_passenger = "http://61.176.222.166:8765/interface/xskc/ADD_ZF_XSKC04.asp";
             HttpPost httpRequest = new HttpPost(url_passenger);
             List<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("A_ID", "1233"));
+            params.add(new BasicNameValuePair("A_ID", anjiannum.getText().toString()));
             params.add(new BasicNameValuePair("XCFXYJCL", XCFXYJCL));
             params.add(new BasicNameValuePair("AJXZ", AJXZ));
             params.add(new BasicNameValuePair("XZDX", XZDX));
