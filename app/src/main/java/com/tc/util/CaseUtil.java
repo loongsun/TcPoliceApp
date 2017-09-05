@@ -187,7 +187,7 @@ public class CaseUtil {
                         Log.i(TAG," completed");
                         String mediaType = "ÎÄµµ";
                         String formate = "doc";
-                        String ftpFilePath = mFtpPath+"/"+ mFileName;
+                        String ftpFilePath = "/"+mFtpPath+"/"+ mFileName;
                         String result = uploadPostInfo(mId,mediaType,formate,ftpFilePath);
                         if(!TextUtils.isEmpty(result)){
                             JSONTokener jsonTokener = new JSONTokener(result);
