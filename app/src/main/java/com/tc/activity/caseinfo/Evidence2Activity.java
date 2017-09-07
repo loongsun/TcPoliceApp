@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.sdses.tool.UtilTc;
 import com.sdses.tool.Values;
@@ -206,7 +207,7 @@ public class Evidence2Activity extends CaseBaseActivity {
             map.put("$NOTE"+i+"$",evidenceBean.note);
         }
         CaseUtil.writeDoc("xzaj_cyqzzjqd.doc",file,map);
-
+        findViewById(R.id.btn_upload).setEnabled(true);
     }
 
 

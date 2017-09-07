@@ -327,28 +327,28 @@ public class XsajJszjclActivity extends Activity {
 
     //上传按钮
     public void BtnUploadBL(View view) {
-        File fileStart = new File(Values.ALLFILES+"wtxt/JSZJCLQD/");
-        boolean flag = getFileName2(fileStart.listFiles(), name);
-
-        if(flag){
-            //存在本地文件
-        }else{
-            try {
-                String  sdcardPath = Environment.getExternalStorageDirectory().getAbsolutePath();
-
-                File file = new File(sdcardPath  + "/TC/wtxt/JSZJCLQD/");
-                if (!file.exists()){
-                    file.mkdir();
-                }
-
-                String fileName = Values.PATH_BOOKMARK+"JSZJCLQD/" + name + "_" + UtilTc.getCurrentTime() + ".doc";
-                newPath = fileName;
-                InputStream inputStream = getAssets().open("xsaj_jszjclqd.doc");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            doScan();
-        }
+//        File fileStart = new File(Values.ALLFILES+"wtxt/JSZJCLQD/");
+//        boolean flag = getFileName2(fileStart.listFiles(), name);
+//
+//        if(flag){
+//            //存在本地文件
+//        }else{
+//            try {
+//                String  sdcardPath = Environment.getExternalStorageDirectory().getAbsolutePath();
+//
+//                File file = new File(sdcardPath  + "/TC/wtxt/JSZJCLQD/");
+//                if (!file.exists()){
+//                    file.mkdir();
+//                }
+//
+//                String fileName = Values.PATH_BOOKMARK+"JSZJCLQD/" + name + "_" + UtilTc.getCurrentTime() + ".doc";
+//                newPath = fileName;
+//                InputStream inputStream = getAssets().open("xsaj_jszjclqd.doc");
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//            doScan();
+//        }
 
         startProgressDialog(UPLOAD);
 
@@ -536,7 +536,7 @@ public class XsajJszjclActivity extends Activity {
             e.printStackTrace();
         }
         doScan();
-
+        doOpenWord();
     }
 
 
@@ -621,6 +621,7 @@ public class XsajJszjclActivity extends Activity {
      * */
     public void writeDoc( File newFile ,Map<String, String> map)
     {
+        findViewById(R.id.btn_upload).setEnabled(true);
         try
         {
             InputStream in = getAssets().open("xsaj_jszjclqd.doc");

@@ -10,8 +10,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -53,194 +52,210 @@
 
                 <TextView
                     style="@style/text_case"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="公安局名称:"/>
 
                 <com.tc.view.LineEditText
                     android:id="@+id/edt_office_name"
                     style="@style/edt_case"
-                    />
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
 
-            </LinearLayout>
-            <LinearLayout
-                style="@style/layout_case">
-
-                <TextView
-                    style="@style/text_case"
-                    android:text="派出所名称:"/>
-
-                <com.tc.view.LineEditText
-                    android:id="@+id/edt_police_name"
-                    style="@style/edt_case"/>
-            </LinearLayout>
-
-
-
-            <LinearLayout
-                style="@style/layout_case">
-
-                <TextView
-                    style="@style/text_case"
-                    android:text="案由:"/>
-
-                <com.tc.view.LineEditText
-                    android:id="@+id/edt_reason"
-                    style="@style/edt_case"/>
             </LinearLayout>
 
             <LinearLayout
-                style="@style/layout_case">
-                <TextView
-                    style="@style/text_case"
-                    android:text="被抽样物品持有人:"/>
-                <com.tc.view.LineEditText
-                    style="@style/edt_case"
-                    android:id="@+id/edt_evidence_people"/>
-            </LinearLayout>
-            <LinearLayout
-                style="@style/layout_case">
-                <TextView
-                    style="@style/text_case"
-                    android:text="性别:"/>
-                <com.tc.view.LineEditText
-                    style="@style/edt_case"
-                    android:id="@+id/edt_gender"/>
-            </LinearLayout>
-            <LinearLayout
-                style="@style/layout_case">
-                <TextView
-                    style="@style/text_case"
-                    android:text="出生日期"/>
-                <com.tc.view.LineEditText
-                    style="@style/edt_case"
-                    android:inputType="none"
-                    android:editable="false"
-                    android:id="@+id/edt_birthday"
-                    />
-            </LinearLayout>
-
-
-            <LinearLayout
-                style="@style/layout_case">
-                <TextView
-                    style="@style/text_case"
-                    android:text="现住址:"/>
-                <com.tc.view.LineEditText
-                    style="@style/edt_case"
-                    android:id="@+id/edt_live_place"/>
-            </LinearLayout>
-            <LinearLayout
-                style="@style/layout_case">
-                <TextView
-                    style="@style/text_case"
-                    android:text="工作单位:"/>
-                <com.tc.view.LineEditText
-                    style="@style/edt_case"
-                    android:id="@+id/edt_work_place"/>
-            </LinearLayout>
-            <LinearLayout
-                style="@style/layout_case">
-                <TextView
-                    style="@style/text_case"
-                    android:text="联系人电话:"/>
-                <com.tc.view.LineEditText
-                    style="@style/edt_case"
-                    android:id="@+id/edt_phone"
-                    />
-            </LinearLayout>
-            <LinearLayout
-                style="@style/layout_case">
-                <TextView
-                    style="@style/text_case"
-                    android:text="抽样地点:"/>
-                <com.tc.view.LineEditText
-                    style="@style/edt_case"
-                    android:id="@+id/edt_chouyangaddress"/>
-            </LinearLayout>
-
-            <LinearLayout
-                style="@style/layout_case">
-                <TextView
-                    style="@style/text_case"
-                    android:text="持有人:"/>
-                <com.tc.view.LineEditText
-                    style="@style/edt_case"
-                    android:id="@+id/edt_worker1"/>
-            </LinearLayout>
-            <LinearLayout
-                style="@style/layout_case">
-                <TextView
-                    style="@style/text_case"
-                    android:text="承办人:"/>
-                <com.tc.view.LineEditText
-                    style="@style/edt_case"
-                    android:id="@+id/edt_worker2"/>
-            </LinearLayout>
-            <LinearLayout
-                style="@style/layout_case">
-                <TextView
-                    style="@style/text_case"
-                    android:text="抽样时间"/>
-                <com.tc.view.LineEditText
-                    style="@style/edt_case"
-                    android:inputType="none"
-                    android:editable="false"
-                    android:id="@+id/edt_time"
-                    />
-            </LinearLayout>
-
-            <ListView
-                android:id="@+id/listview_evidece"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:divider="@color/white"
-                android:dividerHeight="10dip"
-                android:drawSelectorOnTop="false"
-                android:listSelector="@drawable/lv_selector"
-                />
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/text_case"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="开始时间:"/>
+
+                <com.tc.view.LineEditText
+                    android:id="@+id/edt_start_time"
+                    style="@style/edt_case"
+                    android:editable="false"
+                    android:inputType="none"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/layout_case">
+
+                <TextView
+                    style="@style/text_case"
+                    android:text="结束时间:"/>
+
+                <com.tc.view.LineEditText
+                    android:id="@+id/edt_end_time"
+                    style="@style/edt_case"
+                    android:editable="false"
+                    android:inputType="none"/>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/layout_case">
+
+                <TextView
+                    style="@style/text_case"
+                    android:text="辨认地点:"/>
+
+                <com.tc.view.LineEditText
+                    android:id="@+id/edt_place"
+                    style="@style/edt_case"/>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/layout_case">
+                <TextView
+                    style="@style/text_case"
+                    android:text="办案人姓名:"/>
+                <com.tc.view.LineEditText
+                    style="@style/edt_case"
+                    android:id="@+id/edt_checker_name"/>
+            </LinearLayout>
+            <LinearLayout
+                style="@style/layout_case">
+                <TextView
+                    style="@style/text_case"
+                    android:text="办案人工作单位:"/>
+                <com.tc.view.LineEditText
+                    style="@style/edt_case"
+                    android:id="@+id/edt_checker_office"/>
+            </LinearLayout>
+            <LinearLayout
+                style="@style/layout_case">
+                <TextView
+                    style="@style/text_case"
+                    android:text="办案人职务"/>
+                <com.tc.view.LineEditText
+                    style="@style/edt_case"
+                    android:id="@+id/edt_checker_duty"
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                style="@style/layout_case">
+                <TextView
+                    style="@style/text_case"
+                    android:text="辨认人姓名:"/>
+                <com.tc.view.LineEditText
+                    style="@style/edt_case"
+                    android:id="@+id/edt_br_name"/>
+            </LinearLayout>
+            <LinearLayout
+                style="@style/layout_case">
+                <TextView
+                    style="@style/text_case"
+                    android:text="辨认人工作单位:"/>
+                <com.tc.view.LineEditText
+                    style="@style/edt_case"
+                    android:id="@+id/edt_br_office"/>
+            </LinearLayout>
+            <LinearLayout
+                style="@style/layout_case">
+                <TextView
+                    style="@style/text_case"
+                    android:text="辨认人职务"/>
+                <com.tc.view.LineEditText
+                    style="@style/edt_case"
+                    android:id="@+id/edt_br_duty"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                style="@style/layout_case">
+
+                <TextView
+                    style="@style/text_case"
+                    android:text="辨认对象:"/>
+
+                <com.tc.view.LineEditText
+                    android:id="@+id/edt_obj"
+                    style="@style/edt_case"/>
+            </LinearLayout>
+            <LinearLayout
+                style="@style/layout_case">
+
+                <TextView
+                    style="@style/text_case"
+                    android:text="辨认目的:"/>
+
+                <com.tc.view.LineEditText
+                    android:id="@+id/edt_plan"
+                    style="@style/edt_case"/>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/layout_case">
+                <TextView
+                    style="@style/text_case"
+                    android:text="过程及结果:"/>
+                <com.tc.view.LineEditText
+                    style="@style/edt_case"
+                    android:id="@+id/edt_process"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                style="@style/layout_case">
+                <TextView
+                    style="@style/text_case"
+                    android:text="办案人1:"/>
+                <com.tc.view.LineEditText
+                    style="@style/edt_case"
+                    android:id="@+id/edt_kanyan1"/>
+            </LinearLayout>
+            <LinearLayout
+                style="@style/layout_case">
+                <TextView
+                    style="@style/text_case"
+                    android:text="办案人2:"/>
+                <com.tc.view.LineEditText
+                    style="@style/edt_case"
+                    android:id="@+id/edt_kan2"/>
+            </LinearLayout>
+            <LinearLayout
+                style="@style/layout_case">
+                <TextView
+                    style="@style/text_case"
+                    android:text="辨认人:"/>
+                <com.tc.view.LineEditText
+                    style="@style/edt_case"
+                    android:id="@+id/edt_witness"/>
+            </LinearLayout>
+
+            <!-- button -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <Button
+                    android:id="@+id/btn_preview"
+                    style="@style/btn_case"
+                    android:text="预览编辑"
+                    />
+                <Button
+                    android:id="@+id/btn_upload"
+                    style="@style/btn_case"
+                    android:text="上传"
+                    />
+                <Button
+                    android:id="@+id/btn_print"
+                    style="@style/btn_case"
+                    android:text="打印"
+                    />
+
+            </LinearLayout>
+
 
         </LinearLayout>
-
     </ScrollView>
-
-    <!-- button -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal"
-        android:layout_marginTop="25dp"
-        android:layout_alignParentBottom="true"
-        >
-
-        <Button
-            android:id="@+id/btn_preview"
-            style="@style/btn_case"
-            android:text="预览编辑"
-            android:onClick="preview"
-            />
-        <Button
-            android:id="@+id/btn_upload"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:gravity="center"
-            android:background="#999999"
-            android:text="上传"
-            android:enabled="false"
-            android:onClick="uploadFile"
-            />
-        <Button
-            android:id="@+id/btn_print"
-            style="@style/btn_case"
-            android:text="打印"
-            android:onClick="printFile"
-            />
-
-    </LinearLayout>
 
 </RelativeLayout>

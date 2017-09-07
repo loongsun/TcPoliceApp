@@ -53,10 +53,10 @@ public abstract class CaseBaseActivity extends Activity {
 
     protected void uploadDoc(){
         startProcessDialog();
-        if(TextUtils.isEmpty(mNewPath)){
-            getFileName();
-            doScan();
-        }
+//        if(TextUtils.isEmpty(mNewPath)){
+//            getFileName();
+//            doScan();
+//        }
         String ftpPath = geFtpPth();
         CaseUtil.startUploadFile(mNewPath,ftpPath,mName,mHandler);
     }

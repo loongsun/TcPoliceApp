@@ -200,30 +200,30 @@ public class XcBlActivity extends Activity {
     }
     //上传按钮
     public void BtnUploadBL(View view) {
-        File fileStart = new File(Values.ALLFILES+"wtxt/XCBL/");
-        boolean flag = getFileName2(fileStart.listFiles(), name);
-
-        if(flag){
-            //存在本地文件
-            Log.e("e","本地存在");
-        }else{
-            Log.e("e","本地不存在");
-            try {
-                String  sdcardPath = Environment.getExternalStorageDirectory().getAbsolutePath();
-
-                File file = new File(sdcardPath  + "/TC/wtxt/XCBL/");
-                if (!file.exists()){
-                    file.mkdir();
-                }
-
-                String fileName = Values.PATH_BOOKMARK+"XCBL/" + name + "_" + UtilTc.getCurrentTime() + ".doc";
-                newPath = fileName;
-                InputStream inputStream = getAssets().open("xcbl.doc");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            doScan();
-        }
+//        File fileStart = new File(Values.ALLFILES+"wtxt/XCBL/");
+//        boolean flag = getFileName2(fileStart.listFiles(), name);
+//
+//        if(flag){
+//            //存在本地文件
+//            Log.e("e","本地存在");
+//        }else{
+//            Log.e("e","本地不存在");
+//            try {
+//                String  sdcardPath = Environment.getExternalStorageDirectory().getAbsolutePath();
+//
+//                File file = new File(sdcardPath  + "/TC/wtxt/XCBL/");
+//                if (!file.exists()){
+//                    file.mkdir();
+//                }
+//
+//                String fileName = Values.PATH_BOOKMARK+"XCBL/" + name + "_" + UtilTc.getCurrentTime() + ".doc";
+//                newPath = fileName;
+//                InputStream inputStream = getAssets().open("xcbl.doc");
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//            doScan();
+//        }
         startProgressDialog(UPLOAD);
         new Thread(uploadRun).start();
         SendFile sf = new SendFile();
@@ -371,7 +371,7 @@ public class XcBlActivity extends Activity {
             File file = new File(Values.PATH_xcbl+fileName);
             if(file.exists()) {
                 Log.e("e","存在");
-                boolean isDel = file.delete();
+//                boolean isDel = file.delete();
             }else{
                 Log.e("e","不存在");
             }
@@ -556,6 +556,14 @@ public class XcBlActivity extends Activity {
 
 
     private void doScan(){
+//        String startTime=et_kssj.getText().toString();
+//        String endTime=et_jssj.getText().toString();
+//        if(endTime.compareTo(startTime)<=0)
+//        {
+//            Toast.makeText(getApplicationContext(),"结束时间要大于开始时间",Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+
         //获取模板文件
 //        File demoFile=new File(demoPath);
         //创建生成的文件
@@ -639,6 +647,7 @@ public class XcBlActivity extends Activity {
      * */
     public void writeDoc( File newFile ,Map<String, String> map)
     {
+        findViewById(R.id.btn_upload).setEnabled(true);
         try
         {
             InputStream in = getAssets().open("xcbl.doc");

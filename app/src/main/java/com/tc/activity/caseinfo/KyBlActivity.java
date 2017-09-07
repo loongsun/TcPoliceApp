@@ -221,6 +221,13 @@ public class KyBlActivity extends CaseBaseActivity {
 
     //用app查看doc文件
     private void doOpenWord() {
+        String startTime=mEditStartTime.getText().toString();
+        String endTime=mEdtEndTime.getText().toString();
+        if(endTime.compareTo(startTime)<=0)
+        {
+            Toast.makeText(getApplicationContext(),"结束时间要大于开始时间",Toast.LENGTH_SHORT).show();
+            return;
+        }
         Intent intent = new Intent();
         intent.setAction("android.intent.action.VIEW");
         intent.addCategory("android.intent.category.DEFAULT");
@@ -240,6 +247,13 @@ public class KyBlActivity extends CaseBaseActivity {
     //生成doc文件，并保存
     @Override
     protected void doScan() {
+        String startTime=mEditStartTime.getText().toString();
+        String endTime=mEdtEndTime.getText().toString();
+        if(endTime.compareTo(startTime)<=0)
+        {
+            Toast.makeText(getApplicationContext(),"结束时间要大于开始时间",Toast.LENGTH_SHORT).show();
+            return;
+        }
         File newFile = new File(mNewPath);
         Map<String,String> map = new HashMap<>();
         map.put("$GAJ$",mEdtOfficeName.getText().toString());

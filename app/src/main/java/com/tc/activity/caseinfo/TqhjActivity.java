@@ -15,7 +15,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
@@ -28,7 +27,6 @@ import com.sdses.bean.PoliceStateListBean;
 import com.sdses.tool.UtilTc;
 import com.sdses.tool.Values;
 import com.tc.activity.SenceCheck;
-import com.tc.activity.SenceCheck2;
 import com.tc.activity.dto.HjqzBean;
 import com.tc.app.TcApp;
 import com.tc.application.R;
@@ -81,6 +79,7 @@ public class TqhjActivity extends Activity {
 
 
     private String newPath = "";
+    String nameRet = "";
     private final static int UPLOAD=1;
     String errorMessage = "";
     private CustomProgressDialog progressDialog = null;
@@ -404,28 +403,28 @@ public class TqhjActivity extends Activity {
 
     //上传按钮
     public void BtnUploadBL(View view) {
-        File fileStart = new File(Values.ALLFILES+"wtxt/HJQZ/");
-        boolean flag = getFileName2(fileStart.listFiles(), name);
-
-        if(flag){
-            //存在本地文件
-        }else{
-            try {
-                String  sdcardPath = Environment.getExternalStorageDirectory().getAbsolutePath();
-
-                File file = new File(sdcardPath  + "/TC/wtxt/HJQZ/");
-                if (!file.exists()){
-                    file.mkdir();
-                }
-
-                String fileName = Values.PATH_BOOKMARK+"HJQZ/" + name + "_" + UtilTc.getCurrentTime() + ".doc";
-                newPath = fileName;
-                InputStream inputStream = getAssets().open("xsaj_hjqz.doc");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            doScan();
-        }
+//        File fileStart = new File(Values.ALLFILES+"wtxt/HJQZ/");
+//        boolean flag = getFileName2(fileStart.listFiles(), name);
+//
+//        if(flag){
+//            //存在本地文件
+//        }else{
+//            try {
+//                String  sdcardPath = Environment.getExternalStorageDirectory().getAbsolutePath();
+//
+//                File file = new File(sdcardPath  + "/TC/wtxt/HJQZ/");
+//                if (!file.exists()){
+//                    file.mkdir();
+//                }
+//
+//                String fileName = Values.PATH_BOOKMARK+"HJQZ/" + name + "_" + UtilTc.getCurrentTime() + ".doc";
+//                newPath = fileName;
+//                InputStream inputStream = getAssets().open("xsaj_hjqz.doc");
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//            doScan();
+//        }
 
         startProgressDialog(UPLOAD);
         new Thread(uploadRun).start();
@@ -438,7 +437,7 @@ public class TqhjActivity extends Activity {
     String currentFilePaht = "";
     private String currentFile="";
     private int fileCount = 0;
-    private int mTotalSize = 0;
+//    private int mTotalSize = 0;
     public class SendFile extends Thread {
         private String currentPath="";
         @Override
@@ -458,24 +457,28 @@ public class TqhjActivity extends Activity {
 
                 //	String path=Environment.getExternalStorageDirectory().getAbsolutePath()+"/temp.jpg";
                 //	Log.e("path", "path"+path);
+                myFtp.changeDirectory("../");
+                myFtp.changeDirectory("xcbl-xs-hjqz");
+                File file = new File(newPath);
+                currentFilePaht="/xcbl-xs-hjqz";
+                currentFile = currentFilePaht+"/"+nameRet;
+                MyFTPDataTransferListener listener = new MyFTPDataTransferListener(nameRet);
+                myFtp.upload(file, listener); // 上传
 
-                for(int i=0;i<bltxt.size();i++){
-                    //判断上传到哪个文件夹
-                    if(bltxt.get(i).endsWith(".doc")){
-                        myFtp.changeDirectory("../");
-                        myFtp.changeDirectory("xcbl-xs-hjqz");
-                        currentPath=Values.PATH_hjqz;
-                        currentFilePaht="/xcbl-xs-hjqz";
-                    }
-
-                    File file = new File(currentPath+bltxt.get(i));
-                    fileCount = (int) file.length();
-
-                    mTotalSize = fileCount;
-                    currentFile=currentFilePaht+"/"+bltxt.get(i);
-                    MyFTPDataTransferListener listener = new MyFTPDataTransferListener(bltxt.get(i));
-                    myFtp.upload(file, listener); // 上传
-                }
+//                for(int i=0;i<bltxt.size();i++){
+//                    //判断上传到哪个文件夹
+//                    if(bltxt.get(i).endsWith(".doc")){
+//                        myFtp.changeDirectory("../");
+//                        myFtp.changeDirectory("xcbl-xs-hjqz");
+//                        currentPath=Values.PATH_hjqz;
+////                        currentFilePaht="/xcbl-xs-hjqz";
+//                    }
+//
+//                    File file = new File(newPath);
+////                    currentFile=currentFilePaht+"/"+bltxt.get(i);
+//                    MyFTPDataTransferListener listener = new MyFTPDataTransferListener(bltxt.get(i));
+//                    myFtp.upload(file, listener); // 上传
+//                }
             } catch (Exception e) {
                 e.printStackTrace();
                 mHandler.sendEmptyMessage(Values.ERROR_UPLOAD);
@@ -514,17 +517,18 @@ public class TqhjActivity extends Activity {
         @Override
         public void completed() {// 上传成功
             // TODO Auto-generated method stub
-            UtilTc.showLog("currentFile:"+currentFile);
-            UtilTc.showLog("currentFile 后3位"+currentFile.substring(currentFile.length()-3,currentFile.length()));
-            mediaFormat=currentFile.substring(currentFile.length()-3,currentFile.length());
-            if(mediaFormat.equals("doc")){
-                mediaType="文档";
-            }
+//            UtilTc.showLog("currentFile:"+currentFile);
+//            UtilTc.showLog("currentFile 后3位"+currentFile.substring(currentFile.length()-3,currentFile.length()));
+//            mediaFormat=currentFile.substring(currentFile.length()-3,currentFile.length());
+//            if(mediaFormat.equals("doc")){
+//                mediaType="文档";
+//            }
+            mediaType="文档";
             new Thread(media).start();
 
             File file = new File(Values.PATH_hjqz+fileName);
             if(file.exists()) {
-                boolean isDel = file.delete();
+//                boolean isDel = file.delete();
             }
 
             Message msg;
@@ -589,6 +593,7 @@ public class TqhjActivity extends Activity {
 
             String fileName = Values.PATH_BOOKMARK+"HJQZ/" + name + "_" + UtilTc.getCurrentTime() + ".doc";
             newPath = fileName;
+            nameRet = name + "_" + UtilTc.getCurrentTime() + ".doc";
             InputStream inputStream = getAssets().open("xsaj_hjqz.doc");
         } catch (Exception e) {
             e.printStackTrace();
@@ -614,7 +619,7 @@ public class TqhjActivity extends Activity {
             e.printStackTrace();
         }
         doScan();
-
+        doOpenWord();
     }
 
 
@@ -708,6 +713,14 @@ public class TqhjActivity extends Activity {
 
 
     private void  doScan(){
+//        String startTime=mEditStartTime.getText().toString();
+//        String endTime=mEdtEndTime.getText().toString();
+//        if(endTime.compareTo(startTime)<=0)
+//        {
+//            Toast.makeText(getApplicationContext(),"结束时间要大于开始时间",Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+//
         //获取模板文件
 //        File demoFile=new File(demoPath);
         //创建生成的文件
@@ -760,6 +773,8 @@ public class TqhjActivity extends Activity {
      * */
     public void writeDoc( File newFile ,Map<String, String> map)
     {
+        findViewById(R.id.btn_upload).setEnabled(true);
+        findViewById(R.id.btn_upload).setBackgroundColor(getResources().getColor(R.color.bluetc));
         try
         {
             InputStream in = getAssets().open("xsaj_hjqz.doc");
