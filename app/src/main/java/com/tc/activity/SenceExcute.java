@@ -284,8 +284,8 @@ public class SenceExcute extends Activity  {
 				 {
 					 myFtp.changeDirectory("../");
 					 myFtp.changeDirectory("wtxt");
-					 currentPath=Values.PATH_BOOKMARK;
-					 currentFilePaht="/wtxt";
+					 currentPath=Values.PATH_ZFQZ_BOOKMARK;
+					 currentFilePaht="/wdoc";
 				 }else if(allList.get(i).endsWith(".amr")){
 					 myFtp.changeDirectory("../");
 					 myFtp.changeDirectory("wwave");
@@ -370,7 +370,7 @@ public class SenceExcute extends Activity  {
 		}
 	}
 	private void getFilesInfo() {
-		File file = new File(Values.ALLFILES);
+		File file = new File(Values.PATH_ZFQZ);
 		getFileName(file.listFiles(), plb.getJqNum());
 	}
 
@@ -879,7 +879,7 @@ public class SenceExcute extends Activity  {
 
 
 							if (ret.endsWith(".doc")) {
-								file = new File(Values.PATH_BOOKMARK+ret);
+								file = new File(Values.PATH_ZFQZ_BOOKMARK+ret);
 
 							} else if (  ret.endsWith(".mp4")) {
 								file = new File(Values.PATH_CAMERA+ret);
@@ -920,7 +920,7 @@ public class SenceExcute extends Activity  {
 					String ret = allList.get(position);
 					if (ret.endsWith(".doc")) {
 
-						doOpenWord(Values.PATH_BOOKMARK+ret);
+						doOpenWord(Values.PATH_ZFQZ_BOOKMARK+ret);
 
 					} else if (  ret.endsWith(".mp4"))
 					{
