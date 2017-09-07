@@ -429,13 +429,16 @@
                     android:text="天气"
                     android:textColor="@color/text_11"
                     android:textSize="18sp" />
-
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
                 <RadioGroup
-                    android:layout_weight="1"
                     android:id="@+id/rg_kyTq"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
+                    android:paddingRight="20dp"
                     android:orientation="horizontal">
 
                     <RadioButton
@@ -477,6 +480,7 @@
                         android:text="雾"
                         android:textColor="@color/colorPrimary" />
                 </RadioGroup>
+                </HorizontalScrollView>
             </LinearLayout>
 
             <View

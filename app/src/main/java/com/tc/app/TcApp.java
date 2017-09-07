@@ -96,10 +96,10 @@ public class TcApp extends Application {
 			}
 
 			// ’’∆¨Œƒº˛º–
-			File file4 = new File(sdPath + "/TC/≤‚ ‘");
-			if (!file4.exists()) {
-				file4.mkdir();
-			}
+//			File file4 = new File(sdPath + "/TC/≤‚ ‘");
+//			if (!file4.exists()) {
+//				file4.mkdir();
+//			}
 		} catch (Exception e) {
 		}
 	}
