@@ -133,7 +133,7 @@ public class DateWheelDialogN extends Dialog implements View.OnClickListener {
         });
 
         //小时***********************************
-       /* mHourWheelView.addChangingListener(new OnWheelChangedListener() {
+       mHourWheelView.addChangingListener(new OnWheelChangedListener() {
 
             @Override
             public void onChanged(WheelView wheel, int oldValue, int newValue) {
@@ -155,10 +155,10 @@ public class DateWheelDialogN extends Dialog implements View.OnClickListener {
                 String currentText = (String) mHourAdapter.getItemText(wheel.getCurrentItem());
                 setTextViewStyle(currentText, mHourAdapter);
             }
-        });*/
+        });
 
         //分钟
-/*        mMinuteWheelView.addChangingListener(new OnWheelChangedListener() {
+        mMinuteWheelView.addChangingListener(new OnWheelChangedListener() {
 
             @Override
             public void onChanged(WheelView wheel, int oldValue, int newValue) {
@@ -180,7 +180,7 @@ public class DateWheelDialogN extends Dialog implements View.OnClickListener {
                 String currentText = (String) mMinuteAdapter.getItemText(wheel.getCurrentItem());
                 setTextViewStyle(currentText, mMinuteAdapter);
             }
-        });*/
+        });
     }
 
     private void initMinute() {
@@ -188,7 +188,10 @@ public class DateWheelDialogN extends Dialog implements View.OnClickListener {
         int nowMinite = nowCalendar.get(Calendar.MINUTE);
         arry_minute.clear();
         for (int i = 0; i <= 59; i++) {
+            if(i>=10)
             arry_minute.add(i + "");
+            else
+                arry_minute.add("0"+i + "");
             if (nowMinite == i) {
                 nowMinuteId = arry_minute.size() - 1;
             }
@@ -206,9 +209,14 @@ public class DateWheelDialogN extends Dialog implements View.OnClickListener {
         Calendar nowCalendar = Calendar.getInstance();
         int nowHour = nowCalendar.get(Calendar.HOUR_OF_DAY);
         arry_hour.clear();
-        for (int i = 0; i <= 23; i++) {
-            arry_hour.add(i + "");
-            if (nowHour == i) {
+        for (int i = 0; i <= 23; i++)
+        {
+            if(i<10)
+            arry_hour.add("0"+i + "");
+            else
+                arry_hour.add(i + "");
+            if (nowHour == i)
+            {
                 nowHourId = arry_hour.size() - 1;
             }
         }
@@ -321,7 +329,22 @@ public class DateWheelDialogN extends Dialog implements View.OnClickListener {
                 case 10:
                 case 12:
                     for (int day = 1; day <= 31; day++) {
-                        arry_date.add(month + "月" + day + "日");
+
+                        if(month>=10)
+                        {
+                            if(day>=10)
+                                arry_date.add(month + "月" + day + "日");
+                            else
+                                arry_date.add(month + "月" + "0"+day + "日");
+                        }
+                        else
+                        {
+                            if(day>=10)
+                                arry_date.add("0"+month + "月" + day + "日");
+                            else
+                                arry_date.add("0"+month + "月" + "0"+day + "日");
+                        }
+
 
                         if (month == nowMonth && day == nowDay) {
                             nowDateId = arry_date.size() - 1;
@@ -331,14 +354,14 @@ public class DateWheelDialogN extends Dialog implements View.OnClickListener {
                 case 2:
                     if (isRun) {
                         for (int day = 1; day <= 29; day++) {
-                            arry_date.add(month + "月" + day + "日");
+                            arry_date.add("0"+month + "月" + day + "日");
                             if (month == nowMonth && day == nowDay) {
                                 nowDateId = arry_date.size() - 1;
                             }
                         }
                     } else {
                         for (int day = 1; day <= 28; day++) {
-                            arry_date.add(month + "月" + day + "日");
+                            arry_date.add("0"+month + "月" + day + "日");
                             if (month == nowMonth && day == nowDay) {
                                 nowDateId = arry_date.size() - 1;
                             }
@@ -349,8 +372,26 @@ public class DateWheelDialogN extends Dialog implements View.OnClickListener {
                 case 6:
                 case 9:
                 case 11:
-                    for (int day = 1; day <= 30; day++) {
-                        arry_date.add(month + "月" + day + "日");
+                    for (int day = 1; day <= 30; day++)
+                    {
+
+                        if(month>=10)
+                        {
+                            if(day>=10)
+                                arry_date.add(month + "月" + day + "日");
+                            else
+                                arry_date.add(month + "月" + "0"+day + "日");
+                        }
+                        else
+                        {
+                            if(day>=10)
+                                arry_date.add("0"+month + "月" + day + "日");
+                            else
+                                arry_date.add("0"+month + "月" + "0"+day + "日");
+                        }
+
+
+
                         if (month == nowMonth && day == nowDay) {
                             nowDateId = arry_date.size() - 1;
                         }
