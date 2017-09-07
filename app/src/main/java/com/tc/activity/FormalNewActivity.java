@@ -37,6 +37,8 @@ import com.tc.activity.caseinfo.XckcXsBrBlActivity;
 import com.tc.app.TcApp;
 import com.tc.application.R;
 import com.tc.bean.ImageListBean;
+import com.tc.fragment.FormalSurveyFragment;
+import com.tc.util.ConfirmDialog;
 import com.tc.view.CustomProgressDialog;
 import com.tc.view.DateWheelDialogN;
 
@@ -81,6 +83,11 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
     TextView takePhotoTv;
     @BindView(R.id.operate_next_tv)
     TextView operateNextTv;
+
+    @BindView(R.id.operate_next_update)
+    TextView operateUpdateTv;
+
+
     @BindView(R.id.photo_recycleview)
     RecyclerView photoRecycleview;
     @BindView(R.id.one_start_time)
@@ -103,7 +110,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
     private List<Button> btnList = new ArrayList<Button>();
 
     private String newPath = "";
-    private String name = "";
+    private String ajNum = "";
 
     //基本信息
     private String checkboxstr1, checkboxstr2, checkboxstr3, checkboxstr4;
@@ -221,11 +228,11 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
         setBackgroundColorById(R.id.movie_btn);
         initView();
         initfindView();
+
+
     }
 
     private void initfindView() {
-
-
         A_ID_edit = (EditText) this.findViewById(R.id.anjianname);
 //痕迹物证
         MC_edit = (EditText) this.findViewById(R.id.MC_edit);
@@ -759,16 +766,46 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
 
 
     }
+    // -------------------------遍历文件
+    private void checkFileName(File[] files, String jqNum)
+    {
 
+        if (files != null)// nullPointer
+        {
+            for (File file : files)
+            {
+                if (file.isDirectory()) {
+                    checkFileName(file.listFiles(), jqNum);
+                }
+                else
+                {
+                    String fileName = file.getName();
+
+                    if (fileName.startsWith(jqNum) && fileName.endsWith(".jpg"))
+                    {
+
+                        String filePath= Values.PATH_XSKY+ fileName;
+                        mImageList.add(new ImageListBean(filePath,fileName));
+                    }
+                }
+            }
+        }
+    }
+    private void checkDoc()
+    {
+        File file = new File(Values.PATH_XSKY);
+        checkFileName(file.listFiles(),ajNum);
+    }
 
     private void initView() {
 
-        name = getIntent().getStringExtra("name");
-        anjiannum.setText(name);
+        ajNum = getIntent().getStringExtra("name");
+        anjiannum.setText(ajNum);
         anjianname.setText(getIntent().getStringExtra("anjianname"));
 
+        checkDoc();
         photoRecycleview.setLayoutManager(new GridLayoutManager(getActivity(), 2));
-        mAdapter = new BackOrderAdapter(mImageList, getActivity());
+        mAdapter = new BackOrderAdapter(mImageList, this);
         photoRecycleview.setAdapter(mAdapter);
     }
 
@@ -861,14 +898,14 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
 
             case R.id.variety_btn:
                 setBackgroundColorById(R.id.variety_btn);
-                operateNextTv.setText("提交");
+                operateNextTv.setText("完成");
                 break;
             default:
                 break;
         }
     }
 
-    @OnClick({R.id.take_photo_tv, R.id.operate_next_tv, R.id.one_start_time, R.id.one_ending_time,
+    @OnClick({R.id.take_photo_tv,R.id.operate_next_update,R.id.operate_next_tv, R.id.one_start_time, R.id.one_ending_time,
             R.id.one_end_time, one_save_time, R.id.TQSJ_edit})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -880,170 +917,193 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
                 startActivityForResult(cameraintent2, 2);
 
                 break;
-            case R.id.operate_next_tv:
+            case R.id.operate_next_update:
+                final ConfirmDialog confirmDialog = new ConfirmDialog(this, "确定要上传吗?", "确定", "取消");
+                confirmDialog.show();
+                confirmDialog.setClicklistener(new ConfirmDialog.ClickListenerInterface() {
+                    @Override
+                    public void doConfirm() {
+                        // TODO Auto-generated method stub
+                        confirmDialog.dismiss();
 
-                switch (posId) {
-                    case R.id.movie_btn:
+                        switch (posId) {
 
-                        BHCS = checkboxstr1 + checkboxstr2 + checkboxstr3 ;
+                            case R.id.movie_btn:
 
-                        if (A_ID_edit.getText().toString().trim().equals("")) {
-                            Toast.makeText(ia, "案件编号不能为空", Toast.LENGTH_SHORT).show();
-                        } else if (AJLB == null) {
-                            Toast.makeText(ia, "案件类别不能为空", Toast.LENGTH_SHORT).show();
-                        } else if (anfaquhua_edit.getText().toString().equals("")) {
-                            Toast.makeText(ia, "发案区划不能为空", Toast.LENGTH_SHORT).show();
-                        } else if (SFMA == null) {
-                            Toast.makeText(ia, "是否命案不能为空", Toast.LENGTH_SHORT).show();
-                        } else if (SFXA == null) {
-                            Toast.makeText(ia, "是否刑案不能为空", Toast.LENGTH_SHORT).show();
-                        } else if (oneStartTime.getText().toString().trim().equals("")) {
-                            Toast.makeText(ia, "发案时间不能为空", Toast.LENGTH_SHORT).show();
-                        } else if (oneEndingTime.getText().toString().trim().equals("")) {
-                            Toast.makeText(ia, "法案时间截止不能为空", Toast.LENGTH_SHORT).show();
-                        } else if (AFDD_edit.getText().toString().trim().equals("")) {
-                            Toast.makeText(ia, "法案地点不能为空", Toast.LENGTH_SHORT).show();
-                        }
-//                        else if (oneEndTime.getText().toString().trim().equals("")) {
-//                            Toast.makeText(ia, "破案时间不能为空", Toast.LENGTH_SHORT).show();
-//                        }
+                                BHCS = checkboxstr1 + checkboxstr2 + checkboxstr3 ;
 
-                        else if (KTDD_edit.getText().toString().trim().equals("")) {
-                            Toast.makeText(ia, "勘验地点不能为空", Toast.LENGTH_SHORT).show();
-
-                        } else if (baohuren_name_edit.getText().toString().trim().equals("")) {
-                            Toast.makeText(ia, "保护人姓名不能为空", Toast.LENGTH_SHORT).show();
-
-                        }else if (baohuren_company_edit.getText().toString().trim().equals("")) {
-                            Toast.makeText(ia, "保护单位不能为空", Toast.LENGTH_SHORT).show();
-
-                       }else if (BHCS == null) {
-                            Toast.makeText(ia, "保护措施不能为空", Toast.LENGTH_SHORT).show();
-
-                        }else if (TQZK == null) {
-                            Toast.makeText(ia, "天气状况不能为空", Toast.LENGTH_SHORT).show();
-
-                        }else if (oneSaveTime.getText().toString().equals("")) {
-                            Toast.makeText(ia, "保护时间不能为空", Toast.LENGTH_SHORT).show();
-
-                        }else if (XCTJ == null) {
-                            Toast.makeText(ia, "现场条件不能为空", Toast.LENGTH_SHORT).show();
-
-                        }else if (GZTJ == null) {
-                            Toast.makeText(ia, "光照条件不能为空", Toast.LENGTH_SHORT).show();
-
-                        }else if (XCZH_edit.getText().toString().equals("")) {
-                            Toast.makeText(ia, "现场指挥人员不能为空", Toast.LENGTH_SHORT).show();
-
-                        }else if (et_kyKydw.getText().toString().equals("")) {
-                            Toast.makeText(ia, "勘验检查人员不能为空", Toast.LENGTH_SHORT).show();
-
-                        }else if (et_kyZpbgdw.getText().toString().equals("")) {
-                            Toast.makeText(ia, "其他到场人员不能为空", Toast.LENGTH_SHORT).show();
-
-                        }else if (baoanren_edit.getText().toString().equals("")) {
-                            Toast.makeText(ia, "被害人/报案人员不能为空", Toast.LENGTH_SHORT).show();
-
-                        }else if (jianzhenren_edit.getText().toString().equals("")) {
-                            Toast.makeText(ia, "见证人不能为空", Toast.LENGTH_SHORT).show();
-                        }
+                                if (A_ID_edit.getText().toString().trim().equals("")) {
+                                    Toast.makeText(ia, "案件编号不能为空", Toast.LENGTH_SHORT).show();
+                                } else if (AJLB == null) {
+                                    Toast.makeText(ia, "案件类别不能为空", Toast.LENGTH_SHORT).show();
+                                } else if (anfaquhua_edit.getText().toString().equals("")) {
+                                    Toast.makeText(ia, "发案区划不能为空", Toast.LENGTH_SHORT).show();
+                                } else if (SFMA == null) {
+                                    Toast.makeText(ia, "是否命案不能为空", Toast.LENGTH_SHORT).show();
+                                } else if (SFXA == null) {
+                                    Toast.makeText(ia, "是否刑案不能为空", Toast.LENGTH_SHORT).show();
+                                } else if (oneStartTime.getText().toString().trim().equals("")) {
+                                    Toast.makeText(ia, "发案时间不能为空", Toast.LENGTH_SHORT).show();
+                                } else if (oneEndingTime.getText().toString().trim().equals("")) {
+                                    Toast.makeText(ia, "法案时间截止不能为空", Toast.LENGTH_SHORT).show();
+                                } else if (AFDD_edit.getText().toString().trim().equals("")) {
+                                    Toast.makeText(ia, "法案地点不能为空", Toast.LENGTH_SHORT).show();
+                                }
 
 
-                        else {
+                                else if (KTDD_edit.getText().toString().trim().equals("")) {
+                                    Toast.makeText(ia, "勘验地点不能为空", Toast.LENGTH_SHORT).show();
 
-                            startProgressDialog(UPLOAD);
-                            new Thread(uploadRunJiBenXinXi).start();
+                                } else if (baohuren_name_edit.getText().toString().trim().equals("")) {
+                                    Toast.makeText(ia, "保护人姓名不能为空", Toast.LENGTH_SHORT).show();
 
-                            setBackgroundColorById(R.id.tv_btn);
-                            operateNextTv.setText("下一步");
-                        }
+                                }else if (baohuren_company_edit.getText().toString().trim().equals("")) {
+                                    Toast.makeText(ia, "保护单位不能为空", Toast.LENGTH_SHORT).show();
 
-                        break;
+                                }else if (BHCS == null) {
+                                    Toast.makeText(ia, "保护措施不能为空", Toast.LENGTH_SHORT).show();
 
-                    case R.id.tv_btn:
+                                }else if (TQZK == null) {
+                                    Toast.makeText(ia, "天气状况不能为空", Toast.LENGTH_SHORT).show();
 
+                                }else if (oneSaveTime.getText().toString().equals("")) {
+                                    Toast.makeText(ia, "保护时间不能为空", Toast.LENGTH_SHORT).show();
 
-                        SendFile sf = new  SendFile();
-                        sf.start();
-                        break;
+                                }else if (XCTJ == null) {
+                                    Toast.makeText(ia, "现场条件不能为空", Toast.LENGTH_SHORT).show();
 
-                    case R.id.anime_btn:
+                                }else if (GZTJ == null) {
+                                    Toast.makeText(ia, "光照条件不能为空", Toast.LENGTH_SHORT).show();
 
+                                }else if (XCZH_edit.getText().toString().equals("")) {
+                                    Toast.makeText(ia, "现场指挥人员不能为空", Toast.LENGTH_SHORT).show();
 
-//                        if(TextUtils.isEmpty(A_ID_edit.getText())){
-//                            Toast.makeText(ia, "案件编号不能为空", Toast.LENGTH_SHORT).show();
-//                        }
-                        if (A_ID_edit.getText().toString().trim().equals("")) {
-                            Toast.makeText(ia, "案件编号不能为空", Toast.LENGTH_SHORT).show();
-                        } else if (MC_edit.getText().toString().trim().equals("")) {
-                            Toast.makeText(ia, "名称不能为空", Toast.LENGTH_SHORT).show();
-                        } else if (JBTZ_edit.getText().toString().trim().equals("")) {
-                            Toast.makeText(ia, "基本特征不能为空", Toast.LENGTH_SHORT).show();
-                        } else if (SL_edit.getText().toString().trim().equals("")) {
-                            Toast.makeText(ia, "数量不能为空", Toast.LENGTH_SHORT).show();
-                        } else if (TQBW_edit.getText().toString().trim().equals("")) {
-                            Toast.makeText(ia, "提取部位不能为空", Toast.LENGTH_SHORT).show();
-                        } else if (TQFF_edit.getText().toString().trim().equals("")) {
-                            Toast.makeText(ia, "提取方法不能为空", Toast.LENGTH_SHORT).show();
-                        } else if (TQR_edit.getText().toString().trim().equals("")) {
-                            Toast.makeText(ia, "提取人不能为空", Toast.LENGTH_SHORT).show();
-                        } else if (TQSJ_edit.getText().toString().trim().equals("")) {
-                            Toast.makeText(ia, "提取时间不能为空", Toast.LENGTH_SHORT).show();
-                        } else {
+                                }else if (et_kyKydw.getText().toString().equals("")) {
+                                    Toast.makeText(ia, "勘验检查人员不能为空", Toast.LENGTH_SHORT).show();
 
-                            startProgressDialog(UPLOAD);
-                            new Thread(uploadRun).start();
+                                }else if (et_kyZpbgdw.getText().toString().equals("")) {
+                                    Toast.makeText(ia, "其他到场人员不能为空", Toast.LENGTH_SHORT).show();
 
-                            setBackgroundColorById(R.id.variety_btn);
-                            operateNextTv.setText("提交");
-                        }
+                                }else if (baoanren_edit.getText().toString().equals("")) {
+                                    Toast.makeText(ia, "被害人/报案人员不能为空", Toast.LENGTH_SHORT).show();
 
+                                }else if (jianzhenren_edit.getText().toString().equals("")) {
+                                    Toast.makeText(ia, "见证人不能为空", Toast.LENGTH_SHORT).show();
+                                }
+                                else {
 
-                        break;
+                                    startProgressDialog(UPLOAD);
+                                    new Thread(uploadRunJiBenXinXi).start();
+                                }
 
-                    case R.id.variety_btn:
-                        //分析意见
-                        if (A_ID_edit.getText().toString().trim().equals("")) {
-                            Toast.makeText(ia, "案件编号不能为空", Toast.LENGTH_SHORT).show();
-                        } else if (ZARS_edit.getText().toString().trim().equals("")) {
-                            Toast.makeText(ia, "作案人数不能为空", Toast.LENGTH_SHORT).show();
-                        } else if (ZADD_edit.getText().toString().trim().equals("")) {
-                            Toast.makeText(ia, "作案地点不能为空", Toast.LENGTH_SHORT).show();
-                        }
+                                break;
+
+                            case R.id.tv_btn:
+                                SendFile sf = new  SendFile();
+                                sf.start();
+                                break;
+
+                            case R.id.anime_btn:
+
+                                if (A_ID_edit.getText().toString().trim().equals("")) {
+                                    Toast.makeText(ia, "案件编号不能为空", Toast.LENGTH_SHORT).show();
+                                } else if (MC_edit.getText().toString().trim().equals("")) {
+                                    Toast.makeText(ia, "名称不能为空", Toast.LENGTH_SHORT).show();
+                                } else if (JBTZ_edit.getText().toString().trim().equals("")) {
+                                    Toast.makeText(ia, "基本特征不能为空", Toast.LENGTH_SHORT).show();
+                                } else if (SL_edit.getText().toString().trim().equals("")) {
+                                    Toast.makeText(ia, "数量不能为空", Toast.LENGTH_SHORT).show();
+                                } else if (TQBW_edit.getText().toString().trim().equals("")) {
+                                    Toast.makeText(ia, "提取部位不能为空", Toast.LENGTH_SHORT).show();
+                                } else if (TQFF_edit.getText().toString().trim().equals("")) {
+                                    Toast.makeText(ia, "提取方法不能为空", Toast.LENGTH_SHORT).show();
+                                } else if (TQR_edit.getText().toString().trim().equals("")) {
+                                    Toast.makeText(ia, "提取人不能为空", Toast.LENGTH_SHORT).show();
+                                } else if (TQSJ_edit.getText().toString().trim().equals("")) {
+                                    Toast.makeText(ia, "提取时间不能为空", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    startProgressDialog(UPLOAD);
+                                    new Thread(uploadRun).start();
+
+                                }
+                                break;
+
+                            case R.id.variety_btn:
+                                //分析意见
+                                if (A_ID_edit.getText().toString().trim().equals("")) {
+                                    Toast.makeText(ia, "案件编号不能为空", Toast.LENGTH_SHORT).show();
+                                } else if (ZARS_edit.getText().toString().trim().equals("")) {
+                                    Toast.makeText(ia, "作案人数不能为空", Toast.LENGTH_SHORT).show();
+                                } else if (ZADD_edit.getText().toString().trim().equals("")) {
+                                    Toast.makeText(ia, "作案地点不能为空", Toast.LENGTH_SHORT).show();
+                                }
 //                        else if (ZAGJ_edit.getText().toString().trim().equals("")) {
 //                            Toast.makeText(ia, "作案工具不能为空", Toast.LENGTH_SHORT).show();
 //                        }
-                        else if (ZAGC_edit.getText().toString().trim().equals("")) {
-                            Toast.makeText(ia, "作案过程不能为空", Toast.LENGTH_SHORT).show();
-                        } else if (XCFXYJCL == null) {
-                            Toast.makeText(ia, "现场分析依据材料不能为空", Toast.LENGTH_SHORT).show();
-                        } else if (AJXZ == null) {
-                            Toast.makeText(ia, "案件性质不能为空", Toast.LENGTH_SHORT).show();
-                        } else if (XZDX == null) {
-                            Toast.makeText(ia, "选择对象不能为空", Toast.LENGTH_SHORT).show();
-                        } else if (XZCS == null) {
-                            Toast.makeText(ia, "选择处所不能为空", Toast.LENGTH_SHORT).show();
-                        } else if (ZASJ == null) {
-                            Toast.makeText(ia, "作案时机不能为空", Toast.LENGTH_SHORT).show();
-                        } else if (ZARK == null) {
-                            Toast.makeText(ia, "作案入口不能为空", Toast.LENGTH_SHORT).show();
-                        } else if (ZASD == null) {
-                            Toast.makeText(ia, "作案手段不能为空", Toast.LENGTH_SHORT).show();
-                        } else if (QRFS == null) {
-                            Toast.makeText(ia, "入侵方式不能为空", Toast.LENGTH_SHORT).show();
-                        } else if (ZATD == null) {
-                            Toast.makeText(ia, "作案特点不能为空", Toast.LENGTH_SHORT).show();
-                        } else if (ZADJMD == null) {
-                            Toast.makeText(ia, "作案动机目的不能为空", Toast.LENGTH_SHORT).show();
-                        } else {
+                                else if (ZAGC_edit.getText().toString().trim().equals("")) {
+                                    Toast.makeText(ia, "作案过程不能为空", Toast.LENGTH_SHORT).show();
+                                } else if (XCFXYJCL == null) {
+                                    Toast.makeText(ia, "现场分析依据材料不能为空", Toast.LENGTH_SHORT).show();
+                                } else if (AJXZ == null) {
+                                    Toast.makeText(ia, "案件性质不能为空", Toast.LENGTH_SHORT).show();
+                                } else if (XZDX == null) {
+                                    Toast.makeText(ia, "选择对象不能为空", Toast.LENGTH_SHORT).show();
+                                } else if (XZCS == null) {
+                                    Toast.makeText(ia, "选择处所不能为空", Toast.LENGTH_SHORT).show();
+                                } else if (ZASJ == null) {
+                                    Toast.makeText(ia, "作案时机不能为空", Toast.LENGTH_SHORT).show();
+                                } else if (ZARK == null) {
+                                    Toast.makeText(ia, "作案入口不能为空", Toast.LENGTH_SHORT).show();
+                                } else if (ZASD == null) {
+                                    Toast.makeText(ia, "作案手段不能为空", Toast.LENGTH_SHORT).show();
+                                } else if (QRFS == null) {
+                                    Toast.makeText(ia, "入侵方式不能为空", Toast.LENGTH_SHORT).show();
+                                } else if (ZATD == null) {
+                                    Toast.makeText(ia, "作案特点不能为空", Toast.LENGTH_SHORT).show();
+                                } else if (ZADJMD == null) {
+                                    Toast.makeText(ia, "作案动机目的不能为空", Toast.LENGTH_SHORT).show();
+                                } else {
 
-                            startProgressDialog(UPLOAD);
-                            new Thread(uploadRunFenxiiJan).start();
+                                    startProgressDialog(UPLOAD);
+                                    new Thread(uploadRunFenxiiJan).start();
+                                }
 
-                            operateNextTv.setText("提交");
-                            finish();
+                                break;
                         }
-//                        Toast.makeText(this, "保存", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void doCancel() {
+                        // TODO Auto-generated method stub
+                        confirmDialog.dismiss();
+                        return;
+                    }
+                });
+
+                break;
+            case R.id.operate_next_tv:
+
+                switch (posId) {
+
+                    case R.id.movie_btn:
+                            setBackgroundColorById(R.id.tv_btn);
+                            operateNextTv.setText("下一步");
+                        break;
+                    case R.id.tv_btn:
+
+                        setBackgroundColorById(R.id.anime_btn);
+                        operateNextTv.setText("下一步");
+                        break;
+
+                    case R.id.anime_btn:
+                            setBackgroundColorById(R.id.variety_btn);
+                            operateNextTv.setText("完成");
+                        break;
+
+                    case R.id.variety_btn:
+                        ia.sendHandleMsg(100, FormalSurveyFragment.waitingHandler);
+                       finish();
+
                         break;
 
 
@@ -1169,10 +1229,10 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
             // TODO Auto-generated method stub
 
 
-            File file = new File(fileName);
-            if (file.exists()) {
-                  file.delete();
-            }
+//            File file = new File(fileName);
+//            if (file.exists()) {
+//                  file.delete();
+//            }
             new Thread(media).start();
         }
 
@@ -1225,7 +1285,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
             List<NameValuePair> params = new ArrayList<NameValuePair>();
             //查询出出警时间和到达现场时间
 //            mApp.getmDota().jq_queryTime(plb.getJqNum());
-            params.add(new BasicNameValuePair("A_ID", name));
+            params.add(new BasicNameValuePair("A_ID", ajNum));
             params.add(new BasicNameValuePair("A_type", "照片"));
             params.add(new BasicNameValuePair("A_Format", "jpg"));
             params.add(new BasicNameValuePair("A_MM", "/xskc-zp/"+mImageList.get(countFile).getImageName()));
@@ -1292,14 +1352,14 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
             Bundle bundle = data.getExtras();
             Bitmap photo = (Bitmap) bundle.get("data");// 获取相机返回的数据，并转换为Bitmap图片格式
 
-            String fileName = UtilTc.getCurrentTime() + ".jpg";
+            String fileName = ajNum+"—"+UtilTc.getCurrentTime() + ".jpg";
             String filePath= Values.PATH_XSKY+ fileName;
             compressImage(photo, filePath);
             if (photo == null) {
 
             }
             else
-                {
+           {
 
                 mImageList.add(new ImageListBean(filePath,fileName));
                 mAccount.setmImageList(mImageList);
@@ -1380,11 +1440,49 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
         }
 
         @Override
-        public void onBindViewHolder(ViewHolder holder, int position) {
+        public void onBindViewHolder(ViewHolder holder, final int position) {
 
 //            Picasso.with(mContext).load(mDatas.get(position).getImageUrl()).into(holder.Image);
             holder.Image.setImageURI(Uri.parse(mDatas.get(position).getImageUrl()));
             Log.e("图片路径", mDatas.get(position).getImageUrl());
+
+            holder.deleteImg.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View arg0) {
+
+                    final ConfirmDialog confirmDialog = new ConfirmDialog(mContext, "确定要删除吗?", "删除", "取消");
+                    confirmDialog.show();
+                    confirmDialog.setClicklistener(new ConfirmDialog.ClickListenerInterface() {
+                        @Override
+                        public void doConfirm() {
+                            // TODO Auto-generated method stub
+                            confirmDialog.dismiss();
+
+                            File file=null;
+                            String filepath = mDatas.get(position).getImageUrl();
+                            file = new File(filepath);
+
+                            if(file.exists())
+                            {
+                                boolean isDel = file.delete();
+                                if(isDel)
+                                {
+                                    mDatas.remove(position);
+                                    notifyDataSetChanged();
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void doCancel() {
+                            // TODO Auto-generated method stub
+                            confirmDialog.dismiss();
+                        }
+                    });
+
+
+                }
+            });
 
 
         }
@@ -1392,16 +1490,18 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
         static class ViewHolder extends RecyclerView.ViewHolder {
 
             ImageView Image;
+            ImageView deleteImg;
 
-            public ViewHolder(View itemView) {
+            public ViewHolder(View itemView)
+            {
                 super(itemView);
-
                 Image = (ImageView) itemView.findViewById(R.id.item_image);
-//                AutoUtils.autoSize(itemView);
+                deleteImg = (ImageView) itemView.findViewById(R.id.xczp_img_delete);
+
+
             }
         }
     }
-
 
     //痕迹物证信息保存
     Handler mHandler = new Handler() {
@@ -1414,8 +1514,6 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
                         UtilTc.myToast(getApplicationContext(), "传输完毕");
                         stopProgressDialog();
 
-                        setBackgroundColorById(R.id.anime_btn);
-                        operateNextTv.setText("下一步");
                     }
                     else
                     {
@@ -1437,7 +1535,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
                 case Values.SUCCESS_FORRESULR:
                     UtilTc.myToast(getApplicationContext(), "" + errorMessage);
                     stopProgressDialog();
-                    ia.sendHandleMsg(100, SenceCheck.waitingHandler);
+//                    ia.sendHandleMsg(100, SenceCheck.waitingHandler);
                     break;
             }
         }

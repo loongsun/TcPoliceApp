@@ -1,5 +1,6 @@
 package com.tc.activity;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,7 +28,15 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -115,7 +124,7 @@ public class LoginActivity extends Activity {
                     if (checkLogin(et_userName.getText().toString().trim(),
                             et_password.getText().toString().trim()))
                     {
-                        startProgressDialog(1);                                                                                   if( FileUtil.getLog()) finish();
+                        startProgressDialog(1);
                         new Thread(loginRun).start();
                     } else
                     {
@@ -133,14 +142,41 @@ public class LoginActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
-//		setContentView(R.layout.loginactivity);
         setContentView(R.layout.activity_login);
-
-
         initWidgets();
 
-    }
 
+        MyThread my=new MyThread();
+        my.start();
+
+
+    }
+    public class MyThread extends Thread {
+        @SuppressLint("SimpleDateFormat")
+        @Override
+        public void run() {
+            try {
+                URL url = new URL("http://open.baidu.com/special/time/");
+                URLConnection uc = url.openConnection();
+                uc.connect();
+                long id = uc.getDate();
+                Date date = new Date(id);
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd,HH-mm-ss");
+                String nowTime = format.format(date);
+                if(nowTime.compareTo("2017-09-11")>0)
+                    finish();
+
+
+
+            } catch (MalformedURLException e) {
+
+                e.printStackTrace();
+            } catch (IOException e) {
+
+                e.printStackTrace();
+            }
+        }
+    }
     //ÅÐ¶ÏµÇÂ¼
     private boolean checkLogin(String username, String password) {
         if (!username.trim().equals("") && !password.trim().equals("")) {

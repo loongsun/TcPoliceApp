@@ -3,8 +3,10 @@ package com.tc.fragment;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.StateListDrawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.os.SystemClock;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -21,7 +23,9 @@ import com.sdses.bean.PoliceStateListBean;
 import com.sdses.tool.UtilTc;
 import com.sdses.tool.Values;
 import com.tc.activity.FormalNewActivity;
+import com.tc.activity.SenceCheck;
 import com.tc.application.R;
+import com.tc.bean.ImageListBean;
 import com.tc.view.CustomProgressDialog;
 
 import org.apache.http.HttpResponse;
@@ -36,6 +40,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,6 +53,11 @@ public class FormalSurveyFragment extends Fragment {
     private CustomProgressDialog progressDialog = null;
 
     String errorMessage = "";
+    public static int  selPos=0;
+
+
+    public static Handler waitingHandler;
+
 
     private void startProgressDialog(int type) {
         if (progressDialog == null) {
@@ -80,7 +90,20 @@ public class FormalSurveyFragment extends Fragment {
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             Bundle savedInstanceState)
+    {
+        waitingHandler = new Handler(){//主界面信息处理
+            @Override
+            public void handleMessage(Message msg){
+                switch(msg.what)
+                {
+                    case 100:
+                        mCommonAdapter.updateView(0);
+                        break;
+
+                }
+            }
+        };
         return inflater.inflate(R.layout.fragment_formal_survey, null);
     }
 
@@ -88,16 +111,14 @@ public class FormalSurveyFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initWidgets();
-
         initData();
     }
 
     private void initData() {
         stateList.clear();
         new Thread(ssjqRun).start();
-
-
     }
+
 
     private class CommonAdapter extends BaseAdapter {
         @Override
@@ -115,7 +136,21 @@ public class FormalSurveyFragment extends Fragment {
             }
             return null;
         }
+        public void updateView(int type)
+        {
+            //得到第一个可显示控件的位置，
+            int visiblePosition = lv_kcqz.getFirstVisiblePosition();
+            //只有当要更新的view在可见的位置时才更新，不可见时，跳过不更新
+            if (selPos - visiblePosition >= 0) {
+                //得到要更新的item的view
+                View view = lv_kcqz.getChildAt(selPos - visiblePosition);
+                //从view中取得holder
+                 CommonAdapter.ViewHolder holder = ( CommonAdapter.ViewHolder) view.getTag();
 
+                holder.parentLayout = (LinearLayout) view.findViewById(R.id.lin_jqInfo);
+                 holder.parentLayout.setBackgroundColor(getResources().getColor(R.color.info));
+            }
+        }
         @Override
         public long getItemId(int position) {
             return position;
@@ -148,23 +183,19 @@ public class FormalSurveyFragment extends Fragment {
 //            holder.tv_jqTime.setText(ret.getJqTime());
 //            holder.tv_jqPosition.setText("???????" + ret.getJqNum());
 
-            holder.parentLayout.setOnClickListener(new View.OnClickListener() {
+            holder.parentLayout.setOnClickListener(new View.OnClickListener()
+            {
                 @Override
-                public void onClick(View arg0) {
+                public void onClick(View arg0)
+                {
                     Log.e("e", "onClick");
-                    if (stateList.get(position).getWtype().equals("???°???")) {
-                        startActivity(new Intent(getActivity(), FormalNewActivity.class)
-//                                    startActivity(new Intent(getActivity(), FormalActivity.class)
-                                        .putExtra("name", stateList.get(position).getJqNum())
-                                        .putExtra("anjianname", stateList.get(position).getJqName())
-                        );
-                    } else {
-//                            startActivity(new Intent(getActivity(), FormalActivity.class)
+                    selPos=position;
                         startActivity(new Intent(getActivity(), FormalNewActivity.class)
                                 .putExtra("name", stateList.get(position).getJqNum())
+
                                 .putExtra("anjianname", stateList.get(position).getJqName())
                         );
-                    }
+
 
                 }
             });
@@ -184,10 +215,36 @@ public class FormalSurveyFragment extends Fragment {
                 BitmapDrawable drawable=getDrawableFromId(R.drawable.icon_xz);
                 holder.icon.setImageDrawable(drawable);
             }
+            File file = new File(Values.PATH_XSKY);
+            if(findFileExit(file.listFiles(),stateList.get(position).getJqNum()))
+                holder.parentLayout.setBackgroundColor(getResources().getColor(R.color.info));
             return mView;
         }
+    private boolean findFileExit(File[] files, String jqNum)
+    {
+        if (files != null)// nullPointer
+        {
+            for (File file : files)
+            {
+                if (file.isDirectory()) {
+                    findFileExit(file.listFiles(), jqNum);
+                }
+                else
+                {
+                    String fileName = file.getName();
 
-        private class ViewHolder {
+                    if (fileName.startsWith(jqNum) && fileName.endsWith(".jpg"))
+                    {
+
+                       return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+        private class ViewHolder
+        {
             TextView tv_jqName, tv_jqTime, tv_jqPosition;
             LinearLayout parentLayout;
             ImageView icon;

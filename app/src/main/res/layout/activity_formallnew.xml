@@ -1,19 +1,9 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
-
-    <LinearLayout
-        android:id="@+id/button_view_include"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/title_layout"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
-
-        <include layout="@layout/activity_bottom_btns" />
-    </LinearLayout>
+    android:background="@color/white"
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/title_layout"
@@ -48,18 +38,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:layout_marginBottom="151px"
             android:layout_marginLeft="20dp"
             android:gravity="center_vertical"
-            android:layout_marginBottom="151px"
             android:src="@drawable/icon_return"
             android:visibility="invisible"></ImageView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/button_view_include"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/title_layout">
+
+        <include layout="@layout/activity_bottom_btns" />
     </LinearLayout>
 
     <FrameLayout
         android:id="@+id/fragment_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/button_view_include">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_view_include"
+        android:layout_weight="1">
 
         <include layout="@layout/fragment_movie" />
 
@@ -73,16 +75,29 @@
 
 
     <LinearLayout
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/operate_next_update"
+            android:layout_width="300px"
+            android:layout_height="100px"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@id/fragment_content"
+            android:background="@color/TextBackColor"
+            android:gravity="center"
+            android:text="上传"
+            android:textColor="@color/tv_name" />
 
         <TextView
             android:id="@+id/operate_next_tv"
-            android:layout_width="match_parent"
-            android:layout_height="150px"
+            android:layout_width="300px"
+            android:layout_height="100px"
             android:layout_alignParentBottom="true"
             android:layout_below="@id/fragment_content"
+            android:layout_marginLeft="50dp"
             android:background="@color/TextBackColor"
             android:gravity="center"
             android:text="下一步"
@@ -90,4 +105,4 @@
     </LinearLayout>
 
 
-</RelativeLayout>
+</LinearLayout>

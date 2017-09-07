@@ -56,6 +56,7 @@ public class SenceCheck extends Activity {
         }
     }
     public static Handler waitingHandler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.fragment_4);
