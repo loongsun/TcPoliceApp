@@ -10,18 +10,24 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sdses.tool.UtilTc;
 import com.sdses.tool.Values;
 import com.tc.activity.SenceCheck;
+import com.tc.activity.SenceExcute;
 import com.tc.app.TcApp;
 import com.tc.application.R;
 import com.tc.util.CaseUtil;
+import com.tc.util.ConfirmDialog;
 import com.tc.view.CustomProgressDialog;
 import com.tc.view.DateWheelDialogN;
 import com.tc.view.LineEditText;
@@ -48,9 +54,13 @@ import it.sauronsoftware.ftp4j.FTPDataTransferListener;
 
 public class XckcXsBrBlActivity extends Activity {
     private ImageView btn_brblReturn;
-    private  LinearLayout docLinearLayout;
-    private TextView docName;
-    private ImageView docEdit,docDelete;
+    ////********************ListDoc******************************
+    private List<String> allList = new ArrayList<String>();
+    private  CommonAdapter mCommonAdapter = new  CommonAdapter(this);
+    private ListView  docList;
+    ////********************ListDoc******************************
+
+
     DateWheelDialogN startDateChooseDialog,endDateChooseDialog;
     private LineEditText et_title;
     private LineEditText sTime,eTime;
@@ -68,13 +78,11 @@ public class XckcXsBrBlActivity extends Activity {
         btn_brblReturn=(ImageView)findViewById(R.id.btn_brblReturn);
         btn_brblReturn.setOnClickListener(new OnClick());
 
-
-        docLinearLayout=(LinearLayout)findViewById(R.id.xsaj_brbl_doc_item);
-        docLinearLayout.setVisibility(View.GONE);
-        docName=(TextView)findViewById(R.id.doc_name);
-        docEdit=(ImageView)findViewById(R.id.doc_edit);
-        docDelete=(ImageView)findViewById(R.id.doc_delete);
-
+        ////********************ListDoc******************************
+        checkDoc();
+        docList =(ListView)findViewById(R.id.xsaj_brbl_doc_list);
+        docList.setAdapter(mCommonAdapter);
+        ////********************ListDoc******************************
 
 
         et_title=(LineEditText)findViewById(R.id.et_title);
@@ -477,41 +485,140 @@ public class XckcXsBrBlActivity extends Activity {
             }
         }
     };
-    //WPS查看
-    public void onDocEdit(View v)
-    {
-        Intent intent = new Intent();
-        intent.setAction("android.intent.action.VIEW");
-        intent.addCategory("android.intent.category.DEFAULT");
-        String fileMimeType = "application/msword";
-        intent.setDataAndType(Uri.fromFile(new File(this.filePath)), fileMimeType);
-        try{
-            startActivity(intent);
-        } catch(ActivityNotFoundException e) {
-            //检测到系统尚未安装OliveOffice的apk程序
-            Toast.makeText(this, "未找到软件", Toast.LENGTH_LONG).show();
-            //请先到www.olivephone.com/e.apk下载并安装
+
+
+
+
+    ////********************ListDoc******************************
+    private class CommonAdapter extends BaseAdapter {
+
+        Activity mContent ;
+        public CommonAdapter(Activity mCtx){
+            mContent =mCtx;
+        }
+        @Override
+        public int getCount() {
+
+            if (allList!=null)
+            {
+                UtilTc.showLog(" bltxt.size()"+ allList.size());
+                return allList.size();
+            }
+            UtilTc.showLog("返回0了");
+            return 0;
         }
 
+        @Override
+        public Object getItem(int position) {
+            if (allList != null) {
+                return allList.get(position);
+            }
+            return null;
+        }
 
-    }
-    public void onDocDelete(View v)
-    {
-        if(this.filePath!=null)
-        {
-            File file =new File(filePath);
-            if(file.exists())
-            file.delete();
-            Toast.makeText(getApplicationContext(),"删除成功",Toast.LENGTH_SHORT).show();
-            docLinearLayout.setVisibility(View.GONE);
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(final int position, View convertView,
+                            ViewGroup parent) {
+            Log.e("e", "getView");
+            CommonAdapter.ViewHolder holder = null;
+            View mView = convertView;
+            if (mView == null) {
+                mView = LayoutInflater.from(
+                        getApplicationContext()).inflate(
+                        R.layout.item_bltxt, null);
+                holder = new  CommonAdapter.ViewHolder();
+
+
+                holder.tv_blTitle = (TextView) mView.findViewById(R.id.tv_blTitle);
+                holder.iv_delete = (ImageView) mView.findViewById(R.id.iv_delete);
+                holder.iv_edit = (ImageView) mView.findViewById(R.id.iv_edit);
+
+                holder.parentLayout = (LinearLayout) mView.findViewById(R.id.lin_bl);
+
+                mView.setTag(holder);
+            } else {
+                holder = (CommonAdapter.ViewHolder) mView.getTag();
+            }
+
+            //word文件删除
+            holder.iv_delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View arg0) {
+
+                    final ConfirmDialog confirmDialog = new ConfirmDialog(mContent, "确定要删除吗?", "删除", "取消");
+                    confirmDialog.show();
+                    confirmDialog.setClicklistener(new ConfirmDialog.ClickListenerInterface() {
+                        @Override
+                        public void doConfirm() {
+                            // TODO Auto-generated method stub
+                            confirmDialog.dismiss();
+
+                            File file=null;
+                            String filename = allList.get(position);
+                            file = new File(Values.PATH_XCBL_XSAJ_BRBL+filename);
+
+                            if(file.exists())
+                            {
+                                boolean isDel = file.delete();
+                                if(isDel)
+                                {
+                                    allList.remove(position);
+                                    notifyDataSetChanged();
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void doCancel() {
+                            // TODO Auto-generated method stub
+                            confirmDialog.dismiss();
+                        }
+                    });
+
+
+                }
+            });
+
+            //word文件编辑
+            holder.iv_edit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View arg0) {
+
+
+                    String filename = allList.get(position);
+                    String filepath =  Values.PATH_XCBL_XSAJ_BRBL+filename;
+
+                    CaseUtil.doOpenWord(filepath,mContent);
+
+
+                }
+            });
+
+
+            String ret = allList.get(position);
+            UtilTc.showLog("ret       :"+ret);
+            holder.tv_blTitle.setText(ret);
+            return mView;
+        }
+        private class ViewHolder {
+            TextView tv_blTitle;
+            LinearLayout parentLayout;
+            ImageView iv_delete,iv_edit;
         }
     }
     // -------------------------遍历文件
-    private void checkFileName(File[] files, String jqNum) {
+    private void checkFileName(File[] files, String jqNum)
+    {
 
         if (files != null)// nullPointer
         {
-            for (File file : files) {
+            for (File file : files)
+            {
                 if (file.isDirectory()) {
                     checkFileName(file.listFiles(), jqNum);
                 }
@@ -521,11 +628,7 @@ public class XckcXsBrBlActivity extends Activity {
 
                     if (fileName.startsWith(jqNum) && fileName.endsWith(".doc"))
                     {
-                        Log.e("e", "fileName="+fileName);
-                         this.fileName=fileName;
-                         this.filePath=Values.PATH_XCBL_XSAJ_BRBL+this.fileName;
-                         docName.setText(this.fileName);
-                         docLinearLayout.setVisibility(View.VISIBLE);
+                        allList.add(fileName);
                     }
                 }
             }
@@ -536,6 +639,10 @@ private void checkDoc()
     File file = new File(Values.PATH_XCBL_XSAJ_BRBL);
     checkFileName(file.listFiles(),ajNum);
 }
+////********************ListDoc******************************
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_caseinfo_xckcxsbrbl);
@@ -543,7 +650,7 @@ private void checkDoc()
         ajNum=getIntent().getStringExtra("name");
         myapp = (TcApp) TcApp.mContent;
         initWidgets();
-        checkDoc();
+
     }
 
 
