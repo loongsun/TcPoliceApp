@@ -163,28 +163,35 @@ public class JcBlActivity extends Activity {
     }
     //上传按钮
     public void BtnUploadBL(View view) {
-        File fileStart = new File(Values.ALLFILES+"wtxt/JCBL/");
-        boolean flag = getFileName2(fileStart.listFiles(), name);
-
-        if(flag){
-            //存在本地文件
-        }else{
-            try {
-                String  sdcardPath = Environment.getExternalStorageDirectory().getAbsolutePath();
-
-                File file = new File(sdcardPath  + "/TC/wtxt/JCBL/");
-                if (!file.exists()){
-                    file.mkdir();
-                }
-
-                String fileName = Values.PATH_BOOKMARK+"JCBL/" + name + "_" + UtilTc.getCurrentTime() + ".doc";
-                newPath = fileName;
-                InputStream inputStream = getAssets().open("jcbl.doc");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            doScan();
+        String startTime=et_kssj.getText().toString();
+        String endTime=et_jssj.getText().toString();
+        if(endTime.compareTo(startTime)<=0)
+        {
+            Toast.makeText(getApplicationContext(),"结束时间要大于开始时间",Toast.LENGTH_SHORT).show();
+            return;
         }
+//        File fileStart = new File(Values.ALLFILES+"wtxt/JCBL/");
+//        boolean flag = getFileName2(fileStart.listFiles(), name);
+//
+//        if(flag){
+//            //存在本地文件
+//        }else{
+//            try {
+//                String  sdcardPath = Environment.getExternalStorageDirectory().getAbsolutePath();
+//
+//                File file = new File(sdcardPath  + "/TC/wtxt/JCBL/");
+//                if (!file.exists()){
+//                    file.mkdir();
+//                }
+//
+//                String fileName = Values.PATH_BOOKMARK+"JCBL/" + name + "_" + UtilTc.getCurrentTime() + ".doc";
+//                newPath = fileName;
+//                InputStream inputStream = getAssets().open("jcbl.doc");
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//            doScan();
+//        }
 
         startProgressDialog(UPLOAD);
         new Thread(uploadRun).start();
@@ -283,7 +290,7 @@ public class JcBlActivity extends Activity {
 
             File file = new File(Values.PATH_jcbl+fileName);
             if(file.exists()) {
-                boolean isDel = file.delete();
+//                boolean isDel = file.delete();
             }
 
             Message msg;
@@ -371,7 +378,7 @@ public class JcBlActivity extends Activity {
             e.printStackTrace();
         }
         doScan();
-
+        doOpenWord();
     }
 
 
@@ -467,6 +474,14 @@ public class JcBlActivity extends Activity {
 
     private void  doScan(){
         //获取模板文件
+        String startTime=et_kssj.getText().toString();
+        String endTime=et_jssj.getText().toString();
+        if(endTime.compareTo(startTime)<=0)
+        {
+            Toast.makeText(getApplicationContext(),"结束时间要大于开始时间",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
 //        File demoFile=new File(demoPath);
         //创建生成的文件
         File newFile=new File(newPath);
@@ -497,6 +512,13 @@ public class JcBlActivity extends Activity {
      * 调用手机中安装的可打开word的软件
      */
     private void doOpenWord(){
+        String startTime=et_kssj.getText().toString();
+        String endTime=et_jssj.getText().toString();
+        if(endTime.compareTo(startTime)<=0)
+        {
+            Toast.makeText(getApplicationContext(),"结束时间要大于开始时间",Toast.LENGTH_SHORT).show();
+            return;
+        }
         Intent intent = new Intent();
         intent.setAction("android.intent.action.VIEW");
         intent.addCategory("android.intent.category.DEFAULT");
@@ -517,6 +539,7 @@ public class JcBlActivity extends Activity {
      * */
     public void writeDoc( File newFile ,Map<String, String> map)
     {
+        findViewById(R.id.btn_upload).setEnabled(true);
         try
         {
             InputStream in = getAssets().open("jcbl.doc");

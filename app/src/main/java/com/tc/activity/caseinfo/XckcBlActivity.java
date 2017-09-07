@@ -329,29 +329,35 @@ public class XckcBlActivity extends Activity {
     //上传按钮
     public void BtnUploadBL(View view) {
 
-
-        File fileStart = new File(Values.ALLFILES + "wtxt/XCKYBL/");
-        boolean flag = getFileName2(fileStart.listFiles(), name);
-
-        if (flag) {
-            //存在本地文件
-        } else {
-            try {
-                String sdcardPath = Environment.getExternalStorageDirectory().getAbsolutePath();
-
-                File file = new File(sdcardPath + "/TC/wtxt/XCKYBL/");
-                if (!file.exists()) {
-                    file.mkdir();
-                }
-
-                String fileName = Values.PATH_BOOKMARK + "XCKYBL/" + name + "_" + UtilTc.getCurrentTime() + ".doc";
-                newPath = fileName;
-                InputStream inputStream = getAssets().open("xckybl.doc");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            doScan();
+        String startTime=et_kyBeginTime.getText().toString();
+        String endTime=et_kyEndTime.getText().toString();
+        if(endTime.compareTo(startTime)<=0)
+        {
+            Toast.makeText(getApplicationContext(),"结束时间要大于开始时间",Toast.LENGTH_SHORT).show();
+            return;
         }
+//        File fileStart = new File(Values.ALLFILES + "wtxt/XCKYBL/");
+//        boolean flag = getFileName2(fileStart.listFiles(), name);
+//
+//        if (flag) {
+//            //存在本地文件
+//        } else {
+//            try {
+//                String sdcardPath = Environment.getExternalStorageDirectory().getAbsolutePath();
+//
+//                File file = new File(sdcardPath + "/TC/wtxt/XCKYBL/");
+//                if (!file.exists()) {
+//                    file.mkdir();
+//                }
+//
+//                String fileName = Values.PATH_BOOKMARK + "XCKYBL/" + name + "_" + UtilTc.getCurrentTime() + ".doc";
+//                newPath = fileName;
+//                InputStream inputStream = getAssets().open("xckybl.doc");
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//            doScan();
+//        }
 
 
         startProgressDialog(UPLOAD);
@@ -685,6 +691,13 @@ public class XckcBlActivity extends Activity {
 
 
     private void doScan() {
+        String startTime=et_kyBeginTime.getText().toString();
+        String endTime=et_kyEndTime.getText().toString();
+        if(endTime.compareTo(startTime)<=0)
+        {
+            Toast.makeText(getApplicationContext(),"结束时间要大于开始时间",Toast.LENGTH_SHORT).show();
+            return;
+        }
         //获取模板文件
 //        File demoFile=new File(demoPath);
         //创建生成的文件
@@ -764,6 +777,13 @@ public class XckcBlActivity extends Activity {
      * 调用手机中安装的可打开word的软件
      */
     private void doOpenWord() {
+        String startTime=et_kyBeginTime.getText().toString();
+        String endTime=et_kyEndTime.getText().toString();
+        if(endTime.compareTo(startTime)<=0)
+        {
+            Toast.makeText(getApplicationContext(),"结束时间要大于开始时间",Toast.LENGTH_SHORT).show();
+            return;
+        }
         Intent intent = new Intent();
         intent.setAction("android.intent.action.VIEW");
         intent.addCategory("android.intent.category.DEFAULT");
@@ -784,6 +804,7 @@ public class XckcBlActivity extends Activity {
      * map 要填充的数据
      */
     public void writeDoc(File newFile, Map<String, String> map) {
+        findViewById(R.id.btn_upload).setEnabled(true);
         try {
             InputStream in = getAssets().open("xckybl.doc");
 //            FileInputStream in = new FileInputStream(demoFile);
