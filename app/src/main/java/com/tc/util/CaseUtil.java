@@ -118,6 +118,22 @@ public class CaseUtil {
         }
     }
 
+    public static void doOpenPhoto(String newPath,Context context){
+        Intent intent = new Intent();
+        intent.setAction("android.intent.action.VIEW");
+        intent.addCategory("android.intent.category.DEFAULT");
+        String fileMimeType = "image/*";
+        intent.setDataAndType(Uri.fromFile(new File(newPath)), fileMimeType);
+        try{
+            context.startActivity(intent);
+        } catch(ActivityNotFoundException e) {
+            //检测到系统尚未安装OliveOffice的apk程序
+            Toast.makeText(context, "未找到软件", Toast.LENGTH_LONG).show();
+
+        }
+    }
+
+
     public static boolean isNetConnent(Context context){
         if(context ==null){
             return false;
