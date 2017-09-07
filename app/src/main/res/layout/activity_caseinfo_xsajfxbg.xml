@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/White">
+    android:background="@color/White"
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -44,6 +41,26 @@
                 android:visibility="invisible"></ImageView>
         </LinearLayout>
 
+
+    <ListView
+        android:id="@+id/xsaj_brbl_doc_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </ListView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -636,6 +653,8 @@
                 android:textCursorDrawable="@null"
                 android:textSize="18sp" />
         </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -662,10 +681,9 @@
                 android:layout_weight="1"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:background="#999999"
+                android:background="@drawable/btn_xczf"
                 android:onClick="BtnUploadBL"
                 android:text="上传"
-                android:enabled="false"
                 android:textColor="@color/White"
                 android:textSize="18sp" />
             <Button
@@ -680,5 +698,5 @@
                 android:textColor="@color/White"
                 android:textSize="18sp" />
         </LinearLayout>
-    </LinearLayout>
-</ScrollView>
+    </RelativeLayout>
+</LinearLayout>

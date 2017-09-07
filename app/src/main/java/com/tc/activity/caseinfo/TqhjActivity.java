@@ -30,6 +30,8 @@ import com.tc.activity.SenceCheck;
 import com.tc.activity.dto.HjqzBean;
 import com.tc.app.TcApp;
 import com.tc.application.R;
+import com.tc.util.CaseUtil;
+import com.tc.util.ConfirmDialog;
 import com.tc.view.CustomProgressDialog;
 import com.tc.view.DateWheelDialogN;
 import com.tc.view.LineEditText;
@@ -85,6 +87,10 @@ public class TqhjActivity extends Activity {
     private CustomProgressDialog progressDialog = null;
 
     TcApp ia;
+    String EVIDENCE_NAME = "HJQZ";
+    private List<String> allList = new ArrayList<String>();
+    private CommonAdapter2 mCommonAdapter2 = new CommonAdapter2(this);
+    private ListView  docList;
     // 进度框
     private void startProgressDialog(int type) {
         if (progressDialog == null) {
@@ -152,8 +158,160 @@ public class TqhjActivity extends Activity {
         setListViewHeightBasedOnChildren2(lv_xqqzList,true);
         mCommonAdapter.notifyDataSetChanged();
 
-    }
+        checkDoc();
+        docList =(ListView)findViewById(R.id.xsaj_brbl_doc_list);
+        docList.setAdapter(mCommonAdapter2);
 
+    }
+    private class CommonAdapter2 extends BaseAdapter {
+
+        Activity mContent ;
+        public CommonAdapter2(Activity mCtx){
+            mContent =mCtx;
+        }
+        @Override
+        public int getCount() {
+
+            if (allList!=null)
+            {
+                UtilTc.showLog(" bltxt.size()"+ allList.size());
+                return allList.size();
+            }
+            UtilTc.showLog("返回0了");
+            return 0;
+        }
+
+        @Override
+        public Object getItem(int position) {
+            if (allList != null) {
+                return allList.get(position);
+            }
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(final int position, View convertView,
+                            ViewGroup parent) {
+            Log.e("e", "getView");
+            CommonAdapter2.ViewHolder holder = null;
+            View mView = convertView;
+            if (mView == null) {
+                mView = LayoutInflater.from(
+                        getApplicationContext()).inflate(
+                        R.layout.item_bltxt, null);
+                holder = new  CommonAdapter2.ViewHolder();
+
+
+                holder.tv_blTitle = (TextView) mView.findViewById(R.id.tv_blTitle);
+                holder.iv_delete = (ImageView) mView.findViewById(R.id.iv_delete);
+                holder.iv_edit = (ImageView) mView.findViewById(R.id.iv_edit);
+
+                holder.parentLayout = (LinearLayout) mView.findViewById(R.id.lin_bl);
+
+                mView.setTag(holder);
+            } else {
+                holder = (CommonAdapter2.ViewHolder) mView.getTag();
+            }
+
+            //word文件删除
+            holder.iv_delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View arg0) {
+
+                    final ConfirmDialog confirmDialog = new ConfirmDialog(mContent, "确定要删除吗?", "删除", "取消");
+                    confirmDialog.show();
+                    confirmDialog.setClicklistener(new ConfirmDialog.ClickListenerInterface() {
+                        @Override
+                        public void doConfirm() {
+                            // TODO Auto-generated method stub
+                            confirmDialog.dismiss();
+
+                            File file=null;
+                            String filename = allList.get(position);
+                            file = new File(Values.PATH_BOOKMARK + EVIDENCE_NAME+"/"+filename);
+
+                            if(file.exists())
+                            {
+                                boolean isDel = file.delete();
+                                if(isDel)
+                                {
+                                    allList.remove(position);
+                                    notifyDataSetChanged();
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void doCancel() {
+                            // TODO Auto-generated method stub
+                            confirmDialog.dismiss();
+                        }
+                    });
+
+
+                }
+            });
+
+            //word文件编辑
+            holder.iv_edit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View arg0) {
+
+
+                    String filename = allList.get(position);
+                    String filepath =  Values.PATH_BOOKMARK + EVIDENCE_NAME+"/"+filename;
+
+                    CaseUtil.doOpenWord(filepath,mContent);
+
+
+                }
+            });
+
+
+            String ret = allList.get(position);
+            UtilTc.showLog("ret       :"+ret);
+            holder.tv_blTitle.setText(ret);
+            return mView;
+        }
+        private class ViewHolder {
+            TextView tv_blTitle;
+            LinearLayout parentLayout;
+            ImageView iv_delete,iv_edit;
+        }
+    }
+    // -------------------------遍历文件
+    private void checkFileName(File[] files, String jqNum)
+    {
+
+        if (files != null)// nullPointer
+        {
+            for (File file : files)
+            {
+                if (file.isDirectory()) {
+                    checkFileName(file.listFiles(), jqNum);
+                }
+                else
+                {
+                    String fileName = file.getName();
+
+                    if (fileName.startsWith(jqNum) && fileName.endsWith(".doc"))
+                    {
+                        allList.add(fileName);
+                    }
+                }
+            }
+        }
+    }
+    private void checkDoc()
+    {
+        File file = new File(Values.PATH_BOOKMARK + EVIDENCE_NAME+"/");
+        checkFileName(file.listFiles(),name);
+    }
 
     public void setListViewHeightBasedOnChildren2(ListView listView, boolean kill)
     {
@@ -425,6 +583,22 @@ public class TqhjActivity extends Activity {
 //            }
 //            doScan();
 //        }
+        try {
+            String  sdcardPath = Environment.getExternalStorageDirectory().getAbsolutePath();
+
+            File file = new File(sdcardPath  + "/TC/wtxt/HJQZ/");
+            if (!file.exists()){
+                file.mkdir();
+            }
+
+            String fileName = Values.PATH_BOOKMARK+"HJQZ/" + name + "_" + UtilTc.getCurrentTime() + ".doc";
+            newPath = fileName;
+            nameRet = name + "_" + UtilTc.getCurrentTime() + ".doc";
+            InputStream inputStream = getAssets().open("xsaj_hjqz.doc");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        doScan();
 
         startProgressDialog(UPLOAD);
         new Thread(uploadRun).start();

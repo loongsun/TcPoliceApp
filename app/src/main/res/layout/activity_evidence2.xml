@@ -1,26 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_ky_bl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/White"
+    android:orientation="vertical"
     tools:context="com.tc.activity.caseinfo.KyBlActivity">
 
+
+    <!-- title -->
+    <include layout="@layout/common_header"/>
+    <ListView
+        android:id="@+id/xsaj_brbl_doc_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </ListView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp">
+        android:layout_marginBottom="50dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <!-- title -->
-            <include layout="@layout/common_header"/>
-
             <!-- 案件编号 -->
             <LinearLayout
                 android:layout_width="match_parent"
@@ -220,18 +228,8 @@
             />
         <Button
             android:id="@+id/btn_upload"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:gravity="center"
-            android:background="#999999"
+            style="@style/btn_case"
             android:text="上传"
-            android:enabled="false"
             android:onClick="uploadFile"
             />
         <Button
@@ -243,4 +241,5 @@
 
     </LinearLayout>
 
-</RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>

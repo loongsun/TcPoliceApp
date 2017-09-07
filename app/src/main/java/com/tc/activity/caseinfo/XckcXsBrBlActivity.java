@@ -78,6 +78,7 @@ public class XckcXsBrBlActivity extends Activity {
         btn_brblReturn=(ImageView)findViewById(R.id.btn_brblReturn);
         btn_brblReturn.setOnClickListener(new OnClick());
 
+
         ////********************ListDoc******************************
         checkDoc();
         docList =(ListView)findViewById(R.id.xsaj_brbl_doc_list);
@@ -160,8 +161,8 @@ public class XckcXsBrBlActivity extends Activity {
             else
             {
                 File newFile = new File(filePath);
-                if(newFile.exists())
-                    newFile.delete();
+//                if(newFile.exists())
+//                    newFile.delete();
             }
 
         }catch (Exception e){
