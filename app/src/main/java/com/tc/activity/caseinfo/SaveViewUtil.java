@@ -14,7 +14,7 @@ import com.sdses.tool.Values;
 
 public class SaveViewUtil {
 	
-	private static final File rootDir = new File(Environment.getExternalStorageDirectory()+File.separator+"huaban");
+	private static final File rootDir = new File(Values.PATH_XCBL_XSAJ_PMT);
 
 	/**保存截图的方法*/
 	public static boolean saveScreen(View view,String fileName){
@@ -25,7 +25,7 @@ public class SaveViewUtil {
 		}
 		if(!rootDir.exists()){
 			Log.e("e", "文件夹不存在");
-			rootDir.mkdir();
+			rootDir.mkdirs();
 		}else{
 			Log.e("e", "存在");
 		}

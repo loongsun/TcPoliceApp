@@ -34,6 +34,8 @@ public class Values {
 
     public static String PATH_XCBL_XSAJ_BRBL =SDPATH+"/TC/XCBL/XSAJ/BRBL/";
     public static String PATH_XCBL_XSAJ_XCZP =SDPATH+"/TC/XCBL/XSAJ/XCZP/";
+    public static String PATH_XCBL_XSAJ_PMT =SDPATH+"/TC/XCBL/XSAJ/PMT/";
+
     public static String PATH_XSKY =SDPATH+"/TC/XSKY/";
     //dbjq
     public static List<PoliceStateListBean>dbjqList=new ArrayList<PoliceStateListBean>();

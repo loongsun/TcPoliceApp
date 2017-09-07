@@ -197,7 +197,7 @@ public class SenceCheck extends Activity {
                     .putExtra("name",name));
         }else if(position==3){
             //œ÷‘⁄ø±≤ÈÕº
-            //startActivity(new Intent(SenceCheck.this, com.huatuban.MainActivity.class).putExtra("name",name));
+
             startActivity(new Intent(SenceCheck.this, XsajHuaTuActivity.class).putExtra("name",name));
 
         }else if(position==4){

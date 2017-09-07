@@ -29,4 +29,9 @@
         android:background="@drawable/btn_blue"
         android:text="重画" />
 
+    <ListView
+        android:id="@+id/xcbl_xsaj_pmt_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 </RelativeLayout>
