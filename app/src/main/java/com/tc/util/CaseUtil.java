@@ -58,7 +58,7 @@ public class CaseUtil {
             InputStream inputStream = TcApp.mContent.getAssets().open(fileName);
             HWPFDocument hdt = new HWPFDocument(inputStream);
             Range range = hdt.getRange();
-            //?滻???????
+            //??I???????
             for (Map.Entry<String, String> entry : map.entrySet()) {
                 range.replaceText(entry.getKey(), entry.getValue());
             }
@@ -113,7 +113,7 @@ public class CaseUtil {
         try{
             context.startActivity(intent);
         }catch (ActivityNotFoundException e){
-            Toast.makeText(context, "未安装可识别doc的app", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, "未安装打开doc的apk", Toast.LENGTH_LONG).show();
 
         }
     }
@@ -127,8 +127,8 @@ public class CaseUtil {
         try{
             context.startActivity(intent);
         } catch(ActivityNotFoundException e) {
-            //检测到系统尚未安装OliveOffice的apk程序
-            Toast.makeText(context, "未找到软件", Toast.LENGTH_LONG).show();
+            //???????δ???OliveOffice??apk????
+            Toast.makeText(context, "δ??????", Toast.LENGTH_LONG).show();
 
         }
     }
@@ -147,11 +147,11 @@ public class CaseUtil {
     }
 
     public static void startUploadFile(String fileName,String ftpPath,String id,Handler handler){
-        boolean netConnent = isNetConnent(TcApp.mContent);
-        if(!netConnent){
-            Toast.makeText(TcApp.mContent,"当前网络未连接",Toast.LENGTH_SHORT).show();
-            return;
-        }
+//        boolean netConnent = isNetConnent(TcApp.mContent);
+//        if(!netConnent){
+//            Toast.makeText(TcApp.mContent,"网络不通",Toast.LENGTH_SHORT).show();
+//            return;
+//        }
         new SendFileTask(fileName,ftpPath,id,handler).start();
     }
 
@@ -201,7 +201,7 @@ public class CaseUtil {
                     @Override
                     public void completed() {
                         Log.i(TAG," completed");
-                        String mediaType = "文档";
+                        String mediaType = "???";
                         String formate = "doc";
                         String ftpFilePath = "/"+mFtpPath+"/"+ mFileName;
                         String result = uploadPostInfo(mId,mediaType,formate,ftpFilePath);

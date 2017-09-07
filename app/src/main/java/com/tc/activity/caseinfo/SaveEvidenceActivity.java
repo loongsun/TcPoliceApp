@@ -23,6 +23,7 @@ import com.tc.bean.EvidenceBean;
 import com.tc.util.CaseUtil;
 import com.tc.view.DateWheelDialog;
 import com.tc.view.DateWheelDialogN;
+import com.tc.view.FileListView;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -36,7 +37,7 @@ import static com.tc.activity.caseinfo.BrBlActivity.BR_NAME;
 public class SaveEvidenceActivity extends CaseBaseActivity {
 
     private static final String TAG = EvidenceActivity.class.getSimpleName();
-    private static final String SAVE_EVIDENCE_NAME = "save_evidence";
+    private static final String SAVE_EVIDENCE_NAME = "XXDJBCZJQD";
     private EditText mCaseNumber;
     private ListView mListView;
     private ArrayList<EvidenceBean> mEvidenceList = new ArrayList<>();
@@ -69,6 +70,7 @@ public class SaveEvidenceActivity extends CaseBaseActivity {
         setContentView(R.layout.activity_save_evidence);
         initData();
         initView();
+        initFileList(SAVE_EVIDENCE_NAME);
     }
 
     private void initData() {
@@ -88,6 +90,8 @@ public class SaveEvidenceActivity extends CaseBaseActivity {
         mBackImg.setOnClickListener(mClickListener);
 
         mCaseNumber = findViewById(R.id.edt_number);
+        mFileListView = (FileListView)findViewById(R.id.file_listview);
+
 
         mNumberEdt = (EditText)findViewById(R.id.edt_number);
         mNumberEdt.setText(mName);
@@ -178,6 +182,7 @@ public class SaveEvidenceActivity extends CaseBaseActivity {
 
     @Override
     protected void getFileName(){
+        super.getFileName();
         try{
             File file = new File( Values.PATH_BOOKMARK + SAVE_EVIDENCE_NAME);
             if(!file.exists()){

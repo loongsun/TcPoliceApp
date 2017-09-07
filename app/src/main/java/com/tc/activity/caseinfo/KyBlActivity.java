@@ -26,6 +26,7 @@ import com.tc.application.R;
 import com.tc.util.CaseUtil;
 import com.tc.view.CustomProgressDialog;
 import com.tc.view.DateWheelDialogN;
+import com.tc.view.FileListView;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -55,6 +56,7 @@ import java.util.Map;
 public class KyBlActivity extends CaseBaseActivity {
 
     private static final String TAG = KyBlActivity.class.getSimpleName();
+    private static final String KYBL_NAME = "KYBL";
     private ImageView mImgBack;
     private TextView mTitleTx;
     private EditText mEdtNumber;
@@ -83,6 +85,7 @@ public class KyBlActivity extends CaseBaseActivity {
         setContentView(R.layout.activity_ky_bl);
         initView();
         initData();
+        initFileList(KYBL_NAME);
     }
 
     private void initData() {
@@ -92,11 +95,33 @@ public class KyBlActivity extends CaseBaseActivity {
         mEdtNumber.setText(mName);
     }
 
+//    private void initFileList(){
+//        String path = Values.PATH_BOOKMARK + KYBL_NAME+"/";
+//        File fileDir = new File(path);
+//        File[] files = fileDir.listFiles();
+//        ArrayList<String> fileList = new ArrayList<>();
+//        if(files!=null){
+//            for(File file : files){
+//                if(file!=null && file.exists()){
+////                    file.delete();
+//                    Log.i(TAG,"doc name = "+file.getParent()+file.getName());
+//                    fileList.add(file.getParent()+"/"+file.getName());
+//                }
+//            }
+//        }
+//        if(fileList!=null && fileList.size()>0){
+//            mFileListView.setVisibility(View.VISIBLE);
+//            mFileListView.setFileList(fileList);
+//        }
+//    }
+
     private void initView() {
         mImgBack = (ImageView)findViewById(R.id.img_back);
         mTitleTx = (TextView)findViewById(R.id.tx_head_title);
         mTitleTx.setText("¿±Ñé±ÊÂ¼");
         mImgBack.setOnClickListener(mOnClicKListener);
+
+        mFileListView = (FileListView)findViewById(R.id.file_listview);
 
         mEdtNumber = (EditText)findViewById(R.id.edt_number);
         mEdtOfficeName = (EditText)findViewById(R.id.edt_office_name);
@@ -123,6 +148,7 @@ public class KyBlActivity extends CaseBaseActivity {
         mBtnPrint = (Button)findViewById(R.id.btn_print);
         mBtnPreview.setOnClickListener(mOnClicKListener);
         mBtnUpload.setOnClickListener(mOnClicKListener);
+        mBtnPrint.setOnClickListener(mOnClicKListener);
     }
 
     private View.OnClickListener mOnClicKListener = new View.OnClickListener() {
@@ -189,9 +215,7 @@ public class KyBlActivity extends CaseBaseActivity {
 
 
     private void printDoc(){
-        getFileName();
-        doScan();
-        doOpenWord();
+        previewDoc();
     }
 
     private void previewDoc() {
@@ -205,14 +229,16 @@ public class KyBlActivity extends CaseBaseActivity {
 
     @Override
     protected void getFileName() {
+        super.getFileName();
         try{
-            String sdcardPath = Environment.getExternalStorageDirectory().getAbsolutePath();
-            File file = new File(sdcardPath + "/TC/wtxt/KYBL");
+            File file = new File( Values.PATH_BOOKMARK + KYBL_NAME);
+
             if(!file.exists()){
                 file.mkdir();
             }
-            String fileName = Values.PATH_BOOKMARK+"KYBL/"+mName+"_"+ UtilTc.getCurrentTime()+".doc";
+            String fileName = Values.PATH_BOOKMARK + KYBL_NAME+ "/" + mName+"_"+ UtilTc.getCurrentTime()+".doc";
             mNewPath = fileName;
+            Log.i(TAG,"mNewPath "+mNewPath);
         }catch (Exception e){
             Log.e(TAG,"getFileName ",e);
         }

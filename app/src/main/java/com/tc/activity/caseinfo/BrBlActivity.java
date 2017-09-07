@@ -15,6 +15,7 @@ import com.sdses.tool.Values;
 import com.tc.application.R;
 import com.tc.util.CaseUtil;
 import com.tc.view.DateWheelDialogN;
+import com.tc.view.FileListView;
 
 import java.io.File;
 import java.util.HashMap;
@@ -55,6 +56,7 @@ public class BrBlActivity extends CaseBaseActivity {
         setContentView(R.layout.activity_br_bl);
         initView();
         initData();
+        initFileList(BR_NAME);
     }
 
     private void initView() {
@@ -62,6 +64,8 @@ public class BrBlActivity extends CaseBaseActivity {
         mTitleTx = (TextView)findViewById(R.id.tx_head_title);
         mTitleTx.setText("±Ê»œ± ¬º");
         mImgBack.setOnClickListener(mOnClicKListener);
+        mFileListView = (FileListView)findViewById(R.id.file_listview);
+
 
         mEdtNumber = (EditText)findViewById(R.id.edt_number);
         mEdtOfficeName = (EditText)findViewById(R.id.edt_office_name);
@@ -147,6 +151,7 @@ public class BrBlActivity extends CaseBaseActivity {
 
     @Override
     protected void getFileName() {
+        super.getFileName();
         try{
             File file = new File( Values.PATH_BOOKMARK + BR_NAME);
             if(!file.exists()){

@@ -20,6 +20,11 @@
 
             <!-- title -->
             <include layout="@layout/common_header"/>
+            <com.tc.view.FileListView
+                android:id="@+id/file_listview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"/>
 
             <!-- 案件编号 -->
             <LinearLayout
