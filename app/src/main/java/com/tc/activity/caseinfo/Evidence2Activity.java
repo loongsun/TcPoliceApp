@@ -32,7 +32,7 @@ import java.util.Map;
 public class Evidence2Activity extends CaseBaseActivity {
 
     private static final String TAG = EvidenceActivity.class.getSimpleName();
-    private static final String EVIDENCE_NAME = "evidence2_name";
+    private static final String EVIDENCE_NAME = "CYQZZJQD";
     private EditText mCaseNumber;
     private ListView mListView;
     private ArrayList<EvidenceBean> mEvidenceList = new ArrayList<>();
