@@ -10,6 +10,7 @@ import android.os.Message;
 import com.baidu.location.BDLocation;
 import com.baidu.mapapi.SDKInitializer;
 import com.lb.baidumapdemo.face.LocationFace;
+import com.sdses.tool.Values;
 import com.tc.dbhandle.DatabaseContext;
 import com.tc.dbhandle.Dota;
 import com.tc.util.HomeCrashHandler;
@@ -23,8 +24,7 @@ public class TcApp extends Application {
 	//
 
 	public static Context mContent;
-	private String sdPath = Environment.getExternalStorageDirectory()
-			.getAbsolutePath();
+	private String sdPath = Environment.getExternalStorageDirectory().getAbsolutePath();
 	// 数据库操作实例
 	public static Dota mDota;
 
@@ -79,27 +79,36 @@ public class TcApp extends Application {
 			if (!file.exists()) {
 				file.mkdir();
 			}
+
+			// 现场执法
+			File file4 = new File(Values.PATH_ZFQZ);
+			if (!file4.exists()) {
+				file4.mkdir();
+			}
+
 			// 录音文件夹
-			File file1 = new File(sdPath + "/TC/wrecord");
+			File file1 = new File(Values.PATH_RECORD);
 			if (!file1.exists()) {
 				file1.mkdir();
 			}
 			// 录像文件夹
-			File file2 = new File(sdPath + "/TC/wcamera");
+			File file2 = new File(Values.PATH_CAMERA);
 			if (!file2.exists()) {
 				file2.mkdir();
 			}
 			// 照片文件夹
-			File file3 = new File(sdPath + "/TC/wphoto");
+			File file3 = new File(Values.PATH_PHOTO);
 			if (!file3.exists()) {
 				file3.mkdir();
 			}
 
-			// 照片文件夹
-//			File file4 = new File(sdPath + "/TC/测试");
-//			if (!file4.exists()) {
-//				file4.mkdir();
-//			}
+			// 询问笔录文件夹
+			File file5 = new File(Values.PATH_ZFQZ_BOOKMARK);
+			if (!file5.exists()) {
+				file5.mkdir();
+			}
+
+
 		} catch (Exception e) {
 		}
 	}

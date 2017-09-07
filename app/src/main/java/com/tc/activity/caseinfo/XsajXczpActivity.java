@@ -30,6 +30,7 @@ import com.tc.activity.SenceCheck;
 import com.tc.app.TcApp;
 import com.tc.application.R;
 import com.tc.bean.ImageListBean;
+import com.tc.util.ConfirmDialog;
 import com.tc.view.CustomProgressDialog;
 import com.tc.view.DateWheelDialogN;
 
@@ -60,16 +61,15 @@ import static com.tc.application.R.id.one_save_time;
 
 public class XsajXczpActivity extends Activity  implements View.OnClickListener{
 
- //   @BindView(R.id.photo_recycleview)
-   private RecyclerView photoRecycleview;
+    //**************JPGList************
+    private RecyclerView photoRecycleview;
+    private BackOrderAdapter mAdapter;
+    private ArrayList<ImageListBean> mImageList;
+    //**************JPGList************
 
-   // @BindView(R.id.take_photo_tv)
    private TextView takePhotoTv;
 
 
-    private BackOrderAdapter mAdapter;
-    private ArrayList<ImageListBean> mImageList;
-   // private Account mAccount;
 
 
     private ImageView btn_xczpReturn;
@@ -80,7 +80,7 @@ public class XsajXczpActivity extends Activity  implements View.OnClickListener{
 
         private ArrayList<ImageListBean> mDatas;
         private Context mContext;
-       // private Account mAccount;
+
 
         public BackOrderAdapter(ArrayList<ImageListBean> titles, Context context) {
             this.mDatas = titles;
@@ -103,10 +103,49 @@ public class XsajXczpActivity extends Activity  implements View.OnClickListener{
         }
 
         @Override
-        public void onBindViewHolder( BackOrderAdapter.ViewHolder holder, int position) {
+        public void onBindViewHolder( BackOrderAdapter.ViewHolder holder, final int position) {
 
             holder.Image.setImageURI(Uri.parse(mDatas.get(position).getImageUrl()));
             Log.e("图片路径", mDatas.get(position).getImageUrl());
+
+
+            holder.deleteImg.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View arg0) {
+
+                    final ConfirmDialog confirmDialog = new ConfirmDialog(mContext, "确定要删除吗?", "删除", "取消");
+                    confirmDialog.show();
+                    confirmDialog.setClicklistener(new ConfirmDialog.ClickListenerInterface() {
+                        @Override
+                        public void doConfirm() {
+                            // TODO Auto-generated method stub
+                            confirmDialog.dismiss();
+
+                            File file=null;
+                            String filepath = mDatas.get(position).getImageUrl();
+                            file = new File(filepath);
+
+                            if(file.exists())
+                            {
+                                boolean isDel = file.delete();
+                                if(isDel)
+                                {
+                                    mDatas.remove(position);
+                                    notifyDataSetChanged();
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void doCancel() {
+                            // TODO Auto-generated method stub
+                            confirmDialog.dismiss();
+                        }
+                    });
+
+
+                }
+            });
 
 
         }
@@ -114,11 +153,14 @@ public class XsajXczpActivity extends Activity  implements View.OnClickListener{
         static class ViewHolder extends RecyclerView.ViewHolder {
 
             ImageView Image;
+            ImageView deleteImg;
 
-            public ViewHolder(View itemView) {
+            public ViewHolder(View itemView)
+            {
                 super(itemView);
-
                 Image = (ImageView) itemView.findViewById(R.id.item_image);
+                deleteImg = (ImageView) itemView.findViewById(R.id.xczp_img_delete);
+
 
             }
         }
@@ -126,14 +168,15 @@ public class XsajXczpActivity extends Activity  implements View.OnClickListener{
 
     private void initWidgets()
     {
+        checkDoc();
         photoRecycleview=(RecyclerView)findViewById(R.id.photo_recycleview);
-        takePhotoTv = (TextView)findViewById(R.id.take_photo_tv);
-
         photoRecycleview.setLayoutManager(new GridLayoutManager(getActivity(), 2));
-        mAdapter = new BackOrderAdapter(mImageList, getActivity());
+        mAdapter = new BackOrderAdapter(mImageList, this);
         photoRecycleview.setAdapter(mAdapter);
 
 
+
+        takePhotoTv = (TextView)findViewById(R.id.take_photo_tv);
         btn_xczpReturn=(ImageView)findViewById(R.id.btn_xczpReturn);
         btn_update=(Button)findViewById(R.id.btn_upload) ;
 
@@ -399,6 +442,8 @@ public class XsajXczpActivity extends Activity  implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         ajNum=getIntent().getStringExtra("name");
         myapp = (TcApp) TcApp.mContent;
+
+
         mImageList = new ArrayList<>();
         initWidgets();
     }
@@ -428,7 +473,7 @@ public class XsajXczpActivity extends Activity  implements View.OnClickListener{
             Bundle bundle = data.getExtras();
             Bitmap photo = (Bitmap) bundle.get("data");// 获取相机返回的数据，并转换为Bitmap图片格式
 
-            String fileName = UtilTc.getCurrentTime() + ".jpg";
+            String fileName = ajNum+"-"+UtilTc.getCurrentTime() + ".jpg";
             String filePath= Values.PATH_XCBL_XSAJ_XCZP+ fileName;
             compressImage(photo, filePath);
             if (photo == null) {
@@ -467,5 +512,36 @@ public class XsajXczpActivity extends Activity  implements View.OnClickListener{
             e.printStackTrace();
             return null;
         }
+    }
+
+    // -------------------------遍历文件
+    private void checkFileName(File[] files, String jqNum)
+    {
+
+        if (files != null)// nullPointer
+        {
+            for (File file : files)
+            {
+                if (file.isDirectory()) {
+                    checkFileName(file.listFiles(), jqNum);
+                }
+                else
+                {
+                    String fileName = file.getName();
+
+                    if (fileName.startsWith(jqNum) && fileName.endsWith(".jpg"))
+                    {
+
+                        String filePath= Values.PATH_XCBL_XSAJ_XCZP+ fileName;
+                        mImageList.add(new ImageListBean(filePath,fileName));
+                    }
+                }
+            }
+        }
+    }
+    private void checkDoc()
+    {
+        File file = new File(Values.PATH_XCBL_XSAJ_XCZP);
+        checkFileName(file.listFiles(),ajNum);
     }
 }

@@ -19,9 +19,16 @@ public class Values {
     //·������
     public static String SDPATH=Environment.getExternalStorageDirectory().getAbsolutePath();
     public static String ALLFILES=SDPATH+"/TC/";
-    public static String PATH_PHOTO=SDPATH+"/TC/wphoto/";
-    public static String PATH_RECORD=SDPATH+"/TC/wrecord/";
-    public static String PATH_CAMERA=SDPATH+"/TC/wcamera/";
+
+    //+现场执法路径
+    public static String PATH_ZFQZ=SDPATH+"/TC/ZFQZ/";
+    public static String PATH_PHOTO=PATH_ZFQZ+"wphoto/";
+    public static String PATH_RECORD=PATH_ZFQZ+"wrecord/";
+    public static String PATH_CAMERA=PATH_ZFQZ+"wcamera/";
+    public static String PATH_ZFQZ_BOOKMARK=PATH_ZFQZ+"wdoc/";
+    //-现场执法路径
+
+
     public static String PATH_BOOKMARK=SDPATH+"/TC/wtxt/";
     public static String PATH_xckybl=SDPATH+"/TC/wtxt/XCKYBL/";
     public static String PATH_xcbl=SDPATH+"/TC/wtxt/XCBL/";
@@ -33,8 +40,9 @@ public class Values {
     public static String PATH_XCKYQKFXBG =SDPATH+"/TC/wtxt/XCKYQKFXBG/";
 
     public static String PATH_XCBL_XSAJ_BRBL =SDPATH+"/TC/XCBL/XSAJ/BRBL/";
-    public static String PATH_XCBL_XSAJ_XCZP =SDPATH+"/TC/XCBL/XSAJ/XCZP/";
     public static String PATH_XCBL_XSAJ_PMT =SDPATH+"/TC/XCBL/XSAJ/PMT/";
+    public static String PATH_XCBL_XSAJ_XCZP =SDPATH+"/TC/XCBL/XSAJ/XCZP/";
+
 
     public static String PATH_XSKY =SDPATH+"/TC/XSKY/";
     //dbjq

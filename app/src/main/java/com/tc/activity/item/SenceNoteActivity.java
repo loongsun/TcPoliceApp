@@ -51,10 +51,9 @@ public class SenceNoteActivity extends Activity implements  DateTimeDialog.MyOnD
     TextView et_mouse_ask_starttime,et_mouse_ask_endtime,et_ask_starttime,et_ask_endtime;
     private ImageView btn_blReturn;
     // 模板文集地址
-//    private static String demoPath =  "";
     private SimpleDateFormat mFormatter = new SimpleDateFormat("yyyy年MM月dd日hh时mm分 aa");
     String SD = "";
-    File file;
+   // File file;
     private DateTimeDialog dateTimeDialog;
     int whichTimeSelect = 1;
     // 创建生成的文件地址
@@ -138,7 +137,7 @@ public class SenceNoteActivity extends Activity implements  DateTimeDialog.MyOnD
 //                    saveContent();
 //                    finish();
                     try {
-                        String fileName = Values.PATH_BOOKMARK + jqNum + "_" + UtilTc.getCurrentTime() + ".doc";
+                        String fileName = Values.PATH_ZFQZ_BOOKMARK + jqNum + "_" + UtilTc.getCurrentTime() + ".doc";
 
                         newPath = fileName;
                         InputStream inputStream = getAssets().open("xwbl.doc");
@@ -207,12 +206,12 @@ public class SenceNoteActivity extends Activity implements  DateTimeDialog.MyOnD
         mLl_parent=(LinearLayout) findViewById(R.id.ll_parent);
         initWidgets();
         jqNum = getIntent().getStringExtra("name");
-        file = new File(sdcardPath  + "/TC/wtxt/");
-        if (!file.exists()){
-            file.mkdir();
-        }
+//        file = new File(sdcardPath  + "/TC/wtxt/");
+//        if (!file.exists()){
+//            file.mkdir();
+//        }
 
-//        demoPath = file.getPath()+ "/xwbl.doc";
+
 
 
     }
@@ -293,35 +292,7 @@ public class SenceNoteActivity extends Activity implements  DateTimeDialog.MyOnD
 //        }
     }
 
-    public void writeBlToSdCard() {
-        String fileName = Values.PATH_BOOKMARK + jqNum + "_" + UtilTc.getCurrentTime() + ".txt";
-        UtilTc.showLog("fileName" + fileName);
-        File file = new File(fileName);
-        if (!file.exists()) {
-            Log.e("e", "文件不存在创建");
-            try {
-                file.createNewFile();
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-        } else {
 
-        }
-        try {
-//            FileOutputStream fout = new FileOutputStream(fileName, true);
-//            fout.write("标题:".getBytes());
-//            fout.write(et_blTitle.getText().toString().getBytes());
-//            fout.write("\n".getBytes());
-//            fout.write("内容:".getBytes());
-//            fout.write(et_blContent.getText().toString().getBytes());
-//            fout.close();
-
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    }
 
     private void doScan(){
         //获取模板文件

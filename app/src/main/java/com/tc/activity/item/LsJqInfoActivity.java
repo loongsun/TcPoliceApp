@@ -70,7 +70,7 @@ public class LsJqInfoActivity extends Activity{
 		tv_jqTime.setText(plb.getJqTime());
 		tv_jqBjr.setText(plb.getBjrName());
 		//????งา?????
-		File file = new File(Values.ALLFILES);
+		File file = new File(Values.PATH_ZFQZ);
 		listFiles.clear();
 		getFileName(file.listFiles(), plb.getJqNum());
 		lv_lsList.setAdapter(mCommonAdapter);
@@ -142,7 +142,7 @@ public class LsJqInfoActivity extends Activity{
 
 
 							if (ret.endsWith(".doc")) {
-								file = new File(Values.PATH_BOOKMARK+ret);
+								file = new File(Values.PATH_ZFQZ_BOOKMARK+ret);
 
 							} else if (  ret.endsWith(".mp4")) {
 								file = new File(Values.PATH_CAMERA+ret);
@@ -184,7 +184,7 @@ public class LsJqInfoActivity extends Activity{
 					String ret = listFiles.get(position);
 					if (ret.endsWith(".doc")) {
 
-						doOpenWord(Values.PATH_BOOKMARK+ret);
+						doOpenWord(Values.PATH_ZFQZ_BOOKMARK+ret);
 
 					} else if (  ret.endsWith(".mp4"))
 					{

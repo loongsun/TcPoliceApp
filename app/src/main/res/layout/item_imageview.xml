@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:background="@color/white"
     android:layout_height="wrap_content">
 
     <LinearLayout
-        android:padding="10px"
-        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="500px">
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10px">
 
         <ImageView
-            android:scaleType="fitXY"
             android:id="@+id/item_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:background="@color/white"
-            android:src="@mipmap/ic_launcher"
-            android:layout_width="match_parent"
-            android:layout_height="600px" />
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_launcher" />
+
+        <ImageView
+            android:id="@+id/xczp_img_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/delete"
+            app:srcCompat="@drawable/delete" />
     </LinearLayout>
 
 </LinearLayout>
