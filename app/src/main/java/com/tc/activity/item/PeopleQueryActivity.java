@@ -355,10 +355,11 @@ public class PeopleQueryActivity  extends BaseActivity implements OnClientCallba
 				Bitmap bitmap=item.picBitmap;
 				if (null != bitmap)
 				{
-					im_head.setImageBitmap(bitmap);
 					im_head.setVisibility(View.VISIBLE);
-				}
+					im_head.setImageBitmap(bitmap);
 
+				}
+		proBar.setProgress(0);
 			//¿ªÊ¼ºË²é
 			overflag=false;
 			numValue=item.certNumber;

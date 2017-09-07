@@ -2,12 +2,18 @@ package com.tc.activity.caseinfo;
 
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sdses.tool.UtilTc;
@@ -42,6 +48,9 @@ import it.sauronsoftware.ftp4j.FTPDataTransferListener;
 
 public class XckcXsBrBlActivity extends Activity {
     private ImageView btn_brblReturn;
+    private  LinearLayout docLinearLayout;
+    private TextView docName;
+    private ImageView docEdit,docDelete;
     DateWheelDialogN startDateChooseDialog,endDateChooseDialog;
     private LineEditText et_title;
     private LineEditText sTime,eTime;
@@ -52,13 +61,23 @@ public class XckcXsBrBlActivity extends Activity {
     private  String filePath;
     private String fileName;
 
+    private  String filePath1;
+    private String fileName1;
+
     private void initWidgets(){
         btn_brblReturn=(ImageView)findViewById(R.id.btn_brblReturn);
         btn_brblReturn.setOnClickListener(new OnClick());
 
 
-        et_title=(LineEditText)findViewById(R.id.et_title);
+        docLinearLayout=(LinearLayout)findViewById(R.id.xsaj_brbl_doc_item);
+        docLinearLayout.setVisibility(View.GONE);
+        docName=(TextView)findViewById(R.id.doc_name);
+        docEdit=(ImageView)findViewById(R.id.doc_edit);
+        docDelete=(ImageView)findViewById(R.id.doc_delete);
 
+
+
+        et_title=(LineEditText)findViewById(R.id.et_title);
         sTime=(LineEditText)findViewById(R.id.et_time_s);
         sTime.setOnClickListener(new OnClick());
         eTime=(LineEditText)findViewById(R.id.et_time_e);
@@ -119,13 +138,23 @@ public class XckcXsBrBlActivity extends Activity {
     private void getFileName()
     {
         try{
-            File file = new File(Values.PATH_XCBL);
+            File file = new File(Values.PATH_XCBL_XSAJ_BRBL);
             if(!file.exists())
             {
                 file.mkdirs();
             }
-            fileName=UtilTc.getCurrentTime()+".doc";
-            filePath=Values.PATH_XCBL+fileName;
+
+            if(TextUtils.isEmpty(fileName))
+            {
+                fileName=ajNum+"-"+UtilTc.getCurrentTime()+".doc";
+                filePath=Values.PATH_XCBL_XSAJ_BRBL+fileName;
+            }
+            else
+            {
+                File newFile = new File(filePath);
+                if(newFile.exists())
+                    newFile.delete();
+            }
 
         }catch (Exception e){
             Log.e("ddd","getFileName ",e);
@@ -139,8 +168,38 @@ public class XckcXsBrBlActivity extends Activity {
         Map<String,String> map = new HashMap<>();
         map.put("$TITLE$",""+et_title.getText().toString());
 
-        map.put("$stime$",""+sTime.getText().toString());
-        map.put("$ETIME",""+eTime.getText().toString());
+        String startTime=sTime.getText().toString();
+        String endTime=eTime.getText().toString();
+        if(endTime.compareTo(startTime)<=0)
+        {
+            Toast.makeText(getApplicationContext(),"结束时间要大于开始时间",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        String y1=startTime.substring(0,4);
+        String M1 =startTime.substring(5,7);
+        String d1 =startTime.substring(8,10);
+        String H1 = startTime.substring(11,13);
+        String m1 = startTime.substring(14,16);
+
+        String y2=endTime.substring(0,4);
+        String M2 =endTime.substring(5,7);
+        String d2 =endTime.substring(8,10);
+        String H2 = endTime.substring(11,13);
+        String m2 = endTime.substring(14,16);
+
+        map.put("&yy1",""+y1);
+        map.put("&M1",""+M1);
+        map.put("&d1",""+d1);
+        map.put("&H1",""+H1);
+        map.put("&f1",""+m1);
+
+        map.put("&yy2",""+y2);
+        map.put("&M2",""+M2);
+        map.put("&d2",""+d2);
+        map.put("&H2",""+H2);
+        map.put("&f2",""+m2);
+
+
 
         map.put("&ct1",""+ct1.getText().toString());
         map.put("&ct2",""+ct2.getText().toString());
@@ -164,6 +223,14 @@ public class XckcXsBrBlActivity extends Activity {
 
     public void onPreview(View v)
     {
+        String startTime=sTime.getText().toString();
+        String endTime=eTime.getText().toString();
+        if(endTime.compareTo(startTime)<=0)
+        {
+            Toast.makeText(getApplicationContext(),"结束时间要大于开始时间",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         getFileName();
 
         doScan();
@@ -172,15 +239,31 @@ public class XckcXsBrBlActivity extends Activity {
     }
     public void onPrinter(View V)
     {
+        String startTime=sTime.getText().toString();
+        String endTime=eTime.getText().toString();
+        if(endTime.compareTo(startTime)<=0)
+        {
+            Toast.makeText(getApplicationContext(),"结束时间要大于开始时间",Toast.LENGTH_SHORT).show();
+            return;
+        }
         getFileName();
         doScan();
         CaseUtil.doOpenWord(filePath,this);
     }
     public void onUpload(View v)
     {
+        String startTime=sTime.getText().toString();
+        String endTime=eTime.getText().toString();
+        if(endTime.compareTo(startTime)<=0)
+        {
+            Toast.makeText(getApplicationContext(),"结束时间要大于开始时间",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        getFileName();
+        doScan();
+
         File newFile = new File(filePath);
-
-
         if(newFile.exists())
         {
             SendFile sf = new  SendFile();
@@ -394,8 +477,65 @@ public class XckcXsBrBlActivity extends Activity {
             }
         }
     };
+    //WPS查看
+    public void onDocEdit(View v)
+    {
+        Intent intent = new Intent();
+        intent.setAction("android.intent.action.VIEW");
+        intent.addCategory("android.intent.category.DEFAULT");
+        String fileMimeType = "application/msword";
+        intent.setDataAndType(Uri.fromFile(new File(this.filePath)), fileMimeType);
+        try{
+            startActivity(intent);
+        } catch(ActivityNotFoundException e) {
+            //检测到系统尚未安装OliveOffice的apk程序
+            Toast.makeText(this, "未找到软件", Toast.LENGTH_LONG).show();
+            //请先到www.olivephone.com/e.apk下载并安装
+        }
 
 
+    }
+    public void onDocDelete(View v)
+    {
+        if(this.filePath!=null)
+        {
+            File file =new File(filePath);
+            if(file.exists())
+            file.delete();
+            Toast.makeText(getApplicationContext(),"删除成功",Toast.LENGTH_SHORT).show();
+            docLinearLayout.setVisibility(View.GONE);
+        }
+    }
+    // -------------------------遍历文件
+    private void checkFileName(File[] files, String jqNum) {
+
+        if (files != null)// nullPointer
+        {
+            for (File file : files) {
+                if (file.isDirectory()) {
+                    checkFileName(file.listFiles(), jqNum);
+                }
+                else
+                {
+                    String fileName = file.getName();
+
+                    if (fileName.startsWith(jqNum) && fileName.endsWith(".doc"))
+                    {
+                        Log.e("e", "fileName="+fileName);
+                         this.fileName=fileName;
+                         this.filePath=Values.PATH_XCBL_XSAJ_BRBL+this.fileName;
+                         docName.setText(this.fileName);
+                         docLinearLayout.setVisibility(View.VISIBLE);
+                    }
+                }
+            }
+        }
+    }
+private void checkDoc()
+{
+    File file = new File(Values.PATH_XCBL_XSAJ_BRBL);
+    checkFileName(file.listFiles(),ajNum);
+}
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_caseinfo_xckcxsbrbl);
@@ -403,6 +543,7 @@ public class XckcXsBrBlActivity extends Activity {
         ajNum=getIntent().getStringExtra("name");
         myapp = (TcApp) TcApp.mContent;
         initWidgets();
+        checkDoc();
     }
 
 

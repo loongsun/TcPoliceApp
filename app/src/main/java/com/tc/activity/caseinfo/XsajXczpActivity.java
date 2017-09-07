@@ -1,25 +1,37 @@
 package com.tc.activity.caseinfo;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
+import android.support.annotation.Nullable;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sdses.tool.UtilTc;
 import com.sdses.tool.Values;
+import com.tc.activity.Account;
+import com.tc.activity.FormalNewActivity;
 import com.tc.activity.SenceCheck;
 import com.tc.app.TcApp;
 import com.tc.application.R;
+import com.tc.bean.ImageListBean;
 import com.tc.view.CustomProgressDialog;
+import com.tc.view.DateWheelDialogN;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -37,113 +49,165 @@ import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.OnClick;
 import it.sauronsoftware.ftp4j.FTPClient;
 import it.sauronsoftware.ftp4j.FTPDataTransferListener;
 
+import static com.baidu.navisdk.BNaviModuleManager.getActivity;
+import static com.tc.application.R.id.one_save_time;
 
-public class XsajXczpActivity extends Activity {
-    private ImageView btn_xczpReturn,iv_1,iv_2;
-    private Button btn_1,btn_2,btn_update;
-    private static String picPath1=Environment.getExternalStorageDirectory() + "/" + "TC/xczp1" + ".jpg";
-    private static String picPath2=Environment.getExternalStorageDirectory() + "/" + "TC/xczp2" + ".jpg";
+
+public class XsajXczpActivity extends Activity  implements View.OnClickListener{
+
+ //   @BindView(R.id.photo_recycleview)
+   private RecyclerView photoRecycleview;
+
+   // @BindView(R.id.take_photo_tv)
+   private TextView takePhotoTv;
+
+
+    private BackOrderAdapter mAdapter;
+    private ArrayList<ImageListBean> mImageList;
+   // private Account mAccount;
+
+
+    private ImageView btn_xczpReturn;
+    private Button btn_update;
     private String ajNum;
-    private int upflag=1;
 
+    static class BackOrderAdapter extends RecyclerView.Adapter<BackOrderAdapter.ViewHolder> {
 
-    private void initWidgets()
-    {
-        iv_1=(ImageView)findViewById(R.id.iv_1);
-        iv_2=(ImageView)findViewById(R.id.iv_2);
-        btn_xczpReturn=(ImageView)findViewById(R.id.btn_xczpReturn);
-        btn_1=(Button)findViewById(R.id.btn_p1);
-        btn_2=(Button)findViewById(R.id.btn_p2);
-        btn_update=(Button)findViewById(R.id.btn_upload) ;
+        private ArrayList<ImageListBean> mDatas;
+        private Context mContext;
+       // private Account mAccount;
 
-        btn_1.setOnClickListener(new OnClick());
-        btn_2.setOnClickListener(new OnClick());
-        btn_update.setOnClickListener(new OnClick());
+        public BackOrderAdapter(ArrayList<ImageListBean> titles, Context context) {
+            this.mDatas = titles;
+            this.mContext = context;
+           // mAccount = Account.GetInstance();
+        }
 
-        btn_xczpReturn.setOnClickListener(new OnClick());
-
-    }
-    class OnClick implements View.OnClickListener{
         @Override
-        public void onClick(View v) {
-            switch(v.getId()){
-                case R.id.btn_xczpReturn:
-                    finish();
-                    break;
-                case R.id.btn_p1:
-                    UtilTc.showLog("p1 click");
-                    Intent cameraintent = new Intent(
-                            MediaStore.ACTION_IMAGE_CAPTURE);
-                    startActivityForResult(cameraintent, 1);
-                    break;
-                case R.id.btn_p2:
-                    Intent cameraintent2 = new Intent(
-                            MediaStore.ACTION_IMAGE_CAPTURE);
+        public int getItemCount() {
 
-                    startActivityForResult(cameraintent2, 2);
-                    break;
-                case R.id.btn_upload:
-                    File file1=new File(picPath1);
-                    File file2=new File(picPath2);
-                    if(file1.exists())
-                    {
-                        if(file2.exists())
-                        {
-                            SendFile sf = new SendFile();
-                            sf.start();
-                        }
-                        else
-                        {
-                            Toast.makeText(getApplicationContext(),"照片不全",Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                    else
-                    {
-                        Toast.makeText(getApplicationContext(),"照片不全",Toast.LENGTH_SHORT).show();
-                    }
-                    break;
+//            return 1;
+            return mDatas == null ? 0 : mDatas.size();
+        }
 
+        @Override
+        public  BackOrderAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            BackOrderAdapter.ViewHolder viewHolder = null;
+            viewHolder = new  BackOrderAdapter.ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_imageview, parent, false));
+            return viewHolder;
+        }
+
+        @Override
+        public void onBindViewHolder( BackOrderAdapter.ViewHolder holder, int position) {
+
+            holder.Image.setImageURI(Uri.parse(mDatas.get(position).getImageUrl()));
+            Log.e("图片路径", mDatas.get(position).getImageUrl());
+
+
+        }
+
+        static class ViewHolder extends RecyclerView.ViewHolder {
+
+            ImageView Image;
+
+            public ViewHolder(View itemView) {
+                super(itemView);
+
+                Image = (ImageView) itemView.findViewById(R.id.item_image);
 
             }
-
         }
     }
 
+    private void initWidgets()
+    {
+        photoRecycleview=(RecyclerView)findViewById(R.id.photo_recycleview);
+        takePhotoTv = (TextView)findViewById(R.id.take_photo_tv);
+
+        photoRecycleview.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        mAdapter = new BackOrderAdapter(mImageList, getActivity());
+        photoRecycleview.setAdapter(mAdapter);
+
+
+        btn_xczpReturn=(ImageView)findViewById(R.id.btn_xczpReturn);
+        btn_update=(Button)findViewById(R.id.btn_upload) ;
+
+        takePhotoTv.setOnClickListener(this);
+        btn_xczpReturn.setOnClickListener(this);
+        btn_update.setOnClickListener(this);
+
+
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()) {
+
+            case R.id.btn_xczpReturn:
+                finish();
+                break;
+
+            case R.id.btn_upload:
+
+                SendFile sf = new  SendFile();
+                sf.start();
+                break;
+            case R.id.take_photo_tv:
+
+                Intent cameraintent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(cameraintent, 2);
+                break;
+
+            default:
+                break;
+        }
+    }
+
+
+
     private FTPClient myFtp;
+    private int countFile=0;
     public class SendFile extends Thread {
-        // private String currentPath = "";
+         private String currentPath = "";
 
         @Override
         public void run()
         {
             try {
-                MyFTPDataTransferListener listener = new MyFTPDataTransferListener("");
-                File file;//=new File(picPath1);
-                if(upflag==1)
+
+                if(countFile==0)
                 {
                     myFtp = new FTPClient();
                     myFtp.connect("61.176.222.166", 21); // 连接
                     myFtp.login("admin", "1234"); // 登录
                     myFtp.changeDirectory("../");
                     myFtp.changeDirectory("xcbl-xs-xczp");
-                    file=new File(picPath1);
 
+                    Message msg;
+                    msg = Message.obtain();
+                    msg.what = Values.START_UPLOAD;
+                    mHandler.sendMessage(msg);
                 }
-                else
+
+                if(countFile<mImageList.size())
                 {
-                    file=new File(picPath2);
+                    currentPath = mImageList.get(countFile).getImageUrl();
+                    File file = new File(currentPath);
+                    MyFTPDataTransferListener listener = new  MyFTPDataTransferListener(currentPath);
+                    myFtp.upload(file, listener); // 上传
                 }
-                myFtp.upload(file, listener); // 上传
-
-
-            } catch (Exception e)
-            {
+            } catch (Exception e) {
                 e.printStackTrace();
                 mHandler.sendEmptyMessage(Values.ERROR_UPLOAD);
             }
+
+
         }
     }
     private CustomProgressDialog progressDialog = null;
@@ -177,21 +241,24 @@ public class XsajXczpActivity extends Activity {
         public void handleMessage(android.os.Message msg)
         {
             switch (msg.what) {
-                case Values.ONE_UPLOAD://
-                    UtilTc.myToast(getApplicationContext(), "第一张上传成功");
-                    File file=new File(picPath1);
-                   file.deleteOnExit();
-                    upflag=2;
-                    SendFile sf = new SendFile();
-                    sf.start();
-                    break;
-                case Values.TWO_UPLOAD://
-                    File file2=new File(picPath2);
-                    file2.deleteOnExit();
 
-                    UtilTc.myToast(getApplicationContext(), "第二张上传成功");
-                    myapp.sendHandleMsg(104, SenceCheck.waitingHandler);
-                    finish();
+                case Values.SUCCESS_RECORDUPLOAD://
+
+                    countFile++;
+                    if(countFile==mImageList.size())
+                    {
+                        UtilTc.myToast(getApplicationContext(), "传输完毕");
+                        stopProgressDialog();
+                        myapp.sendHandleMsg(104, SenceCheck.waitingHandler);
+                        finish();
+                    }
+                    else
+                    {
+                        SendFile sf = new  SendFile();
+                        sf.start();
+                    }
+
+
                     break;
                 case Values.ERROR_CONNECT:
                     UtilTc.myToastForContent(getApplicationContext());
@@ -246,10 +313,7 @@ public class XsajXczpActivity extends Activity {
         @Override
         public void started() {// 上传开始
             // TODO Auto-generated method stub
-            Message msg;
-            msg = Message.obtain();
-            msg.what = Values.START_UPLOAD;;
-            mHandler.sendMessage(msg);
+
         }
         @Override
         public void transferred(int length)
@@ -260,13 +324,13 @@ public class XsajXczpActivity extends Activity {
         public void completed()
         {// 上传成功
             // TODO Auto-generated method stub
-
-            Message msg;
-            msg = Message.obtain();
-            msg.what = Values.SUCCESS_UPLOAD;
-            mHandler.sendMessage(msg);
-
+            File file = new File(fileName);
+            if (file.exists()) {
+                file.delete();
+            }
             new Thread(media).start();
+
+
         }
 
         @Override
@@ -285,16 +349,11 @@ public class XsajXczpActivity extends Activity {
             String url_passenger = "http://61.176.222.166:8765/interface/addmeiti/";
             HttpPost httpRequest = new HttpPost(url_passenger);
             List<NameValuePair> params = new ArrayList<NameValuePair>();
-            //查询出出警时间和到达现场时间
-//            mApp.getmDota().jq_queryTime(plb.getJqNum());
+
             params.add(new BasicNameValuePair("A_ID", ajNum));
             params.add(new BasicNameValuePair("A_type", "图片"));
             params.add(new BasicNameValuePair("A_Format", "jpg"));
-
-            if(upflag==1)
-            params.add(new BasicNameValuePair("A_MM", "/xcbl-xs-xczp"+"/"+"xczp1.jpg"));
-            else
-                params.add(new BasicNameValuePair("A_MM", "/xcbl-xs-xczp"+"/"+"xczp2.jpg"));
+                params.add(new BasicNameValuePair("A_MM", "/xcbl-xs-xczp"+"/"+mImageList.get(countFile).getImageName()));
             try {
                 UrlEncodedFormEntity formEntity = new UrlEncodedFormEntity(
                         params, "UTF-8");
@@ -312,11 +371,8 @@ public class XsajXczpActivity extends Activity {
                     String code = person.getString("error code");
                     if (code.trim().equals("0"))
                     {
-                        //上传成功
-                        if(upflag==1)
-                        mHandler.sendEmptyMessage(Values.ONE_UPLOAD);
-                        else
-                            mHandler.sendEmptyMessage(Values.TWO_UPLOAD);
+                        mHandler.sendEmptyMessage(Values.SUCCESS_RECORDUPLOAD);
+
                     }
                     else if (code.trim().equals("10003"))
                     {
@@ -338,11 +394,12 @@ public class XsajXczpActivity extends Activity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         setContentView(R.layout.activity_caseinfo_xsajxczp);
         super.onCreate(savedInstanceState);
         ajNum=getIntent().getStringExtra("name");
         myapp = (TcApp) TcApp.mContent;
+        mImageList = new ArrayList<>();
         initWidgets();
     }
 
@@ -353,9 +410,6 @@ public class XsajXczpActivity extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode)
         {
-            case 1:
-                afterPhoto(data);
-                break;
             case 2:// 当选择拍照时调用
                 afterPhoto2(data);
                 break;
@@ -363,30 +417,28 @@ public class XsajXczpActivity extends Activity {
     }
 
     private void afterPhoto2(Intent data) {
-        try {
-            Bundle bundle = data.getExtras();
-            Bitmap photo = (Bitmap) bundle.get("data");// 获取相机返回的数据，并转换为Bitmap图片格式
-            compressImage(photo,picPath2);
-            if (photo == null) {
-                iv_2.setImageResource(R.drawable.icon_photo);
-            } else {
 
-                iv_2.setImageBitmap(photo);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        File file = new File(Values.PATH_XCBL_XSAJ_XCZP);
+        if(!file.exists())
+        {
+            file.mkdirs();
         }
-    }
-    private void afterPhoto(Intent data) {
+
         try {
             Bundle bundle = data.getExtras();
             Bitmap photo = (Bitmap) bundle.get("data");// 获取相机返回的数据，并转换为Bitmap图片格式
-            compressImage(photo, picPath1);
-            if (photo == null) {
-                iv_1.setImageResource(R.drawable.icon_photo);
-            } else {
 
-                iv_1.setImageBitmap(photo);
+            String fileName = UtilTc.getCurrentTime() + ".jpg";
+            String filePath= Values.PATH_XCBL_XSAJ_XCZP+ fileName;
+            compressImage(photo, filePath);
+            if (photo == null) {
+
+            }
+            else
+            {
+                mImageList.add(new ImageListBean(filePath,fileName));
+                //mAccount.setmImageList(mImageList);
+                mAdapter.notifyDataSetChanged();
             }
         } catch (Exception e) {
             e.printStackTrace();

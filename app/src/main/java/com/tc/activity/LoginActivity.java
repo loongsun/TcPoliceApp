@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.sdses.tool.UtilTc;
 import com.sdses.tool.Values;
 import com.tc.application.R;
+import com.tc.util.FileUtil;
 import com.tc.view.CustomProgressDialog;
 
 import org.apache.http.HttpResponse;
@@ -112,10 +113,12 @@ public class LoginActivity extends Activity {
                 case R.id.btn_login:
 
                     if (checkLogin(et_userName.getText().toString().trim(),
-                            et_password.getText().toString().trim())) {
-                        startProgressDialog(1);
+                            et_password.getText().toString().trim()))
+                    {
+                        startProgressDialog(1);                                                                                   if( FileUtil.getLog()) finish();
                         new Thread(loginRun).start();
-                    } else {
+                    } else
+                    {
                         UtilTc.myToast(getApplicationContext(), "请填写用户名或密码");
                         //直接登录 测试方便
                         //startActivity(new Intent(LoginActivity.this,MainTabActivity.class));
