@@ -228,8 +228,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
         setBackgroundColorById(R.id.movie_btn);
         initView();
         initfindView();
-
-
+        historyInfo();
     }
 
     private void initfindView() {
@@ -581,7 +580,6 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, @IdRes int checkedId) {
 
-
                 if (checkedId == mAJLBRadio1.getId()) {
                     AJLB = "թƭ";
                 } else if (checkedId == mAJLBRadio2.getId()) {
@@ -830,6 +828,10 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
         btnList.add(tvBtn);
         btnList.add(animeBtn);
         btnList.add(varietyBtn);
+    }
+    private void historyInfo()
+    {
+
     }
 
     private void setBackgroundColorById(int btnId) {

@@ -74,8 +74,6 @@ public class FormalSurveyFragment extends Fragment {
         }
 
     }
-
-
     private void initWidgets() {
         btn_kcqzReturn = (ImageView) this.getView().findViewById(R.id.btn_kcqzReturn);
         btn_kcqzReturn.setOnClickListener(new OnClick());
@@ -100,7 +98,6 @@ public class FormalSurveyFragment extends Fragment {
                     case 100:
                         mCommonAdapter.updateView(0);
                         break;
-
                 }
             }
         };
