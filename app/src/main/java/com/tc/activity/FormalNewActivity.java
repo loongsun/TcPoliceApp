@@ -15,6 +15,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -233,7 +234,13 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
         setBackgroundColorById(R.id.movie_btn);
         initView();
         initfindView();
+        initData();
         historyInfo();
+    }
+
+    private void initData(){
+        showBasicData();
+        showTranceInfo();
     }
 
     private void initfindView() {
@@ -252,7 +259,6 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
         GZJY_edit = (EditText) this.findViewById(R.id.GZJY_edit);
         XCFXDW_edit = (EditText) this.findViewById(R.id.XCFXDW_edit);
         XCFXR_edit = (EditText) this.findViewById(R.id.XCFXR_edit);
-        showTranceInfo();
 
 //分析意见
         ZARS_edit = findViewById(R.id.ZARS_edit);
@@ -943,7 +949,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
 
                             case R.id.movie_btn:
 
-                                BHCS = checkboxstr1 + checkboxstr2 + checkboxstr3 ;
+                                BHCS = checkboxstr1 + checkboxstr2 + checkboxstr3+checkboxstr4 ;
                                 saveBasicData();
                                 if (A_ID_edit.getText().toString().trim().equals("")) {
                                     Toast.makeText(ia, "案件编号不能为空", Toast.LENGTH_SHORT).show();
@@ -1233,6 +1239,125 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
         trace.setWitness(JZR_edit.getText().toString());
     }
 
+    private void setTypeChecked(String type){
+        if(type==null){
+            return;
+        }
+        if ("诈骗".equals(type)) {
+            mAJLBRadio1.setChecked(true);
+        }else if("敲诈勒索".equals(type)){
+            mAJLBRadio2.setChecked(true);
+        }else if("盗窃路财案".equals(type)){
+            mAJLBRadio3.setChecked(true);
+        }else if("放火案件".equals(type)){
+            mAJLBRadio4.setChecked(true);
+        }else if("盗窃电动自称车".equals(type)){
+            mAJLBRadio5.setChecked(true);
+        }else if("盗窃车内财物".equals(type)){
+            mAJLBRadio6.setChecked(true);
+        }else if("其他类别案".equals(type)){
+            mAJLBRadio7.setChecked(true);
+        }else if("强奸".equals(type)){
+            mAJLBRadio8.setChecked(true);
+        }else if("扒窃案".equals(type)){
+            mAJLBRadio9.setChecked(true);
+        }else if("入户抢劫".equals(type)){
+            mAJLBRadio10.setChecked(true);
+        }else if("故意伤害案".equals(type)){
+            mAJLBRadio11.setChecked(true);
+        }else if("其他盗窃案件".equals(type)){
+            mAJLBRadio12.setChecked(true);
+        }else if("入室盗窃案".equals(type)){
+            mAJLBRadio13.setChecked(true);
+        }
+    }
+
+    private void showBasicData(){
+        List<Criminal> criminals = DbManager.getInstance(this).queryCriminal(ajNum);
+        if(criminals!=null && criminals.size()>0){
+            Criminal criminal = criminals.get(0);
+
+            setTypeChecked(criminal.getType());
+            anfaquhua_edit.setText(criminal.getArea());
+            int isLife = criminal.getIsLife();
+            if(isLife == 1){
+                mSFMARadio1.setChecked(true);
+            }else{
+                mSFMARadio2.setChecked(true);
+            }
+            if(criminal.getIsCrime()==1){
+                mSFXARadio1.setChecked(true);
+            }else{
+                mSFXARadio2.setChecked(true);
+            }
+            oneStartTime.setText(criminal.getStartTime());
+            oneEndingTime.setText(criminal.getEndTime());
+            AFDD_edit.setText(criminal.getPlace());
+            KTDD_edit.setText(criminal.getInquestPlace());
+            baohuren_name_edit.setText(criminal.getProtectorName());
+            baohuren_company_edit.setText(criminal.getProtectorComany());
+            String protectMeasures = criminal.getProtectMeasures();
+            if(!TextUtils.isEmpty(protectMeasures)){
+                String[] split = protectMeasures.split(",");
+                for(int i=0;split!=null && i<split.length;i++){
+                    if(i== 0){
+                        if("1".equals(split[i])){
+                            mBHCSChenkbox1.setChecked(true);
+                        }
+                    }else if(i==1){
+                        if("1".equals(split[i])){
+                            mBHCSChenkbox2.setChecked(true);
+                        }
+                    }else if(i==2){
+                        if("1".equals(split[i])){
+                            mBHCSChenkbox3.setChecked(true);
+                        }
+                    }else{
+                        if("1".equals(split[i])){
+                            mBHCSChenkbox4.setChecked(true);
+                        }
+                    }
+                }
+            }
+            oneSaveTime.setText(criminal.getProtectTime());
+            String spotCondition = criminal.getSpotCondition();
+            if("原始现场".equals(spotCondition)){
+                mXCTJRadio1.setChecked(true);
+            }else if("变动现场".equals(spotCondition)){
+                mXCTJRadio2.setChecked(true);
+            }else if("不确定现场".equals(spotCondition)){
+                mXCTJRadio3.setChecked(true);
+            }
+
+            String weather = criminal.getWeatherCondition();
+            if("阴".equals(weather)){
+                mTQQKRadio1.setChecked(true);
+            }else if("晴".equals(weather)){
+                mTQQKRadio2.setChecked(true);
+            }else if("雨".equals(weather)){
+                mTQQKRadio3.setChecked(true);
+            }else if(("雾".equals(weather))){
+                mTQQKRadio4.setChecked(true);
+            }else if("雪".equals(weather)){
+                mTQQKRadio5.setChecked(true);
+            }
+
+            String lightCondition = criminal.getLightCondition();
+            if("自然光".equals(lightCondition)){
+                mGZTJRadio1.setChecked(true);
+            }else if("灯光".equals(lightCondition)){
+                mGZTJRadio2.setChecked(true);
+            }else if("特种光".equals(lightCondition)){
+                mGZTJRadio3.setChecked(true);
+            }
+            XCZH_edit.setText(criminal.getSpotConduct());
+            et_kyKydw.setText(criminal.getInquesterName());
+            et_kyZpbgdw.setText(criminal.getSpotPeople());
+            baoanren_edit.setText(criminal.getVictimName());
+            jianzhenren_edit.setText(criminal.getWitness());
+        }
+    }
+
     private void saveBasicData() {
 
         List<Criminal> criminals = DbManager.getInstance(this).queryCriminal(ajNum);
@@ -1262,7 +1387,31 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
         criminal.setInquestPlace(KTDD_edit.getText().toString());
         criminal.setProtectorName(baohuren_name_edit.getText().toString());
         criminal.setProtectorComany(baohuren_company_edit.getText().toString());
-        criminal.setProtectMeasures(BHCS);
+
+//        checkboxstr1 + checkboxstr2 + checkboxstr3+checkboxstr4
+        String protect = null;
+        if(!TextUtils.isEmpty(checkboxstr1)){
+            protect = 1+",";
+        }else {
+            protect = 0+",";
+        }
+        if(!TextUtils.isEmpty(checkboxstr2)){
+            protect += 1+",";
+        }else {
+            protect += 0+",";
+        }
+        if(!TextUtils.isEmpty(checkboxstr3)){
+            protect += 1+",";
+        }else {
+            protect += 0+",";
+        }
+        if(!TextUtils.isEmpty(checkboxstr4)){
+            protect += 1;
+        }else {
+            protect += 0;
+        }
+        Log.i(TAG," protect = "+protect);
+        criminal.setProtectMeasures(protect);
         criminal.setWeatherCondition(TQZK);
         criminal.setProtectTime(oneSaveTime.getText().toString());
         criminal.setSpotCondition(XCTJ);
