@@ -61,8 +61,6 @@ public class KyBlActivity extends CaseBaseActivity {
     private TextView mTitleTx;
     private EditText mEdtNumber;
     private EditText mEdtOfficeName;
-    private EditText mEditStartTime;
-    private EditText mEdtEndTime;
     private EditText mCheckPlace;
     private EditText mCardNumber;
     private EditText mCheckerName;

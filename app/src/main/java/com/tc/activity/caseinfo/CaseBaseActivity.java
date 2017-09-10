@@ -6,11 +6,13 @@ import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.sdses.tool.Values;
 import com.tc.app.TcApp;
 import com.tc.util.CaseUtil;
+import com.tc.util.DateUtil;
 import com.tc.view.CustomProgressDialog;
 import com.tc.view.FileListView;
 
@@ -27,6 +29,8 @@ public abstract class CaseBaseActivity extends Activity {
     protected String mName;
     protected String mNewPath;
     protected FileListView mFileListView;
+    protected EditText mEditStartTime;
+    protected EditText mEdtEndTime;
 
 
     protected Handler mHandler = new Handler() {
@@ -39,7 +43,7 @@ public abstract class CaseBaseActivity extends Activity {
                     break;
                 case Values.ERROR_UPLOAD:
                     stopShopProcessDialog();
-                    Toast.makeText(CaseBaseActivity.this,"上传失败,请重试",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CaseBaseActivity.this,"上传失败，请稍后重试",Toast.LENGTH_SHORT).show();
                     break;
             }
         }
@@ -83,8 +87,15 @@ public abstract class CaseBaseActivity extends Activity {
 
     protected void uploadDoc(){
         if(!CaseUtil.isNetConnent(this)){
-            Toast.makeText(TcApp.mContent,"网络不通,请连接网络",Toast.LENGTH_SHORT).show();
+            Toast.makeText(TcApp.mContent,"网络未连接",Toast.LENGTH_SHORT).show();
             return;
+        }
+        if(mEditStartTime!=null && mEdtEndTime!=null){
+            if(!DateUtil.isDateRight(mEditStartTime.getText().toString(),mEdtEndTime.getText().toString())){
+                Toast.makeText(this, "结束时间要大于开始时间", Toast.LENGTH_SHORT).show();
+                Log.i(TAG,"time error");
+                return;
+            }
         }
 
         startProcessDialog();
@@ -100,7 +111,7 @@ public abstract class CaseBaseActivity extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        getFileName();//退出时删除非上传的文件
+        getFileName();//?????????????????
     }
 
     protected abstract String geFtpPth();

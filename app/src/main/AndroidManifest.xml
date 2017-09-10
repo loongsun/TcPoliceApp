@@ -237,8 +237,6 @@
         </activity>
         <activity android:name="com.tc.activity.caseinfo.SaveEvidenceActivity">
         </activity>
-        <activity android:name="com.tc.activity.DbActivity">
-        </activity>
     </application>
 
 </manifest>

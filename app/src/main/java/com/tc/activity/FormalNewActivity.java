@@ -11,7 +11,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
 import android.support.annotation.IdRes;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -32,10 +31,8 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.sdses.bean.PoliceStateListBean;
 import com.sdses.tool.UtilTc;
 import com.sdses.tool.Values;
-import com.tc.activity.caseinfo.XckcXsBrBlActivity;
 import com.tc.app.TcApp;
 import com.tc.application.R;
 import com.tc.bean.ImageListBean;
@@ -45,6 +42,7 @@ import com.tc.greendao.DbManager;
 import com.tc.greendao.Opinion;
 import com.tc.greendao.TraceEvidence;
 import com.tc.util.ConfirmDialog;
+import com.tc.util.DateUtil;
 import com.tc.view.CustomProgressDialog;
 import com.tc.view.DateWheelDialogN;
 
@@ -55,19 +53,14 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
-import org.apache.poi.hwpf.HWPFDocument;
-import org.apache.poi.hwpf.usermodel.Range;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -938,11 +931,6 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
 
                 break;
             case R.id.operate_next_update:
-//                if(true){
-//                    Intent intent = new Intent(FormalNewActivity.this,DbActivity.class);
-//                    FormalNewActivity.this.startActivity(intent);
-//                    break;
-//                }
                 final ConfirmDialog confirmDialog = new ConfirmDialog(this, "确定要上传吗?", "确定", "取消");
                 confirmDialog.show();
                 confirmDialog.setClicklistener(new ConfirmDialog.ClickListenerInterface() {
@@ -973,8 +961,11 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
                                     Toast.makeText(ia, "法案时间截止不能为空", Toast.LENGTH_SHORT).show();
                                 } else if (AFDD_edit.getText().toString().trim().equals("")) {
                                     Toast.makeText(ia, "法案地点不能为空", Toast.LENGTH_SHORT).show();
-                                }
-                                else if (KTDD_edit.getText().toString().trim().equals("")) {
+                                }else if(!DateUtil.isDateRight(oneStartTime.getText().toString(),oneEndTime.getText()
+                                        .toString())){
+                                    Toast.makeText(ia, "结束时间要大于开始时间", Toast.LENGTH_SHORT).show();
+
+                                } else if (KTDD_edit.getText().toString().trim().equals("")) {
                                     Toast.makeText(ia, "勘验地点不能为空", Toast.LENGTH_SHORT).show();
 
                                 } else if (baohuren_name_edit.getText().toString().trim().equals("")) {

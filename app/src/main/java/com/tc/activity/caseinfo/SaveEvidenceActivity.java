@@ -1,8 +1,6 @@
 package com.tc.activity.caseinfo;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -12,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -21,7 +18,6 @@ import com.sdses.tool.Values;
 import com.tc.application.R;
 import com.tc.bean.EvidenceBean;
 import com.tc.util.CaseUtil;
-import com.tc.view.DateWheelDialog;
 import com.tc.view.DateWheelDialogN;
 import com.tc.view.FileListView;
 
@@ -29,10 +25,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
-import butterknife.OnTextChanged;
-
-import static com.tc.activity.caseinfo.BrBlActivity.BR_NAME;
 
 public class SaveEvidenceActivity extends CaseBaseActivity {
 
@@ -57,8 +49,6 @@ public class SaveEvidenceActivity extends CaseBaseActivity {
     private EditText mWorkOne;
     private EditText mWorkTwo;
     private EditText mWitness;
-    private EditText mStartTime;
-    private EditText mEndTime;
     private EditText mSavePlace;
     private EditText mApproval;
     private EditText mSigureTime;
@@ -106,10 +96,10 @@ public class SaveEvidenceActivity extends CaseBaseActivity {
         mWorkPlace = (EditText)findViewById(R.id.edt_work_place);
         mPhone = (EditText)findViewById(R.id.edt_phone);
 
-        mStartTime = (EditText)findViewById(R.id.edt_start_time);
-        mEndTime = (EditText)findViewById(R.id.edt_end_time);
-        mStartTime.setOnClickListener(mClickListener);
-        mEndTime.setOnClickListener(mClickListener);
+        mEditStartTime = (EditText)findViewById(R.id.edt_start_time);
+        mEdtEndTime = (EditText)findViewById(R.id.edt_end_time);
+        mEditStartTime.setOnClickListener(mClickListener);
+        mEdtEndTime.setOnClickListener(mClickListener);
         mSavePlace = (EditText)findViewById(R.id.edt_save_place);
 
         mWorkOne = (EditText)findViewById(R.id.edt_worker1);
@@ -148,7 +138,7 @@ public class SaveEvidenceActivity extends CaseBaseActivity {
                             .DateChooseInterface() {
                         @Override
                         public void getDateTime(String time, boolean longTimeChecked) {
-                            mStartTime.setText(time);
+                            mEditStartTime.setText(time);
                         }
                     });
                     startDialog.setTimePickerGone(true);
@@ -159,7 +149,7 @@ public class SaveEvidenceActivity extends CaseBaseActivity {
                             .DateChooseInterface() {
                         @Override
                         public void getDateTime(String time, boolean longTimeChecked) {
-                            mEndTime.setText(time);
+                            mEdtEndTime.setText(time);
                         }
                     });
                     endDialog.setTimePickerGone(true);
@@ -227,8 +217,8 @@ public class SaveEvidenceActivity extends CaseBaseActivity {
         map.put("$LIVE_PLACE$",mLivePlace.getText().toString());
         map.put("$WORK_PLACE$",mWorkPlace.getText().toString());
         map.put("$PHONE$",mPhone.getText().toString());
-        map.put("$START_TIME$",mStartTime.getText().toString());
-        map.put("$END_TIME$",mEndTime.getText().toString());
+        map.put("$START_TIME$", mEditStartTime.getText().toString());
+        map.put("$END_TIME$", mEdtEndTime.getText().toString());
         map.put("$SAVE_PLACE$",mSavePlace.getText().toString());
         map.put("$work1$",mWorkOne.getText().toString());
         map.put("$work2$",mWorkTwo.getText().toString());
