@@ -15,66 +15,66 @@ public class Criminal {
     @Id
     private Long id;
     @Property
-    private String handleNumber;//案件受理�?
+    private String handleNumber;//妗堜欢鍙楃悊鍙?
     @Property
-    private String number;//案件编号
+    private String number;//妗堜欢缂栧彿
     @Property
-    private String type;//案件类型
+    private String type;//妗堜欢绫诲瀷
     @Property
-    private String area;//作案区域
+    private String area;//浣滄鍖哄煙
     @Property
-    private int isLife; //是否命案
+    private int isLife; //鏄惁鍛芥
     @Property
-    private int isCrime;//是否刑案
+    private int isCrime;//鏄惁鍒戞
     @Property
-    private String startTime;//案件�?始时�?
+    private String startTime;//妗堜欢寮?濮嬫椂闂?
     @Property
-    private String endTime;//发案终止时间
+    private String endTime;//鍙戞缁堟鏃堕棿
     @Property
-    private String place;//发案地点
+    private String place;//鍙戞鍦扮偣
     @Property
-    private String solveTime;//破案时间
+    private String solveTime;//鐮存鏃堕棿
     @Property
-    private String inquestPlace;//勘验地点
+    private String inquestPlace;//鍕橀獙鍦扮偣
     @Property
-    private String inquestReason;//勘验事由
+    private String inquestReason;//鍕橀獙浜嬬敱
     @Property
-    private String caseProcess;//案发过程
+    private String caseProcess;//妗堝彂杩囩▼
     @Property
-    private String protectorName;//保护�?
+    private String protectorName;//淇濇姢浜?
     @Property
-    private String protectorComany;//保护人单�?
+    private String protectorComany;//淇濇姢浜哄崟浣?
     @Property
-    private String protectMeasures;//保护措施
+    private String protectMeasures;//淇濇姢鎺柦
     @Property
-    private String protectTime;//保护时间
+    private String protectTime;//淇濇姢鏃堕棿
     @Property
-    private String spotCondition;//现场条件
+    private String spotCondition;//鐜板満鏉′欢
     @Property
-    private String weatherCondition;//天气状况
+    private String weatherCondition;//澶╂皵鐘跺喌
     @Property
-    private String lightCondition;//光照条件
+    private String lightCondition;//鍏夌収鏉′欢
     @Property
-    private String spotConduct;//现场指挥
+    private String spotConduct;//鐜板満鎸囨尌
     @Property
-    private String inquesterName;//勘验�?查人�?
+    private String inquesterName;//鍕橀獙妫?鏌ヤ汉鍛?
     @Property
-    private String spotPeople;//其他到场人员
+    private String spotPeople;//鍏朵粬鍒板満浜哄憳
     @Property
-    private String spotLeft;//现场遗留�?
+    private String spotLeft;//鐜板満閬楃暀鐗?
     @Property
-    private String inquestCondition;//勘验情况
+    private String inquestCondition;//鍕橀獙鎯呭喌
     @Property
-    private String victimName;//被害�?/报案�?
+    private String victimName;//琚浜?/鎶ユ浜?
     @Property
-    private String lossGoods;//损失物品
+    private String lossGoods;//鎹熷け鐗╁搧
     @Property
-    private int recordTime;//录像分钟
+    private String recordTime;//褰曞儚鍒嗛挓
     @Property
-    private String injury;//伤亡情况
+    private String injury;//浼や骸鎯呭喌
     @Property
-    private String witness;//见证�?
-    @Generated(hash = 775105524)
+    private String witness;//瑙佽瘉浜?
+    @Generated(hash = 1825429760)
     public Criminal(Long id, String handleNumber, String number, String type,
             String area, int isLife, int isCrime, String startTime, String endTime,
             String place, String solveTime, String inquestPlace,
@@ -83,7 +83,7 @@ public class Criminal {
             String spotCondition, String weatherCondition, String lightCondition,
             String spotConduct, String inquesterName, String spotPeople,
             String spotLeft, String inquestCondition, String victimName,
-            String lossGoods, int recordTime, String injury, String witness) {
+            String lossGoods, String recordTime, String injury, String witness) {
         this.id = id;
         this.handleNumber = handleNumber;
         this.number = number;
@@ -287,10 +287,10 @@ public class Criminal {
     public void setLossGoods(String lossGoods) {
         this.lossGoods = lossGoods;
     }
-    public int getRecordTime() {
+    public String getRecordTime() {
         return this.recordTime;
     }
-    public void setRecordTime(int recordTime) {
+    public void setRecordTime(String recordTime) {
         this.recordTime = recordTime;
     }
     public String getInjury() {

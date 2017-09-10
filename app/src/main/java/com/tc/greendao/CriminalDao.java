@@ -50,7 +50,7 @@ public class CriminalDao extends AbstractDao<Criminal, Long> {
         public final static Property InquestCondition = new Property(25, String.class, "inquestCondition", false, "INQUEST_CONDITION");
         public final static Property VictimName = new Property(26, String.class, "victimName", false, "VICTIM_NAME");
         public final static Property LossGoods = new Property(27, String.class, "lossGoods", false, "LOSS_GOODS");
-        public final static Property RecordTime = new Property(28, int.class, "recordTime", false, "RECORD_TIME");
+        public final static Property RecordTime = new Property(28, String.class, "recordTime", false, "RECORD_TIME");
         public final static Property Injury = new Property(29, String.class, "injury", false, "INJURY");
         public final static Property Witness = new Property(30, String.class, "witness", false, "WITNESS");
     }
@@ -96,7 +96,7 @@ public class CriminalDao extends AbstractDao<Criminal, Long> {
                 "\"INQUEST_CONDITION\" TEXT," + // 25: inquestCondition
                 "\"VICTIM_NAME\" TEXT," + // 26: victimName
                 "\"LOSS_GOODS\" TEXT," + // 27: lossGoods
-                "\"RECORD_TIME\" INTEGER NOT NULL ," + // 28: recordTime
+                "\"RECORD_TIME\" TEXT," + // 28: recordTime
                 "\"INJURY\" TEXT," + // 29: injury
                 "\"WITNESS\" TEXT);"); // 30: witness
     }
@@ -242,7 +242,11 @@ public class CriminalDao extends AbstractDao<Criminal, Long> {
         if (lossGoods != null) {
             stmt.bindString(28, lossGoods);
         }
-        stmt.bindLong(29, entity.getRecordTime());
+ 
+        String recordTime = entity.getRecordTime();
+        if (recordTime != null) {
+            stmt.bindString(29, recordTime);
+        }
  
         String injury = entity.getInjury();
         if (injury != null) {
@@ -390,7 +394,11 @@ public class CriminalDao extends AbstractDao<Criminal, Long> {
         if (lossGoods != null) {
             stmt.bindString(28, lossGoods);
         }
-        stmt.bindLong(29, entity.getRecordTime());
+ 
+        String recordTime = entity.getRecordTime();
+        if (recordTime != null) {
+            stmt.bindString(29, recordTime);
+        }
  
         String injury = entity.getInjury();
         if (injury != null) {
@@ -439,7 +447,7 @@ public class CriminalDao extends AbstractDao<Criminal, Long> {
             cursor.isNull(offset + 25) ? null : cursor.getString(offset + 25), // inquestCondition
             cursor.isNull(offset + 26) ? null : cursor.getString(offset + 26), // victimName
             cursor.isNull(offset + 27) ? null : cursor.getString(offset + 27), // lossGoods
-            cursor.getInt(offset + 28), // recordTime
+            cursor.isNull(offset + 28) ? null : cursor.getString(offset + 28), // recordTime
             cursor.isNull(offset + 29) ? null : cursor.getString(offset + 29), // injury
             cursor.isNull(offset + 30) ? null : cursor.getString(offset + 30) // witness
         );
@@ -476,7 +484,7 @@ public class CriminalDao extends AbstractDao<Criminal, Long> {
         entity.setInquestCondition(cursor.isNull(offset + 25) ? null : cursor.getString(offset + 25));
         entity.setVictimName(cursor.isNull(offset + 26) ? null : cursor.getString(offset + 26));
         entity.setLossGoods(cursor.isNull(offset + 27) ? null : cursor.getString(offset + 27));
-        entity.setRecordTime(cursor.getInt(offset + 28));
+        entity.setRecordTime(cursor.isNull(offset + 28) ? null : cursor.getString(offset + 28));
         entity.setInjury(cursor.isNull(offset + 29) ? null : cursor.getString(offset + 29));
         entity.setWitness(cursor.isNull(offset + 30) ? null : cursor.getString(offset + 30));
      }

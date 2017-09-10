@@ -200,6 +200,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
     String errorMessage = "";
     private CustomProgressDialog progressDialog = null;
     private EditText CRIME_FEATURE_edit;
+    private EditText mRecordEdt;
 
     // ½ø¶È¿ò
     private void startProgressDialog(int type) {
@@ -775,6 +776,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
         kanyanqingkuang_edit = findViewById(R.id.kanyanqingkuang_edit);
         baoanren_edit = findViewById(R.id.baoanren_edit);
         sunshiwupin_edit = findViewById(R.id.sunshiwupin_edit);
+        mRecordEdt = (EditText)findViewById(R.id.luxiang_edit);
         shangwangqingkuang_edit = findViewById(R.id.shangwangqingkuang_edit);
         jianzhenren_edit = findViewById(R.id.jianzhenren_edit);
 
@@ -1524,6 +1526,16 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
             KTDD_edit.setText(criminal.getInquestPlace());
             baohuren_name_edit.setText(criminal.getProtectorName());
             baohuren_company_edit.setText(criminal.getProtectorComany());
+
+            oneEndTime.setText(criminal.getSolveTime());
+            KYSY_edit.setText(criminal.getInquestReason());
+            AFGC_edit.setText(criminal.getCaseProcess());
+            xianchangyiliuwu_edit.setText(criminal.getSpotLeft());
+            kanyanqingkuang_edit.setText(criminal.getInquestCondition());
+            sunshiwupin_edit.setText(criminal.getLossGoods());
+            mRecordEdt.setText(criminal.getRecordTime());
+            shangwangqingkuang_edit.setText(criminal.getInjury());
+
             String protectMeasures = criminal.getProtectMeasures();
             if(!TextUtils.isEmpty(protectMeasures)){
                 String[] split = protectMeasures.split(",");
@@ -1612,6 +1624,16 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
         criminal.setStartTime(oneStartTime.getText().toString());
         criminal.setEndTime(oneEndingTime.getText().toString());
         criminal.setPlace(AFDD_edit.getText().toString());
+
+        criminal.setSolveTime(oneEndTime.getText().toString());
+        criminal.setInquestReason(KYSY_edit.getText().toString());
+        criminal.setCaseProcess(AFGC_edit.getText().toString());
+        criminal.setSpotLeft(xianchangyiliuwu_edit.getText().toString());
+        criminal.setInquestCondition(kanyanqingkuang_edit.getText().toString());
+        criminal.setLossGoods(sunshiwupin_edit.getText().toString());
+        criminal.setRecordTime(mRecordEdt.getText().toString());
+        criminal.setInjury(shangwangqingkuang_edit.getText().toString());
+
         criminal.setInquestPlace(KTDD_edit.getText().toString());
         criminal.setProtectorName(baohuren_name_edit.getText().toString());
         criminal.setProtectorComany(baohuren_company_edit.getText().toString());
