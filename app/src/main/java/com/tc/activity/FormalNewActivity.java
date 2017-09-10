@@ -42,6 +42,7 @@ import com.tc.bean.ImageListBean;
 import com.tc.fragment.FormalSurveyFragment;
 import com.tc.greendao.Criminal;
 import com.tc.greendao.DbManager;
+import com.tc.greendao.Opinion;
 import com.tc.greendao.TraceEvidence;
 import com.tc.util.ConfirmDialog;
 import com.tc.view.CustomProgressDialog;
@@ -198,6 +199,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
     private final static int UPLOAD = 1;
     String errorMessage = "";
     private CustomProgressDialog progressDialog = null;
+    private EditText CRIME_FEATURE_edit;
 
     // 进度框
     private void startProgressDialog(int type) {
@@ -241,6 +243,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
     private void initData(){
         showBasicData();
         showTranceInfo();
+        showOpinionData();
     }
 
     private void initfindView() {
@@ -257,6 +260,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
         TQSJ_edit = (EditText) this.findViewById(R.id.TQSJ_edit);
         CBYJ_edit = (EditText) this.findViewById(R.id.CBYJ_edit);
         GZJY_edit = (EditText) this.findViewById(R.id.GZJY_edit);
+        CRIME_FEATURE_edit = (EditText)findViewById(R.id.criminal_feature);
         XCFXDW_edit = (EditText) this.findViewById(R.id.XCFXDW_edit);
         XCFXR_edit = (EditText) this.findViewById(R.id.XCFXR_edit);
 
@@ -277,11 +281,11 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
 
                 if (checkedId == mXCFXRadio1.getId()) {
                     XCFXYJCL = "实地勘察";
-                } else if (checkedId == mXCFXRadio1.getId()) {
+                } else if (checkedId == mXCFXRadio2.getId()) {
                     XCFXYJCL = "现场试验";
-                } else if (checkedId == mXCFXRadio1.getId()) {
+                } else if (checkedId == mXCFXRadio3.getId()) {
                     XCFXYJCL = "调查访问";
-                } else if (checkedId == mXCFXRadio1.getId()) {
+                } else if (checkedId == mXCFXRadio4.getId()) {
                     XCFXYJCL = "检验鉴定";
                 }
             }
@@ -1048,6 +1052,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
 
                             case R.id.variety_btn:
                                 //分析意见
+                                saveOpinionData();
                                 if (A_ID_edit.getText().toString().trim().equals("")) {
                                     Toast.makeText(ia, "案件编号不能为空", Toast.LENGTH_SHORT).show();
                                 } else if (ZARS_edit.getText().toString().trim().equals("")) {
@@ -1185,6 +1190,228 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
             default:
                 break;
         }
+    }
+
+    private void showOpinionData() {
+        List<Opinion> opinions = DbManager.getInstance(this).queryOpinion(ajNum);
+        if (opinions != null && opinions.size() > 0) {
+            Opinion opinion = opinions.get(0);
+            ZARS_edit.setText(opinion.getPeopleNumber());
+            ZADD_edit.setText(opinion.getCriminalPlace());
+            ZAGJ_edit.setText(opinion.getTool());
+            ZAGC_edit.setText(opinion.getProcess());
+            CRIME_FEATURE_edit.setText(opinion.getCriminalFeature());
+            CBYJ_edit.setText(opinion.getIdeaBase());
+            GZJY_edit.setText(opinion.getWorkOpinion());
+            XCFXDW_edit.setText(opinion.getSpotCompany());
+            XCFXR_edit.setText(opinion.getAnalyzer());
+
+            String metail = opinion.getMetail();
+            if("实地勘察".equals(metail)){
+                mXCFXRadio1.setChecked(true);
+            }else if("现场试验".equals(metail)){
+                mXCFXRadio2.setChecked(true);
+            }else if("调查访问".equals(metail)){
+                mXCFXRadio3.setChecked(true);
+            }else if("检验鉴定".equals(metail)){
+                mXCFXRadio4.setChecked(true);
+            }
+            String type = opinion.getType();
+            if("其他诈骗案".equals(type)){
+                mAJXZRadio1.setChecked(true);
+            }else if("其他诈骗勒索案件".equals(type)){
+                mAJXZRadio2.setChecked(true);
+            }else if("插片入室盗窃案件".equals(type)){
+                mAJXZRadio3.setChecked(true);
+            }else if("盗窃自行车案件".equals(type)){
+                mAJXZRadio4.setChecked(true);
+            }else if("拦路抢劫".equals(type)){
+                mAJXZRadio5.setChecked(true);
+            }else if("故意伤害案件".equals(type)){
+                mAJXZRadio6.setChecked(true);
+            }else if("入室抢劫案".equals(type)){
+                mAJXZRadio7.setChecked(true);
+            }else if("矛盾激化".equals(type)){
+                mAJXZRadio8.setChecked(true);
+            }else if("其他盗窃案".equals(type)){
+                mAJXZRadio9.setChecked(true);
+            }else if("盗窃车内物品".equals(type)){
+                mAJXZRadio10.setChecked(true);
+            }else if("盗窃宾馆案件".equals(type)){
+                mAJXZRadio11.setChecked(true);
+            }else if("技术性开锁盗窃".equals(type)){
+                mAJXZRadio12.setChecked(true);
+            }else if("攀爬入室盗窃".equals(type)){
+                mAJXZRadio13.setChecked(true);
+            }else if("撬防盗门入室盗窃".equals(type)){
+                mAJXZRadio14.setChecked(true);
+            }
+
+            String object = opinion.getObject();
+            if("少女".equals(object)){
+                mXZDXRadio1.setChecked(true);
+            }else if("外地".equals(object)){
+                mXZDXRadio2.setChecked(true);
+            }else if("男青年".equals(object)){
+                mXZDXRadio3.setChecked(true);
+            }else if("本地".equals(object)){
+                mXZDXRadio4.setChecked(true);
+            }
+
+            String location = opinion.getLocation();
+            if("超市".equals(location)){
+                mXZCSRadio1.setChecked(true);
+            }else if("楼道".equals(location)){
+                mXZCSRadio2.setChecked(true);
+            }else if("美容美发厅".equals(location)){
+                mXZCSRadio3.setChecked(true);
+            }else if("居民小区".equals(location)){
+                mXZCSRadio4.setChecked(true);
+            }else if("网吧".equals(location)){
+                mXZCSRadio5.setChecked(true);
+            }else if("高层楼房".equals(location)){
+                mXZCSRadio6.setChecked(true);
+            }else if("其他繁华地段".equals(location)){
+                mXZCSRadio7.setChecked(true);
+            }else if("商业区".equals(location)){
+                mXZCSRadio8.setChecked(true);
+            }else if("普通楼房".equals(location)){
+                mXZCSRadio9.setChecked(true);
+            }else if("路旁".equals(location)){
+                mXZCSRadio10.setChecked(true);
+            }
+
+            String opportunity = opinion.getOpportunity();
+            if("雪天".equals(opportunity)){
+                mZASJRadio1.setChecked(true);
+            }else  if("雾天".equals(opportunity)){
+                mZASJRadio2.setChecked(true);
+            }else  if("雨天".equals(opportunity)){
+                mZASJRadio3.setChecked(true);
+            }else if("晴天".equals(opportunity)){
+                mZASJRadio4.setChecked(true);
+            }else if("昼".equals(opportunity)){
+                mZASJRadio5.setChecked(true);
+            }else if("傍晚".equals(opportunity)){
+                mZASJRadio6.setChecked(true);
+            }else if("晚".equals(opportunity)){
+                mZASJRadio7.setChecked(true);
+            }
+            String entrance = opinion.getEntrance();
+            if("其他".equals(entrance)){
+                mZARKRadio1.setChecked(true);
+            }else if("阳台".equals(entrance)){
+                mZARKRadio2.setChecked(true);
+            }else if("门".equals(entrance)){
+                mZARKRadio3.setChecked(true);
+            }else if("窗".equals(entrance)){
+                mZARKRadio4.setChecked(true);
+            }
+            String method = opinion.getMethod();
+            if("持钝器".equals(method)){
+                mZASDRadio1.setChecked(true);
+            }else if("踢打".equals(method)){
+                mZASDRadio2.setChecked(true);
+            }else if("拎包".equals(method)){
+                mZASDRadio3.setChecked(true);
+            }else if("掏包".equals(method)){
+                mZASDRadio4.setChecked(true);
+            }else if("钥匙开锁".equals(method)){
+                mZASDRadio5.setChecked(true);
+            }else if("用具钩锁".equals(method)){
+                mZASDRadio6.setChecked(true);
+            }else if("插片开锁".equals(method)){
+                mZASDRadio7.setChecked(true);
+            }else if("顺手牵羊".equals(method)){
+                mZASDRadio8.setChecked(true);
+            }else if("其他作案手段".equals(method)){
+                mZASDRadio9.setChecked(true);
+            }
+            String mode = opinion.getMode();
+            if("和平进入现场".equals(mode)){
+                mRQFSRadio1.setChecked(true);
+            }else if("和平进入现场".equals(mode)){
+                mRQFSRadio2.setChecked(true);
+            }else if("砸窗玻璃".equals(mode)){
+                mRQFSRadio3.setChecked(true);
+            }else if("扒开门闩".equals(mode)){
+                mRQFSRadio4.setChecked(true);
+            }else if("破护窗网".equals(mode)){
+                mRQFSRadio5.setChecked(true);
+            }else if("破坏窗框".equals(mode)){
+                mRQFSRadio6.setChecked(true);
+            }else if("破坏窗扇".equals(mode)){
+                mRQFSRadio7.setChecked(true);
+            }else if("攀爬阳台".equals(mode)){
+                mRQFSRadio8.setChecked(true);
+            }else if("撬门".equals(mode)){
+                mRQFSRadio9.setChecked(true);
+            }
+
+            String feature = opinion.getFeature();
+            if("重复作案".equals(feature)){
+                mZATDRadio1.setChecked(true);
+            }else if("团伙作案".equals(feature)){
+                mZATDRadio2.setChecked(true);
+            }else if("单独作案".equals(feature)){
+                mZATDRadio3.setChecked(true);
+            }
+
+            String goal = opinion.getGoal();
+            if("淫欲".equals(goal)){
+                mZAMDRadio1.setChecked(true);
+            }else if("激情".equals(goal)){
+                mZAMDRadio2.setChecked(true);
+            }else if("其他".equals(goal)){
+                mZAMDRadio3.setChecked(true);
+            }else if("强迫".equals(goal)){
+                mZAMDRadio4.setChecked(true);
+            }else if("报复".equals(goal)){
+                mZAMDRadio5.setChecked(true);
+            }else if("泄私愤".equals(goal)){
+                mZAMDRadio6.setChecked(true);
+            }
+        }
+    }
+
+
+    private void saveOpinionData(){
+        List<Opinion> opinions = DbManager.getInstance(this).queryOpinion(ajNum);
+        if(opinions!=null && opinions.size()>0){
+            Log.i(TAG,"saveOpinionData update");
+            Opinion opinion = opinions.get(0);
+            handleOpinionData(opinion);
+            DbManager.getInstance(this).updateOpinion(opinion);
+        }else{
+            Log.i(TAG,"saveOpinionData add");
+            Opinion opinion = new Opinion();
+            handleOpinionData(opinion);
+            DbManager.getInstance(this).insertOpinion(opinion);
+        }
+    }
+
+    private void handleOpinionData(Opinion opinion){
+        opinion.setCaseNumber(ajNum);
+        opinion.setMetail(XCFXYJCL);
+        opinion.setType(AJXZ);
+        opinion.setObject(XZDX);
+        opinion.setLocation(XZCS);
+        opinion.setOpportunity(ZASJ);
+        opinion.setEntrance(ZARK);
+        opinion.setMethod(ZASD);
+        opinion.setMode(QRFS);
+        opinion.setFeature(ZATD);
+        opinion.setGoal(ZADJMD);
+        opinion.setPeopleNumber(ZARS_edit.getText().toString());
+        opinion.setCriminalPlace(ZADD_edit.getText().toString());
+        opinion.setTool(ZAGJ_edit.getText().toString());
+        opinion.setProcess(ZAGC_edit.getText().toString());
+        opinion.setCriminalFeature(CRIME_FEATURE_edit.getText().toString());
+        opinion.setIdeaBase(CBYJ_edit.getText().toString());
+        opinion.setWorkOpinion(GZJY_edit.getText().toString());
+        opinion.setSpotCompany(XCFXDW_edit.getText().toString());
+        opinion.setAnalyzer(XCFXR_edit.getText().toString());
+
     }
 
     private void saveTraceData() {

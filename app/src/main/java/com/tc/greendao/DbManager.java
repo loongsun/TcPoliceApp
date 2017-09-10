@@ -2,6 +2,7 @@ package com.tc.greendao;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Path;
 
 import org.greenrobot.greendao.query.QueryBuilder;
 
@@ -43,6 +44,30 @@ public class DbManager {
 
     public SQLiteDatabase getWriteableDataBase(){
         return mOpenHelper.getWritableDatabase();
+    }
+
+    public void insertOpinion(Opinion opinion){
+        if(opinion!=null){
+            getOpinionDao().insert(opinion);
+        }
+    }
+
+    public void updateOpinion(Opinion opinion){
+        if(opinion!=null){
+            getOpinionDao().update(opinion);
+        }
+    }
+
+    public void delecteOpionion(Opinion opinion){
+        if(opinion!=null){
+            getOpinionDao().delete(opinion);
+        }
+    }
+
+    public List<Opinion> queryOpinion(String number){
+        QueryBuilder<Opinion> opinionQueryBuilder = getOpinionDao().queryBuilder();
+        opinionQueryBuilder.where(OpinionDao.Properties.CaseNumber.eq(number));
+        return opinionQueryBuilder.list();
     }
 
     public void insertCriminal(Criminal criminal){
@@ -93,6 +118,12 @@ public class DbManager {
         QueryBuilder<TraceEvidence> traceQueryBuilder = traceDao.queryBuilder();
         traceQueryBuilder.where(TraceEvidenceDao.Properties.CaseNumber.eq(caseNumber));
         return traceQueryBuilder.list();
+    }
+
+    private OpinionDao getOpinionDao(){
+        DaoMaster daoMaster = new DaoMaster(getWriteableDataBase());
+        DaoSession daoSession = daoMaster.newSession();
+        return daoSession.getOpinionDao();
     }
 
     private CriminalDao getCriminalDao(){

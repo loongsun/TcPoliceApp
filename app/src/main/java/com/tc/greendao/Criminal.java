@@ -15,7 +15,7 @@ public class Criminal {
     @Id
     private Long id;
     @Property
-    private String handleNumber;//案件受理号
+    private String handleNumber;//案件受理�?
     @Property
     private String number;//案件编号
     @Property
@@ -27,7 +27,7 @@ public class Criminal {
     @Property
     private int isCrime;//是否刑案
     @Property
-    private String startTime;//案件开始时间
+    private String startTime;//案件�?始时�?
     @Property
     private String endTime;//发案终止时间
     @Property
@@ -41,9 +41,9 @@ public class Criminal {
     @Property
     private String caseProcess;//案发过程
     @Property
-    private String protectorName;//保护人
+    private String protectorName;//保护�?
     @Property
-    private String protectorComany;//保护人单位
+    private String protectorComany;//保护人单�?
     @Property
     private String protectMeasures;//保护措施
     @Property
@@ -57,15 +57,15 @@ public class Criminal {
     @Property
     private String spotConduct;//现场指挥
     @Property
-    private String inquesterName;//勘验检查人员
+    private String inquesterName;//勘验�?查人�?
     @Property
     private String spotPeople;//其他到场人员
     @Property
-    private String spotLeft;//现场遗留物
+    private String spotLeft;//现场遗留�?
     @Property
     private String inquestCondition;//勘验情况
     @Property
-    private String victimName;//被害人/报案人
+    private String victimName;//被害�?/报案�?
     @Property
     private String lossGoods;//损失物品
     @Property
@@ -73,7 +73,7 @@ public class Criminal {
     @Property
     private String injury;//伤亡情况
     @Property
-    private String witness;//见证人
+    private String witness;//见证�?
     @Generated(hash = 775105524)
     public Criminal(Long id, String handleNumber, String number, String type,
             String area, int isLife, int isCrime, String startTime, String endTime,
