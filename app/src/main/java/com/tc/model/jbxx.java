@@ -11,5 +11,4 @@ package com.tc.model;
 public class jbxx {
 private String ajName;
     private String ajNum;
-    private
 }

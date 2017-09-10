@@ -11,6 +11,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
 import android.support.annotation.IdRes;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -38,6 +39,9 @@ import com.tc.app.TcApp;
 import com.tc.application.R;
 import com.tc.bean.ImageListBean;
 import com.tc.fragment.FormalSurveyFragment;
+import com.tc.greendao.Criminal;
+import com.tc.greendao.DbManager;
+import com.tc.greendao.TraceEvidence;
 import com.tc.util.ConfirmDialog;
 import com.tc.view.CustomProgressDialog;
 import com.tc.view.DateWheelDialogN;
@@ -79,6 +83,7 @@ import static com.tc.application.R.id.one_save_time;
 
 public class FormalNewActivity extends Activity implements View.OnClickListener {
 
+    private static final String TAG = FormalNewActivity.class.getSimpleName();
     @BindView(R.id.take_photo_tv)
     TextView takePhotoTv;
     @BindView(R.id.operate_next_tv)
@@ -240,13 +245,14 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
         TQBW_edit = (EditText) this.findViewById(R.id.TQBW_edit);
         TQFF_edit = (EditText) this.findViewById(R.id.TQFF_edit);
         TQR_edit = (EditText) this.findViewById(R.id.TQR_edit);
-        BZ_edit = (EditText) this.findViewById(R.id.TQR_edit);
+        BZ_edit = (EditText) this.findViewById(R.id.BZ_edit);
         JZR_edit = (EditText) this.findViewById(R.id.JZR_edit);
         TQSJ_edit = (EditText) this.findViewById(R.id.TQSJ_edit);
         CBYJ_edit = (EditText) this.findViewById(R.id.CBYJ_edit);
         GZJY_edit = (EditText) this.findViewById(R.id.GZJY_edit);
         XCFXDW_edit = (EditText) this.findViewById(R.id.XCFXDW_edit);
         XCFXR_edit = (EditText) this.findViewById(R.id.XCFXR_edit);
+        showTranceInfo();
 
 //分析意见
         ZARS_edit = findViewById(R.id.ZARS_edit);
@@ -920,6 +926,11 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
 
                 break;
             case R.id.operate_next_update:
+//                if(true){
+//                    Intent intent = new Intent(FormalNewActivity.this,DbActivity.class);
+//                    FormalNewActivity.this.startActivity(intent);
+//                    break;
+//                }
                 final ConfirmDialog confirmDialog = new ConfirmDialog(this, "确定要上传吗?", "确定", "取消");
                 confirmDialog.show();
                 confirmDialog.setClicklistener(new ConfirmDialog.ClickListenerInterface() {
@@ -933,7 +944,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
                             case R.id.movie_btn:
 
                                 BHCS = checkboxstr1 + checkboxstr2 + checkboxstr3 ;
-
+                                saveBasicData();
                                 if (A_ID_edit.getText().toString().trim().equals("")) {
                                     Toast.makeText(ia, "案件编号不能为空", Toast.LENGTH_SHORT).show();
                                 } else if (AJLB == null) {
@@ -951,8 +962,6 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
                                 } else if (AFDD_edit.getText().toString().trim().equals("")) {
                                     Toast.makeText(ia, "法案地点不能为空", Toast.LENGTH_SHORT).show();
                                 }
-
-
                                 else if (KTDD_edit.getText().toString().trim().equals("")) {
                                     Toast.makeText(ia, "勘验地点不能为空", Toast.LENGTH_SHORT).show();
 
@@ -993,9 +1002,9 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
                                     Toast.makeText(ia, "见证人不能为空", Toast.LENGTH_SHORT).show();
                                 }
                                 else {
-
                                     startProgressDialog(UPLOAD);
                                     new Thread(uploadRunJiBenXinXi).start();
+//                                    saveBasicData();
                                 }
 
                                 break;
@@ -1006,6 +1015,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
                                 break;
 
                             case R.id.anime_btn:
+                                saveTraceData();
 
                                 if (A_ID_edit.getText().toString().trim().equals("")) {
                                     Toast.makeText(ia, "案件编号不能为空", Toast.LENGTH_SHORT).show();
@@ -1026,7 +1036,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
                                 } else {
                                     startProgressDialog(UPLOAD);
                                     new Thread(uploadRun).start();
-
+//                                    saveTraceData();
                                 }
                                 break;
 
@@ -1169,6 +1179,99 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
             default:
                 break;
         }
+    }
+
+    private void saveTraceData() {
+        List<TraceEvidence> traceEvidences = DbManager.getInstance(this).queryTrace(ajNum);
+        if(traceEvidences!=null && traceEvidences.size()>0){
+            TraceEvidence traceEvidence = traceEvidences.get(0);
+            handleTranceInfo(traceEvidence);
+            DbManager.getInstance(this).updateTrace(traceEvidence);
+            Log.i(TAG,"update"+traceEvidence);
+        }else{
+            TraceEvidence trace = new TraceEvidence();
+            handleTranceInfo(trace);
+            DbManager.getInstance(this).insertTrace(trace);
+            Log.i(TAG,"insert "+trace);
+        }
+    }
+
+    private void showTranceInfo(){
+        List<TraceEvidence> traceEvidences = DbManager.getInstance(this).queryTrace(ajNum);
+        if(traceEvidences!=null && traceEvidences.size()>0){
+            TraceEvidence trace = traceEvidences.get(0);
+            MC_edit.setText(trace.getName());
+            JBTZ_edit.setText(trace.getFeature());
+            SL_edit.setText(trace.getNumber());
+            TQBW_edit.setText(trace.getExtractPart());
+            TQFF_edit.setText(trace.getExtractMethod());
+            TQR_edit.setText(trace.getExtractPerson());
+            TQSJ_edit.setText(trace.getExtractTime());
+            BZ_edit.setText(trace.getNote());
+            JZR_edit.setText(trace.getWitness());
+            Log.i(TAG,"showTranceInfo");
+        }
+    }
+
+    private void handleTranceInfo(TraceEvidence trace) {
+        if(trace==null){
+            return;
+        }
+        trace.setCaseNumber(ajNum);
+        trace.setName(MC_edit.getText().toString().trim());
+        trace.setFeature(JBTZ_edit.getText().toString().trim());
+        try{
+            trace.setNumber(SL_edit.getText().toString().trim());
+        }catch (Exception e){
+            Log.e(TAG,"saveTraceData",e);
+        }
+        trace.setExtractPart(TQBW_edit.getText().toString().trim());
+        trace.setExtractMethod(TQFF_edit.getText().toString().trim());
+        trace.setExtractPerson(TQR_edit.getText().toString().trim());
+        trace.setExtractTime(TQSJ_edit.getText().toString().trim());
+        trace.setNote(BZ_edit.getText().toString().trim());
+        trace.setWitness(JZR_edit.getText().toString());
+    }
+
+    private void saveBasicData() {
+
+        List<Criminal> criminals = DbManager.getInstance(this).queryCriminal(ajNum);
+        if(criminals!=null && criminals.size()>0){
+            Log.i(TAG," update saveBasicData");
+            Criminal criminal = criminals.get(0);
+            handleCrimeInfo(criminal);
+            DbManager.getInstance(this).updateCriminal(criminal);
+        }else{
+            Criminal criminal = new Criminal();
+            handleCrimeInfo(criminal);
+            DbManager.getInstance(this).insertCriminal(criminal);
+            Log.i(TAG,"add basicData");
+        }
+    }
+
+    private void handleCrimeInfo(Criminal criminal) {
+        criminal.setHandleNumber(A_ID_edit.getText().toString().trim());
+        criminal.setNumber(ajNum);
+        criminal.setType(AJLB);
+        criminal.setArea(anfaquhua_edit.getText().toString());
+        criminal.setIsLife("是".equals(SFMA)?1:0);
+        criminal.setIsCrime("是".equals(SFXA)?1:0);
+        criminal.setStartTime(oneStartTime.getText().toString());
+        criminal.setEndTime(oneEndingTime.getText().toString());
+        criminal.setPlace(AFDD_edit.getText().toString());
+        criminal.setInquestPlace(KTDD_edit.getText().toString());
+        criminal.setProtectorName(baohuren_name_edit.getText().toString());
+        criminal.setProtectorComany(baohuren_company_edit.getText().toString());
+        criminal.setProtectMeasures(BHCS);
+        criminal.setWeatherCondition(TQZK);
+        criminal.setProtectTime(oneSaveTime.getText().toString());
+        criminal.setSpotCondition(XCTJ);
+        criminal.setLightCondition(GZTJ);
+        criminal.setSpotConduct(XCZH_edit.getText().toString());
+        criminal.setInquesterName(et_kyKydw.getText().toString());
+        criminal.setSpotPeople(et_kyZpbgdw.getText().toString());
+        criminal.setVictimName(baoanren_edit.getText().toString());
+        criminal.setWitness(jianzhenren_edit.getText().toString());
     }
 
     private void uploadHJWZ() {

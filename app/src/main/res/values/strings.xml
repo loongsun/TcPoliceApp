@@ -6,7 +6,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="idinfo_name">姓　　名:</string>
     <string name="idinfo_sex">性　　别:</string>
-    <string name="idinfo_national">民    族:</string>
+    <string name="idinfo_national">民 族:</string>
     <string name="btn_text_return">返回</string>
     <string name="btn_text_query">查询</string>
     <string name="idinfo_bir">出生日期:</string>

@@ -154,6 +154,7 @@
                     android:background="@null"
                     android:cursorVisible="true"
                     android:hint=""
+                    android:inputType="number"
                     android:textColor="@color/colorPrimary"
                     android:textCursorDrawable="@null"
                     android:textSize="18sp" />

@@ -9,6 +9,7 @@ import android.os.Message;
 
 import com.baidu.location.BDLocation;
 import com.baidu.mapapi.SDKInitializer;
+import com.facebook.stetho.Stetho;
 import com.lb.baidumapdemo.face.LocationFace;
 import com.sdses.tool.Values;
 import com.tc.dbhandle.DatabaseContext;
@@ -52,6 +53,8 @@ public class TcApp extends Application {
 
 		HomeCrashHandler crashHandler = HomeCrashHandler.getInstance();
 		crashHandler.init(getApplicationContext());
+		Stetho.initializeWithDefaults(this);
+
 
 		// µÿÕº≥ı ºªØ
 	 	SDKInitializer.initialize(getApplicationContext());
