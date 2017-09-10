@@ -954,7 +954,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
                             case R.id.movie_btn:
 
                                 BHCS = checkboxstr1 + checkboxstr2 + checkboxstr3+checkboxstr4 ;
-                                saveBasicData();
+//                                saveBasicData();
                                 if (A_ID_edit.getText().toString().trim().equals("")) {
                                     Toast.makeText(ia, "案件编号不能为空", Toast.LENGTH_SHORT).show();
                                 } else if (AJLB == null) {
@@ -1014,7 +1014,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
                                 else {
                                     startProgressDialog(UPLOAD);
                                     new Thread(uploadRunJiBenXinXi).start();
-//                                    saveBasicData();
+                                    saveBasicData();
                                 }
 
                                 break;
@@ -1025,7 +1025,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
                                 break;
 
                             case R.id.anime_btn:
-                                saveTraceData();
+//                                saveTraceData();
 
                                 if (A_ID_edit.getText().toString().trim().equals("")) {
                                     Toast.makeText(ia, "案件编号不能为空", Toast.LENGTH_SHORT).show();
@@ -1046,13 +1046,13 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
                                 } else {
                                     startProgressDialog(UPLOAD);
                                     new Thread(uploadRun).start();
-//                                    saveTraceData();
+                                    saveTraceData();
                                 }
                                 break;
 
                             case R.id.variety_btn:
                                 //分析意见
-                                saveOpinionData();
+//                                saveOpinionData();
                                 if (A_ID_edit.getText().toString().trim().equals("")) {
                                     Toast.makeText(ia, "案件编号不能为空", Toast.LENGTH_SHORT).show();
                                 } else if (ZARS_edit.getText().toString().trim().equals("")) {
@@ -1089,6 +1089,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
 
                                     startProgressDialog(UPLOAD);
                                     new Thread(uploadRunFenxiiJan).start();
+                                    saveOpinionData();
                                 }
 
                                 break;
