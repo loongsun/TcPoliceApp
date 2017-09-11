@@ -9,17 +9,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.sdses.tool.UtilTc;
 import com.sdses.tool.Values;
 import com.tc.application.R;
 import com.tc.util.CaseUtil;
+import com.tc.util.DateUtil;
 import com.tc.view.DateWheelDialogN;
 import com.tc.view.FileListView;
 
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
+
+import static com.tc.application.R.id.end;
+import static com.tc.application.R.id.map;
 
 //辨认笔录
 public class BrBlActivity extends CaseBaseActivity {
@@ -165,10 +170,16 @@ public class BrBlActivity extends CaseBaseActivity {
     @Override
     protected void doScan(){
         File newFile = new File(mNewPath);
+        String startTime = mEditStartTime.getText().toString();
+        String endTime = mEdtEndTime.getText().toString();
+        if(!DateUtil.isDateRight(startTime,endTime)){
+            Toast.makeText(getApplicationContext(),"结束时间要大于开始时间",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         Map<String,String> map = new HashMap<>();
         map.put("$GAJ$",mEdtOfficeName.getText().toString());
-        map.put("$TIMESTART$",mEditStartTime.getText().toString());
-        map.put("$TIMEEND$ ",mEdtEndTime.getText().toString());
+        DateUtil.handleDateMap(startTime,endTime,map);
         map.put("$BRPLACE$",mCheckPlace.getText().toString());
         map.put("$BARNAME$",mCheckerName.getText().toString());
         map.put("$BAROFFICE$",mCheckerOffice.getText().toString());

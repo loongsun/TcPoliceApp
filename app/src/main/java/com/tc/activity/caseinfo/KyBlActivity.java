@@ -24,6 +24,7 @@ import com.sdses.tool.Values;
 import com.tc.app.TcApp;
 import com.tc.application.R;
 import com.tc.util.CaseUtil;
+import com.tc.util.DateUtil;
 import com.tc.view.CustomProgressDialog;
 import com.tc.view.DateWheelDialogN;
 import com.tc.view.FileListView;
@@ -261,7 +262,6 @@ public class KyBlActivity extends CaseBaseActivity {
             startActivity(intent);
         }catch (ActivityNotFoundException e){
             Toast.makeText(this, "未找到doc软件,请安装查看", Toast.LENGTH_LONG).show();
-
         }
 
     }
@@ -281,12 +281,9 @@ public class KyBlActivity extends CaseBaseActivity {
         File newFile = new File(mNewPath);
         Map<String,String> map = new HashMap<>();
         map.put("$GAJ$",mEdtOfficeName.getText().toString());
-        map.put("$TIME1$", mEditStartTime.getText().toString());
-        map.put("$TIME2$", mEdtEndTime.getText().toString());
+        DateUtil.handleDateMap(startTime,endTime,map);
         map.put("$JCDX$", mCheckPlace.getText().toString());
-
         map.put("$JCZHM$", mCardNumber.getText().toString());
-
         map.put("$JCRXM$", mCheckerName.getText().toString());
         map.put("$JCRGZDW$", mCheckerOffice.getText().toString());
         map.put("$JCRZW$", mCheckerDuty.getText().toString());
