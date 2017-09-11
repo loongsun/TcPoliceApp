@@ -115,9 +115,9 @@ public class EvidenceActivity extends CaseBaseActivity {
         CaseUtil.setListViewHeight(mListView);
     }
 
-    private String year;
-    private String month;
-    private String day;
+    private String year="";
+    private String month="";
+    private String day="";
     private View.OnClickListener mClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
