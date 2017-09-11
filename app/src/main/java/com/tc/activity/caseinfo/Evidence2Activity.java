@@ -5,8 +5,12 @@ package com.tc.activity.caseinfo;
  */
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,7 +28,9 @@ import com.sdses.tool.UtilTc;
 import com.sdses.tool.Values;
 import com.tc.application.R;
 import com.tc.bean.EvidenceBean;
+import com.tc.client.StringUtils;
 import com.tc.util.CaseUtil;
+import com.tc.util.CaseUtil2;
 import com.tc.util.ConfirmDialog;
 import com.tc.view.DateWheelDialogN;
 
@@ -33,6 +39,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static android.R.attr.path;
 
 public class Evidence2Activity extends CaseBaseActivity {
 
@@ -166,21 +174,53 @@ public class Evidence2Activity extends CaseBaseActivity {
             if(!file.exists()){
                 file.mkdir();
             }
-            String fileName = Values.PATH_BOOKMARK+EVIDENCE_NAME+"/"+mName+"_"+ UtilTc.getCurrentTime()+".doc";
-            mNewPath = fileName;
+            if(StringUtils.isEmpty(mNewPath)) {
+                String fileName = Values.PATH_BOOKMARK + EVIDENCE_NAME + "/" + mName + "_" + UtilTc.getCurrentTime() + ".doc";
+                mNewPath = fileName;
+            }
         }catch (Exception e){
             Log.e(TAG,"getFileName ",e);
         }
     }
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==10)
+        {
+            File file=new File(mNewPath);
+            if(file.exists()) {
+                file.delete();
+                Log.e("result","deleted");
+            }
+        }
+    }
     public void preview(View view){
         getFileName();
         doScan();
-        CaseUtil.doOpenWord(mNewPath,this);
+
+        if(this ==null || TextUtils.isEmpty(mNewPath)){
+            return;
+        }
+        Intent intent = new Intent();
+        intent.setAction("android.intent.action.VIEW");
+        intent.addCategory("android.intent.category.DEFAULT");
+        String fileMimeType = "application/msword";
+        intent.setDataAndType(Uri.fromFile(new File(mNewPath)),fileMimeType);
+        try{
+            startActivity(intent);
+            startActivityForResult(intent,10);
+        }catch (ActivityNotFoundException e){
+            Toast.makeText(this, "未安装打开doc的apk", Toast.LENGTH_LONG).show();
+
+        }
     }
 
     public void printFile(View view){
-        preview(view);
+//        preview(view);
+        getFileName();
+        doScan();
+
+        CaseUtil2.doOpenWord(mNewPath,this,false);
     }
 
     public void uploadFile(View view){
@@ -475,7 +515,7 @@ public class Evidence2Activity extends CaseBaseActivity {
                     String filename = allList.get(position);
                     String filepath =  Values.PATH_BOOKMARK + EVIDENCE_NAME+"/"+filename;
 
-                    CaseUtil.doOpenWord(filepath,mContent);
+                    CaseUtil2.doOpenWord(filepath,mContent,false);
 
 
                 }

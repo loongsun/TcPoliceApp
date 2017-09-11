@@ -32,7 +32,9 @@ import com.tc.activity.SenceCheck2;
 import com.tc.activity.dto.DjbcqdBean;
 import com.tc.app.TcApp;
 import com.tc.application.R;
+import com.tc.client.StringUtils;
 import com.tc.util.CaseUtil;
+import com.tc.util.CaseUtil2;
 import com.tc.util.ConfirmDialog;
 import com.tc.view.CustomProgressDialog;
 import com.tc.view.DateWheelDialogN;
@@ -367,9 +369,10 @@ public class XsajJszjclActivity extends Activity {
             if (!file.exists()){
                 file.mkdir();
             }
-
-            String fileName = Values.PATH_BOOKMARK+"JSZJCLQD/" + name + "_" + UtilTc.getCurrentTime() + ".doc";
-            newPath = fileName;
+            if(StringUtils.isEmpty(newPath)) {
+                String fileName = Values.PATH_BOOKMARK + "JSZJCLQD/" + name + "_" + UtilTc.getCurrentTime() + ".doc";
+                newPath = fileName;
+            }
             InputStream inputStream = getAssets().open("xsaj_jszjclqd.doc");
         } catch (Exception e) {
             e.printStackTrace();
@@ -533,16 +536,17 @@ public class XsajJszjclActivity extends Activity {
             if (!file.exists()){
                 file.mkdir();
             }
-
-            String fileName = Values.PATH_BOOKMARK+"JSZJCLQD/" + name + "_" + UtilTc.getCurrentTime() + ".doc";
-            newPath = fileName;
+            if(StringUtils.isEmpty(newPath)) {
+                String fileName = Values.PATH_BOOKMARK + "JSZJCLQD/" + name + "_" + UtilTc.getCurrentTime() + ".doc";
+                newPath = fileName;
+            }
             InputStream inputStream = getAssets().open("xsaj_jszjclqd.doc");
         } catch (Exception e) {
             e.printStackTrace();
         }
         doScan();
         //查看
-        doOpenWord();
+        doOpenWord(true);
     }
     //打印笔录
     public void BtnPrintBL(View view) {
@@ -553,15 +557,16 @@ public class XsajJszjclActivity extends Activity {
             if (!file.exists()){
                 file.mkdir();
             }
-
-            String fileName = Values.PATH_BOOKMARK+"JSZJCLQD/" + name + "_" + UtilTc.getCurrentTime() + ".doc";
-            newPath = fileName;
+            if(StringUtils.isEmpty(newPath)) {
+                String fileName = Values.PATH_BOOKMARK + "JSZJCLQD/" + name + "_" + UtilTc.getCurrentTime() + ".doc";
+                newPath = fileName;
+            }
             InputStream inputStream = getAssets().open("xsaj_jszjclqd.doc");
         } catch (Exception e) {
             e.printStackTrace();
         }
         doScan();
-        doOpenWord();
+        doOpenWord(false);
     }
 
 
@@ -625,7 +630,7 @@ public class XsajJszjclActivity extends Activity {
     /**
      * 调用手机中安装的可打开word的软件
      */
-    private void doOpenWord(){
+    private void doOpenWord(boolean ylFlag){
         Intent intent = new Intent();
         intent.setAction("android.intent.action.VIEW");
         intent.addCategory("android.intent.category.DEFAULT");
@@ -633,6 +638,9 @@ public class XsajJszjclActivity extends Activity {
         intent.setDataAndType(Uri.fromFile(new File(newPath)), fileMimeType);
         try{
             startActivity(intent);
+            if(ylFlag){
+                startActivityForResult(intent,10);
+            }
         } catch(ActivityNotFoundException e) {
             //检测到系统尚未安装OliveOffice的apk程序
             Toast.makeText(this, "未找到软件", Toast.LENGTH_LONG).show();
@@ -742,7 +750,7 @@ public class XsajJszjclActivity extends Activity {
                     String filename = allList.get(position);
                     String filepath =  Values.PATH_BOOKMARK + EVIDENCE_NAME+"/"+filename;
 
-                    CaseUtil.doOpenWord(filepath,mContent);
+                    CaseUtil2.doOpenWord(filepath,mContent,false);
 
 
                 }
@@ -952,5 +960,18 @@ public class XsajJszjclActivity extends Activity {
 
 
         listView.setLayoutParams(params);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==10)
+        {
+            File file=new File(newPath);
+            if(file.exists()) {
+                file.delete();
+                Log.e("result","deleted");
+            }
+        }
     }
 }
