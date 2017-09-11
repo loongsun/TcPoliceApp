@@ -244,8 +244,35 @@ public class XckcXsBrBlActivity extends Activity {
 
         doScan();
 
-        CaseUtil.doOpenWord(filePath,this);
+        Intent intent = new Intent();
+        intent.setAction("android.intent.action.VIEW");
+        intent.addCategory("android.intent.category.DEFAULT");
+        String fileMimeType = "application/msword";
+        intent.setDataAndType(Uri.fromFile(new File(filePath)),fileMimeType);
+        try{
+             startActivity(intent);
+            startActivityForResult(intent,10);
+        }catch (ActivityNotFoundException e){
+            Toast.makeText(getApplicationContext(), "未安装打开doc的apk", Toast.LENGTH_LONG).show();
+
+        }
+
+        //CaseUtil.doOpenWord(filePath,this);
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==10)
+        {
+            File file=new File(filePath);
+            if(file.exists()) {
+                file.delete();
+                Log.e("result","deleted");
+            }
+        }
+    }
+
     public void onPrinter(View V)
     {
         String startTime=sTime.getText().toString();

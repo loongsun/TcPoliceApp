@@ -7,8 +7,10 @@ package com.tc.util;
 public class DateUtil {
 
     public static boolean isDateRight(String start,String end){
-        if(end!=null && start!=null){
-            if(end.compareTo(start)>0){
+        if(end!=null && start!=null)
+        {
+            if(end.compareTo(start)>0)
+            {
                 return true;
             }
         }

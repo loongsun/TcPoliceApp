@@ -29,6 +29,7 @@ import com.tc.view.LineEditText;
 
 import org.apache.poi.hwpf.HWPFDocument;
 import org.apache.poi.hwpf.usermodel.Range;
+import org.apache.poi.ss.usermodel.DateUtil;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -86,6 +87,7 @@ public class SenceNoteActivity extends Activity implements  DateTimeDialog.MyOnD
 
         et_mouse_ask_starttime = (TextView) findViewById(R.id.et_mouse_ask_starttime);
         et_mouse_ask_endtime = (TextView) findViewById(R.id.et_mouse_ask_endtime);
+
         et_ask_starttime = (TextView) findViewById(R.id.et_ask_starttime);
         et_ask_endtime = (TextView) findViewById(R.id.et_ask_endtime);
 
@@ -134,8 +136,21 @@ public class SenceNoteActivity extends Activity implements  DateTimeDialog.MyOnD
             // TODO Auto-generated method stub
             switch (v.getId()) {
                 case R.id.btn_save:
-//                    saveContent();
-//                    finish();
+
+                    if(!com.tc.util.DateUtil.isDateRight(et_ask_starttime.getText().toString(),et_ask_endtime.getText()
+                            .toString()))
+                    {
+                        Toast.makeText(getApplicationContext(), "询问结束时间要大于开始时间", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    if(!com.tc.util.DateUtil.isDateRight(et_mouse_ask_starttime.getText().toString(),et_mouse_ask_endtime.getText()
+                            .toString()))
+                    {
+                        Toast.makeText(getApplicationContext(), "传呼人员被询问结束时间要大于开始时间", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+
                     try {
                         String fileName = Values.PATH_ZFQZ_BOOKMARK + jqNum + "_" + UtilTc.getCurrentTime() + ".doc";
 

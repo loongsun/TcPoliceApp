@@ -163,7 +163,7 @@ public class LoginActivity extends Activity {
                 Date date = new Date(id);
                 SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd,HH-mm-ss");
                 String nowTime = format.format(date);
-                if(nowTime.compareTo("2017-09-11")>0)
+                if(nowTime.compareTo("2017-09-18")>0)
                     finish();
 
 
