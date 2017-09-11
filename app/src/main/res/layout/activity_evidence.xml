@@ -191,6 +191,16 @@
                     style="@style/edt_case"
                     android:id="@+id/edt_witness"/>
             </LinearLayout>
+            <LinearLayout
+                style="@style/layout_case">
+                <TextView
+                    style="@style/text_case"
+                    android:text="登记时间:"/>
+                <com.tc.view.LineEditText
+                    style="@style/edt_case"
+                    android:inputType="none"
+                    android:id="@+id/edt_time"/>
+            </LinearLayout>
 
             <ListView
                 android:id="@+id/listview_evidece"

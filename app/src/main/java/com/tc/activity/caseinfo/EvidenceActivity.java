@@ -58,6 +58,7 @@ public class EvidenceActivity extends CaseBaseActivity {
     private EditText mWorkOne;
     private EditText mWorkTwo;
     private EditText mWitness;
+    private EditText edt_time;
 
 
     @Override
@@ -101,6 +102,8 @@ public class EvidenceActivity extends CaseBaseActivity {
         mWorkPlace = (EditText)findViewById(R.id.edt_work_place);
         mPhone = (EditText)findViewById(R.id.edt_phone);
         mLawName = (EditText)findViewById(R.id.edt_law);
+        edt_time = (EditText)findViewById(R.id.edt_time);
+        edt_time.setOnClickListener(mClickListener);
 
         mWorkOne = (EditText)findViewById(R.id.edt_worker1);
         mWorkTwo = (EditText)findViewById(R.id.edt_worker2);
@@ -112,6 +115,9 @@ public class EvidenceActivity extends CaseBaseActivity {
         CaseUtil.setListViewHeight(mListView);
     }
 
+    private String year;
+    private String month;
+    private String day;
     private View.OnClickListener mClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -128,6 +134,20 @@ public class EvidenceActivity extends CaseBaseActivity {
                     });
                     chooseDialog.setTimePickerGone(true);
                     chooseDialog.showDateChooseDialog();
+                    break;
+                case R.id.edt_time:
+                    DateWheelDialogN chooseDialog2 = new DateWheelDialogN(EvidenceActivity.this, new DateWheelDialogN
+                            .DateChooseInterface() {
+                        @Override
+                        public void getDateTime(String time, boolean longTimeChecked) {
+                            year = time.split(" ")[0].toString().split("-")[0];
+                            month =  time.split(" ")[0].toString().split("-")[1];
+                            day =   time.split(" ")[0].toString().split("-")[2];
+                            edt_time.setText(time);
+                        }
+                    });
+                    chooseDialog2.setTimePickerGone(true);
+                    chooseDialog2.showDateChooseDialog();
                     break;
             }
         }
@@ -184,6 +204,9 @@ public class EvidenceActivity extends CaseBaseActivity {
         map.put("$work1$",mWorkOne.getText().toString());
         map.put("$work2$",mWorkTwo.getText().toString());
         map.put("$EVIDENCEMAN$",mWitness.getText().toString());
+        map.put("$year$",year);
+        map.put("$month$",month);
+        map.put("$day$",day);
 
         for(int i=0;i<mEvidenceList.size();i++){
             EvidenceBean evidenceBean = mEvidenceList.get(i);

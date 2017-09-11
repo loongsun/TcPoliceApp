@@ -12,12 +12,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.sdses.tool.UtilTc;
 import com.sdses.tool.Values;
 import com.tc.application.R;
 import com.tc.bean.EvidenceBean;
 import com.tc.util.CaseUtil;
+import com.tc.util.DateUtil;
 import com.tc.view.DateWheelDialogN;
 import com.tc.view.FileListView;
 
@@ -115,6 +117,9 @@ public class SaveEvidenceActivity extends CaseBaseActivity {
         CaseUtil.setListViewHeight(mListView);
     }
 
+    private String year;
+    private String month;
+    private String day;
     private View.OnClickListener mClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -160,6 +165,9 @@ public class SaveEvidenceActivity extends CaseBaseActivity {
                             .DateChooseInterface() {
                         @Override
                         public void getDateTime(String time, boolean longTimeChecked) {
+                            year = time.split(" ")[0].toString().split("-")[0];
+                            month =  time.split(" ")[0].toString().split("-")[1];
+                            day =   time.split(" ")[0].toString().split("-")[2];
                             mSigureTime.setText(time);
                         }
                     });
@@ -186,6 +194,12 @@ public class SaveEvidenceActivity extends CaseBaseActivity {
     }
 
     public void preview(View view){
+        String startTime = mEditStartTime.getText().toString();
+        String endTime = mEdtEndTime.getText().toString();
+        if(!DateUtil.isDateRight(startTime,endTime)){
+            Toast.makeText(getApplicationContext(),"结束时间要大于开始时间",Toast.LENGTH_SHORT).show();
+            return;
+        }
         getFileName();
         doScan();
         CaseUtil.doOpenWord(mNewPath,this);
@@ -207,7 +221,10 @@ public class SaveEvidenceActivity extends CaseBaseActivity {
     @Override
     protected void doScan() {
         File file = new File(mNewPath);
+        String startTime = mEditStartTime.getText().toString();
+        String endTime = mEdtEndTime.getText().toString();
         Map<String,String> map = new HashMap<>();
+        DateUtil.handleMonthMap(startTime,endTime,map);
         map.put("$GAJ$",mOfficeName.getText().toString());
         map.put("$REACON$",mReason.getText().toString());
         map.put("$OFFICE$",mPoliceName.getText().toString());
@@ -224,7 +241,10 @@ public class SaveEvidenceActivity extends CaseBaseActivity {
         map.put("$work2$",mWorkTwo.getText().toString());
         map.put("$EVIDENCEMAN$",mWitness.getText().toString());
         map.put("$APPROVAL$",mApproval.getText().toString());
-        map.put("$SIG_TIME$",mSigureTime.getText().toString());
+        map.put("$year$",year);
+        map.put("$month$",month);
+        map.put("$day$",day);
+//        map.put("$SIG_TIME$",mSigureTime.getText().toString());
 
         for(int i=0;i<mEvidenceList.size();i++){
             EvidenceBean evidenceBean = mEvidenceList.get(i);

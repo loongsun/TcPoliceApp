@@ -219,6 +219,12 @@ public class BrBlActivity extends CaseBaseActivity {
     }
 
     private void previewDoc() {
+        String startTime = mEditStartTime.getText().toString();
+        String endTime = mEdtEndTime.getText().toString();
+        if(!DateUtil.isDateRight(startTime,endTime)){
+            Toast.makeText(getApplicationContext(),"结束时间要大于开始时间",Toast.LENGTH_SHORT).show();
+            return;
+        }
         getFileName();
         doScan();
         CaseUtil.doOpenWord(mNewPath,this);
