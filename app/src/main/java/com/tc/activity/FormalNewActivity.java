@@ -961,7 +961,7 @@ public class FormalNewActivity extends Activity implements View.OnClickListener 
                                     Toast.makeText(ia, "法案时间截止不能为空", Toast.LENGTH_SHORT).show();
                                 } else if (AFDD_edit.getText().toString().trim().equals("")) {
                                     Toast.makeText(ia, "法案地点不能为空", Toast.LENGTH_SHORT).show();
-                                }else if(!DateUtil.isDateRight(oneStartTime.getText().toString(),oneEndTime.getText()
+                                }else if(!DateUtil.isDateRight(oneStartTime.getText().toString(),oneEndingTime.getText()
                                         .toString())){
                                     Toast.makeText(ia, "结束时间要大于开始时间", Toast.LENGTH_SHORT).show();
 
