@@ -51,6 +51,8 @@ public class TcApp extends Application {
 		super.onCreate();
 		mContent = getApplicationContext();
 
+
+
 		HomeCrashHandler crashHandler = HomeCrashHandler.getInstance();
 		crashHandler.init(getApplicationContext());
 		Stetho.initializeWithDefaults(this);

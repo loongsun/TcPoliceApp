@@ -71,6 +71,7 @@ public class XckcXsBrBlActivity extends Activity {
     private  String filePath;
     private String fileName;
 
+    //预览时单独路径
     private  String filePath1;
     private String fileName1;
 
@@ -143,6 +144,31 @@ public class XckcXsBrBlActivity extends Activity {
             }
         }
     }
+    private void getFileName1()
+    {
+        try{
+            File file = new File(Values.PATH_XCBL_XSAJ_BRBL);
+            if(!file.exists())
+            {
+                file.mkdirs();
+            }
+
+            if(TextUtils.isEmpty(fileName1))
+            {
+                fileName1=ajNum+"-temp.doc";
+                filePath1=Values.PATH_XCBL_XSAJ_BRBL+fileName;
+            }
+            else
+            {
+                File newFile = new File(filePath1);
+                if(newFile.exists())
+                    newFile.delete();
+            }
+
+        }catch (Exception e){
+            Log.e("ddd","getFileName ",e);
+        }
+    }
 
     private void getFileName()
     {
@@ -170,7 +196,64 @@ public class XckcXsBrBlActivity extends Activity {
         }
     }
 
+    private void doScan1(){
 
+        File newFile = new File(filePath1);
+        Map<String,String> map = new HashMap<>();
+        map.put("$TITLE$",""+et_title.getText().toString());
+
+        String startTime=sTime.getText().toString();
+        String endTime=eTime.getText().toString();
+        if(endTime.compareTo(startTime)<=0)
+        {
+            Toast.makeText(getApplicationContext(),"结束时间要大于开始时间",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        String y1=startTime.substring(0,4);
+        String M1 =startTime.substring(5,7);
+        String d1 =startTime.substring(8,10);
+        String H1 = startTime.substring(11,13);
+        String m1 = startTime.substring(14,16);
+
+        String y2=endTime.substring(0,4);
+        String M2 =endTime.substring(5,7);
+        String d2 =endTime.substring(8,10);
+        String H2 = endTime.substring(11,13);
+        String m2 = endTime.substring(14,16);
+
+        map.put("&yy1",""+y1);
+        map.put("&M1",""+M1);
+        map.put("&d1",""+d1);
+        map.put("&H1",""+H1);
+        map.put("&f1",""+m1);
+
+        map.put("&yy2",""+y2);
+        map.put("&M2",""+M2);
+        map.put("&d2",""+d2);
+        map.put("&H2",""+H2);
+        map.put("&f2",""+m2);
+
+
+
+        map.put("&ct1",""+ct1.getText().toString());
+        map.put("&ct2",""+ct2.getText().toString());
+        map.put("&ct3",""+ct3.getText().toString());
+        map.put("&ct4",""+ct4.getText().toString());
+        map.put("&ct5",""+ct5.getText().toString());
+        map.put("&ct6",""+ct6.getText().toString());
+        map.put("&ct7",""+ct7.getText().toString());
+        map.put("&ct8",""+ct8.getText().toString());
+        map.put("&ct9",""+ct9.getText().toString());
+
+
+        map.put("&bot1",""+bot1.getText().toString());
+        map.put("&bot2",""+bot2.getText().toString());
+        map.put("&bot3",""+bot3.getText().toString());
+        map.put("&bot4",""+bot4.getText().toString());
+        map.put("&bot5",""+bot5.getText().toString());
+
+        CaseUtil.writeDoc("xsaj-brbl.doc",newFile,map);
+    }
     private void doScan(){
 
         File newFile = new File(filePath);
@@ -240,9 +323,9 @@ public class XckcXsBrBlActivity extends Activity {
             return;
         }
 
-        getFileName();
+        getFileName1();
 
-        doScan();
+        doScan1();
 
         Intent intent = new Intent();
         intent.setAction("android.intent.action.VIEW");
@@ -265,7 +348,7 @@ public class XckcXsBrBlActivity extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==10)
         {
-            File file=new File(filePath);
+            File file=new File(filePath1);
             if(file.exists()) {
                 file.delete();
                 Log.e("result","deleted");
