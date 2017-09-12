@@ -743,11 +743,44 @@ public class XckcBlActivity extends Activity {
         Map<String, String> map = new HashMap<String, String>();
         map.put("$XCKYDW$", et_kyKydw.getText().toString());
         map.put("$BGDW$", et_kyZpbgdw.getText().toString());
-        map.put("$TIME$", et_kyZpsj.getText().toString());
+
+        map.put("$NIAN1$", et_kyZpsj.getText().toString().substring(0,4));
+        map.put("$YUE1$", et_kyZpsj.getText().toString().substring(5,7));
+        map.put("$RI1$", et_kyZpsj.getText().toString().substring(8,10));
+        map.put("$SHI1$", et_kyZpsj.getText().toString().substring(11,13));
+        map.put("$FEN1$", et_kyZpsj.getText().toString().substring(14,16));
+
+
         map.put("$KYSY$", et_kySy.getText().toString());
 
-        map.put("$XCKYKSSJ$", et_kyBeginTime.getText().toString());
-        map.put("$XCKYJSSJ$", et_kyEndTime.getText().toString());
+//        map.put("$XCKYKSSJ$",
+//                et_kyBeginTime.getText().toString().substring(0,4)+"年"
+//                        +et_kyBeginTime.getText().toString().substring(5,7)+"月"
+//                        +et_kyBeginTime.getText().toString().substring(8,10)+"日"
+//                        +et_kyBeginTime.getText().toString().substring(11,13)+"时"
+//                        +et_kyBeginTime.getText().toString().substring(14,16)+"分"
+//        );
+//        map.put("$XCKYJSSJ$",
+//                et_kyEndTime.getText().toString().substring(0,4)+"年"
+//                        +et_kyEndTime.getText().toString().substring(5,7)+"月"
+//                        +et_kyEndTime.getText().toString().substring(8,10)+"日"
+//                        +et_kyEndTime.getText().toString().substring(11,13)+"时"
+//                        +et_kyEndTime.getText().toString().substring(14,16)+"分"
+//        );
+
+        map.put("$NIAN2$", et_kyBeginTime.getText().toString().substring(0,4));
+        map.put("$YUE2$", et_kyBeginTime.getText().toString().substring(5,7));
+        map.put("$RI2$", et_kyBeginTime.getText().toString().substring(8,10));
+        map.put("$SHI2$", et_kyBeginTime.getText().toString().substring(11,13));
+        map.put("$FEN2$", et_kyBeginTime.getText().toString().substring(14,16));
+
+        map.put("$NIAN3$", et_kyEndTime.getText().toString().substring(0,4));
+        map.put("$YUE3$", et_kyEndTime.getText().toString().substring(5,7));
+        map.put("$RI3$", et_kyEndTime.getText().toString().substring(8,10));
+        map.put("$SHI3$", et_kyEndTime.getText().toString().substring(11,13));
+        map.put("$FEN3$", et_kyEndTime.getText().toString().substring(14,16));
+
+
         map.put("$XCDD$", et_kyXcdd.getText().toString());
         map.put("$SCBHQK$", et_kyXcbhqk.getText().toString());
         map.put("$TQ$", kyTq);

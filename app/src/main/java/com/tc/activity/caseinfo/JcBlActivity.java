@@ -534,8 +534,35 @@ public class JcBlActivity extends Activity {
         File newFile=new File(newPath);
         Map<String, String> map = new HashMap<String, String>();
         map.put("$GAJ$", et_gajname.getText().toString());
-        map.put("$TIME1$", et_kssj.getText().toString());
-        map.put("$TIME2$", et_jssj.getText().toString());
+//        map.put("$TIME1$",
+//                et_kssj.getText().toString().substring(0,4)+"年"
+//                        +et_kssj.getText().toString().substring(5,7)+"月"
+//                        +et_kssj.getText().toString().substring(8,10)+"日"
+//                        +et_kssj.getText().toString().substring(11,13)+"时"
+//                        +et_kssj.getText().toString().substring(14,16)+"分"
+//                );
+//        map.put("$TIME2$",
+//                et_jssj.getText().toString().substring(0,4)+"年"
+//                        +et_jssj.getText().toString().substring(5,7)+"月"
+//                        +et_jssj.getText().toString().substring(8,10)+"日"
+//                        +et_jssj.getText().toString().substring(11,13)+"时"
+//                        +et_jssj.getText().toString().substring(14,16)+"分"
+//        );
+
+        map.put("$NIAN1$", et_kssj.getText().toString().substring(0,4));
+        map.put("$YUE1$", et_kssj.getText().toString().substring(5,7));
+        map.put("$RI1$", et_kssj.getText().toString().substring(8,10));
+        map.put("$SHI1$", et_kssj.getText().toString().substring(11,13));
+        map.put("$FEN1$", et_kssj.getText().toString().substring(14,16));
+
+
+        map.put("$NIAN2$", et_jssj.getText().toString().substring(0,4));
+        map.put("$YUE2$", et_jssj.getText().toString().substring(5,7));
+        map.put("$RI2$", et_jssj.getText().toString().substring(8,10));
+        map.put("$SHI2$", et_jssj.getText().toString().substring(11,13));
+        map.put("$FEN2$", et_jssj.getText().toString().substring(14,16));
+
+
         map.put("$JCDX$", et_jcdx.getText().toString());
 
         map.put("$JCZHM$", et_gzzjhm.getText().toString());

@@ -332,10 +332,55 @@ public class SenceNoteActivity extends Activity implements  DateTimeDialog.MyOnD
         map.put("$PHONE$", et_b_ask_phone.getText().toString());
         map.put("$RESPONSE$", et_b_ask_response.getText().toString());
 
-        map.put("$MOUSE_END$", et_mouse_ask_endtime.getText().toString());
-        map.put("$MOUSE_START$", et_mouse_ask_starttime.getText().toString());
-        map.put("$START$", et_ask_starttime.getText().toString());
-        map.put("$END$", et_ask_endtime.getText().toString());
+        map.put("$NIAN1$", et_ask_starttime.getText().toString().substring(0,4));
+        map.put("$YUE1$", et_ask_starttime.getText().toString().substring(5,7));
+        map.put("$RI1$", et_ask_starttime.getText().toString().substring(8,10));
+        map.put("$SHI1$", et_ask_starttime.getText().toString().substring(11,13));
+        map.put("$FEN1$", et_ask_starttime.getText().toString().substring(14,16));
+
+        map.put("$NIAN2$", et_ask_endtime.getText().toString().substring(0,4));
+        map.put("$YUE2$", et_ask_endtime.getText().toString().substring(5,7));
+        map.put("$RI2$", et_ask_endtime.getText().toString().substring(8,10));
+        map.put("$SHI2$", et_ask_endtime.getText().toString().substring(11,13));
+        map.put("$FEN2$", et_ask_endtime.getText().toString().substring(14,16));
+
+
+        map.put("$YUE3$", et_mouse_ask_starttime.getText().toString().substring(5,7));
+        map.put("$RI3$", et_mouse_ask_starttime.getText().toString().substring(8,10));
+        map.put("$SHI3$", et_mouse_ask_starttime.getText().toString().substring(11,13));
+        map.put("$FEN3$", et_mouse_ask_starttime.getText().toString().substring(14,16));
+
+        map.put("$YUE4$", et_mouse_ask_endtime.getText().toString().substring(5,7));
+        map.put("$RI4$", et_mouse_ask_endtime.getText().toString().substring(8,10));
+        map.put("$SHI4$", et_mouse_ask_endtime.getText().toString().substring(11,13));
+        map.put("$FEN4$", et_mouse_ask_endtime.getText().toString().substring(14,16));
+
+
+
+//
+//
+//
+//        map.put("$MOUSE_END$", et_mouse_ask_endtime.getText().toString().substring(0,4)+"年"+et_mouse_ask_endtime.getText().toString().substring(5,7)+"月"
+//        +et_mouse_ask_endtime.getText().toString().substring(8,10)+"日"
+//        +et_mouse_ask_endtime.getText().toString().substring(11,13)+"时"
+//        +et_mouse_ask_endtime.getText().toString().substring(14,16)+"分"
+//        );
+//        map.put("$MOUSE_START$",
+//                et_mouse_ask_starttime.getText().toString().substring(0,4)+"年"
+//                        +et_mouse_ask_starttime.getText().toString().substring(5,7)+"月"
+//                        +et_mouse_ask_starttime.getText().toString().substring(8,10)+"日"
+//                        +et_mouse_ask_starttime.getText().toString().substring(11,13)+"时"
+//                        +et_mouse_ask_starttime.getText().toString().substring(14,16)+"分");
+//        map.put("$START$", et_ask_starttime.getText().toString().substring(0,4)+"年"
+//                +et_ask_starttime.getText().toString().substring(5,7)+"月"
+//                +et_ask_starttime.getText().toString().substring(8,10)+"日"
+//                +et_ask_starttime.getText().toString().substring(11,13)+"时"
+//                +et_ask_starttime.getText().toString().substring(14,16)+"分");
+//        map.put("$END$", et_ask_endtime.getText().toString().substring(0,4)+"年"
+//                +et_ask_endtime.getText().toString().substring(5,7)+"月"
+//                +et_ask_endtime.getText().toString().substring(8,10)+"日"
+//                +et_ask_endtime.getText().toString().substring(11,13)+"时"
+//                +et_ask_endtime.getText().toString().substring(14,16)+"分");
 
         if(et_ask1 != null && !et_ask1.getText().toString().equals("")) {
             map.put("$ASK1$", "问: "+et_ask1.getText().toString());

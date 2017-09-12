@@ -69,6 +69,7 @@ public class Evidence2Activity extends CaseBaseActivity {
     String year ="";
     String month = "";
     String day="";
+    String shi = "";
 
     private List<String> allList = new ArrayList<String>();
     private CommonAdapter2 mCommonAdapter2 = new CommonAdapter2(Evidence2Activity.this);
@@ -157,10 +158,10 @@ public class Evidence2Activity extends CaseBaseActivity {
                             year = time.split(" ")[0].toString().split("-")[0];
                             month =  time.split(" ")[0].toString().split("-")[1];
                             day =   time.split(" ")[0].toString().split("-")[2];
+                            shi = time.split(" ")[1].toString().split(":")[0];
                             edt_time.setText(time);
                         }
                     });
-                    chooseDialog2.setTimePickerGone(true);
                     chooseDialog2.showDateChooseDialog();
                     break;
             }
@@ -248,7 +249,16 @@ public class Evidence2Activity extends CaseBaseActivity {
         map.put("$OFFICE$",mPoliceName.getText().toString());
         map.put("$PERSON$",mEvidencePerson.getText().toString());
         map.put("$GENDER$",mGender.getText().toString());
-        map.put("$BIRTHDAY$",mBirthDay.getText().toString());
+        try{
+            map.put("$BIRTHDAY$",
+                    mBirthDay.getText().toString().substring(0,4)+"Äê"
+                            +mBirthDay.getText().toString().substring(5,7)+"ÔÂ"
+                            +mBirthDay.getText().toString().substring(8,10)+"ÈÕ"
+            );
+        }catch(Exception e){
+
+        }
+
         map.put("$LIVE_PLACE$",mLivePlace.getText().toString());
         map.put("$WORK_PLACE$",mWorkPlace.getText().toString());
         map.put("$PHONE$",mPhone.getText().toString());
@@ -259,6 +269,8 @@ public class Evidence2Activity extends CaseBaseActivity {
         map.put("$year$",year);
         map.put("$month$",month);
         map.put("$day$",day);
+        map.put("$shi$",shi);
+
 
         for(int i=0;i<mEvidenceList.size();i++){
             EvidenceBean evidenceBean = mEvidenceList.get(i);
