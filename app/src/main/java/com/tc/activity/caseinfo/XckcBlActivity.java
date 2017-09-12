@@ -80,7 +80,11 @@ public class XckcBlActivity extends Activity {
 
     private RadioGroup rg_kyTq, rg_kyXctj, rg_kyGx;
     private ImageView btn_kcblReturn;
+
     private String newPath = "";
+    //预览单独路径处理
+    private String newPath1 = "";
+
     private String name = "";
     private String kyTq = "";
     private String kyXctj = "";
@@ -394,7 +398,7 @@ public class XckcBlActivity extends Activity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        doScan();
+        doScan(false);
         startProgressDialog(UPLOAD);
         new Thread(uploadRun).start();
 
@@ -584,15 +588,16 @@ public class XckcBlActivity extends Activity {
                 file.mkdir();
             }
 
-            if(StringUtils.isEmpty(newPath)){
-                String fileName = Values.PATH_BOOKMARK + "XCKYBL/" + name + "_" + UtilTc.getCurrentTime() + ".doc";
-                newPath = fileName;
+            if(StringUtils.isEmpty(newPath1))
+            {
+                String fileName = Values.PATH_BOOKMARK + "XCKYBL/" + name + "_"    + "temp.doc";
+                newPath1= fileName;
             }
             InputStream inputStream = getAssets().open("xckybl.doc");
         } catch (Exception e) {
             e.printStackTrace();
         }
-        doScan();
+        doScan(true);
         doOpenWord(true);
     }
 
@@ -614,7 +619,7 @@ public class XckcBlActivity extends Activity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        doScan();
+        doScan(false);
         doOpenWord(false);
     }
 
@@ -728,7 +733,7 @@ public class XckcBlActivity extends Activity {
     };
 
 
-    private void doScan() {
+    private void doScan(boolean isPreview) {
         String startTime=et_kyBeginTime.getText().toString();
         String endTime=et_kyEndTime.getText().toString();
         if(endTime.compareTo(startTime)<=0)
@@ -739,7 +744,16 @@ public class XckcBlActivity extends Activity {
         //获取模板文件
 //        File demoFile=new File(demoPath);
         //创建生成的文件
-        File newFile = new File(newPath);
+        File newFile;
+        if(isPreview)
+          newFile = new File(newPath1);
+        else
+            newFile = new File(newPath);
+
+        if(newFile.exists())
+            newFile.delete();
+
+
         Map<String, String> map = new HashMap<String, String>();
         map.put("$XCKYDW$", et_kyKydw.getText().toString());
         map.put("$BGDW$", et_kyZpbgdw.getText().toString());
@@ -1133,7 +1147,7 @@ public class XckcBlActivity extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==10)
         {
-            File file=new File(newPath);
+            File file=new File(newPath1);
             if(file.exists()) {
                 file.delete();
                 Log.e("result","deleted");
