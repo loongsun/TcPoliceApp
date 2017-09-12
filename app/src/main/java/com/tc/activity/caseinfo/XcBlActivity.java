@@ -616,7 +616,7 @@ public class XcBlActivity extends Activity {
                             et_fasj.getText().toString().substring(5,7)+"ÔÂ"+
                             et_fasj.getText().toString().substring(8,10)+"ÈÕ");
         }catch(Exception e){
-
+            map.put("$FASJ$","");
         }
 
         map.put("$FADD$", et_fadd.getText().toString());

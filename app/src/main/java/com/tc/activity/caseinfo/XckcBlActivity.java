@@ -751,7 +751,11 @@ public class XckcBlActivity extends Activity {
             map.put("$SHI1$", et_kyZpsj.getText().toString().substring(11,13));
             map.put("$FEN1$", et_kyZpsj.getText().toString().substring(14,16));
         }catch(Exception e){
-
+            map.put("$NIAN1$", "");
+            map.put("$YUE1$", "");
+            map.put("$RI1$", "");
+            map.put("$SHI1$", "");
+            map.put("$FEN1$", "");
         }
 
 
@@ -780,7 +784,11 @@ public class XckcBlActivity extends Activity {
             map.put("$SHI2$", et_kyBeginTime.getText().toString().substring(11, 13));
             map.put("$FEN2$", et_kyBeginTime.getText().toString().substring(14, 16));
         }catch(Exception e){
-
+            map.put("$NIAN3$", "");
+            map.put("$YUE3$", "");
+            map.put("$RI3$", "");
+            map.put("$SHI3$", "");
+            map.put("$FEN3$", "");
         }
         try{
             map.put("$NIAN3$", et_kyEndTime.getText().toString().substring(0,4));
@@ -789,7 +797,11 @@ public class XckcBlActivity extends Activity {
             map.put("$SHI3$", et_kyEndTime.getText().toString().substring(11,13));
             map.put("$FEN3$", et_kyEndTime.getText().toString().substring(14,16));
         }catch(Exception e){
-
+            map.put("$NIAN3$", "");
+            map.put("$YUE3$", "");
+            map.put("$RI3$", "");
+            map.put("$SHI3$", "");
+            map.put("$FEN3$", "");
         }
 
         map.put("$XCDD$", et_kyXcdd.getText().toString());

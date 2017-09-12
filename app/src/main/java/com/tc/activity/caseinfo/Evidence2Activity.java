@@ -256,7 +256,7 @@ public class Evidence2Activity extends CaseBaseActivity {
                             +mBirthDay.getText().toString().substring(8,10)+"»’"
             );
         }catch(Exception e){
-
+            map.put("$BIRTHDAY$","");
         }
 
         map.put("$LIVE_PLACE$",mLivePlace.getText().toString());
