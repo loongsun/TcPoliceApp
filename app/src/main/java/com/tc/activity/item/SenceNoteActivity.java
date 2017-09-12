@@ -24,7 +24,9 @@ import android.widget.Toast;
 import com.sdses.tool.DateTimeDialog;
 import com.sdses.tool.UtilTc;
 import com.sdses.tool.Values;
+import com.tc.activity.caseinfo.JcBlActivity;
 import com.tc.application.R;
+import com.tc.view.DateWheelDialogN;
 import com.tc.view.LineEditText;
 
 import org.apache.poi.hwpf.HWPFDocument;
@@ -41,7 +43,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SenceNoteActivity extends Activity implements  DateTimeDialog.MyOnDateSetListener {
+public class SenceNoteActivity extends Activity {
     private EditText et_ask_address, et_ask_username;
     private EditText et_ask_workadd, et_record_username,et_record_workadd;
     private EditText et_b_ask_phone,et_b_ask_card,et_b_ask_address,et_b_ask_home,et_b_ask_birth
@@ -55,8 +57,8 @@ public class SenceNoteActivity extends Activity implements  DateTimeDialog.MyOnD
     private SimpleDateFormat mFormatter = new SimpleDateFormat("yyyy年MM月dd日hh时mm分 aa");
     String SD = "";
    // File file;
-    private DateTimeDialog dateTimeDialog;
-    int whichTimeSelect = 1;
+//    private DateTimeDialog dateTimeDialog;
+//    int whichTimeSelect = 1;
     // 创建生成的文件地址
     private static String newPath = "";
     private void initWidgets() {
@@ -91,7 +93,7 @@ public class SenceNoteActivity extends Activity implements  DateTimeDialog.MyOnD
         et_ask_starttime = (TextView) findViewById(R.id.et_ask_starttime);
         et_ask_endtime = (TextView) findViewById(R.id.et_ask_endtime);
 
-        dateTimeDialog = new DateTimeDialog(this, null, this);
+//        dateTimeDialog = new DateTimeDialog(this, null, this);
 
         mouse_starttime.setOnClickListener(new OnClick());
         mouse_endtime.setOnClickListener(new OnClick());
@@ -115,19 +117,6 @@ public class SenceNoteActivity extends Activity implements  DateTimeDialog.MyOnD
 
     }
 
-    @Override
-    public void onDateSet(Date date) {
-
-        if(whichTimeSelect == 1){
-            et_mouse_ask_starttime.setText(mFormatter.format(date) + "");
-        }else if(whichTimeSelect == 2){
-            et_mouse_ask_endtime.setText(mFormatter.format(date) + "");
-        }else if(whichTimeSelect == 3){
-            et_ask_starttime.setText(mFormatter.format(date) + "");
-        }else if(whichTimeSelect == 4){
-            et_ask_endtime.setText(mFormatter.format(date) + "");
-        }
-    }
 
     class OnClick implements OnClickListener {
         @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
@@ -174,20 +163,50 @@ public class SenceNoteActivity extends Activity implements  DateTimeDialog.MyOnD
                     finish();
                     break;
                 case R.id.mouse_starttime:
-                    whichTimeSelect = 1;
-                    showAll();
+
+                    DateWheelDialogN startDateChooseDialog = new DateWheelDialogN(SenceNoteActivity.this, new DateWheelDialogN.DateChooseInterface() {
+                        @Override
+                        public void getDateTime(String time, boolean longTimeChecked) {
+                            et_mouse_ask_starttime.setText(time);
+
+                        }
+                    });
+                    startDateChooseDialog.setDateDialogTitle("开始时间");
+                    startDateChooseDialog.showDateChooseDialog();
+
                     break;
                 case R.id.mouse_endtime:
-                    whichTimeSelect = 2;
-                    showAll();
+                    DateWheelDialogN endDateChooseDialog = new DateWheelDialogN(SenceNoteActivity.this, new DateWheelDialogN.DateChooseInterface() {
+                        @Override
+                        public void getDateTime(String time, boolean longTimeChecked) {
+                            et_mouse_ask_endtime.setText(time);
+
+                        }
+                    });
+                    endDateChooseDialog.setDateDialogTitle("开始时间");
+                    endDateChooseDialog.showDateChooseDialog();
                     break;
                 case R.id.starttime:
-                    whichTimeSelect = 3;
-                    showAll();
+                    DateWheelDialogN esDateChooseDialog = new DateWheelDialogN(SenceNoteActivity.this, new DateWheelDialogN.DateChooseInterface() {
+                        @Override
+                        public void getDateTime(String time, boolean longTimeChecked) {
+                            et_ask_starttime.setText(time);
+
+                        }
+                    });
+                    esDateChooseDialog.setDateDialogTitle("开始时间");
+                    esDateChooseDialog.showDateChooseDialog();
                     break;
                 case R.id.endtime:
-                    whichTimeSelect = 4;
-                    showAll();
+                    DateWheelDialogN enDateChooseDialog = new DateWheelDialogN(SenceNoteActivity.this, new DateWheelDialogN.DateChooseInterface() {
+                        @Override
+                        public void getDateTime(String time, boolean longTimeChecked) {
+                            et_ask_endtime.setText(time);
+
+                        }
+                    });
+                    enDateChooseDialog.setDateDialogTitle("开始时间");
+                    enDateChooseDialog.showDateChooseDialog();
                     break;
                 case R.id.btn_print:
 //                    doOpenWord();
@@ -196,9 +215,7 @@ public class SenceNoteActivity extends Activity implements  DateTimeDialog.MyOnD
         }
     }
     private LinearLayout mLl_parent;
-    private void showAll() {
-        dateTimeDialog.hideOrShow();
-    }
+
     LineEditText et_ask1,et_response1,
             et_ask2,et_response2,
             et_ask3,et_response3,
