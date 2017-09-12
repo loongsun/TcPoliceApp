@@ -609,10 +609,16 @@ public class XcBlActivity extends Activity {
         Map<String, String> map = new HashMap<String, String>();
         map.put("$GAJ$", et_gaj.getText().toString());
         map.put("$PCS$", et_pcs.getText().toString());
-        map.put("$FASJ$",
-                et_fasj.getText().toString().substring(0,4)+"年"+
-                        et_fasj.getText().toString().substring(5,7)+"月"+
-                        et_fasj.getText().toString().substring(8,10)+"日");
+
+        try{
+            map.put("$FASJ$",
+                    et_fasj.getText().toString().substring(0,4)+"年"+
+                            et_fasj.getText().toString().substring(5,7)+"月"+
+                            et_fasj.getText().toString().substring(8,10)+"日");
+        }catch(Exception e){
+
+        }
+
         map.put("$FADD$", et_fadd.getText().toString());
 
         map.put("$DSRNAME1$", et_dsrxm1.getText().toString());
