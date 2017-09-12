@@ -156,7 +156,7 @@ public class XckcXsBrBlActivity extends Activity {
             if(TextUtils.isEmpty(fileName1))
             {
                 fileName1=ajNum+"-temp.doc";
-                filePath1=Values.PATH_XCBL_XSAJ_BRBL+fileName;
+                filePath1=Values.PATH_XCBL_XSAJ_BRBL+fileName1;
             }
             else
             {
@@ -187,8 +187,8 @@ public class XckcXsBrBlActivity extends Activity {
             else
             {
                 File newFile = new File(filePath);
-//                if(newFile.exists())
-//                    newFile.delete();
+                if(newFile.exists())
+                    newFile.delete();
             }
 
         }catch (Exception e){
@@ -331,7 +331,7 @@ public class XckcXsBrBlActivity extends Activity {
         intent.setAction("android.intent.action.VIEW");
         intent.addCategory("android.intent.category.DEFAULT");
         String fileMimeType = "application/msword";
-        intent.setDataAndType(Uri.fromFile(new File(filePath)),fileMimeType);
+        intent.setDataAndType(Uri.fromFile(new File(filePath1)),fileMimeType);
         try{
              startActivity(intent);
             startActivityForResult(intent,10);
