@@ -175,7 +175,7 @@ public class KyBlActivity extends CaseBaseActivity {
                             mEdtEndTime.setText(time);
                         }
                     });
-                    endDialog.setDateDialogTitle("开始时间");
+                    endDialog.setDateDialogTitle("结束时间");
                     endDialog.showDateChooseDialog();
                     break;
                 case R.id.btn_preview:

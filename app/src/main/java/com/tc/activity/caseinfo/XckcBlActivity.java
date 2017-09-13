@@ -884,7 +884,7 @@ public class XckcBlActivity extends Activity {
     /**
      * 调用手机中安装的可打开word的软件
      */
-    private void doOpenWord(boolean ylFlag) {
+    private void doOpenWord(boolean isPreview) {
         String startTime=et_kyBeginTime.getText().toString();
         String endTime=et_kyEndTime.getText().toString();
         if(endTime.compareTo(startTime)<=0)
@@ -896,10 +896,16 @@ public class XckcBlActivity extends Activity {
         intent.setAction("android.intent.action.VIEW");
         intent.addCategory("android.intent.category.DEFAULT");
         String fileMimeType = "application/msword";
-        intent.setDataAndType(Uri.fromFile(new File(newPath)), fileMimeType);
+        File file ;
+        if(isPreview){
+            file = new File(newPath1);
+        }else{
+            file = new File(newPath);
+        }
+        intent.setDataAndType(Uri.fromFile(file), fileMimeType);
         try {
             startActivity(intent);
-            if(ylFlag){
+            if(isPreview){
                 startActivityForResult(intent,10);
             }
         } catch (ActivityNotFoundException e) {

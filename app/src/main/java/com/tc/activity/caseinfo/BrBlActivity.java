@@ -124,7 +124,7 @@ public class BrBlActivity extends CaseBaseActivity {
                             mEditStartTime.setText(time);
                         }
                     });
-                    chooseDialog.setDateDialogTitle("选择时间");
+                    chooseDialog.setDateDialogTitle("开始时间");
                     chooseDialog.showDateChooseDialog();
                     break;
                 case R.id.edt_end_time:
@@ -135,7 +135,7 @@ public class BrBlActivity extends CaseBaseActivity {
                             mEdtEndTime.setText(time);
                         }
                     });
-                    endDialog.setDateDialogTitle("选择时间");
+                    endDialog.setDateDialogTitle("结束时间");
                     endDialog.showDateChooseDialog();
                     break;
                 case R.id.btn_preview:

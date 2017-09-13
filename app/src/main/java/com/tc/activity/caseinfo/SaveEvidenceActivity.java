@@ -148,6 +148,8 @@ public class SaveEvidenceActivity extends CaseBaseActivity {
                         }
                     });
                     startDialog.setTimePickerGone(true);
+                    startDialog.setDateDialogTitle("开始时间");
+
                     startDialog.showDateChooseDialog();
                     break;
                 case R.id.edt_end_time:
@@ -159,6 +161,7 @@ public class SaveEvidenceActivity extends CaseBaseActivity {
                         }
                     });
                     endDialog.setTimePickerGone(true);
+                    endDialog.setDateDialogTitle("结束时间");
                     endDialog.showDateChooseDialog();
                     break;
                 case R.id.edt_signa_time:
