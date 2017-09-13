@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,12 +16,14 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.sdses.tool.UtilTc;
 import com.sdses.tool.Values;
 import com.tc.application.R;
 import com.tc.bean.EvidenceBean;
 import com.tc.util.CaseUtil;
+import com.tc.util.DateUtil;
 import com.tc.view.DateWheelDialog;
 import com.tc.view.DateWheelDialogN;
 import com.tc.view.FileListView;
@@ -154,28 +157,38 @@ public class EvidenceActivity extends CaseBaseActivity {
     };
 
     @Override
-    protected void getFileName(){
-        super.getFileName();
+    protected void getFileName(boolean isPreview){
+        super.getFileName(isPreview);
         try{
             File file = new File( Values.PATH_BOOKMARK + EVIDENCE_NAME);
             if(!file.exists()){
                 file.mkdir();
             }
-            String fileName = Values.PATH_BOOKMARK+EVIDENCE_NAME+"/"+mName+"_"+ UtilTc.getCurrentTime()+".doc";
-            mNewPath = fileName;
+            if(isPreview){
+                String fileName = Values.PATH_BOOKMARK+EVIDENCE_NAME+"/"+mName+"_"+ "temp.doc";
+                mPreFilePath = fileName;
+            }else{
+                if(TextUtils.isEmpty(mNewPath)){
+                    String fileName = Values.PATH_BOOKMARK+EVIDENCE_NAME+"/"+mName+"_"+ UtilTc.getCurrentTime()+".doc";
+                    mNewPath = fileName;
+                }
+            }
+
         }catch (Exception e){
             Log.e(TAG,"getFileName ",e);
         }
     }
 
     public void preview(View view){
-        getFileName();
-        doScan();
-        CaseUtil.doOpenWord(mNewPath,this);
+        getFileName(true);
+        doScan(true);
+        CaseUtil.doOpenWord(mPreFilePath,this);
     }
 
     public void printFile(View view){
-        preview(view);
+        getFileName(false);
+        doScan(false);
+        CaseUtil.doOpenWord(mNewPath,this);
     }
 
     public void uploadFile(View view){
@@ -188,8 +201,13 @@ public class EvidenceActivity extends CaseBaseActivity {
     }
 
     @Override
-    protected void doScan() {
-        File file = new File(mNewPath);
+    protected void doScan(boolean isPreview) {
+        File file;
+        if(isPreview){
+            file = new File(mPreFilePath);
+        }else{
+            file = new File(mNewPath);
+        }
         Map<String,String> map = new HashMap<>();
         map.put("$GAJ$",mOfficeName.getText().toString());
         map.put("$REACON$",mReason.getText().toString());

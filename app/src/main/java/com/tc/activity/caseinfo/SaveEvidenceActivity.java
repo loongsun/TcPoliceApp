@@ -2,6 +2,7 @@ package com.tc.activity.caseinfo;
 
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -179,15 +180,23 @@ public class SaveEvidenceActivity extends CaseBaseActivity {
     };
 
     @Override
-    protected void getFileName(){
-        super.getFileName();
+    protected void getFileName(boolean isPreview){
+        super.getFileName(isPreview);
         try{
             File file = new File( Values.PATH_BOOKMARK + SAVE_EVIDENCE_NAME);
             if(!file.exists()){
                 file.mkdir();
             }
-            String fileName = Values.PATH_BOOKMARK+SAVE_EVIDENCE_NAME+"/"+mName+"_"+ UtilTc.getCurrentTime()+".doc";
-            mNewPath = fileName;
+            if(isPreview){
+                String fileName = Values.PATH_BOOKMARK+SAVE_EVIDENCE_NAME+"/"+mName+"_"+"temp.doc";
+                mPreFilePath = fileName;
+            }else{
+                if(TextUtils.isEmpty(mNewPath)){
+                    String fileName = Values.PATH_BOOKMARK+SAVE_EVIDENCE_NAME+"/"+mName+"_"+ UtilTc.getCurrentTime()+".doc";
+                    mNewPath = fileName;
+                }
+            }
+
         }catch (Exception e){
             Log.e(TAG,"getFileName ",e);
         }
@@ -200,13 +209,22 @@ public class SaveEvidenceActivity extends CaseBaseActivity {
             Toast.makeText(getApplicationContext(),"结束时间要大于开始时间",Toast.LENGTH_SHORT).show();
             return;
         }
-        getFileName();
-        doScan();
-        CaseUtil.doOpenWord(mNewPath,this);
+        getFileName(true);
+        doScan(true);
+        CaseUtil.doOpenWord(mPreFilePath,this);
     }
 
     public void printFile(View view){
-        preview(view);
+        String startTime = mEditStartTime.getText().toString();
+        String endTime = mEdtEndTime.getText().toString();
+        if(!DateUtil.isDateRight(startTime,endTime)){
+            Toast.makeText(getApplicationContext(),"结束时间要大于开始时间",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        getFileName(false);
+        doScan(false);
+        CaseUtil.doOpenWord(mNewPath,this);
+
     }
 
     public void uploadFile(View view){
@@ -219,8 +237,13 @@ public class SaveEvidenceActivity extends CaseBaseActivity {
     }
 
     @Override
-    protected void doScan() {
-        File file = new File(mNewPath);
+    protected void doScan(boolean isPreview) {
+        File file;
+        if(isPreview){
+            file = new File(mPreFilePath);
+        }else{
+            file = new File(mNewPath);
+        }
         String startTime = mEditStartTime.getText().toString();
         String endTime = mEdtEndTime.getText().toString();
         Map<String,String> map = new HashMap<>();

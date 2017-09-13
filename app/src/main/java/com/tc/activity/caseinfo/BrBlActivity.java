@@ -26,7 +26,7 @@ import java.util.Map;
 import static com.tc.application.R.id.end;
 import static com.tc.application.R.id.map;
 
-//辨认笔录
+//??????
 public class BrBlActivity extends CaseBaseActivity {
 
     private static final String TAG = BrBlActivity.class.getSimpleName();
@@ -49,7 +49,7 @@ public class BrBlActivity extends CaseBaseActivity {
     private EditText mBrOffice;
     private EditText mBrDuty;
 
-    public static final String BR_NAME = "BRBL";//辨认笔录
+    public static final String BR_NAME = "BRBL";//??????
     private EditText mEdtObj;
     private EditText mEdtPlane;
 
@@ -124,7 +124,7 @@ public class BrBlActivity extends CaseBaseActivity {
                             mEditStartTime.setText(time);
                         }
                     });
-                    chooseDialog.setDateDialogTitle("开始时间");
+                    chooseDialog.setDateDialogTitle("选择时间");
                     chooseDialog.showDateChooseDialog();
                     break;
                 case R.id.edt_end_time:
@@ -135,7 +135,7 @@ public class BrBlActivity extends CaseBaseActivity {
                             mEdtEndTime.setText(time);
                         }
                     });
-                    endDialog.setDateDialogTitle("开始时间");
+                    endDialog.setDateDialogTitle("选择时间");
                     endDialog.showDateChooseDialog();
                     break;
                 case R.id.btn_preview:
@@ -153,23 +153,35 @@ public class BrBlActivity extends CaseBaseActivity {
     };
 
     @Override
-    protected void getFileName() {
-        super.getFileName();
+    protected void getFileName(boolean isPreview) {
+        super.getFileName(isPreview);
         try{
             File file = new File( Values.PATH_BOOKMARK + BR_NAME);
             if(!file.exists()){
                 file.mkdir();
             }
-            String fileName = Values.PATH_BOOKMARK+BR_NAME+"/"+mName+"_"+ UtilTc.getCurrentTime()+".doc";
-            mNewPath = fileName;
+            if(isPreview){
+                String fileName = Values.PATH_BOOKMARK+BR_NAME+"/"+mName+"_"+".doc";
+                mPreFilePath = fileName;
+            }else{
+                if(TextUtils.isEmpty(mNewPath)){
+                    String fileName = Values.PATH_BOOKMARK+BR_NAME+"/"+mName+"_"+ UtilTc.getCurrentTime()+".doc";
+                    mNewPath = fileName;
+                }
+            }
         }catch (Exception e){
             Log.e(TAG,"getFileName ",e);
         }
     }
 
     @Override
-    protected void doScan(){
-        File newFile = new File(mNewPath);
+    protected void doScan(boolean isPreview){
+        File newFile ;
+        if(isPreview){
+            newFile = new File(mPreFilePath);
+        }else{
+            newFile = new File(mNewPath);
+        }
         String startTime = mEditStartTime.getText().toString();
         String endTime = mEdtEndTime.getText().toString();
         if(!DateUtil.isDateRight(startTime,endTime)){
@@ -215,7 +227,15 @@ public class BrBlActivity extends CaseBaseActivity {
     }
 
     private void printDoc() {
-        previewDoc();
+        String startTime = mEditStartTime.getText().toString();
+        String endTime = mEdtEndTime.getText().toString();
+        if(!DateUtil.isDateRight(startTime,endTime)){
+            Toast.makeText(getApplicationContext(),"结束时间要大于开始时间",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        getFileName(false);
+        doScan(false);
+        CaseUtil.doOpenWord(mNewPath,this);
     }
 
     private void previewDoc() {
@@ -225,8 +245,8 @@ public class BrBlActivity extends CaseBaseActivity {
             Toast.makeText(getApplicationContext(),"结束时间要大于开始时间",Toast.LENGTH_SHORT).show();
             return;
         }
-        getFileName();
-        doScan();
-        CaseUtil.doOpenWord(mNewPath,this);
+        getFileName(true);
+        doScan(true);
+        CaseUtil.doOpenWord(mPreFilePath,this);
     }
 }

@@ -214,29 +214,49 @@ public class KyBlActivity extends CaseBaseActivity {
 
 
     private void printDoc(){
-        previewDoc();
+        String startTime = mEditStartTime.getText().toString();
+        String endTime = mEdtEndTime.getText().toString();
+        if(!DateUtil.isDateRight(startTime,endTime)){
+            Toast.makeText(getApplicationContext(),"结束时间要大于开始时间",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        getFileName(false);
+        doScan(false);
+//        doOpenWord();
+        CaseUtil.doOpenWord(mNewPath,this);
     }
 
     private void previewDoc() {
-        getFileName();
-
-        doScan();
-
-        doOpenWord();
-
+        String startTime = mEditStartTime.getText().toString();
+        String endTime = mEdtEndTime.getText().toString();
+        if(!DateUtil.isDateRight(startTime,endTime)){
+            Toast.makeText(getApplicationContext(),"结束时间要大于开始时间",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        getFileName(true);
+        doScan(true);
+//        doOpenWord();
+        CaseUtil.doOpenWord(mPreFilePath,this);
     }
 
     @Override
-    protected void getFileName() {
-        super.getFileName();
+    protected void getFileName(boolean isPreview) {
+        super.getFileName(isPreview);
         try{
             File file = new File( Values.PATH_BOOKMARK + KYBL_NAME);
 
             if(!file.exists()){
                 file.mkdir();
             }
-            String fileName = Values.PATH_BOOKMARK + KYBL_NAME+ "/" + mName+"_"+ UtilTc.getCurrentTime()+".doc";
-            mNewPath = fileName;
+            if(isPreview){
+                String fileName = Values.PATH_BOOKMARK + KYBL_NAME+ "/" + mName+"_"+ "temp.doc";
+                mPreFilePath = fileName;
+            }else{
+                if(TextUtils.isEmpty(mNewPath)){
+                    String fileName = Values.PATH_BOOKMARK + KYBL_NAME+ "/" + mName+"_"+ UtilTc.getCurrentTime()+".doc";
+                    mNewPath = fileName;
+                }
+            }
             Log.i(TAG,"mNewPath "+mNewPath);
         }catch (Exception e){
             Log.e(TAG,"getFileName ",e);
@@ -270,7 +290,7 @@ public class KyBlActivity extends CaseBaseActivity {
 
     //生成doc文件，并保存
     @Override
-    protected void doScan() {
+    protected void doScan(boolean isPreview) {
         String startTime=mEditStartTime.getText().toString();
         String endTime=mEdtEndTime.getText().toString();
         if(endTime.compareTo(startTime)<=0)
@@ -278,7 +298,15 @@ public class KyBlActivity extends CaseBaseActivity {
             Toast.makeText(getApplicationContext(),"结束时间要大于开始时间",Toast.LENGTH_SHORT).show();
             return;
         }
-        File newFile = new File(mNewPath);
+        File newFile ;
+        if(isPreview){
+            newFile = new File(mPreFilePath);
+        }else{
+            newFile = new File(mNewPath);
+        }
+//        if(newFile.exists()){
+//            newFile.delete();
+//        }
         Map<String,String> map = new HashMap<>();
         map.put("$GAJ$",mEdtOfficeName.getText().toString());
         DateUtil.handleDateMap(startTime,endTime,map);

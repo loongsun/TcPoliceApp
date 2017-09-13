@@ -100,6 +100,23 @@ public class CaseUtil {
         listView.setLayoutParams(params);
     }
 
+    public static void openWordFile(File file,Context context){
+        if(context ==null || file == null){
+            return;
+        }
+        Intent intent = new Intent();
+        intent.setAction("android.intent.action.VIEW");
+        intent.addCategory("android.intent.category.DEFAULT");
+        String fileMimeType = "application/msword";
+        intent.setDataAndType(Uri.fromFile(file),fileMimeType);
+        try{
+            context.startActivity(intent);
+        }catch (ActivityNotFoundException e){
+            Toast.makeText(context, "未安装打开doc的apk", Toast.LENGTH_LONG).show();
+
+        }
+    }
+
 
     public static void doOpenWord(String path,Context context) {
         if(context ==null || TextUtils.isEmpty(path)){

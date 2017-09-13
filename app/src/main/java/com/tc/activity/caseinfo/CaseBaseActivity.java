@@ -31,6 +31,8 @@ public abstract class CaseBaseActivity extends Activity {
     protected FileListView mFileListView;
     protected EditText mEditStartTime;
     protected EditText mEdtEndTime;
+    protected String mPreFilePath;
+
 
 
     protected Handler mHandler = new Handler() {
@@ -99,34 +101,49 @@ public abstract class CaseBaseActivity extends Activity {
         }
 
         startProcessDialog();
-        if(TextUtils.isEmpty(mNewPath)){
-            getFileName();
-            doScan();
-        }
+//        if(TextUtils.isEmpty(mNewPath)){
+//            getFileName();
+//            doScan();
+//        }
+        getFileName(false);
+        doScan(false);
         String ftpPath = geFtpPth();
         CaseUtil.startUploadFile(mNewPath,ftpPath,mName,mHandler);
-        mNewPath = "";
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        getFileName();//?????????????????
+        if(!TextUtils.isEmpty(mPreFilePath)){
+            File file = new File(mPreFilePath);
+            if(file.exists()){
+                file.delete();
+            }
+        }
     }
 
     protected abstract String geFtpPth();
 
-    protected abstract void doScan();
+    protected abstract void doScan(boolean isPreview);
 
-    protected  void getFileName(){
-        if(!TextUtils.isEmpty(mNewPath)){
-            File file = new File(mNewPath);
-            if(file!=null && file.exists()){
-                Log.i(TAG,"delete file "+mNewPath);
-                file.delete();
+    protected  void getFileName(boolean isPreview){
+        if(isPreview){
+            if(!TextUtils.isEmpty(mPreFilePath)){
+                File file = new File(mPreFilePath);
+                if(file!=null && file.exists()){
+                    file.delete();
+                }
             }
-            mNewPath = "";
+        }else{
+            if(!TextUtils.isEmpty(mNewPath)){
+                File file = new File(mNewPath);
+                if(file!=null && file.exists()){
+                    Log.i(TAG,"delete file "+mNewPath);
+                    file.delete();
+                }
+            }
         }
+
     }
 
 

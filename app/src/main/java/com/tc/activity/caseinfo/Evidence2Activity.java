@@ -169,7 +169,7 @@ public class Evidence2Activity extends CaseBaseActivity {
     };
 
     @Override
-    protected void getFileName(){
+    protected void getFileName(boolean isPreview){
         try{
             File file = new File( Values.PATH_BOOKMARK + EVIDENCE_NAME);
             if(!file.exists()){
@@ -196,8 +196,8 @@ public class Evidence2Activity extends CaseBaseActivity {
         }
     }
     public void preview(View view){
-        getFileName();
-        doScan();
+        getFileName(true);
+        doScan(true);
 
         if(this ==null || TextUtils.isEmpty(mNewPath)){
             return;
@@ -218,8 +218,8 @@ public class Evidence2Activity extends CaseBaseActivity {
 
     public void printFile(View view){
 //        preview(view);
-        getFileName();
-        doScan();
+        getFileName(false);
+        doScan(false);
 
         CaseUtil2.doOpenWord(mNewPath,this,false);
     }
@@ -228,8 +228,8 @@ public class Evidence2Activity extends CaseBaseActivity {
 //        super.uploadDoc();
         startProcessDialog();
 //        if(TextUtils.isEmpty(mNewPath)){
-            getFileName();
-            doScan();
+            getFileName(false);
+            doScan(false);
 //        }
         String ftpPath = geFtpPth();
         CaseUtil.startUploadFile(mNewPath,ftpPath,mName,mHandler);
@@ -241,7 +241,7 @@ public class Evidence2Activity extends CaseBaseActivity {
     }
 
     @Override
-    protected void doScan() {
+    protected void doScan(boolean isPreview) {
         File file = new File(mNewPath);
         Map<String,String> map = new HashMap<>();
         map.put("$GAJ$",mOfficeName.getText().toString());
