@@ -15,65 +15,65 @@ public class Criminal {
     @Id
     private Long id;
     @Property
-    private String handleNumber;//妗堜欢鍙楃悊鍙?
+    private String handleNumber;
     @Property
-    private String number;//妗堜欢缂栧彿
+    private String number;
     @Property
-    private String type;//妗堜欢绫诲瀷
+    private String type;
     @Property
-    private String area;//浣滄鍖哄煙
+    private String area;
     @Property
-    private int isLife; //鏄惁鍛芥
+    private int isLife;
     @Property
-    private int isCrime;//鏄惁鍒戞
+    private int isCrime;
     @Property
-    private String startTime;//妗堜欢寮?濮嬫椂闂?
+    private String startTime;
     @Property
-    private String endTime;//鍙戞缁堟鏃堕棿
+    private String endTime;
     @Property
-    private String place;//鍙戞鍦扮偣
+    private String place;
     @Property
-    private String solveTime;//鐮存鏃堕棿
+    private String solveTime;
     @Property
-    private String inquestPlace;//鍕橀獙鍦扮偣
+    private String inquestPlace;
     @Property
-    private String inquestReason;//鍕橀獙浜嬬敱
+    private String inquestReason;
     @Property
-    private String caseProcess;//妗堝彂杩囩▼
+    private String caseProcess;
     @Property
-    private String protectorName;//淇濇姢浜?
+    private String protectorName;
     @Property
-    private String protectorComany;//淇濇姢浜哄崟浣?
+    private String protectorComany;
     @Property
-    private String protectMeasures;//淇濇姢鎺柦
+    private String protectMeasures;
     @Property
-    private String protectTime;//淇濇姢鏃堕棿
+    private String protectTime;
     @Property
-    private String spotCondition;//鐜板満鏉′欢
+    private String spotCondition;
     @Property
-    private String weatherCondition;//澶╂皵鐘跺喌
+    private String weatherCondition;
     @Property
-    private String lightCondition;//鍏夌収鏉′欢
+    private String lightCondition;
     @Property
-    private String spotConduct;//鐜板満鎸囨尌
+    private String spotConduct;
     @Property
-    private String inquesterName;//鍕橀獙妫?鏌ヤ汉鍛?
+    private String inquesterName;
     @Property
-    private String spotPeople;//鍏朵粬鍒板満浜哄憳
+    private String spotPeople;
     @Property
-    private String spotLeft;//鐜板満閬楃暀鐗?
+    private String spotLeft;
     @Property
-    private String inquestCondition;//鍕橀獙鎯呭喌
+    private String inquestCondition;
     @Property
-    private String victimName;//琚浜?/鎶ユ浜?
+    private String victimName;
     @Property
-    private String lossGoods;//鎹熷け鐗╁搧
+    private String lossGoods;
     @Property
-    private String recordTime;//褰曞儚鍒嗛挓
+    private String recordTime;
     @Property
-    private String injury;//浼や骸鎯呭喌
+    private String injury;
     @Property
-    private String witness;//瑙佽瘉浜?
+    private String witness;
     @Generated(hash = 1825429760)
     public Criminal(Long id, String handleNumber, String number, String type,
             String area, int isLife, int isCrime, String startTime, String endTime,
